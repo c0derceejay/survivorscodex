@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About · Survivor's Codex</title>
+  <meta name="description" content="What the Survivor's Codex is, what it isn't, and the rules we used to build it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="splash.html">
+      <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide.html">Guide</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="skills.html">Planner</a>
+      <a href="builds.html">Builds</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+    <div class="nav-cta"></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="prose reveal">
+        <span class="eyebrow">About</span>
+        <h1>A vanilla-only field guide.</h1>
+        <p class="muted" style="font-size:1.1rem">
+          The Survivor's Codex catalogs every resource, weapon, recipe, block, and trap that exists
+          in <strong>7 Days to Die</strong> — straight out of the box, with no mods, conversions, or
+          third-party content.
+        </p>
+
+        <h2>What's in here</h2>
+        <p>
+          You'll find weapons (melee and ranged), ammunition, tools, food and drink, medical items, raw
+          resources, building blocks, traps and turrets, vehicles, clothing and armor, and item mods. Each
+          entry shows the tier, stack size, weight, the perk that boosts it, the recipe inputs you'll need,
+          and the situations where the item shines. The <a href="skills.html" style="color:var(--color-red-bright)">planner</a>
+          lets you allocate perk points and see which catalog items your build unlocks.
+        </p>
+
+        <h2>What's not</h2>
+        <p>
+          No modded items. No console-only spawns. No overhauls. If something can't be acquired in a default
+          unmodded playthrough on the latest base game build, it isn't here. If we missed something or got a
+          detail wrong, that's on us — flag it via the feedback link below.
+        </p>
+
+        <h2>Why we built it</h2>
+        <p>
+          Most existing wikis are exhaustive but heavy. This codex is the opposite:  a fast, modern, mobile-friendly index
+          you can open between waves, ignore the trivia, and find what you actually need to craft, loot, or stockpile.
+        </p>
+
+        <h2>How accounts work</h2>
+        <p>
+          Sign in with an email and password — that's all we keep. Your account exists so the site
+          remembers <em>you</em> across devices. The actual favorites and uploaded photos stay on
+          your device in localStorage. We don't ship them to a server, we don't share them, and you can
+          clear them by signing out and clearing site data.
+        </p>
+        <p>
+          Forgot your password? On the sign-in screen, choose <strong>Forgot password?</strong>, enter your account email,
+          and use the one-time reset link shown there (valid for one hour). You can also open that link on the
+          <a href="reset-password.html" style="color:var(--color-red-bright)">reset password page</a>.
+        </p>
+
+        <h2>Credits</h2>
+        <p>
+          7 Days to Die is © The Fun Pimps. This is an unofficial fan project, not affiliated with or
+          endorsed by them. All trademarks belong to their respective owners.
+        </p>
+
+        <hr/>
+
+        <div class="creator-grid">
+          <div class="feature">
+            <div class="feature-icon">★</div>
+            <h3>Built without mods</h3>
+            <p class="muted">Every item here is craftable, loot-able, or buy-able in the unmodded base game.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">⚙</div>
+            <h3>Made for 2026</h3>
+            <p class="muted">Modern web stack, dark-first design, instant search, mobile-first layout.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">▣</div>
+            <h3>Your data, your device</h3>
+            <p class="muted">Favorites and photos live in your browser. Account is just for signing in.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">⌨</div>
+            <h3>Open source friendly</h3>
+            <p class="muted">Static HTML, vanilla JS, a tiny Express backend for auth — extend it however you want.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
+      <div style="display:flex;gap:18px">
+        <a href="splash.html">Splash</a>
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

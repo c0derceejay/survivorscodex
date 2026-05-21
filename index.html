@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home · Survivor's Codex</title>
+  <meta name="description" content="Sign in to start tracking favorites and uploading your own field photos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="splash.html">
+      <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="guide.html">Guide</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="skills.html">Planner</a>
+      <a href="builds.html">Builds</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta"></div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Vanilla. No mods. No nonsense.</span>
+          <h1>The base-game <span class="accent">survival index</span> for 7 Days to Die.</h1>
+          <p class="muted" style="font-size:1.08rem;max-width:520px">
+            Hundreds of items, weapons, traps, blocks, and recipes — all curated from the unmodded base game. Sign in
+            to favorite the items you actually use and upload your own loadout photos.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-lg" data-auth="signup">Create your account</button>
+            <button class="btn btn-ghost btn-lg" data-auth="signin">Sign in</button>
+            <a class="btn btn-primary btn-lg" href="guide.html">New? Start here</a>
+            <a class="btn btn-ghost btn-lg" href="skills.html">Plan a build</a>
+            <a class="btn btn-ghost btn-lg" href="catalog.html">Browse catalog</a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Auth callout">
+          <span class="eyebrow">Survivor account</span>
+          <h3>Why bother signing in?</h3>
+          <p class="muted">Accounts unlock a personal profile where your favorites and field photos live. Public catalog still works without one.</p>
+          <ul style="list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">★</span><span><strong>Favorite items</strong> — keep your most-used recipes one click away.</span></li>
+            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">▣</span><span><strong>Upload field photos</strong> — show off your bases and loadouts.</span></li>
+            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">⌘</span><span><strong>Stays on your device</strong> — favorites & photos stored locally.</span></li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- FEATURED CATEGORIES -->
+      <section class="section">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Explore</span>
+            <h2>Featured categories</h2>
+          </div>
+          <a class="btn btn-ghost" href="catalog.html">See all →</a>
+        </div>
+        <div class="category-slider reveal" id="feature-cats" aria-roledescription="carousel" aria-label="Featured site sections">
+          <div class="category-slider__viewport">
+            <div class="category-slider__track">
+              <article class="category-slide" aria-roledescription="slide">
+                <div class="category-slide__icon" aria-hidden="true">01</div>
+                <span class="category-slide__eyebrow">Guide</span>
+                <h3>Survival 101 for new players</h3>
+                <p class="muted">
+                  First-week priorities, blood moon prep, safe POI looting, and where to spend your earliest skill points —
+                  written for survivors who just spawned in.
+                </p>
+                <a href="guide.html" class="btn btn-ghost">Open the guide →</a>
+              </article>
+              <article class="category-slide" aria-roledescription="slide">
+                <div class="category-slide__icon" aria-hidden="true">02</div>
+                <span class="category-slide__eyebrow">Catalog</span>
+                <h3>Every base-game item, indexed</h3>
+                <p class="muted">
+                  Browse weapons, resources, blocks, traps, food, and more. Filter by category or search by name,
+                  perk, tier, and use-case — each card shows what you need to craft and run it.
+                </p>
+                <a href="catalog.html" class="btn btn-ghost">Browse catalog →</a>
+              </article>
+              <article class="category-slide" aria-roledescription="slide">
+                <div class="category-slide__icon" aria-hidden="true">03</div>
+                <span class="category-slide__eyebrow">Planner</span>
+                <h3>Plan perks and loadouts</h3>
+                <p class="muted">
+                  Allocate attribute and perk points, preview buffs, equip weapons and gear, and save builds to your profile.
+                  See which catalog items your build actually unlocks.
+                </p>
+                <a href="skills.html" class="btn btn-ghost">Open planner →</a>
+              </article>
+              <article class="category-slide" aria-roledescription="slide">
+                <div class="category-slide__icon" aria-hidden="true">04</div>
+                <span class="category-slide__eyebrow">Builds</span>
+                <h3>Templates & community builds</h3>
+                <p class="muted">
+                  Start from official starter templates or browse builds shared by other survivors. Filter by focus,
+                  weapons, and perks — then copy any build into the planner.
+                </p>
+                <a href="builds.html" class="btn btn-ghost">View public builds →</a>
+              </article>
+            </div>
+          </div>
+          <div class="category-slider__footer">
+            <button type="button" class="category-slider__arrow" data-slider="prev" aria-label="Previous section">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div class="category-slider__dots" role="tablist" aria-label="Choose section"></div>
+            <button type="button" class="category-slider__arrow" data-slider="next" aria-label="Next section">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+            </button>
+          </div>
+          <p class="category-slider__status visually-hidden" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">How it works</span>
+            <h2>Six steps. No mods.</h2>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature reveal">
+            <div class="feature-icon">01</div>
+            <h3>Read Survival 101</h3>
+            <p class="muted">Blood moon prep, POI looting, and perk order — written for your first two weeks.</p>
+            <a href="guide.html" class="btn btn-ghost" style="margin-top:12px">Open the guide →</a>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">02</div>
+            <h3>Browse the codex</h3>
+            <p class="muted">Filter weapons, traps, foods, and resources by category. Each card shows tier, perk, ingredients, and use-cases.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">03</div>
+            <h3>Star your essentials</h3>
+            <p class="muted">Tap the star on any item to add it to your favorites. They sync to your profile after you sign in.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">04</div>
+            <h3>Plan your perks</h3>
+            <p class="muted">Use the planner to allocate points, preview buffs, and see which catalog items your build unlocks.</p>
+            <a href="skills.html" class="btn btn-ghost" style="margin-top:12px">Open planner →</a>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">05</div>
+            <h3>Pick a starter template</h3>
+            <p class="muted">Official build templates on the public builds page give you a solid perk foundation to expand on.</p>
+            <a href="builds.html#starter-templates" class="btn btn-ghost" style="margin-top:12px">Browse templates →</a>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">06</div>
+            <h3>Upload your loadouts</h3>
+            <p class="muted">Drop screenshots or photos of how you actually use the items in-game. Tag them with the item name.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
+      <div style="display:flex;gap:18px">
+        <a href="splash.html">Splash</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/category-slider.js"></script>
+  <script>
+    // Sign-in / sign-up CTA bindings on hero
+    document.querySelectorAll("[data-auth]").forEach((b) =>
+      b.addEventListener("click", () => SDD.openAuthModal(b.dataset.auth))
+    );
+  </script>
+</body>
+</html>

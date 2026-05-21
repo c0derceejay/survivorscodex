@@ -1,0 +1,12 @@
+{
+  "default": "general",
+  "types": [
+    { "id": "general", "label": "General", "description": "Flexible all-purpose build" },
+    { "id": "horde", "label": "Zombie hordes", "description": "Blood moon and horde night defense" },
+    { "id": "pvp", "label": "PvP", "description": "Player vs player combat and raiding" },
+    { "id": "solo", "label": "Solo play", "description": "Single-player survival and self-sufficiency" },
+    { "id": "crafting", "label": "Crafting", "description": "Workstations, recipes, and item quality" },
+    { "id": "gathering", "label": "Gathering", "description": "Mining, looting, and resource hauls" },
+    { "id": "farming", "label": "Farming", "description": "Crops, food, and sustainable supplies" }
+  ]
+}

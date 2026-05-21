@@ -1,0 +1,4486 @@
+{
+  "_generated": "2026-05-21T05:15:48.271Z",
+  "slotLabels": {
+    "barrel": "Barrel / underbarrel",
+    "optic": "Optic / scope",
+    "receiver": "Receiver / magazine",
+    "bow": "Bow string / rest",
+    "armor": "Armor mod",
+    "head": "Head mod",
+    "feet": "Foot mod",
+    "blade": "Blade mod",
+    "head_melee": "Head (melee)",
+    "grip": "Grip",
+    "shaft": "Shaft",
+    "vehicle": "Vehicle mod",
+    "drone": "Drone mod"
+  },
+  "itemSlots": {
+    "pistol": [
+      "barrel",
+      "optic",
+      "receiver"
+    ],
+    "rifle": [
+      "barrel",
+      "optic",
+      "receiver"
+    ],
+    "shotgun": [
+      "barrel",
+      "receiver"
+    ],
+    "mg": [
+      "barrel",
+      "optic",
+      "receiver"
+    ],
+    "bow": [
+      "bow"
+    ],
+    "blade": [
+      "blade",
+      "grip"
+    ],
+    "club": [
+      "head",
+      "grip",
+      "shaft"
+    ],
+    "sledge": [
+      "head",
+      "grip",
+      "shaft"
+    ],
+    "spear": [
+      "head",
+      "grip",
+      "shaft"
+    ],
+    "baton": [
+      "head",
+      "grip"
+    ],
+    "pickaxe": [
+      "head",
+      "grip"
+    ],
+    "axe": [
+      "head",
+      "grip"
+    ],
+    "shovel": [
+      "head",
+      "grip"
+    ],
+    "armor_chest": [
+      "armor"
+    ],
+    "armor_head": [
+      "head",
+      "armor"
+    ],
+    "armor_hands": [
+      "armor"
+    ],
+    "armor_feet": [
+      "feet",
+      "armor"
+    ],
+    "vehicle": [
+      "vehicle"
+    ],
+    "drone": [
+      "drone"
+    ]
+  },
+  "items": {
+    "melee-wpn-baton-t0-pipe-baton": {
+      "type": "baton",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Baton Pipe Baton",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-baton-t2-stun-baton": {
+      "type": "baton",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        4
+      ],
+      "name": "Baton Stun Baton",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-baton-t2-stun-baton-parts": {
+      "type": "baton",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Baton Stun Baton Parts",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-blade-t0-bone-knife": {
+      "type": "blade",
+      "slots": [
+        "blade",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Blade Bone Knife",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-blade-t1-candy-knife": {
+      "type": "blade",
+      "slots": [
+        "blade",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Blade Candy Knife",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-blade-t1-hunting-knife": {
+      "type": "blade",
+      "slots": [
+        "blade",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Blade Hunting Knife",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-blade-t3-machete": {
+      "type": "blade",
+      "slots": [
+        "blade",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Blade Machete",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-blade-t3-machete-parts": {
+      "type": "blade",
+      "slots": [
+        "blade",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Blade Machete Parts",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-club-t1-baseball-bat": {
+      "type": "club",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Club Baseball Bat",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-club-t1-candy-club": {
+      "type": "club",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Club Candy Club",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-club-t3-steel-club": {
+      "type": "club",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Club Steel Club",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-club-t3-steel-club-parts": {
+      "type": "club",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Club Steel Club Parts",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-club-t0-wooden-club": {
+      "type": "club",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Club Wooden Club",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-sledge-t1-iron-sledgehammer": {
+      "type": "sledge",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Sledge Iron Sledgehammer",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-sledge-t3-steel-sledgehammer": {
+      "type": "sledge",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Sledge Steel Sledgehammer",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-sledge-t3-steel-sledgehammer-parts": {
+      "type": "sledge",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Sledge Steel Sledgehammer Parts",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-sledge-t0-stone-sledgehammer": {
+      "type": "sledge",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Sledge Stone Sledgehammer",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-spear-t1-iron-spear": {
+      "type": "spear",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Spear Iron Spear",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-spear-t3-steel-spear": {
+      "type": "spear",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Spear Steel Spear",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-spear-t3-steel-spear-parts": {
+      "type": "spear",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Spear Steel Spear Parts",
+      "category": "weapons-melee"
+    },
+    "melee-wpn-spear-t0-stone-spear": {
+      "type": "spear",
+      "slots": [
+        "head",
+        "grip",
+        "shaft"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Spear Stone Spear",
+      "category": "weapons-melee"
+    },
+    "gun-bow-t3-compound-bow": {
+      "type": "bow",
+      "slots": [
+        "bow"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Bow Compound Bow",
+      "category": "weapons-ranged"
+    },
+    "gun-bow-t3-compound-crossbow": {
+      "type": "bow",
+      "slots": [
+        "bow"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Bow Compound Crossbow",
+      "category": "weapons-ranged"
+    },
+    "gun-bow-t1-iron-crossbow": {
+      "type": "bow",
+      "slots": [
+        "bow"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        4
+      ],
+      "name": "Bow Iron Crossbow",
+      "category": "weapons-ranged"
+    },
+    "gun-bow-t0-primitive-bow": {
+      "type": "bow",
+      "slots": [
+        "bow"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Bow Primitive Bow",
+      "category": "weapons-ranged"
+    },
+    "gun-bow-t1-wooden-bow": {
+      "type": "bow",
+      "slots": [
+        "bow"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Bow Wooden Bow",
+      "category": "weapons-ranged"
+    },
+    "gun-handgun-t3-desert-vulture": {
+      "type": "pistol",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Handgun Desert Vulture",
+      "category": "weapons-ranged"
+    },
+    "gun-handgun-t2-magnum44": {
+      "type": "pistol",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        4
+      ],
+      "name": "Handgun Magnum44",
+      "category": "weapons-ranged"
+    },
+    "gun-handgun-t0-pipe-pistol": {
+      "type": "pistol",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Handgun Pipe Pistol",
+      "category": "weapons-ranged"
+    },
+    "gun-handgun-t1-pistol": {
+      "type": "pistol",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Handgun Pistol",
+      "category": "weapons-ranged"
+    },
+    "gun-handgun-t3-s-m-g5": {
+      "type": "pistol",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Handgun S M G5",
+      "category": "weapons-ranged"
+    },
+    "gun-m-g-t1-a-k47": {
+      "type": "mg",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "M G A K47",
+      "category": "weapons-ranged"
+    },
+    "gun-m-g-t3-m60": {
+      "type": "mg",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "M G M60",
+      "category": "weapons-ranged"
+    },
+    "gun-m-g-t0-pipe-machine-gun": {
+      "type": "mg",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "M G Pipe Machine Gun",
+      "category": "weapons-ranged"
+    },
+    "gun-m-g-t2-tactical-a-r": {
+      "type": "mg",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "M G Tactical A R",
+      "category": "weapons-ranged"
+    },
+    "gun-rifle-t1-hunting-rifle": {
+      "type": "rifle",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Rifle Hunting Rifle",
+      "category": "weapons-ranged"
+    },
+    "gun-rifle-t2-lever-action-rifle": {
+      "type": "rifle",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Rifle Lever Action Rifle",
+      "category": "weapons-ranged"
+    },
+    "gun-rifle-t0-pipe-rifle": {
+      "type": "rifle",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Rifle Pipe Rifle",
+      "category": "weapons-ranged"
+    },
+    "gun-rifle-t3-sniper-rifle": {
+      "type": "rifle",
+      "slots": [
+        "barrel",
+        "optic",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Rifle Sniper Rifle",
+      "category": "weapons-ranged"
+    },
+    "gun-shotgun-t3-auto-shotgun": {
+      "type": "shotgun",
+      "slots": [
+        "barrel",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Shotgun Auto Shotgun",
+      "category": "weapons-ranged"
+    },
+    "gun-shotgun-t1-double-barrel": {
+      "type": "shotgun",
+      "slots": [
+        "barrel",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Shotgun Double Barrel",
+      "category": "weapons-ranged"
+    },
+    "gun-shotgun-t0-pipe-shotgun": {
+      "type": "shotgun",
+      "slots": [
+        "barrel",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Shotgun Pipe Shotgun",
+      "category": "weapons-ranged"
+    },
+    "gun-shotgun-t2-pump-shotgun": {
+      "type": "shotgun",
+      "slots": [
+        "barrel",
+        "receiver"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Shotgun Pump Shotgun",
+      "category": "weapons-ranged"
+    },
+    "melee-tool-axe-t3-chainsaw": {
+      "type": "axe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Axe Chainsaw",
+      "category": "tools"
+    },
+    "melee-tool-axe-t3-chainsaw-parts": {
+      "type": "axe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Axe Chainsaw Parts",
+      "category": "tools"
+    },
+    "melee-tool-axe-t1-iron-fireaxe": {
+      "type": "axe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Axe Iron Fireaxe",
+      "category": "tools"
+    },
+    "melee-tool-axe-t2-steel-axe": {
+      "type": "axe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Axe Steel Axe",
+      "category": "tools"
+    },
+    "melee-tool-pick-t3-auger": {
+      "type": "pickaxe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Pick Auger",
+      "category": "tools"
+    },
+    "melee-tool-pick-t1-iron-pickaxe": {
+      "type": "pickaxe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Pick Iron Pickaxe",
+      "category": "tools"
+    },
+    "melee-tool-pick-t2-steel-pickaxe": {
+      "type": "pickaxe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Pick Steel Pickaxe",
+      "category": "tools"
+    },
+    "melee-tool-salvage-t3-impact-driver": {
+      "type": "pickaxe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "name": "Salvage Impact Driver",
+      "category": "tools"
+    },
+    "melee-tool-salvage-t2-ratchet": {
+      "type": "pickaxe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Salvage Ratchet",
+      "category": "tools"
+    },
+    "melee-tool-salvage-t1-wrench": {
+      "type": "pickaxe",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Salvage Wrench",
+      "category": "tools"
+    },
+    "melee-tool-shovel-t1-iron-shovel": {
+      "type": "shovel",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "name": "Shovel Iron Shovel",
+      "category": "tools"
+    },
+    "melee-tool-shovel-t0-stone-shovel": {
+      "type": "shovel",
+      "slots": [
+        "head",
+        "grip"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "name": "Shovel Stone Shovel",
+      "category": "tools"
+    },
+    "vehicle-bicycle-placeable": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Bicycle Placeable",
+      "category": "vehicles"
+    },
+    "vehicle-gyrocopter-placeable": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Gyrocopter Placeable",
+      "category": "vehicles"
+    },
+    "vehicle-minibike-placeable": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Minibike Placeable",
+      "category": "vehicles"
+    },
+    "vehicle-motorcycle-placeable": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Motorcycle Placeable",
+      "category": "vehicles"
+    },
+    "vehicle-truck4x4-placeable": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Truck4x4 Placeable",
+      "category": "vehicles"
+    },
+    "truck-chassis": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "4x4 Truck Chassis",
+      "category": "vehicle-parts"
+    },
+    "bicycle-chassis": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Bicycle Chassis",
+      "category": "vehicle-parts"
+    },
+    "bicycle-handlebars": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Bicycle Handlebars",
+      "category": "vehicle-parts"
+    },
+    "gyro-chassis": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Gyrocopter Chassis",
+      "category": "vehicle-parts"
+    },
+    "minibike-chassis": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Minibike Chassis",
+      "category": "vehicle-parts"
+    },
+    "minibike-handlebars": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Minibike Handlebars",
+      "category": "vehicle-parts"
+    },
+    "motorcycle-chassis": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Motorcycle Chassis",
+      "category": "vehicle-parts"
+    },
+    "motorcycle-handlebars": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Motorcycle Handlebars",
+      "category": "vehicle-parts"
+    },
+    "vehicle-wheels": {
+      "type": "vehicle",
+      "slots": [
+        "vehicle"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Wheels",
+      "category": "vehicle-parts"
+    },
+    "armor-assassin-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Assassin Boots",
+      "category": "clothing"
+    },
+    "armor-assassin-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Assassin Gloves",
+      "category": "clothing"
+    },
+    "armor-assassin-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Assassin Helmet",
+      "category": "clothing"
+    },
+    "armor-assassin-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Assassin Outfit",
+      "category": "clothing"
+    },
+    "armor-athletic-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Athletic Boots",
+      "category": "clothing"
+    },
+    "armor-athletic-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Athletic Gloves",
+      "category": "clothing"
+    },
+    "armor-athletic-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Athletic Helmet",
+      "category": "clothing"
+    },
+    "armor-athletic-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Athletic Outfit",
+      "category": "clothing"
+    },
+    "armor-biker-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Biker Boots",
+      "category": "clothing"
+    },
+    "armor-biker-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Biker Gloves",
+      "category": "clothing"
+    },
+    "armor-biker-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Biker Helmet",
+      "category": "clothing"
+    },
+    "armor-biker-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Biker Outfit",
+      "category": "clothing"
+    },
+    "armor-commando-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Commando Boots",
+      "category": "clothing"
+    },
+    "armor-commando-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Commando Gloves",
+      "category": "clothing"
+    },
+    "armor-commando-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Commando Helmet",
+      "category": "clothing"
+    },
+    "armor-commando-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Commando Outfit",
+      "category": "clothing"
+    },
+    "armor-crimson-warlord-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Crimson Warlord Boots",
+      "category": "clothing"
+    },
+    "armor-crimson-warlord-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Crimson Warlord Gloves",
+      "category": "clothing"
+    },
+    "armor-crimson-warlord-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Crimson Warlord Helmet",
+      "category": "clothing"
+    },
+    "armor-crimson-warlord-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Crimson Warlord Outfit",
+      "category": "clothing"
+    },
+    "armor-desert-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Desert Boots",
+      "category": "clothing"
+    },
+    "armor-desert-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Desert Gloves",
+      "category": "clothing"
+    },
+    "armor-desert-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Desert Helmet",
+      "category": "clothing"
+    },
+    "armor-desert-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Desert Outfit",
+      "category": "clothing"
+    },
+    "armor-enforcer-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Enforcer Boots",
+      "category": "clothing"
+    },
+    "armor-enforcer-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Enforcer Gloves",
+      "category": "clothing"
+    },
+    "armor-enforcer-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Enforcer Helmet",
+      "category": "clothing"
+    },
+    "armor-enforcer-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Enforcer Outfit",
+      "category": "clothing"
+    },
+    "armor-farmer-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Farmer Boots",
+      "category": "clothing"
+    },
+    "armor-farmer-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Farmer Gloves",
+      "category": "clothing"
+    },
+    "armor-farmer-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Farmer Helmet",
+      "category": "clothing"
+    },
+    "armor-farmer-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Farmer Outfit",
+      "category": "clothing"
+    },
+    "armor-hoarder-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Hoarder Boots",
+      "category": "clothing"
+    },
+    "armor-hoarder-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Hoarder Gloves",
+      "category": "clothing"
+    },
+    "armor-hoarder-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Hoarder Helmet",
+      "category": "clothing"
+    },
+    "armor-hoarder-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Hoarder Outfit",
+      "category": "clothing"
+    },
+    "armor-lumberjack-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Lumberjack Boots",
+      "category": "clothing"
+    },
+    "armor-lumberjack-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Lumberjack Gloves",
+      "category": "clothing"
+    },
+    "armor-lumberjack-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Lumberjack Helmet",
+      "category": "clothing"
+    },
+    "armor-lumberjack-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Lumberjack Outfit",
+      "category": "clothing"
+    },
+    "armor-marauder-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Marauder Boots",
+      "category": "clothing"
+    },
+    "armor-marauder-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Marauder Gloves",
+      "category": "clothing"
+    },
+    "armor-marauder-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Marauder Helmet",
+      "category": "clothing"
+    },
+    "armor-marauder-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Marauder Outfit",
+      "category": "clothing"
+    },
+    "armor-miner-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Miner Boots",
+      "category": "clothing"
+    },
+    "armor-miner-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Miner Gloves",
+      "category": "clothing"
+    },
+    "armor-miner-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Miner Helmet",
+      "category": "clothing"
+    },
+    "armor-miner-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Miner Outfit",
+      "category": "clothing"
+    },
+    "armor-nerd-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Nerd Boots",
+      "category": "clothing"
+    },
+    "armor-nerd-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Nerd Gloves",
+      "category": "clothing"
+    },
+    "armor-nerd-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Nerd Helmet",
+      "category": "clothing"
+    },
+    "armor-nerd-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Nerd Outfit",
+      "category": "clothing"
+    },
+    "armor-nomad-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Nomad Boots",
+      "category": "clothing"
+    },
+    "armor-nomad-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Nomad Gloves",
+      "category": "clothing"
+    },
+    "armor-nomad-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Nomad Helmet",
+      "category": "clothing"
+    },
+    "armor-nomad-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Nomad Outfit",
+      "category": "clothing"
+    },
+    "armor-preacher-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Preacher Boots",
+      "category": "clothing"
+    },
+    "armor-preacher-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Preacher Gloves",
+      "category": "clothing"
+    },
+    "armor-preacher-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Preacher Helmet",
+      "category": "clothing"
+    },
+    "armor-preacher-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Preacher Outfit",
+      "category": "clothing"
+    },
+    "armor-primitive-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Primitive Boots",
+      "category": "clothing"
+    },
+    "armor-primitive-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "name": "Primitive Gloves",
+      "category": "clothing"
+    },
+    "armor-primitive-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Primitive Helmet",
+      "category": "clothing"
+    },
+    "armor-primitive-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "name": "Primitive Outfit",
+      "category": "clothing"
+    },
+    "armor-raider-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Raider Boots",
+      "category": "clothing"
+    },
+    "armor-raider-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Raider Gloves",
+      "category": "clothing"
+    },
+    "armor-raider-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Raider Helmet",
+      "category": "clothing"
+    },
+    "armor-raider-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Raider Outfit",
+      "category": "clothing"
+    },
+    "armor-ranger-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Ranger Boots",
+      "category": "clothing"
+    },
+    "armor-ranger-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Ranger Gloves",
+      "category": "clothing"
+    },
+    "armor-ranger-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Ranger Helmet",
+      "category": "clothing"
+    },
+    "armor-ranger-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Ranger Outfit",
+      "category": "clothing"
+    },
+    "armor-rogue-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Rogue Boots",
+      "category": "clothing"
+    },
+    "armor-rogue-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Rogue Gloves",
+      "category": "clothing"
+    },
+    "armor-rogue-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Rogue Helmet",
+      "category": "clothing"
+    },
+    "armor-rogue-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Rogue Outfit",
+      "category": "clothing"
+    },
+    "armor-samurai-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Samurai Boots",
+      "category": "clothing"
+    },
+    "armor-samurai-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Samurai Gloves",
+      "category": "clothing"
+    },
+    "armor-samurai-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Samurai Helmet",
+      "category": "clothing"
+    },
+    "armor-samurai-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Samurai Outfit",
+      "category": "clothing"
+    },
+    "armor-scavenger-boots": {
+      "type": "armor_feet",
+      "slots": [
+        "feet",
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Scavenger Boots",
+      "category": "clothing"
+    },
+    "armor-scavenger-gloves": {
+      "type": "armor_hands",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Scavenger Gloves",
+      "category": "clothing"
+    },
+    "armor-scavenger-helmet": {
+      "type": "armor_head",
+      "slots": [
+        "head",
+        "armor"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Scavenger Helmet",
+      "category": "clothing"
+    },
+    "armor-scavenger-outfit": {
+      "type": "armor_chest",
+      "slots": [
+        "armor"
+      ],
+      "modSlotsByQuality": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "name": "Scavenger Outfit",
+      "category": "clothing"
+    },
+    "gun-bot-t3-junk-drone": {
+      "type": "drone",
+      "slots": [
+        "drone"
+      ],
+      "modSlotsByQuality": null,
+      "name": "Bot Junk Drone",
+      "category": "robotics"
+    }
+  },
+  "mods": {
+    "mod-bow-arrow-rest": {
+      "slot": "bow",
+      "name": "Arrow Rest Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunBowArrowRest",
+      "summary": "Improved bow accuracy.",
+      "compatibleItems": [
+        "gun-bow-t3-compound-bow",
+        "gun-bow-t3-compound-crossbow",
+        "gun-bow-t1-iron-crossbow",
+        "gun-bow-t0-primitive-bow",
+        "gun-bow-t1-wooden-bow"
+      ]
+    },
+    "mod-gun-trigger-auto": {
+      "slot": "receiver",
+      "name": "Auto Trigger Group",
+      "category": "mods-weapon",
+      "modIcon": "modGunTriggerGroupAutomatic",
+      "summary": "Full-auto fire mode where supported.",
+      "compatibleItems": [
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-barrel-extender": {
+      "slot": "barrel",
+      "name": "Barrel Extender Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunBarrelExtender",
+      "summary": "Extends effective range.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-bipod": {
+      "slot": "barrel",
+      "name": "Bipod Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunBipod",
+      "summary": "Less recoil when crouched. +10% mod power damage.",
+      "compatibleItems": [
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-trigger-burst": {
+      "slot": "receiver",
+      "name": "Burst Trigger Group",
+      "category": "mods-weapon",
+      "modIcon": "modGunTriggerGroupBurst",
+      "summary": "3-round burst fire mode.",
+      "compatibleItems": [
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-choke": {
+      "slot": "barrel",
+      "name": "Choke Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunChoke",
+      "summary": "Concentrates shotgun pellets for range.",
+      "compatibleItems": [
+        "gun-shotgun-t3-auto-shotgun",
+        "gun-shotgun-t1-double-barrel",
+        "gun-shotgun-t0-pipe-shotgun",
+        "gun-shotgun-t2-pump-shotgun"
+      ]
+    },
+    "mod-gun-cripple-em": {
+      "slot": "mod",
+      "name": "Cripple 'Em Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunCrippleEm",
+      "summary": "Chance to cripple legs on hit.",
+      "compatibleItems": []
+    },
+    "mod-gun-drum-mag": {
+      "slot": "receiver",
+      "name": "Drum Magazine Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunDrumMagazineExtender",
+      "summary": "Large drum mag; heavy reload.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5",
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r"
+      ]
+    },
+    "mod-gun-duckbill": {
+      "slot": "mod",
+      "name": "Duckbill Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunDuckbill",
+      "summary": "Tighter shotgun spread pattern.",
+      "compatibleItems": []
+    },
+    "mod-gun-foregrip": {
+      "slot": "barrel",
+      "name": "Foregrip Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunForegrip",
+      "summary": "Improved handling and spread recovery.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5",
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle",
+        "gun-shotgun-t3-auto-shotgun",
+        "gun-shotgun-t1-double-barrel",
+        "gun-shotgun-t0-pipe-shotgun",
+        "gun-shotgun-t2-pump-shotgun"
+      ]
+    },
+    "mod-gun-scope-large": {
+      "slot": "optic",
+      "name": "Large Scope Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunScopeLarge",
+      "summary": "High-zoom scope for sniping.",
+      "compatibleItems": [
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-laser-sight": {
+      "slot": "optic",
+      "name": "Laser Sight Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunLaserSight",
+      "summary": "Hip-fire accuracy boost.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5"
+      ]
+    },
+    "mod-gun-mag-extender": {
+      "slot": "receiver",
+      "name": "Magazine Extender Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunMagazineExtender",
+      "summary": "+50% magazine capacity.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5",
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-scope-medium": {
+      "slot": "optic",
+      "name": "Medium Scope Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunScopeMedium",
+      "summary": "Medium-zoom scope for rifles.",
+      "compatibleItems": [
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-muzzle-brake": {
+      "slot": "barrel",
+      "name": "Muzzle Brake Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunMuzzleBrake",
+      "summary": "Reduces recoil; louder shots.",
+      "compatibleItems": [
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-bow-polymer-string": {
+      "slot": "bow",
+      "name": "Polymer String Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunBowPolymerString",
+      "summary": "Faster draw on bows.",
+      "compatibleItems": [
+        "gun-bow-t3-compound-bow",
+        "gun-bow-t3-compound-crossbow",
+        "gun-bow-t1-iron-crossbow",
+        "gun-bow-t0-primitive-bow",
+        "gun-bow-t1-wooden-bow"
+      ]
+    },
+    "mod-gun-rad-remover": {
+      "slot": "mod",
+      "name": "Rad Remover Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunMeleeRadRemover",
+      "summary": "Bonus damage vs radiated zombies.",
+      "compatibleItems": []
+    },
+    "mod-gun-reflex-sight": {
+      "slot": "optic",
+      "name": "Reflex Sight Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunReflexSight",
+      "summary": "Fast target acquisition optic.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5",
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-retracting-stock": {
+      "slot": "mod",
+      "name": "Retracting Stock Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunRetractingStock",
+      "summary": "Better aim stability while moving.",
+      "compatibleItems": []
+    },
+    "mod-shotgun-sawed-off": {
+      "slot": "barrel",
+      "name": "Sawed-Off Barrel Mod",
+      "category": "mods-weapon",
+      "modIcon": "modShotgunSawedOffBarrel",
+      "summary": "Shorter barrel; wider spread, faster handling.",
+      "compatibleItems": [
+        "gun-shotgun-t3-auto-shotgun",
+        "gun-shotgun-t1-double-barrel",
+        "gun-shotgun-t0-pipe-shotgun",
+        "gun-shotgun-t2-pump-shotgun"
+      ]
+    },
+    "mod-gun-trigger-semi": {
+      "slot": "receiver",
+      "name": "Semi-Auto Trigger Group",
+      "category": "mods-weapon",
+      "modIcon": "modGunTriggerGroupSemi",
+      "summary": "Semi-automatic fire mode.",
+      "compatibleItems": [
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "mod-gun-shotgun-tube": {
+      "slot": "receiver",
+      "name": "Shotgun Tube Extender Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunShotgunTubeExtenderMagazine",
+      "summary": "Extra shells in tube mag.",
+      "compatibleItems": [
+        "gun-shotgun-t3-auto-shotgun",
+        "gun-shotgun-t1-double-barrel",
+        "gun-shotgun-t0-pipe-shotgun",
+        "gun-shotgun-t2-pump-shotgun"
+      ]
+    },
+    "mod-gun-silencer": {
+      "slot": "barrel",
+      "name": "Silencer Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunSoundSuppressorSilencer",
+      "summary": "Suppresses gunshot noise for stealth.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5",
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t3-m60",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t3-sniper-rifle",
+        "gun-shotgun-t3-auto-shotgun",
+        "gun-shotgun-t1-double-barrel",
+        "gun-shotgun-t0-pipe-shotgun",
+        "gun-shotgun-t2-pump-shotgun"
+      ]
+    },
+    "mod-gun-scope-small": {
+      "slot": "optic",
+      "name": "Small Scope Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunScopeSmall",
+      "summary": "Low-zoom scope for pistols and SMGs.",
+      "compatibleItems": [
+        "gun-handgun-t3-desert-vulture",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t3-s-m-g5"
+      ]
+    },
+    "mod-gun-hunter-mod": {
+      "slot": "mod",
+      "name": "The Hunter Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunMeleeTheHunter",
+      "summary": "Bonus damage to animals.",
+      "compatibleItems": []
+    },
+    "mod-gun-flashlight": {
+      "slot": "mod",
+      "name": "Weapon Flashlight Mod",
+      "category": "mods-weapon",
+      "modIcon": "modGunFlashlight",
+      "summary": "Attachable light for dark POIs.",
+      "compatibleItems": []
+    },
+    "mod-armor-advanced-muffled": {
+      "slot": "armor",
+      "name": "Advanced Muffled Connectors",
+      "category": "mods-armor",
+      "modIcon": "modArmorAdvancedMuffledConnectors",
+      "summary": "Maximum armor stealth.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-agility": {
+      "slot": "armor",
+      "name": "Agility Armor Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorAgility",
+      "summary": "+Agility on armor piece.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-plating-basic": {
+      "slot": "armor",
+      "name": "Armor Plating Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorPlatingBasic",
+      "summary": "Basic damage resistance on piece.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-bandolier": {
+      "slot": "armor",
+      "name": "Bandolier Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorBandolier",
+      "summary": "Faster reload on firearms.",
+      "compatibleItems": [
+        "armor-assassin-gloves",
+        "armor-assassin-outfit",
+        "armor-athletic-gloves",
+        "armor-athletic-outfit",
+        "armor-biker-gloves",
+        "armor-biker-outfit",
+        "armor-commando-gloves",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-gloves",
+        "armor-desert-outfit",
+        "armor-enforcer-gloves",
+        "armor-enforcer-outfit",
+        "armor-farmer-gloves",
+        "armor-farmer-outfit",
+        "armor-hoarder-gloves",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-outfit",
+        "armor-marauder-gloves",
+        "armor-marauder-outfit",
+        "armor-miner-gloves",
+        "armor-miner-outfit",
+        "armor-nerd-gloves",
+        "armor-nerd-outfit",
+        "armor-nomad-gloves",
+        "armor-nomad-outfit",
+        "armor-preacher-gloves",
+        "armor-preacher-outfit",
+        "armor-primitive-gloves",
+        "armor-primitive-outfit",
+        "armor-raider-gloves",
+        "armor-raider-outfit",
+        "armor-ranger-gloves",
+        "armor-ranger-outfit",
+        "armor-rogue-gloves",
+        "armor-rogue-outfit",
+        "armor-samurai-gloves",
+        "armor-samurai-outfit",
+        "armor-scavenger-gloves",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-cooling-mesh": {
+      "slot": "armor",
+      "name": "Cooling Mesh Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorCoolingMesh",
+      "summary": "Heat resistance.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-custom-fittings": {
+      "slot": "armor",
+      "name": "Customized Fittings Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorCustomizedFittings",
+      "summary": "Top-tier fit and stamina savings.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-double-pocket": {
+      "slot": "armor",
+      "name": "Double Storage Pocket Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorDoubleStoragePocket",
+      "summary": "+2 carry slots.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-fortitude": {
+      "slot": "armor",
+      "name": "Fortitude Armor Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorFortitude",
+      "summary": "+Fortitude on armor piece.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-helmet-light": {
+      "slot": "armor",
+      "name": "Helmet Light Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorHelmetLight",
+      "summary": "Headlamp on helmet.",
+      "compatibleItems": [
+        "armor-assassin-helmet",
+        "armor-athletic-helmet",
+        "armor-biker-helmet",
+        "armor-commando-helmet",
+        "armor-crimson-warlord-helmet",
+        "armor-desert-helmet",
+        "armor-enforcer-helmet",
+        "armor-farmer-helmet",
+        "armor-hoarder-helmet",
+        "armor-lumberjack-helmet",
+        "armor-marauder-helmet",
+        "armor-miner-helmet",
+        "armor-nerd-helmet",
+        "armor-nomad-helmet",
+        "armor-preacher-helmet",
+        "armor-primitive-helmet",
+        "armor-raider-helmet",
+        "armor-ranger-helmet",
+        "armor-rogue-helmet",
+        "armor-samurai-helmet",
+        "armor-scavenger-helmet"
+      ]
+    },
+    "mod-armor-impact-bracing": {
+      "slot": "armor",
+      "name": "Impact Bracing Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorImpactBracing",
+      "summary": "Reduces explosion knockback.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-improved-fittings": {
+      "slot": "armor",
+      "name": "Improved Fittings Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorImprovedFittings",
+      "summary": "Better armor fit; mobility bonus.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-insulated-liner": {
+      "slot": "armor",
+      "name": "Insulated Liner Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorInsulatedLiner",
+      "summary": "Cold resistance.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-intellect": {
+      "slot": "armor",
+      "name": "Intellect Armor Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorIntellect",
+      "summary": "+Intellect on armor piece.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-muffled-connectors": {
+      "slot": "armor",
+      "name": "Muffled Connectors Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorMuffledConnectors",
+      "summary": "Reduces armor noise for stealth.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-night-vision": {
+      "slot": "armor",
+      "name": "Night Vision Goggles Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorNightVision",
+      "summary": "NVG on helmet; power required.",
+      "compatibleItems": [
+        "armor-assassin-helmet",
+        "armor-athletic-helmet",
+        "armor-biker-helmet",
+        "armor-commando-helmet",
+        "armor-crimson-warlord-helmet",
+        "armor-desert-helmet",
+        "armor-enforcer-helmet",
+        "armor-farmer-helmet",
+        "armor-hoarder-helmet",
+        "armor-lumberjack-helmet",
+        "armor-marauder-helmet",
+        "armor-miner-helmet",
+        "armor-nerd-helmet",
+        "armor-nomad-helmet",
+        "armor-preacher-helmet",
+        "armor-primitive-helmet",
+        "armor-raider-helmet",
+        "armor-ranger-helmet",
+        "armor-rogue-helmet",
+        "armor-samurai-helmet",
+        "armor-scavenger-helmet"
+      ]
+    },
+    "mod-armor-perception": {
+      "slot": "armor",
+      "name": "Perception Armor Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorPerception",
+      "summary": "+Perception on armor piece.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-quad-pocket": {
+      "slot": "armor",
+      "name": "Quad Storage Pocket Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorQuadStoragePocket",
+      "summary": "+4 carry slots (max pocket tier).",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-radiation-ready": {
+      "slot": "armor",
+      "name": "Radiation Ready",
+      "category": "mods-armor",
+      "modIcon": "modRadiationReady",
+      "summary": "Armor mod: Radiation Ready.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-plating-reinforced": {
+      "slot": "armor",
+      "name": "Reinforced Plating Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorPlatingReinforced",
+      "summary": "Stronger armor rating on piece.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-stealth-boots": {
+      "slot": "armor",
+      "name": "Stealth Boots Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorStealthBoots",
+      "summary": "Quieter footsteps.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-athletic-boots",
+        "armor-biker-boots",
+        "armor-commando-boots",
+        "armor-crimson-warlord-boots",
+        "armor-desert-boots",
+        "armor-enforcer-boots",
+        "armor-farmer-boots",
+        "armor-hoarder-boots",
+        "armor-lumberjack-boots",
+        "armor-marauder-boots",
+        "armor-miner-boots",
+        "armor-nerd-boots",
+        "armor-nomad-boots",
+        "armor-preacher-boots",
+        "armor-primitive-boots",
+        "armor-raider-boots",
+        "armor-ranger-boots",
+        "armor-rogue-boots",
+        "armor-samurai-boots",
+        "armor-scavenger-boots"
+      ]
+    },
+    "mod-armor-storage-pocket": {
+      "slot": "armor",
+      "name": "Storage Pocket Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorStoragePocket",
+      "summary": "+1 carry slot on armor piece.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-strength": {
+      "slot": "armor",
+      "name": "Strength Armor Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorStrength",
+      "summary": "+Strength on armor piece.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-treasure-hunter": {
+      "slot": "armor",
+      "name": "Treasure Hunter Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorTreasureHunter",
+      "summary": "Better buried treasure sensing.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-triple-pocket": {
+      "slot": "armor",
+      "name": "Triple Storage Pocket Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorTripleStoragePocket",
+      "summary": "+3 carry slots.",
+      "compatibleItems": [
+        "armor-assassin-boots",
+        "armor-assassin-gloves",
+        "armor-assassin-helmet",
+        "armor-assassin-outfit",
+        "armor-athletic-boots",
+        "armor-athletic-gloves",
+        "armor-athletic-helmet",
+        "armor-athletic-outfit",
+        "armor-biker-boots",
+        "armor-biker-gloves",
+        "armor-biker-helmet",
+        "armor-biker-outfit",
+        "armor-commando-boots",
+        "armor-commando-gloves",
+        "armor-commando-helmet",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-boots",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-boots",
+        "armor-desert-gloves",
+        "armor-desert-helmet",
+        "armor-desert-outfit",
+        "armor-enforcer-boots",
+        "armor-enforcer-gloves",
+        "armor-enforcer-helmet",
+        "armor-enforcer-outfit",
+        "armor-farmer-boots",
+        "armor-farmer-gloves",
+        "armor-farmer-helmet",
+        "armor-farmer-outfit",
+        "armor-hoarder-boots",
+        "armor-hoarder-gloves",
+        "armor-hoarder-helmet",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-boots",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-outfit",
+        "armor-marauder-boots",
+        "armor-marauder-gloves",
+        "armor-marauder-helmet",
+        "armor-marauder-outfit",
+        "armor-miner-boots",
+        "armor-miner-gloves",
+        "armor-miner-helmet",
+        "armor-miner-outfit",
+        "armor-nerd-boots",
+        "armor-nerd-gloves",
+        "armor-nerd-helmet",
+        "armor-nerd-outfit",
+        "armor-nomad-boots",
+        "armor-nomad-gloves",
+        "armor-nomad-helmet",
+        "armor-nomad-outfit",
+        "armor-preacher-boots",
+        "armor-preacher-gloves",
+        "armor-preacher-helmet",
+        "armor-preacher-outfit",
+        "armor-primitive-boots",
+        "armor-primitive-gloves",
+        "armor-primitive-helmet",
+        "armor-primitive-outfit",
+        "armor-raider-boots",
+        "armor-raider-gloves",
+        "armor-raider-helmet",
+        "armor-raider-outfit",
+        "armor-ranger-boots",
+        "armor-ranger-gloves",
+        "armor-ranger-helmet",
+        "armor-ranger-outfit",
+        "armor-rogue-boots",
+        "armor-rogue-gloves",
+        "armor-rogue-helmet",
+        "armor-rogue-outfit",
+        "armor-samurai-boots",
+        "armor-samurai-gloves",
+        "armor-samurai-helmet",
+        "armor-samurai-outfit",
+        "armor-scavenger-boots",
+        "armor-scavenger-gloves",
+        "armor-scavenger-helmet",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-armor-water-purifier": {
+      "slot": "armor",
+      "name": "Water Purifier Mod",
+      "category": "mods-armor",
+      "modIcon": "modArmorWaterPurifier",
+      "summary": "Purifies water while worn.",
+      "compatibleItems": [
+        "armor-assassin-outfit",
+        "armor-athletic-outfit",
+        "armor-biker-outfit",
+        "armor-commando-outfit",
+        "armor-crimson-warlord-outfit",
+        "armor-desert-outfit",
+        "armor-enforcer-outfit",
+        "armor-farmer-outfit",
+        "armor-hoarder-outfit",
+        "armor-lumberjack-outfit",
+        "armor-marauder-outfit",
+        "armor-miner-outfit",
+        "armor-nerd-outfit",
+        "armor-nomad-outfit",
+        "armor-preacher-outfit",
+        "armor-primitive-outfit",
+        "armor-raider-outfit",
+        "armor-ranger-outfit",
+        "armor-rogue-outfit",
+        "armor-samurai-outfit",
+        "armor-scavenger-outfit"
+      ]
+    },
+    "mod-melee-club-barbed-wire": {
+      "slot": "mod",
+      "name": "Barbed Wire Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeClubBarbedWire",
+      "summary": "Bleed on club hits.",
+      "compatibleItems": []
+    },
+    "mod-melee-bunker-buster": {
+      "slot": "mod",
+      "name": "Bunker Buster Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeBunkerBuster",
+      "summary": "Massive block damage; heavy stamina cost.",
+      "compatibleItems": []
+    },
+    "mod-melee-burning-shaft": {
+      "slot": "mod",
+      "name": "Burning Shaft Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeClubBurningShaft",
+      "summary": "Fire damage over time.",
+      "compatibleItems": []
+    },
+    "mod-melee-diamond-tip": {
+      "slot": "mod",
+      "name": "Diamond Tip Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeDiamondTip",
+      "summary": "Top-tier harvest damage.",
+      "compatibleItems": []
+    },
+    "mod-dye-white": {
+      "slot": "mod",
+      "name": "Dye White",
+      "category": "mods-melee",
+      "modIcon": "modDyeWhite",
+      "summary": "Melee/tool mod: Dye White.",
+      "compatibleItems": []
+    },
+    "mod-melee-ergonomic-grip": {
+      "slot": "mod",
+      "name": "Ergonomic Grip Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeErgonomicGrip",
+      "summary": "Less stamina per swing.",
+      "compatibleItems": []
+    },
+    "mod-melee-firemans-axe": {
+      "slot": "mod",
+      "name": "Fireman's Axe Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeFiremansAxeMod",
+      "summary": "Bonus wood and block damage on axes.",
+      "compatibleItems": []
+    },
+    "mod-melee-fortifying-grip": {
+      "slot": "mod",
+      "name": "Fortifying Grip Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeFortifyingGrip",
+      "summary": "Bonus damage vs blocks.",
+      "compatibleItems": []
+    },
+    "mod-melee-grave-digger": {
+      "slot": "mod",
+      "name": "Grave Digger Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeGraveDigger",
+      "summary": "Bonus earth/block damage.",
+      "compatibleItems": []
+    },
+    "mod-melee-iron-breaker": {
+      "slot": "mod",
+      "name": "Iron Breaker Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeIronBreaker",
+      "summary": "Bonus ore/stone damage.",
+      "compatibleItems": []
+    },
+    "mod-melee-club-chain": {
+      "slot": "mod",
+      "name": "Metal Chain Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeClubMetalChain",
+      "summary": "Knockback boost on clubs.",
+      "compatibleItems": []
+    },
+    "mod-melee-club-spikes": {
+      "slot": "mod",
+      "name": "Metal Spikes Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeClubMetalSpikes",
+      "summary": "Higher club damage.",
+      "compatibleItems": []
+    },
+    "mod-melee-serrated-blade": {
+      "slot": "mod",
+      "name": "Serrated Blade Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeSerratedBlade",
+      "summary": "Bleed damage on blades.",
+      "compatibleItems": []
+    },
+    "mod-melee-structural-brace": {
+      "slot": "mod",
+      "name": "Structural Brace Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeStructuralBrace",
+      "summary": "Extra block damage for breaching.",
+      "compatibleItems": []
+    },
+    "mod-melee-stun-repulsor": {
+      "slot": "mod",
+      "name": "Stun Baton Repulsor Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeStunBatonRepulsor",
+      "summary": "Stronger stun baton knockback.",
+      "compatibleItems": []
+    },
+    "mod-melee-tempered-blade": {
+      "slot": "mod",
+      "name": "Tempered Blade Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeTemperedBlade",
+      "summary": "Higher blade damage.",
+      "compatibleItems": []
+    },
+    "mod-melee-weighted-head": {
+      "slot": "mod",
+      "name": "Weighted Head Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeWeightedHead",
+      "summary": "More blunt damage; slower swings.",
+      "compatibleItems": []
+    },
+    "mod-melee-wood-splitter": {
+      "slot": "mod",
+      "name": "Wood Splitter Mod",
+      "category": "mods-melee",
+      "modIcon": "modMeleeWoodSplitter",
+      "summary": "Bonus wood harvest damage.",
+      "compatibleItems": []
+    },
+    "mod-vehicle-expanded-seat": {
+      "slot": "vehicle",
+      "name": "Expanded Seat Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modVehicleExpandedSeat",
+      "summary": "Extra passenger/storage slot.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-vehicle-fuel-saver": {
+      "slot": "vehicle",
+      "name": "Fuel Saver Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modVehicleFuelSaver",
+      "summary": "Reduces fuel consumption.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-fuel-tank-large": {
+      "slot": "vehicle",
+      "name": "Large Fuel Tank Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modFuelTankLarge",
+      "summary": "Large fuel capacity boost.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-vehicle-offroad-lights": {
+      "slot": "vehicle",
+      "name": "Off-Road Headlights Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modVehicleOffRoadHeadlights",
+      "summary": "Brighter headlights for night.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-vehicle-plow": {
+      "slot": "vehicle",
+      "name": "Plow Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modVehiclePlow",
+      "summary": "Front plow; damages zombies and soil.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-vehicle-reserve-fuel": {
+      "slot": "vehicle",
+      "name": "Reserve Fuel Tank Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modVehicleReserveFuelTank",
+      "summary": "Extra fuel capacity.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-fuel-tank-small": {
+      "slot": "vehicle",
+      "name": "Small Fuel Tank Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modFuelTankSmall",
+      "summary": "Modest fuel capacity boost.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-vehicle-super-charger": {
+      "slot": "vehicle",
+      "name": "Super Charger Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modVehicleSuperCharger",
+      "summary": "Increases top speed.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-vehicle-armor": {
+      "slot": "vehicle",
+      "name": "Vehicle Armor Mod",
+      "category": "mods-vehicle",
+      "modIcon": "modVehicleArmor",
+      "summary": "More vehicle HP; heavier.",
+      "compatibleItems": [
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "truck-chassis",
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "vehicle-wheels"
+      ]
+    },
+    "mod-drone-armor": {
+      "slot": "drone",
+      "name": "Drone Armor Plating Mod",
+      "category": "mods-drone",
+      "modIcon": "modRoboticDroneArmorPlatingMod",
+      "summary": "More drone durability.",
+      "compatibleItems": [
+        "gun-bot-t3-junk-drone"
+      ]
+    },
+    "mod-drone-cargo": {
+      "slot": "drone",
+      "name": "Drone Cargo Mod",
+      "category": "mods-drone",
+      "modIcon": "modRoboticDroneCargoMod",
+      "summary": "Extra remote storage on drone.",
+      "compatibleItems": [
+        "gun-bot-t3-junk-drone"
+      ]
+    },
+    "mod-drone-headlamp": {
+      "slot": "drone",
+      "name": "Drone Headlamp Mod",
+      "category": "mods-drone",
+      "modIcon": "modRoboticDroneHeadlampMod",
+      "summary": "Drone provides light.",
+      "compatibleItems": [
+        "gun-bot-t3-junk-drone"
+      ]
+    },
+    "mod-drone-medic": {
+      "slot": "drone",
+      "name": "Drone Medic Mod",
+      "category": "mods-drone",
+      "modIcon": "modRoboticDroneMedicMod",
+      "summary": "Drone heals player over time.",
+      "compatibleItems": [
+        "gun-bot-t3-junk-drone"
+      ]
+    },
+    "mod-drone-morale": {
+      "slot": "drone",
+      "name": "Drone Morale Booster Mod",
+      "category": "mods-drone",
+      "modIcon": "modRoboticDroneMoraleBoosterMod",
+      "summary": "Stamina/wellness buff aura.",
+      "compatibleItems": [
+        "gun-bot-t3-junk-drone"
+      ]
+    }
+  }
+}

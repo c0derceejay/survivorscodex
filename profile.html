@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile · Survivor's Codex</title>
+  <meta name="description" content="Your favorites, saved perk builds, and field photos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="splash.html">
+      <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide.html">Guide</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="skills.html">Planner</a>
+      <a href="builds.html">Builds</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta"></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <header class="profile-head reveal" id="profile-head" hidden>
+        <div class="avatar" id="avatar">?</div>
+        <div class="profile-meta">
+          <strong id="profile-name">Survivor</strong>
+          <span id="profile-email">—</span>
+        </div>
+        <div class="profile-head-actions">
+          <a class="btn btn-ghost" href="catalog.html">Browse catalog</a>
+          <a class="btn btn-primary" href="skills.html">Open planner</a>
+        </div>
+      </header>
+
+      <div class="profile-tabs">
+        <button class="profile-tab active" data-tab="favorites" type="button">Favorites <span id="fav-count" style="opacity:.5;margin-left:6px"></span></button>
+        <button class="profile-tab" data-tab="builds" type="button">Saved builds <span id="build-count" style="opacity:.5;margin-left:6px"></span></button>
+        <button class="profile-tab" data-tab="photos" type="button">Field photos <span id="photo-count" style="opacity:.5;margin-left:6px"></span></button>
+      </div>
+
+      <!-- FAVORITES TAB -->
+      <section data-pane="favorites">
+        <div id="fav-grid" class="catalog-grid"></div>
+      </section>
+
+      <!-- BUILDS TAB -->
+      <section data-pane="builds" hidden>
+        <div id="build-type-filters" class="build-type-filters" hidden></div>
+        <div id="build-grid" class="profile-build-grid"></div>
+      </section>
+
+      <!-- PHOTOS TAB -->
+      <section data-pane="photos" hidden>
+        <div class="upload-zone" id="upload-zone" tabindex="0">
+          <strong>Upload field photos</strong>
+          <span>Drag &amp; drop, or click to choose. JPG / PNG / WebP. Auto-resized for browser storage.</span>
+          <input type="file" id="upload-input" accept="image/*" multiple hidden />
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:18px">
+          <label class="muted" style="font-size:.85rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em">Tag with item</label>
+          <select id="photo-tag" class="btn btn-ghost" style="height:40px"><option value="">— none —</option></select>
+          <input id="photo-caption" type="text" placeholder="Optional caption (e.g. 'Day 28 base loadout')" style="flex:1;padding:10px 14px;background:var(--color-surface-2);border:1px solid var(--color-line);border-radius:10px;color:var(--color-white)" />
+        </div>
+
+        <div id="gallery" class="gallery"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
+      <div style="display:flex;gap:18px">
+        <a href="splash.html">Splash</a>
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/build-types.js"></script>
+  <script src="js/item-tooltips.js"></script>
+  <script src="js/perk-gear.js"></script>
+  <script src="js/loadout.js"></script>
+  <script src="js/build-detail.js"></script>
+  <script>
+    let catalog = { items: [], categories: [] };
+    let skillsData = null;
+    let itemStats = {};
+    let perkGearConfig = null;
+    let activeBuildFilter = "all";
+
+    function buildGearContext() {
+      return {
+        items: catalog.items,
+        categories: catalog.categories,
+        itemStats,
+        gearConfig: perkGearConfig,
+      };
+    }
+
+    const profileHead = document.getElementById("profile-head");
+    const tabs = document.querySelectorAll(".profile-tab");
+    const panes = document.querySelectorAll("[data-pane]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", async () => {
+        tabs.forEach((t) => t.classList.toggle("active", t === tab));
+        panes.forEach((p) => p.hidden = p.dataset.pane !== tab.dataset.tab);
+        if (tab.dataset.tab === "builds" && SDD.Auth.user) {
+          await SDD.BuildStore.load();
+          renderBuilds();
+        }
+      });
+    });
+
+    function renderProfile(user) {
+      if (!user) {
+        profileHead.hidden = true;
+        return;
+      }
+      profileHead.hidden = false;
+      document.getElementById("avatar").textContent = user.username.charAt(0).toUpperCase();
+      document.getElementById("profile-name").textContent = user.username;
+      document.getElementById("profile-email").textContent = user.email;
+      renderFavorites();
+      renderBuilds();
+      renderPhotos();
+    }
+
+    function buildSummary(b) {
+      const meta = skillsData?.meta;
+      const level = SDD.SkillPoints.normalizePlayerLevel(meta || { maxPlayerLevel: 300 }, b);
+      const budget = meta ? SDD.SkillPoints.budget(meta, level) : null;
+      const spent = meta ? SDD.SkillPoints.calcSpent(b.attributes, b.perks, meta).total : null;
+      const attrPts = Object.values(b.attributes || {}).reduce((s, n) => s + (Number(n) || 0), 0);
+      const perkPts = Object.values(b.perks || {}).reduce((s, n) => s + (Number(n) || 0), 0);
+      const levelLabel = budget != null && spent != null
+        ? `Level ${level} · ${spent}/${budget} pts spent`
+        : `Survivor level ${level}`;
+      return `${levelLabel} · ${attrPts} attribute lv · ${perkPts} perk lv`;
+    }
+
+    // ---- Saved builds ----
+    function renderBuildFilters(allBuilds) {
+      const wrap = document.getElementById("build-type-filters");
+      if (!allBuilds.length) {
+        wrap.hidden = true;
+        wrap.innerHTML = "";
+        return;
+      }
+      wrap.hidden = false;
+      const counts = { all: allBuilds.length };
+      allBuilds.forEach((b) => {
+        SDD.BuildTypes.normalizeBuildTypes(b.buildTypes ?? b.buildType).forEach((id) => {
+          counts[id] = (counts[id] || 0) + 1;
+        });
+      });
+      const chips = [
+        `<button type="button" class="build-type-filter${activeBuildFilter === "all" ? " active" : ""}" data-type="all">All (${counts.all})</button>`,
+        ...SDD.BuildTypes.all
+          .filter((t) => counts[t.id])
+          .map((t) => `
+            <button type="button" class="build-type-filter${activeBuildFilter === t.id ? " active" : ""}" data-type="${SDD.escapeHTML(t.id)}">
+              ${SDD.escapeHTML(t.label)} (${counts[t.id]})
+            </button>`),
+      ].join("");
+      wrap.innerHTML = chips;
+      wrap.querySelectorAll(".build-type-filter").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeBuildFilter = btn.dataset.type;
+          renderBuildFilters(allBuilds);
+          renderBuilds();
+        });
+      });
+    }
+
+    function renderBuilds() {
+      const grid = document.getElementById("build-grid");
+      const allBuilds = SDD.BuildStore.getAll();
+      document.getElementById("build-count").textContent = `(${allBuilds.length})`;
+      renderBuildFilters(allBuilds);
+
+      const builds = activeBuildFilter === "all"
+        ? allBuilds
+        : allBuilds.filter((b) => SDD.BuildTypes.buildHasType(b, activeBuildFilter));
+
+      if (!allBuilds.length) {
+        grid.innerHTML = `<div class="empty-state">
+          No saved builds yet. Open the <a href="skills.html" style="color:var(--color-red-bright)">planner</a>,
+          allocate your perks, choose a <strong>build focus</strong>, and hit <strong>Save</strong>.
+        </div>`;
+        return;
+      }
+      if (!builds.length) {
+        grid.innerHTML = `<div class="empty-state">No builds tagged for this focus. Try another filter or save a new build.</div>`;
+        return;
+      }
+      grid.innerHTML = builds.map((b) => {
+        const typeDesc = SDD.BuildTypes.typeDescriptions(b.buildTypes ?? b.buildType);
+        return `
+        <article class="profile-build-card">
+          <div class="profile-build-header">
+            <details class="profile-build-details">
+              <summary class="profile-build-summary">
+                <span class="profile-build-chevron" aria-hidden="true"></span>
+                <div class="profile-build-summary-text">
+                  <div class="profile-build-title-row">
+                    <h3 class="profile-build-name">${SDD.escapeHTML(b.name)}</h3>
+                    <div class="profile-build-pills">${SDD.BuildTypes.renderTypePills(b.buildTypes ?? b.buildType)}</div>
+                    ${b.isPublic ? `<span class="build-public-badge">Public</span>` : ""}
+                  </div>
+                  <p class="profile-build-meta">${SDD.escapeHTML(buildSummary(b))}</p>
+                  ${typeDesc ? `<p class="profile-build-focus muted">${SDD.escapeHTML(typeDesc)}</p>` : ""}
+                  <time class="profile-build-date" datetime="${b.savedAt}">${new Date(b.savedAt).toLocaleString()}</time>
+                </div>
+              </summary>
+              <div class="profile-build-breakdown">
+                ${SDD.renderBuildBreakdown(b, skillsData, buildGearContext())}
+              </div>
+            </details>
+            <div class="profile-build-actions">
+              <a class="btn btn-primary btn-sm" href="skills.html?build=${encodeURIComponent(b.id)}">Open in planner</a>
+              <button type="button" class="btn btn-ghost btn-sm build-public-toggle" data-build-public="${b.id}" data-public="${b.isPublic ? "1" : "0"}">
+                ${b.isPublic ? "Make private" : "Share publicly"}
+              </button>
+              <button type="button" class="btn btn-ghost btn-sm build-del-profile" data-del-build="${b.id}">Delete</button>
+            </div>
+          </div>
+        </article>`;
+      }).join("");
+      grid.querySelectorAll(".build-del-profile").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          if (!confirm("Delete this saved build?")) return;
+          try {
+            await SDD.BuildStore.delete(btn.dataset.delBuild);
+            SDD.toast("Build deleted.", "success");
+            renderBuilds();
+          } catch (err) {
+            SDD.toast(err.message || "Could not delete build.", "error");
+          }
+        });
+      });
+      grid.querySelectorAll(".build-public-toggle").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const id = btn.dataset.buildPublic;
+          const nextPublic = btn.dataset.public !== "1";
+          btn.disabled = true;
+          try {
+            await SDD.BuildStore.setPublic(id, nextPublic);
+            SDD.toast(nextPublic ? "Build is now public." : "Build is now private.", "success");
+            renderBuilds();
+          } catch (err) {
+            SDD.toast(err.message || "Could not update visibility.", "error");
+          } finally {
+            btn.disabled = false;
+          }
+        });
+      });
+    }
+
+    // ---- Favorites ----
+    function renderFavorites() {
+      const favIds = SDD.Store.getFavorites();
+      const grid = document.getElementById("fav-grid");
+      document.getElementById("fav-count").textContent = `(${favIds.length})`;
+      if (!favIds.length) {
+        grid.innerHTML = `<div class="empty-state">
+          No favorites yet. Head to the <a href="catalog.html" style="color:var(--color-red-bright)">catalog</a>
+          and tap the ★ on any item to pin it here.
+        </div>`;
+        return;
+      }
+      const cats = Object.fromEntries(catalog.categories.map((c) => [c.id, c.name]));
+      grid.innerHTML = favIds.map((id) => {
+        const i = catalog.items.find((x) => x.id === id);
+        if (!i) return "";
+        const hasIcon = SDD.hasItemImage(i.id);
+        return `
+          <article class="item-card ${hasIcon ? "has-game-icon" : ""}" data-id="${i.id}">
+            <div class="item-img">${SDD.itemImage(i, catalog.categories)}</div>
+            <button class="fav-btn is-fav" data-fav="${i.id}" aria-label="Unfavorite ${SDD.escapeHTML(i.name)}" type="button">★</button>
+            <div class="item-body">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">${SDD.escapeHTML(i.name)}</div>
+                  <div class="item-cat">${SDD.escapeHTML(cats[i.category] || i.category)}</div>
+                </div>
+                <span class="tier-pill tier-${i.tier}">T${i.tier}</span>
+              </div>
+              <p class="item-summary">${SDD.escapeHTML(i.summary || "")}</p>
+              <div class="item-meta">
+                <span>Stack <strong>${i.stack ?? "—"}</strong></span>
+                <span>Wt <strong>${i.weight ?? 0}</strong></span>
+                ${i.perk ? `<span>Perk <strong>${SDD.escapeHTML(i.perk)}</strong></span>` : ""}
+              </div>
+            </div>
+          </article>`;
+      }).join("");
+      grid.querySelectorAll(".fav-btn").forEach((b) => {
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          SDD.Store.toggleFavorite(b.dataset.fav);
+          SDD.toast("Removed from favorites.");
+          renderFavorites();
+        });
+      });
+    }
+
+    // ---- Photos ----
+    const zone = document.getElementById("upload-zone");
+    const input = document.getElementById("upload-input");
+
+    zone.addEventListener("click", () => input.click());
+    zone.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); input.click(); } });
+    zone.addEventListener("dragover", (e) => { e.preventDefault(); zone.classList.add("drag"); });
+    zone.addEventListener("dragleave", () => zone.classList.remove("drag"));
+    zone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      zone.classList.remove("drag");
+      handleFiles(e.dataTransfer.files);
+    });
+    input.addEventListener("change", () => handleFiles(input.files));
+
+    async function handleFiles(files) {
+      const tag = document.getElementById("photo-tag").value;
+      const caption = document.getElementById("photo-caption").value.trim();
+      const tagName = tag ? (catalog.items.find((i) => i.id === tag) || {}).name : "";
+      let added = 0;
+      for (const file of files) {
+        if (!file.type.startsWith("image/")) continue;
+        if (file.size > 8 * 1024 * 1024) {
+          SDD.toast(`${file.name} is over 8 MB — skipped.`, "error");
+          continue;
+        }
+        try {
+          const dataUrl = await compressImage(file, 1600, 0.85);
+          try {
+            SDD.Store.addPhoto({
+              id: crypto.randomUUID(),
+              data: dataUrl,
+              tag: tagName || "",
+              caption: caption || file.name,
+              uploadedAt: new Date().toISOString(),
+            });
+            added++;
+          } catch (storageErr) {
+            // QuotaExceededError or similar
+            SDD.toast("Browser storage is full — delete some photos and try again.", "error");
+            break;
+          }
+        } catch (err) {
+          SDD.toast(err.message, "error");
+        }
+      }
+      if (added) {
+        SDD.toast(`Uploaded ${added} photo${added > 1 ? "s" : ""}.`, "success");
+        document.getElementById("photo-caption").value = "";
+        renderPhotos();
+      }
+      input.value = "";
+    }
+
+    /** Decode → downscale to max edge → JPEG dataURL. Keeps localStorage friendly. */
+    function compressImage(file, maxEdge, quality) {
+      return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          URL.revokeObjectURL(url);
+          let { width, height } = img;
+          const scale = Math.min(1, maxEdge / Math.max(width, height));
+          width = Math.round(width * scale);
+          height = Math.round(height * scale);
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, width, height);
+          try {
+            resolve(canvas.toDataURL("image/jpeg", quality));
+          } catch (e) {
+            reject(new Error("Could not encode " + file.name));
+          }
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(url);
+          reject(new Error("Could not decode " + file.name));
+        };
+        img.src = url;
+      });
+    }
+
+    function renderPhotos() {
+      const photos = SDD.Store.getPhotos();
+      document.getElementById("photo-count").textContent = `(${photos.length})`;
+      const gallery = document.getElementById("gallery");
+      if (!photos.length) {
+        gallery.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+          No field photos yet. Drag images onto the upload zone above.
+        </div>`;
+        return;
+      }
+      gallery.innerHTML = photos.map((p) => `
+        <figure class="gallery-item">
+          <img src="${p.data}" alt="${SDD.escapeHTML(p.caption || 'Field photo')}" loading="lazy" />
+          <button class="del" data-del="${p.id}" type="button" aria-label="Delete photo">×</button>
+          <figcaption class="caption">
+            <strong>${SDD.escapeHTML(p.caption || 'Field photo')}</strong>
+            <span>${p.tag ? SDD.escapeHTML(p.tag) + ' · ' : ''}${new Date(p.uploadedAt).toLocaleDateString()}</span>
+          </figcaption>
+        </figure>
+      `).join("");
+      gallery.querySelectorAll("[data-del]").forEach((b) => {
+        b.addEventListener("click", () => {
+          if (!confirm("Delete this photo?")) return;
+          SDD.Store.removePhoto(b.dataset.del);
+          renderPhotos();
+        });
+      });
+    }
+
+    // ---- Boot ----
+    async function bootProfile() {
+      await SDD.Auth.refresh();
+      await SDD.BuildTypes.loadBuildTypes();
+      await SDD.Loadout.loadData();
+      if (SDD.Auth.user) await SDD.BuildStore.load();
+
+      const [itemsRes, skillsRes, statsRes] = await Promise.all([
+        fetch("data/items.json"),
+        fetch("data/skills.json"),
+        fetch("data/item-stats.json"),
+        SDD.loadImageManifest(),
+        SDD.PerkGear.loadPerkGear(),
+        ItemTooltips.loadItemStats(),
+      ]);
+      catalog = await itemsRes.json();
+      skillsData = await skillsRes.json();
+      itemStats = await statsRes.json();
+      perkGearConfig = await SDD.PerkGear.loadPerkGear();
+      // Tag dropdown
+      const tag = document.getElementById("photo-tag");
+      const groups = {};
+      catalog.items.forEach((i) => { (groups[i.category] = groups[i.category] || []).push(i); });
+      catalog.categories.forEach((c) => {
+        if (!groups[c.id]) return;
+        const og = document.createElement("optgroup");
+        og.label = c.name;
+        groups[c.id].forEach((i) => {
+          const opt = document.createElement("option");
+          opt.value = i.id;
+          opt.textContent = i.name;
+          og.appendChild(opt);
+        });
+        tag.appendChild(og);
+      });
+      renderProfile(SDD.Auth.user);
+    }
+    bootProfile();
+
+    window.addEventListener("pageshow", async () => {
+      if (!SDD.Auth.user) return;
+      await SDD.BuildStore.load();
+      renderProfile(SDD.Auth.user);
+    });
+
+    SDD.Auth.onChange(async (u) => {
+      if (u) await SDD.BuildStore.load();
+      renderProfile(u);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Build Planner · Survivor's Codex</title>
+  <meta name="description" content="Plan 7 Days to Die perk builds — allocate attribute and skill points, preview buffs, and see catalog craft unlocks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="skills-page">
+  <header class="nav">
+    <a class="brand" href="splash.html">
+      <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide.html">Guide</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="skills.html" class="active">Planner</a>
+      <a href="builds.html">Builds</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta"></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <header class="section-head" style="padding-top:24px">
+        <div>
+          <span class="eyebrow">Codex · Planner</span>
+          <h1>Perk build planner</h1>
+          <p class="muted" style="max-width:680px">
+            Allocate attribute and perk points like the in-game skills screen. Set your survivor level for a
+            realistic point budget — max level 300 gives <strong>303 skill points</strong> (4 starting + 1 per level).
+            Perk magazines grant levels without spending points.
+            <a href="profile.html" style="color:var(--color-red-bright)">Sign in</a> to save builds to your account.
+          </p>
+        </div>
+      </header>
+
+      <!-- Toolbar -->
+      <div class="skill-toolbar reveal">
+        <div class="skill-toolbar-group">
+          <label class="skill-level-wrap" id="skill-level-wrap">
+            Survivor level
+            <input type="range" id="skill-level" min="1" max="300" value="300" />
+            <span id="skill-level-val" class="skill-level-val">300</span>
+          </label>
+        </div>
+
+        <div class="skill-points-bar" aria-live="polite">
+          <div class="skill-point-stat">
+            <span class="label">Available</span>
+            <strong id="points-avail">303</strong>
+          </div>
+          <div class="skill-point-stat">
+            <span class="label">Spent</span>
+            <strong id="points-spent">0</strong>
+          </div>
+          <div class="skill-point-stat highlight">
+            <span class="label">Remaining</span>
+            <strong id="points-remain">303</strong>
+          </div>
+          <div class="skill-point-stat">
+            <span class="label">On attributes</span>
+            <strong id="points-attr">0</strong>
+          </div>
+          <div class="skill-point-stat">
+            <span class="label">On perks</span>
+            <strong id="points-perk">0</strong>
+          </div>
+        </div>
+
+        <div class="skill-toolbar-actions">
+          <button type="button" class="btn btn-ghost" id="btn-reset">Reset</button>
+          <button type="button" class="btn btn-ghost" id="btn-max">Max everything</button>
+        </div>
+      </div>
+
+      <section class="skill-save-section reveal" aria-labelledby="skill-save-title">
+        <header class="skill-save-section-head">
+          <span class="eyebrow">Build</span>
+          <h2 id="skill-save-title">Save build</h2>
+          <p class="muted">Name your build, tag its focus, and sync to your account. Check <strong>Share in the public builds gallery</strong> to list it on the <a href="builds.html" style="color:var(--color-red-bright)">community builds</a> page.</p>
+        </header>
+        <p id="build-sync-status" class="build-sync-status muted"></p>
+        <div class="skill-save-form">
+          <input type="text" id="build-name" placeholder="Build name (e.g. Horde Sniper)" />
+          <label class="skill-save-label">Build focus <span class="muted">(select all that apply)</span></label>
+          <div id="build-type-tags" class="build-type-tags" role="group" aria-label="Build focus tags"></div>
+          <p id="build-save-hint" class="build-save-hint muted" hidden></p>
+          <label class="build-public-share" for="build-is-public">
+            <input type="checkbox" id="build-is-public" />
+            <span class="build-public-share-box">
+              <span class="build-public-share-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </span>
+              <span class="build-public-share-copy">
+                <strong>Share in the public builds gallery</strong>
+                <small>Visible to everyone on the community builds page — others can copy, not edit, your original.</small>
+              </span>
+              <span class="build-public-share-mark" aria-hidden="true"></span>
+            </span>
+          </label>
+          <button type="button" class="btn btn-primary" id="btn-save">Save</button>
+        </div>
+        <ul id="build-list" class="build-list"></ul>
+      </section>
+
+      <!-- Planner layout -->
+      <div class="skill-layout reveal">
+        <div class="skill-panel skill-panel-trees">
+          <div class="skill-panel-label">Attributes &amp; perks</div>
+          <div id="skill-columns" class="skill-columns"></div>
+        </div>
+      </div>
+
+      <section class="skill-detail-section reveal" aria-labelledby="skill-detail-title">
+        <header class="skill-detail-section-head">
+          <span class="eyebrow">Selected perk</span>
+          <h2 id="skill-detail-title">Perk details</h2>
+        </header>
+        <div id="skill-detail" class="skill-detail"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-weapons" aria-labelledby="loadout-weapons-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-weapons-title">Weapons</h2>
+          <p class="muted">Select melee or ranged weapons — craft tier (T0–T3) is the item you pick; set quality Q1–Q6 when selected.</p>
+        </header>
+        <div id="loadout-weapons" class="loadout-gear-grid"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-tools" aria-labelledby="loadout-tools-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-tools-title">Tools</h2>
+          <p class="muted">Handheld gather and build tools — axes, pickaxes, auger, shovels, wrench, hammer, nailgun, paint &amp; wire.</p>
+        </header>
+        <div id="loadout-tools" class="loadout-gear-grid"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-outfits" aria-labelledby="loadout-outfits-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-outfits-title">Outfit</h2>
+          <p class="muted">Pick an armor set — set Q1–Q6 quality when selected. Saved with your build.</p>
+        </header>
+        <div id="loadout-outfits" class="loadout-outfit-grid"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-mods" aria-labelledby="loadout-mods-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-mods-title">Mods</h2>
+          <p class="muted">Attach compatible mods to weapons, tools, outfit, and vehicles — synced when you save.</p>
+        </header>
+        <div id="loadout-mods" class="loadout-mods-grid"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-food" aria-labelledby="loadout-food-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-food-title">Food</h2>
+          <p class="muted">Meals, snacks, candy bars, skill magazines, and other edible items — click to toggle.</p>
+        </header>
+        <div id="loadout-food" class="loadout-gear-grid"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-water" aria-labelledby="loadout-water-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-water-title">Water</h2>
+          <p class="muted">Water, coffee, tea, beer, energy drinks (Mega Crush), elixirs, and smoothies — click to toggle.</p>
+        </header>
+        <div id="loadout-water" class="loadout-gear-grid"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-medical" aria-labelledby="loadout-medical-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-medical-title">Medical supplies</h2>
+          <p class="muted">Bandages, first aid, painkillers, antibiotics, vitamins, skill magazines, and other medical items — click to toggle.</p>
+        </header>
+        <div id="loadout-medical" class="loadout-gear-grid"></div>
+      </section>
+
+      <section class="loadout-section reveal" id="loadout-section-vehicles" aria-labelledby="loadout-vehicles-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Loadout</span>
+          <h2 id="loadout-vehicles-title">Vehicles</h2>
+          <p class="muted">Select placeable vehicles — bicycle, minibike, motorcycle, 4x4, gyrocopter. Vehicle mods appear above.</p>
+        </header>
+        <div id="loadout-vehicles" class="loadout-gear-grid"></div>
+      </section>
+
+      <section class="skill-save-bottom reveal" aria-label="Save build">
+        <div class="skill-save-bottom-inner">
+          <div class="skill-save-bottom-copy">
+            <strong>Save your build</strong>
+            <p class="muted">Uses the build name and focus tags from the top of the page — perks and loadout included.</p>
+            <p id="build-save-hint-bottom" class="build-save-hint muted" hidden></p>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" id="btn-save-bottom">Save build</button>
+        </div>
+      </section>
+
+      <p class="muted skill-footnote">
+        Perk effects are summarized for planning — not exact in-game numbers. At level 300 you have 303 skill points
+        (4 starting + 299 from leveling). Perk magazines grant perk levels without spending points.
+        <a href="guide.html" style="color:var(--color-red-bright)">Survival 101 guide</a>
+        ·
+        <a href="catalog.html" style="color:var(--color-red-bright)">Browse the catalog →</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
+      <div style="display:flex;gap:18px">
+        <a href="splash.html">Splash</a>
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/build-types.js"></script>
+  <script src="js/item-tooltips.js"></script>
+  <script src="js/perk-gear.js"></script>
+  <script src="js/loadout.js"></script>
+  <script src="js/skills.js"></script>
+</body>
+</html>

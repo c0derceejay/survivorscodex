@@ -1,0 +1,791 @@
+{
+  "_generated": "2026-05-21T04:59:28.664Z",
+  "_note": "Armor outfit sets + perk craft links for build/planner gear display.",
+  "armorSets": {
+    "assassin": {
+      "label": "Assassin Armor",
+      "description": "Stealth and blade combat.",
+      "pieces": [
+        "armor-assassin-outfit",
+        "armor-assassin-helmet",
+        "armor-assassin-gloves",
+        "armor-assassin-boots"
+      ],
+      "perks": [
+        "deep-cuts"
+      ]
+    },
+    "athletic": {
+      "label": "Athletic Armor",
+      "description": "Mobility and stamina.",
+      "pieces": [
+        "armor-athletic-outfit",
+        "armor-athletic-helmet",
+        "armor-athletic-gloves",
+        "armor-athletic-boots"
+      ],
+      "perks": [
+        "healing-factor",
+        "run-and-gun"
+      ]
+    },
+    "biker": {
+      "label": "Biker Armor",
+      "description": "Shotgun and close-range mayhem.",
+      "pieces": [
+        "armor-biker-outfit",
+        "armor-biker-helmet",
+        "armor-biker-gloves",
+        "armor-biker-boots"
+      ],
+      "perks": [
+        "boomstick",
+        "grease-monkey"
+      ]
+    },
+    "commando": {
+      "label": "Commando Armor",
+      "description": "Rifles and automatic weapons.",
+      "pieces": [
+        "armor-commando-outfit",
+        "armor-commando-helmet",
+        "armor-commando-gloves",
+        "armor-commando-boots"
+      ],
+      "perks": [
+        "the-penetrator",
+        "gunslinger",
+        "machine-gunner"
+      ]
+    },
+    "crimson-warlord": {
+      "label": "Crimson Warlord Armor",
+      "description": "Heavy battle armor.",
+      "pieces": [
+        "armor-crimson-warlord-outfit",
+        "armor-crimson-warlord-helmet",
+        "armor-crimson-warlord-gloves",
+        "armor-crimson-warlord-boots"
+      ],
+      "perks": []
+    },
+    "desert": {
+      "label": "Desert Armor",
+      "description": "Heat-resistant scavenger gear.",
+      "pieces": [
+        "armor-desert-outfit",
+        "armor-desert-helmet",
+        "armor-desert-gloves",
+        "armor-desert-boots"
+      ],
+      "perks": []
+    },
+    "enforcer": {
+      "label": "Enforcer Armor",
+      "description": "Batons and crowd control.",
+      "pieces": [
+        "armor-enforcer-outfit",
+        "armor-enforcer-helmet",
+        "armor-enforcer-gloves",
+        "armor-enforcer-boots"
+      ],
+      "perks": []
+    },
+    "farmer": {
+      "label": "Farmer Armor",
+      "description": "Farming and sustenance.",
+      "pieces": [
+        "armor-farmer-outfit",
+        "armor-farmer-helmet",
+        "armor-farmer-gloves",
+        "armor-farmer-boots"
+      ],
+      "perks": [
+        "living-off-the-land",
+        "master-chef"
+      ]
+    },
+    "hoarder": {
+      "label": "Hoarder Armor",
+      "description": "Inventory and loot hauling.",
+      "pieces": [
+        "armor-hoarder-outfit",
+        "armor-hoarder-helmet",
+        "armor-hoarder-gloves",
+        "armor-hoarder-boots"
+      ],
+      "perks": [
+        "pack-mule"
+      ]
+    },
+    "lumberjack": {
+      "label": "Lumberjack Armor",
+      "description": "Axes and wood processing.",
+      "pieces": [
+        "armor-lumberjack-outfit",
+        "armor-lumberjack-helmet",
+        "armor-lumberjack-gloves",
+        "armor-lumberjack-boots"
+      ],
+      "perks": [
+        "pummel-pete"
+      ]
+    },
+    "marauder": {
+      "label": "Marauder Armor",
+      "description": "Aggressive melee raider.",
+      "pieces": [
+        "armor-marauder-outfit",
+        "armor-marauder-helmet",
+        "armor-marauder-gloves",
+        "armor-marauder-boots"
+      ],
+      "perks": []
+    },
+    "miner": {
+      "label": "Miner Armor",
+      "description": "Mining tools and ore yields.",
+      "pieces": [
+        "armor-miner-outfit",
+        "armor-miner-helmet",
+        "armor-miner-gloves",
+        "armor-miner-boots"
+      ],
+      "perks": [
+        "miner-69er",
+        "mother-lode"
+      ]
+    },
+    "nerd": {
+      "label": "Nerd Armor",
+      "description": "Robotics and electrical traps.",
+      "pieces": [
+        "armor-nerd-outfit",
+        "armor-nerd-helmet",
+        "armor-nerd-gloves",
+        "armor-nerd-boots"
+      ],
+      "perks": [
+        "electrocutioner",
+        "robotics-inventor"
+      ]
+    },
+    "nomad": {
+      "label": "Nomad Armor",
+      "description": "Spears and thrown weapons.",
+      "pieces": [
+        "armor-nomad-outfit",
+        "armor-nomad-helmet",
+        "armor-nomad-gloves",
+        "armor-nomad-boots"
+      ],
+      "perks": [
+        "javelin-master"
+      ]
+    },
+    "preacher": {
+      "label": "Preacher Armor",
+      "description": "Trading and bartering.",
+      "pieces": [
+        "armor-preacher-outfit",
+        "armor-preacher-helmet",
+        "armor-preacher-gloves",
+        "armor-preacher-boots"
+      ],
+      "perks": [
+        "better-barter"
+      ]
+    },
+    "primitive": {
+      "label": "Primitive Armor",
+      "description": "Early-game scrap armor.",
+      "pieces": [
+        "armor-primitive-outfit",
+        "armor-primitive-helmet",
+        "armor-primitive-gloves",
+        "armor-primitive-boots"
+      ],
+      "perks": []
+    },
+    "raider": {
+      "label": "Raider Armor",
+      "description": "Explosives and heavy melee.",
+      "pieces": [
+        "armor-raider-outfit",
+        "armor-raider-helmet",
+        "armor-raider-gloves",
+        "armor-raider-boots"
+      ],
+      "perks": [
+        "skull-crusher",
+        "grand-slam",
+        "demolitions-expert"
+      ]
+    },
+    "ranger": {
+      "label": "Ranger Armor",
+      "description": "Bows and marksmanship.",
+      "pieces": [
+        "armor-ranger-outfit",
+        "armor-ranger-helmet",
+        "armor-ranger-gloves",
+        "armor-ranger-boots"
+      ],
+      "perks": [
+        "archery",
+        "dead-eye"
+      ]
+    },
+    "rogue": {
+      "label": "Rogue Armor",
+      "description": "Sneak attacks and traps.",
+      "pieces": [
+        "armor-rogue-outfit",
+        "armor-rogue-helmet",
+        "armor-rogue-gloves",
+        "armor-rogue-boots"
+      ],
+      "perks": [
+        "infiltrator"
+      ]
+    },
+    "samurai": {
+      "label": "Samurai Armor",
+      "description": "Blades and precision strikes.",
+      "pieces": [
+        "armor-samurai-outfit",
+        "armor-samurai-helmet",
+        "armor-samurai-gloves",
+        "armor-samurai-boots"
+      ],
+      "perks": []
+    },
+    "scavenger": {
+      "label": "Scavenger Armor",
+      "description": "Salvage and looting.",
+      "pieces": [
+        "armor-scavenger-outfit",
+        "armor-scavenger-helmet",
+        "armor-scavenger-gloves",
+        "armor-scavenger-boots"
+      ],
+      "perks": [
+        "lucky-looter",
+        "salvage-operations",
+        "treasure-hunter"
+      ]
+    }
+  },
+  "perks": {
+    "lucky-looter": {
+      "name": "Lucky Looter",
+      "catalogPerk": null,
+      "armorSet": "scavenger",
+      "unlocksByLevel": {},
+      "relatedItems": [
+        "mod-armor-cooling-mesh",
+        "mod-armor-insulated-liner",
+        "mod-armor-treasure-hunter"
+      ]
+    },
+    "salvage-operations": {
+      "name": "Salvage Operations",
+      "catalogPerk": null,
+      "armorSet": "scavenger",
+      "unlocksByLevel": {
+        "1": [
+          "melee-tool-salvage-t1-wrench"
+        ],
+        "2": [
+          "melee-tool-salvage-t2-ratchet"
+        ],
+        "3": [
+          "melee-tool-salvage-t3-impact-driver"
+        ]
+      },
+      "relatedItems": [
+        "melee-tool-salvage-t1-wrench",
+        "melee-tool-salvage-t2-ratchet",
+        "melee-tool-salvage-t3-impact-driver"
+      ]
+    },
+    "treasure-hunter": {
+      "name": "Treasure Hunter",
+      "catalogPerk": null,
+      "armorSet": "scavenger",
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "infiltrator": {
+      "name": "Infiltrator",
+      "catalogPerk": null,
+      "armorSet": "rogue",
+      "unlocksByLevel": {
+        "1": [
+          "electricfencepost"
+        ],
+        "2": [
+          "gun-explosives-t3-rocket-launcher"
+        ],
+        "3": [
+          "barbed-fence"
+        ]
+      },
+      "relatedItems": [
+        "barbed-fence",
+        "electricfencepost",
+        "gun-explosives-t3-rocket-launcher"
+      ]
+    },
+    "the-penetrator": {
+      "name": "The Penetrator",
+      "catalogPerk": null,
+      "armorSet": "commando",
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "pack-mule": {
+      "name": "Pack Mule",
+      "catalogPerk": null,
+      "armorSet": "hoarder",
+      "unlocksByLevel": {},
+      "relatedItems": [
+        "mod-armor-double-pocket",
+        "mod-armor-quad-pocket",
+        "mod-armor-storage-pocket",
+        "mod-armor-triple-pocket"
+      ]
+    },
+    "living-off-the-land": {
+      "name": "Living Off The Land",
+      "catalogPerk": null,
+      "armorSet": "farmer",
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "healing-factor": {
+      "name": "Healing Factor",
+      "catalogPerk": null,
+      "armorSet": "athletic",
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "slow-metabolism": {
+      "name": "Slow Metabolism",
+      "catalogPerk": null,
+      "armorSet": null,
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "well-insulated": {
+      "name": "Well Insulated",
+      "catalogPerk": null,
+      "armorSet": null,
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "miner-69er": {
+      "name": "Miner 69'er",
+      "catalogPerk": "Miner 69er",
+      "armorSet": "miner",
+      "unlocksByLevel": {
+        "1": [
+          "melee-tool-repair-t0-stone-axe"
+        ],
+        "2": [
+          "melee-tool-pick-t1-iron-pickaxe",
+          "melee-tool-axe-t1-iron-fireaxe"
+        ],
+        "3": [
+          "melee-tool-pick-t2-steel-pickaxe",
+          "melee-tool-axe-t2-steel-axe"
+        ]
+      },
+      "relatedItems": [
+        "melee-tool-axe-t1-iron-fireaxe",
+        "melee-tool-axe-t2-steel-axe",
+        "melee-tool-pick-t1-iron-pickaxe",
+        "melee-tool-pick-t2-steel-pickaxe",
+        "melee-tool-pick-t3-auger",
+        "melee-tool-repair-t0-stone-axe"
+      ]
+    },
+    "mother-lode": {
+      "name": "Mother Lode",
+      "catalogPerk": "Mother Lode",
+      "armorSet": "miner",
+      "unlocksByLevel": {},
+      "relatedItems": [
+        "drink-jar-pure-mineral-water",
+        "melee-tool-pick-t3-auger"
+      ]
+    },
+    "pummel-pete": {
+      "name": "Pummel Pete",
+      "catalogPerk": "Pummel Pete",
+      "armorSet": "lumberjack",
+      "unlocksByLevel": {
+        "1": [
+          "melee-wpn-club-t0-wooden-club"
+        ],
+        "2": [
+          "melee-wpn-club-t1-baseball-bat"
+        ],
+        "3": [
+          "melee-wpn-club-t3-steel-club"
+        ]
+      },
+      "relatedItems": [
+        "melee-wpn-club-t0-wooden-club",
+        "melee-wpn-club-t1-baseball-bat",
+        "melee-wpn-club-t3-steel-club"
+      ]
+    },
+    "skull-crusher": {
+      "name": "Skull Crusher",
+      "catalogPerk": null,
+      "armorSet": "raider",
+      "unlocksByLevel": {
+        "1": [
+          "melee-wpn-sledge-t0-stone-sledgehammer"
+        ],
+        "3": [
+          "melee-wpn-sledge-t3-steel-sledgehammer"
+        ]
+      },
+      "relatedItems": [
+        "melee-wpn-sledge-t0-stone-sledgehammer",
+        "melee-wpn-sledge-t3-steel-sledgehammer"
+      ]
+    },
+    "grand-slam": {
+      "name": "Grand Slam",
+      "catalogPerk": null,
+      "armorSet": "raider",
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "archery": {
+      "name": "Archery",
+      "catalogPerk": "Archery",
+      "armorSet": "ranger",
+      "unlocksByLevel": {
+        "1": [
+          "gun-bow-t1-wooden-bow"
+        ],
+        "2": [
+          "gun-bow-t1-iron-crossbow"
+        ],
+        "3": [
+          "gun-bow-t3-compound-bow"
+        ],
+        "4": [
+          "gun-bow-t3-compound-crossbow"
+        ]
+      },
+      "relatedItems": [
+        "ammo-arrow-iron",
+        "ammo-arrow-steel-a-p",
+        "ammo-arrow-stone",
+        "gun-bow-t1-iron-crossbow",
+        "gun-bow-t1-wooden-bow",
+        "gun-bow-t3-compound-bow",
+        "gun-bow-t3-compound-crossbow"
+      ]
+    },
+    "gunslinger": {
+      "name": "Gunslinger",
+      "catalogPerk": "Gunslinger",
+      "armorSet": "commando",
+      "unlocksByLevel": {
+        "1": [
+          "gun-handgun-t0-pipe-pistol"
+        ],
+        "2": [
+          "gun-handgun-t1-pistol"
+        ],
+        "3": [
+          "gun-handgun-t2-magnum44"
+        ],
+        "4": [
+          "gun-handgun-t3-desert-vulture"
+        ]
+      },
+      "relatedItems": [
+        "ammo9mm-bullet-a-p",
+        "gun-handgun-t0-pipe-pistol",
+        "gun-handgun-t1-pistol",
+        "gun-handgun-t2-magnum44",
+        "gun-handgun-t3-desert-vulture"
+      ]
+    },
+    "deep-cuts": {
+      "name": "Deep Cuts",
+      "catalogPerk": "Deep Cuts",
+      "armorSet": "assassin",
+      "unlocksByLevel": {
+        "1": [
+          "melee-wpn-blade-t0-bone-knife"
+        ],
+        "2": [
+          "melee-wpn-blade-t1-hunting-knife"
+        ],
+        "3": [
+          "melee-wpn-blade-t3-machete"
+        ]
+      },
+      "relatedItems": [
+        "melee-wpn-blade-t0-bone-knife",
+        "melee-wpn-blade-t1-hunting-knife",
+        "melee-wpn-blade-t3-machete"
+      ]
+    },
+    "javelin-master": {
+      "name": "Javelin Master",
+      "catalogPerk": "Javelin Master",
+      "armorSet": "nomad",
+      "unlocksByLevel": {
+        "1": [
+          "melee-wpn-spear-t0-stone-spear"
+        ],
+        "2": [
+          "melee-wpn-spear-t1-iron-spear"
+        ],
+        "3": [
+          "melee-wpn-spear-t3-steel-spear"
+        ]
+      },
+      "relatedItems": [
+        "melee-wpn-spear-t0-stone-spear",
+        "melee-wpn-spear-t1-iron-spear",
+        "melee-wpn-spear-t3-steel-spear"
+      ]
+    },
+    "boomstick": {
+      "name": "Boomstick",
+      "catalogPerk": "Boomstick",
+      "armorSet": "biker",
+      "unlocksByLevel": {
+        "1": [
+          "gun-shotgun-t0-pipe-shotgun"
+        ],
+        "2": [
+          "gun-shotgun-t1-double-barrel"
+        ],
+        "3": [
+          "gun-shotgun-t2-pump-shotgun"
+        ],
+        "4": [
+          "gun-shotgun-t3-auto-shotgun"
+        ]
+      },
+      "relatedItems": [
+        "ammo-shotgun-shell",
+        "gun-shotgun-t0-pipe-shotgun",
+        "gun-shotgun-t1-double-barrel",
+        "gun-shotgun-t2-pump-shotgun",
+        "gun-shotgun-t3-auto-shotgun"
+      ]
+    },
+    "dead-eye": {
+      "name": "Dead Eye",
+      "catalogPerk": "Dead Eye",
+      "armorSet": "ranger",
+      "unlocksByLevel": {
+        "1": [
+          "gun-rifle-t0-pipe-rifle"
+        ],
+        "2": [
+          "gun-rifle-t1-hunting-rifle"
+        ],
+        "3": [
+          "gun-rifle-t2-lever-action-rifle"
+        ],
+        "4": [
+          "gun-rifle-t3-sniper-rifle"
+        ]
+      },
+      "relatedItems": [
+        "ammo762mm-bullet-a-p",
+        "gun-rifle-t0-pipe-rifle",
+        "gun-rifle-t1-hunting-rifle",
+        "gun-rifle-t2-lever-action-rifle",
+        "gun-rifle-t3-sniper-rifle"
+      ]
+    },
+    "machine-gunner": {
+      "name": "Machine Gunner",
+      "catalogPerk": "Machine Gunner",
+      "armorSet": "commando",
+      "unlocksByLevel": {
+        "1": [
+          "gun-m-g-t0-pipe-machine-gun"
+        ],
+        "2": [
+          "gun-handgun-t3-s-m-g5"
+        ],
+        "3": [
+          "gun-m-g-t1-a-k47"
+        ],
+        "4": [
+          "gun-m-g-t2-tactical-a-r"
+        ],
+        "5": [
+          "gun-m-g-t3-m60"
+        ]
+      },
+      "relatedItems": [
+        "ammo762mm-bullet-a-p",
+        "gun-handgun-t3-s-m-g5",
+        "gun-m-g-t0-pipe-machine-gun",
+        "gun-m-g-t1-a-k47",
+        "gun-m-g-t2-tactical-a-r",
+        "gun-m-g-t3-m60"
+      ]
+    },
+    "run-and-gun": {
+      "name": "Run And Gun",
+      "catalogPerk": null,
+      "armorSet": "athletic",
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "better-barter": {
+      "name": "Better Barter",
+      "catalogPerk": null,
+      "armorSet": "preacher",
+      "unlocksByLevel": {},
+      "relatedItems": []
+    },
+    "master-chef": {
+      "name": "Master Chef",
+      "catalogPerk": "Master Chef",
+      "armorSet": "farmer",
+      "unlocksByLevel": {
+        "1": [
+          "food-grilled-meat"
+        ],
+        "2": [
+          "food-gumbo-stew"
+        ],
+        "3": [
+          "food-sham-chowder"
+        ]
+      },
+      "relatedItems": [
+        "food-grilled-meat",
+        "food-gumbo-stew",
+        "food-sham-chowder"
+      ]
+    },
+    "grease-monkey": {
+      "name": "Grease Monkey",
+      "catalogPerk": null,
+      "armorSet": "biker",
+      "unlocksByLevel": {
+        "1": [
+          "vehicle-bicycle-placeable",
+          "bicycle-chassis"
+        ],
+        "2": [
+          "vehicle-minibike-placeable",
+          "minibike-chassis"
+        ],
+        "3": [
+          "vehicle-motorcycle-placeable",
+          "motorcycle-chassis"
+        ],
+        "4": [
+          "vehicle-truck4x4-placeable"
+        ],
+        "5": [
+          "vehicle-gyrocopter-placeable"
+        ]
+      },
+      "relatedItems": [
+        "bicycle-chassis",
+        "bicycle-handlebars",
+        "gyro-accessories",
+        "gyro-chassis",
+        "minibike-chassis",
+        "minibike-handlebars",
+        "mod-vehicle-fuel-saver",
+        "motorcycle-chassis",
+        "motorcycle-handlebars",
+        "truck-accessories",
+        "truck-chassis",
+        "vehicle-bicycle-placeable",
+        "vehicle-gyrocopter-placeable",
+        "vehicle-minibike-placeable",
+        "vehicle-motorcycle-placeable",
+        "vehicle-truck4x4-placeable",
+        "vehicle-wheels"
+      ]
+    },
+    "electrocutioner": {
+      "name": "Electrocutioner",
+      "catalogPerk": "Electrocutioner",
+      "armorSet": "nerd",
+      "unlocksByLevel": {
+        "1": [
+          "melee-wpn-baton-t0-pipe-baton"
+        ],
+        "2": [
+          "melee-wpn-baton-t2-stun-baton"
+        ],
+        "3": [
+          "electricfencepost"
+        ]
+      },
+      "relatedItems": [
+        "electricfencepost",
+        "melee-wpn-baton-t0-pipe-baton",
+        "melee-wpn-baton-t2-stun-baton",
+        "mod-melee-stun-repulsor"
+      ]
+    },
+    "robotics-inventor": {
+      "name": "Robotics Inventor",
+      "catalogPerk": "Robotics Inventor",
+      "armorSet": "nerd",
+      "unlocksByLevel": {
+        "1": [
+          "gun-bot-t2-junk-turret"
+        ],
+        "2": [
+          "gun-bot-t1-junk-sledge"
+        ]
+      },
+      "relatedItems": [
+        "ammo-junk-turret-regular",
+        "gun-bot-robotics-parts",
+        "gun-bot-t1-junk-sledge",
+        "gun-bot-t2-junk-turret",
+        "mod-drone-cargo",
+        "mod-drone-medic"
+      ]
+    },
+    "demolitions-expert": {
+      "name": "Demolitions Expert",
+      "catalogPerk": "Demolitions Expert",
+      "armorSet": "raider",
+      "unlocksByLevel": {
+        "3": [
+          "gun-explosives-t3-rocket-launcher"
+        ],
+        "4": [
+          "ammo-rocket-h-e"
+        ]
+      },
+      "relatedItems": [
+        "ammo-rocket-frag",
+        "ammo-rocket-h-e",
+        "gun-explosives-t3-rocket-launcher"
+      ]
+    }
+  },
+  "_gaps": {
+    "unmappedCraftTiers": [],
+    "catalogItemsWithoutIcons": []
+  }
+}

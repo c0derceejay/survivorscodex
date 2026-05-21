@@ -1,0 +1,6423 @@
+{
+  "_comment": "Cached wiki.gg infobox stats. Regenerate: npm run stats:wiki",
+  "_fetched": "2026-05-21",
+  "items": {
+    "melee-wpn-baton-t0-pipe-baton": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          12,
+          13.2,
+          14.4,
+          15.6,
+          16.8,
+          18
+        ],
+        "blockDamage": [
+          12,
+          13.2,
+          14.4,
+          15.6,
+          16.8,
+          18
+        ],
+        "durability": [
+          100,
+          140,
+          180,
+          220,
+          260,
+          300
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Baton",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "14.8",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "60",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pipe Baton](https://7daystodie.wiki.gg/wiki/Pipe_Baton)."
+      ],
+      "wikiPage": "Pipe Baton"
+    },
+    "melee-wpn-baton-t2-stun-baton": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          20,
+          22.3,
+          24.7,
+          25.3,
+          27.6,
+          29.9
+        ],
+        "blockDamage": [
+          12,
+          13.2,
+          14.4,
+          15.6,
+          16.8,
+          18
+        ],
+        "durability": [
+          300,
+          380,
+          460,
+          540,
+          620,
+          700
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Baton",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "15.5",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "70",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Stun Baton](https://7daystodie.wiki.gg/wiki/Stun_Baton)."
+      ],
+      "wikiPage": "Stun Baton"
+    },
+    "melee-wpn-blade-t0-bone-knife": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          5,
+          5.5,
+          6,
+          6.5,
+          7,
+          7.5
+        ],
+        "blockDamage": [
+          4,
+          4.4,
+          4.8,
+          5.2,
+          5.6,
+          6
+        ],
+        "durability": [
+          250,
+          300,
+          350,
+          500,
+          450,
+          500
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Knife",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "7.3",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "120",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Bone Knife](https://7daystodie.wiki.gg/wiki/Bone_Knife)."
+      ],
+      "wikiPage": "Bone Knife"
+    },
+    "melee-wpn-blade-t1-hunting-knife": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          12,
+          13.2,
+          14.4,
+          15.6,
+          16.8,
+          18
+        ],
+        "blockDamage": [
+          6.5,
+          7.1,
+          7.8,
+          8.4,
+          9.1,
+          9.7
+        ],
+        "durability": [
+          500,
+          600,
+          700,
+          800,
+          900,
+          1000
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Knife",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "10.5",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "120",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Hunting Knife](https://7daystodie.wiki.gg/wiki/Hunting_Knife)."
+      ],
+      "wikiPage": "Hunting Knife"
+    },
+    "melee-wpn-blade-t3-machete": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          25,
+          27.5,
+          30,
+          32.5,
+          35,
+          37.5
+        ],
+        "blockDamage": [
+          21,
+          23.1,
+          25.2,
+          27.3,
+          29.4,
+          31.5
+        ],
+        "durability": [
+          1000,
+          1200,
+          1400,
+          1600,
+          1800,
+          2000
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Knife",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "16",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "65",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.3",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Machete](https://7daystodie.wiki.gg/wiki/Machete)."
+      ],
+      "wikiPage": "Machete"
+    },
+    "melee-wpn-blade-t3-machete-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Parts",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Machete Parts](https://7daystodie.wiki.gg/wiki/Machete_Parts)."
+      ],
+      "wikiPage": "Machete Parts"
+    },
+    "melee-wpn-club-t1-baseball-bat": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "blockDamage": [
+          18,
+          19.8,
+          21.6,
+          23.4,
+          25.2,
+          27
+        ],
+        "durability": [
+          200,
+          260,
+          320,
+          380,
+          440,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Club",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "20.9",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "52",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Baseball Bat](https://7daystodie.wiki.gg/wiki/Baseball_Bat)."
+      ],
+      "wikiPage": "Baseball Bat"
+    },
+    "melee-wpn-club-t3-steel-club": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          32.5,
+          35.7,
+          39,
+          42.2,
+          45.5,
+          48.7
+        ],
+        "blockDamage": [
+          30,
+          33,
+          36,
+          39,
+          42,
+          45
+        ],
+        "durability": [
+          500,
+          600,
+          700,
+          800,
+          900,
+          1000
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Club",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "23.7",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "52",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Club](https://7daystodie.wiki.gg/wiki/Steel_Club)."
+      ],
+      "wikiPage": "Steel Club"
+    },
+    "melee-wpn-club-t3-steel-club-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Parts",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Club Parts](https://7daystodie.wiki.gg/wiki/Steel_Club_Parts)."
+      ],
+      "wikiPage": "Steel Club Parts"
+    },
+    "melee-wpn-club-t0-wooden-club": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          12,
+          13.2,
+          14.4,
+          15.6,
+          16.8,
+          18
+        ],
+        "blockDamage": [
+          11,
+          12.1,
+          13.2,
+          14.3,
+          15.4,
+          16.5
+        ],
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Club",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "17.4",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "55",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Wooden Club](https://7daystodie.wiki.gg/wiki/Wooden_Club)."
+      ],
+      "wikiPage": "Wooden Club"
+    },
+    "melee-wpn-knuckles-t1-iron-knuckles": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          11.5,
+          12.6,
+          13.8,
+          14.9,
+          16.1,
+          17.2
+        ],
+        "blockDamage": [
+          3.5,
+          3.8,
+          4.2,
+          4.5,
+          4.9,
+          5.2
+        ],
+        "durability": [
+          300,
+          380,
+          460,
+          540,
+          620,
+          700
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Knuckles",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "9.6",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "100",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Iron Knuckles](https://7daystodie.wiki.gg/wiki/Iron_Knuckles)."
+      ],
+      "wikiPage": "Iron Knuckles"
+    },
+    "melee-wpn-knuckles-t3-steel-knuckles": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          19,
+          20.9,
+          22.8,
+          23.7,
+          25.6,
+          27.5
+        ],
+        "blockDamage": [
+          6,
+          6.6,
+          7.2,
+          7.8,
+          8.4,
+          9
+        ],
+        "durability": [
+          700,
+          840,
+          980,
+          1120,
+          1260,
+          1400
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Knuckles",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "10.2",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "100",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Knuckles](https://7daystodie.wiki.gg/wiki/Steel_Knuckles)."
+      ],
+      "wikiPage": "Steel Knuckles"
+    },
+    "melee-wpn-knuckles-t3-steel-knuckles-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Parts",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Knuckles Parts](https://7daystodie.wiki.gg/wiki/Steel_Knuckles_Parts)."
+      ],
+      "wikiPage": "Steel Knuckles Parts"
+    },
+    "melee-wpn-sledge-t1-iron-sledgehammer": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          32,
+          35.2,
+          38.4,
+          41.6,
+          44.8,
+          48
+        ],
+        "blockDamage": [
+          52,
+          57.2,
+          62.4,
+          67.6,
+          72.8,
+          78
+        ],
+        "durability": [
+          200,
+          240,
+          280,
+          320,
+          360,
+          400
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Sledgehammer",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "36.7",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "34",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.6",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Iron Sledgehammer](https://7daystodie.wiki.gg/wiki/Iron_Sledgehammer)."
+      ],
+      "wikiPage": "Iron Sledgehammer"
+    },
+    "melee-wpn-sledge-t3-steel-sledgehammer": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          55,
+          60.5,
+          66,
+          71.5,
+          77,
+          82.5
+        ],
+        "blockDamage": [
+          85,
+          93.5,
+          102,
+          110,
+          119,
+          127
+        ],
+        "durability": [
+          400,
+          480,
+          560,
+          640,
+          720,
+          800
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Sledgehammer",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "40.5",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "34",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.6",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Sledgehammer](https://7daystodie.wiki.gg/wiki/Steel_Sledgehammer)."
+      ],
+      "wikiPage": "Steel Sledgehammer"
+    },
+    "melee-wpn-sledge-t3-steel-sledgehammer-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Parts",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Sledgehammer Parts](https://7daystodie.wiki.gg/wiki/Steel_Sledgehammer_Parts)."
+      ],
+      "wikiPage": "Steel Sledgehammer Parts"
+    },
+    "melee-wpn-sledge-t0-stone-sledgehammer": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          18,
+          19.8,
+          21.6,
+          23.4,
+          25.2,
+          27
+        ],
+        "blockDamage": [
+          28,
+          30.8,
+          33.6,
+          36.4,
+          39.2,
+          42
+        ],
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Sledgehammer",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "22.3",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "50",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.6",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Stone Sledgehammer](https://7daystodie.wiki.gg/wiki/Stone_Sledgehammer)."
+      ],
+      "wikiPage": "Stone Sledgehammer"
+    },
+    "melee-wpn-spear-t1-iron-spear": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "blockDamage": [
+          8,
+          8.8,
+          9.6,
+          10.4,
+          11.2,
+          12
+        ],
+        "durability": [
+          200,
+          240,
+          280,
+          320,
+          360,
+          400
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Spear",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "20.3",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "55",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "3.5",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Iron Spear](https://7daystodie.wiki.gg/wiki/Iron_Spear)."
+      ],
+      "wikiPage": "Iron Spear"
+    },
+    "melee-wpn-spear-t3-steel-spear": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          33,
+          36.3,
+          39.6,
+          42.9,
+          46.2,
+          49.5
+        ],
+        "blockDamage": [
+          15,
+          16.5,
+          18,
+          19.5,
+          21,
+          22.5
+        ],
+        "durability": [
+          400,
+          480,
+          560,
+          640,
+          720,
+          800
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Spear",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "22.4",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "55",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "3.5",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Spear](https://7daystodie.wiki.gg/wiki/Steel_Spear)."
+      ],
+      "wikiPage": "Steel Spear"
+    },
+    "melee-wpn-spear-t3-steel-spear-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Parts",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Spear Parts](https://7daystodie.wiki.gg/wiki/Steel_Spear_Parts)."
+      ],
+      "wikiPage": "Steel Spear Parts"
+    },
+    "melee-wpn-spear-t0-stone-spear": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          12,
+          13.2,
+          14.4,
+          15.6,
+          16.8,
+          18
+        ],
+        "blockDamage": [
+          5,
+          5.5,
+          6,
+          6.5,
+          7,
+          7.5
+        ],
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Spear",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "18.5",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "55",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "3.5",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Stone Spear](https://7daystodie.wiki.gg/wiki/Stone_Spear)."
+      ],
+      "wikiPage": "Stone Spear"
+    },
+    "gun-bow-t3-compound-bow": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          350,
+          400,
+          450,
+          500,
+          550,
+          600
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ],
+        "effectiveRange": [
+          30,
+          31,
+          33,
+          34,
+          35,
+          36
+        ],
+        "magazineSize": [
+          36,
+          39,
+          43,
+          47,
+          51,
+          55
+        ],
+        "entityDamage": [
+          64,
+          70.4,
+          76.8,
+          83.2,
+          89.6,
+          96
+        ],
+        "blockDamage": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Bow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Stone Arrow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "100",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Compound Bow](https://7daystodie.wiki.gg/wiki/Compound_Bow)."
+      ],
+      "wikiPage": "Compound Bow"
+    },
+    "gun-bow-t3-compound-crossbow": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          350,
+          400,
+          450,
+          500,
+          550,
+          600
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ],
+        "effectiveRange": [
+          36,
+          37,
+          38,
+          40,
+          41,
+          43
+        ],
+        "magazineSize": [
+          56,
+          59,
+          63,
+          67,
+          71,
+          75
+        ],
+        "entityDamage": [
+          75,
+          82.5,
+          90,
+          97.5,
+          105,
+          112.5
+        ],
+        "blockDamage": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Crossbow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Stone Crossbow Bolt",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "100}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Compound Crossbow](https://7daystodie.wiki.gg/wiki/Compound_Crossbow)."
+      ],
+      "wikiPage": "Compound Crossbow"
+    },
+    "gun-bow-t1-iron-crossbow": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          200,
+          230,
+          260,
+          290,
+          320,
+          350
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          4
+        ],
+        "effectiveRange": [
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "magazineSize": [
+          21,
+          23,
+          26,
+          29,
+          32,
+          35
+        ],
+        "entityDamage": [
+          50,
+          55,
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Crossbow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Stone Crossbow Bolt",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "100}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Iron Crossbow](https://7daystodie.wiki.gg/wiki/Iron_Crossbow)."
+      ],
+      "wikiPage": "Iron Crossbow"
+    },
+    "gun-bow-t0-primitive-bow": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "magazineSize": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "entityDamage": [
+          30,
+          33,
+          36,
+          39,
+          42,
+          45
+        ],
+        "blockDamage": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Bow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Stone Arrow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "100",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Primitive Bow](https://7daystodie.wiki.gg/wiki/Primitive_Bow)."
+      ],
+      "wikiPage": "Primitive Bow"
+    },
+    "gun-bow-t1-wooden-bow": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          200,
+          230,
+          260,
+          290,
+          320,
+          350
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ],
+        "effectiveRange": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "magazineSize": [
+          11,
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "entityDamage": [
+          44,
+          48.4,
+          52.8,
+          57.2,
+          61.6,
+          66
+        ],
+        "blockDamage": [
+          1,
+          1.1,
+          1.2,
+          1.3,
+          1.4,
+          1.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Bow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Stone Arrow",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "100}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Wooden Bow](https://7daystodie.wiki.gg/wiki/Wooden_Bow)."
+      ],
+      "wikiPage": "Wooden Bow"
+    },
+    "gun-explosives-t3-rocket-launcher": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "effectiveRange": [
+          56,
+          61,
+          67,
+          72,
+          78,
+          84
+        ],
+        "magazineSize": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "entityDamage": [
+          420,
+          462,
+          504,
+          546,
+          588,
+          630
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Explosives",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Rocket HE",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "100}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Rocket Launcher](https://7daystodie.wiki.gg/wiki/Rocket_Launcher)."
+      ],
+      "wikiPage": "Rocket Launcher"
+    },
+    "gun-explosives-t3-rocket-launcher-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Parts",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Rocket Launcher Parts](https://7daystodie.wiki.gg/wiki/Rocket_Launcher_Parts)."
+      ],
+      "wikiPage": "Rocket Launcher Parts"
+    },
+    "gun-handgun-t2-magnum44": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          400,
+          420,
+          440,
+          460,
+          480,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          4
+        ],
+        "effectiveRange": [
+          21,
+          23,
+          25,
+          28,
+          30,
+          32
+        ],
+        "magazineSize": [
+          26,
+          29,
+          33,
+          37,
+          41,
+          45
+        ],
+        "entityDamage": [
+          65,
+          71.5,
+          78,
+          84.5,
+          91,
+          97.5
+        ],
+        "blockDamage": [
+          12,
+          13.2,
+          14.4,
+          15.6,
+          16.8,
+          18
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Handgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": ".44 Magnum Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "70}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg .44 Magnum](https://7daystodie.wiki.gg/wiki/.44_Magnum)."
+      ],
+      "wikiPage": ".44 Magnum"
+    },
+    "gun-handgun-t0-pipe-pistol": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "magazineSize": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "entityDamage": [
+          28,
+          30.8,
+          33.6,
+          36.4,
+          39.2,
+          42
+        ],
+        "blockDamage": [
+          3.9,
+          4.3,
+          4.7,
+          5.1,
+          5.5,
+          5.9
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Handgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "9mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "40}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pipe Pistol](https://7daystodie.wiki.gg/wiki/Pipe_Pistol)."
+      ],
+      "wikiPage": "Pipe Pistol"
+    },
+    "gun-handgun-t1-pistol": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          300,
+          320,
+          340,
+          360,
+          380,
+          400
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ],
+        "effectiveRange": [
+          13,
+          14,
+          15,
+          17,
+          19,
+          20
+        ],
+        "magazineSize": [
+          11,
+          13,
+          16,
+          19,
+          22,
+          25
+        ],
+        "entityDamage": [
+          37,
+          40.7,
+          44.4,
+          48.1,
+          51.8,
+          55.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Handgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "9mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "50}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pistol](https://7daystodie.wiki.gg/wiki/Pistol)."
+      ],
+      "wikiPage": "Pistol"
+    },
+    "gun-handgun-t1-pistol-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Gun Part",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pistol Parts](https://7daystodie.wiki.gg/wiki/Pistol_Parts)."
+      ],
+      "wikiPage": "Pistol Parts"
+    },
+    "gun-handgun-t3-s-m-g5": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          500,
+          540,
+          580,
+          620,
+          660,
+          700
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ],
+        "effectiveRange": [
+          24,
+          26,
+          28,
+          31,
+          33,
+          36
+        ],
+        "magazineSize": [
+          46,
+          50,
+          55,
+          60,
+          65,
+          70
+        ],
+        "entityDamage": [
+          50,
+          55,
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Handgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "9mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "65}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg SMG-5](https://7daystodie.wiki.gg/wiki/SMG-5)."
+      ],
+      "wikiPage": "SMG-5"
+    },
+    "gun-m-g-t1-a-k47": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          200,
+          240,
+          280,
+          320,
+          360,
+          400
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ],
+        "effectiveRange": [
+          36,
+          38,
+          39,
+          40,
+          41,
+          43
+        ],
+        "magazineSize": [
+          11,
+          13,
+          16,
+          19,
+          22,
+          25
+        ],
+        "entityDamage": [
+          40,
+          44,
+          48,
+          52,
+          56,
+          60
+        ],
+        "blockDamage": [
+          5,
+          5.5,
+          6,
+          6.5,
+          7,
+          7.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Machine Gun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "7.62mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "90}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg AK-47 Machine Gun](https://7daystodie.wiki.gg/wiki/AK-47_Machine_Gun)."
+      ],
+      "wikiPage": "AK-47 Machine Gun"
+    },
+    "gun-m-g-t3-m60": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          700,
+          780,
+          860,
+          940,
+          1020,
+          1100
+        ],
+        "effectiveRange": [
+          52,
+          53,
+          55,
+          57,
+          59,
+          60
+        ],
+        "magazineSize": [
+          61,
+          68,
+          76,
+          84,
+          92,
+          100
+        ],
+        "entityDamage": [
+          70,
+          77,
+          84,
+          91,
+          98,
+          105
+        ],
+        "blockDamage": [
+          6,
+          6.6,
+          7.2,
+          7.8,
+          8.4,
+          9
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Machine Gun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "7.62mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "90}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg M60 Machine Gun](https://7daystodie.wiki.gg/wiki/M60_Machine_Gun)."
+      ],
+      "wikiPage": "M60 Machine Gun"
+    },
+    "gun-m-g-t0-pipe-machine-gun": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "magazineSize": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "entityDamage": [
+          30,
+          33,
+          36,
+          39,
+          42,
+          45
+        ],
+        "blockDamage": [
+          5,
+          5.5,
+          6,
+          6.5,
+          7,
+          7.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Machine Gun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "7.62mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "90}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pipe Machine Gun](https://7daystodie.wiki.gg/wiki/Pipe_Machine_Gun)."
+      ],
+      "wikiPage": "Pipe Machine Gun"
+    },
+    "gun-m-g-t2-tactical-a-r": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          400,
+          460,
+          520,
+          580,
+          640,
+          700
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ],
+        "effectiveRange": [
+          44,
+          45,
+          47,
+          48,
+          49,
+          51
+        ],
+        "magazineSize": [
+          26,
+          32,
+          39,
+          46,
+          53,
+          60
+        ],
+        "entityDamage": [
+          53,
+          58.3,
+          63.6,
+          68.9,
+          74.2,
+          79.5
+        ],
+        "blockDamage": [
+          6,
+          6.6,
+          7.2,
+          7.8,
+          8.4,
+          9
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Machine Gun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "7.62mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "90}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Tactical Assault Rifle](https://7daystodie.wiki.gg/wiki/Tactical_Assault_Rifle)."
+      ],
+      "wikiPage": "Tactical Assault Rifle"
+    },
+    "gun-rifle-t1-hunting-rifle": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          200,
+          240,
+          280,
+          320,
+          360,
+          400
+        ],
+        "magazineSize": [
+          11,
+          13,
+          16,
+          19,
+          22,
+          25
+        ],
+        "entityDamage": [
+          58,
+          63.8,
+          69.6,
+          75.4,
+          81.2,
+          87
+        ],
+        "blockDamage": [
+          7,
+          7.7,
+          8.4,
+          9.1,
+          9.8,
+          10.5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Rifle",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "7.62mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "150}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Hunting Rifle](https://7daystodie.wiki.gg/wiki/Hunting_Rifle)."
+      ],
+      "wikiPage": "Hunting Rifle"
+    },
+    "gun-rifle-t1-hunting-rifle-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Gun Part",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Hunting Rifle Parts](https://7daystodie.wiki.gg/wiki/Hunting_Rifle_Parts)."
+      ],
+      "wikiPage": "Hunting Rifle Parts"
+    },
+    "gun-rifle-t0-pipe-rifle": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "magazineSize": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "entityDamage": [
+          44,
+          48.4,
+          52.8,
+          57.2,
+          61.6,
+          66
+        ],
+        "blockDamage": [
+          6,
+          6.6,
+          7.2,
+          7.8,
+          8.4,
+          9
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Rifle",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "7.62mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "150}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pipe Rifle](https://7daystodie.wiki.gg/wiki/Pipe_Rifle)."
+      ],
+      "wikiPage": "Pipe Rifle"
+    },
+    "gun-rifle-t3-sniper-rifle": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          700,
+          780,
+          860,
+          940,
+          1020,
+          1100
+        ],
+        "effectiveRange": [
+          72,
+          74,
+          76,
+          79,
+          81,
+          84
+        ],
+        "magazineSize": [
+          61,
+          68,
+          76,
+          84,
+          92,
+          100
+        ],
+        "entityDamage": [
+          100,
+          110,
+          120,
+          130,
+          140,
+          150
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Rifle",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "7.62mm Ammo",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "150}}",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Sniper Rifle](https://7daystodie.wiki.gg/wiki/Sniper_Rifle)."
+      ],
+      "wikiPage": "Sniper Rifle"
+    },
+    "gun-shotgun-t3-auto-shotgun": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          700,
+          780,
+          860,
+          940,
+          1020,
+          1100
+        ],
+        "magazineSize": [
+          61,
+          68,
+          76,
+          84,
+          92,
+          100
+        ],
+        "entityDamage": [
+          110.1,
+          121.1,
+          132.1,
+          143.1,
+          154.1,
+          165.1
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Shotgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Shotgun Shell",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Auto Shotgun](https://7daystodie.wiki.gg/wiki/Auto_Shotgun)."
+      ],
+      "wikiPage": "Auto Shotgun"
+    },
+    "gun-shotgun-t1-double-barrel": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          200,
+          240,
+          280,
+          320,
+          360,
+          400
+        ],
+        "magazineSize": [
+          11,
+          13,
+          16,
+          19,
+          22,
+          25
+        ],
+        "entityDamage": [
+          20.1,
+          22.1,
+          24.1,
+          26.1,
+          28.1,
+          30.2
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Shotgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Shotgun Shell",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Double Barrel Shotgun](https://7daystodie.wiki.gg/wiki/Double_Barrel_Shotgun)."
+      ],
+      "wikiPage": "Double Barrel Shotgun"
+    },
+    "gun-shotgun-t0-pipe-shotgun": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "magazineSize": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "entityDamage": [
+          -9.9,
+          -10.9,
+          -11.9,
+          -12.9,
+          -13.9,
+          -14.8
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Shotgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Shotgun Shell",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pipe Shotgun](https://7daystodie.wiki.gg/wiki/Pipe_Shotgun)."
+      ],
+      "wikiPage": "Pipe Shotgun"
+    },
+    "gun-shotgun-t2-pump-shotgun": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          400,
+          460,
+          520,
+          580,
+          640,
+          700
+        ],
+        "magazineSize": [
+          26,
+          32,
+          39,
+          46,
+          53,
+          60
+        ],
+        "entityDamage": [
+          60.1,
+          66.1,
+          72.1,
+          78.1,
+          84.1,
+          90.2
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Shotgun",
+          "tone": "neutral"
+        },
+        {
+          "label": "Ammo (default)",
+          "value": "Shotgun Shell",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pump Shotgun](https://7daystodie.wiki.gg/wiki/Pump_Shotgun)."
+      ],
+      "wikiPage": "Pump Shotgun"
+    },
+    "ammo-gas-can": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Fuel",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Gas Can](https://7daystodie.wiki.gg/wiki/Gas_Can)."
+      ],
+      "wikiPage": "Gas Can"
+    },
+    "ammo-rocket-frag": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Explosives, Rocket",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Rocket Frag](https://7daystodie.wiki.gg/wiki/Rocket_Frag)."
+      ],
+      "wikiPage": "Rocket Frag"
+    },
+    "melee-tool-axe-t3-chainsaw": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          6,
+          6.7,
+          7.4,
+          7.6,
+          8.2,
+          8.9
+        ],
+        "blockDamage": [
+          26.1,
+          31.7,
+          28.8,
+          34,
+          38,
+          43.3
+        ],
+        "durability": [
+          2000,
+          2600,
+          3200,
+          3800,
+          4400,
+          5000
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Motor Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "300",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.35",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Chainsaw](https://7daystodie.wiki.gg/wiki/Chainsaw)."
+      ],
+      "wikiPage": "Chainsaw"
+    },
+    "melee-tool-axe-t3-chainsaw-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Chainsaw Part",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Chainsaw Parts](https://7daystodie.wiki.gg/wiki/Chainsaw_Parts)."
+      ],
+      "wikiPage": "Chainsaw Parts"
+    },
+    "melee-tool-axe-t1-iron-fireaxe": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          15.1,
+          16.8,
+          18.4,
+          18.9,
+          20.6,
+          22.4
+        ],
+        "blockDamage": [
+          47.6,
+          55.4,
+          62.7,
+          66.7,
+          74.2,
+          82.1
+        ],
+        "durability": [
+          500,
+          600,
+          700,
+          800,
+          900,
+          1000
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Axe",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "18.4",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "65",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.6",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Iron Fireaxe](https://7daystodie.wiki.gg/wiki/Iron_Fireaxe)."
+      ],
+      "wikiPage": "Iron Fireaxe"
+    },
+    "melee-tool-axe-t2-steel-axe": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          29.1,
+          32.4,
+          35.8,
+          36.8,
+          40.2,
+          43.3
+        ],
+        "blockDamage": [
+          89.8,
+          104.2,
+          112.1,
+          126.6,
+          141.5,
+          155.5
+        ],
+        "durability": [
+          1000,
+          1200,
+          1400,
+          1600,
+          1800,
+          2000
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Axe",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "26.4",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "55",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.6",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steel Axe](https://7daystodie.wiki.gg/wiki/Steel_Axe)."
+      ],
+      "wikiPage": "Steel Axe"
+    },
+    "cement-mixer": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Workstation",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Cement Mixer](https://7daystodie.wiki.gg/wiki/Cement_Mixer)."
+      ],
+      "wikiPage": "Cement Mixer"
+    },
+    "chemistry-station": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Workstation",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Chemistry Station](https://7daystodie.wiki.gg/wiki/Chemistry_Station)."
+      ],
+      "wikiPage": "Chemistry Station"
+    },
+    "forge": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Workstation",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Forge](https://7daystodie.wiki.gg/wiki/Forge)."
+      ],
+      "wikiPage": "Forge"
+    },
+    "melee-tool-pick-t3-auger": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          4.2,
+          4.6,
+          5.2,
+          5.3,
+          5.7,
+          6.2
+        ],
+        "blockDamage": [
+          22.9,
+          26.9,
+          25.4,
+          30,
+          33.4,
+          38.6
+        ],
+        "durability": [
+          2000,
+          2600,
+          3200,
+          3800,
+          4400,
+          5000
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Motor Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "300",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.35",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Auger](https://7daystodie.wiki.gg/wiki/Auger)."
+      ],
+      "wikiPage": "Auger"
+    },
+    "melee-tool-repair-t1-claw-hammer": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          12.1,
+          13.4,
+          14.7,
+          15.2,
+          16.5,
+          17.9
+        ],
+        "blockDamage": [
+          22.3,
+          24.7,
+          27.2,
+          28,
+          30.4,
+          32.9
+        ],
+        "durability": [
+          300,
+          440,
+          580,
+          720,
+          860,
+          1000
+        ],
+        "modSlots": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Repair Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "17.1",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "70",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.2",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Claw Hammer](https://7daystodie.wiki.gg/wiki/Claw_Hammer)."
+      ],
+      "wikiPage": "Claw Hammer"
+    },
+    "melee-tool-repair-t3-nailgun": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          1000,
+          1200,
+          1400,
+          1600,
+          1800,
+          2000
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Repair Tool",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Nailgun](https://7daystodie.wiki.gg/wiki/Nailgun)."
+      ],
+      "wikiPage": "Nailgun"
+    },
+    "melee-tool-repair-t0-stone-axe": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          6,
+          6.6,
+          7.2,
+          7.8,
+          8.4,
+          9
+        ],
+        "blockDamage": [
+          22,
+          25.3,
+          28.6,
+          31.9,
+          35.2,
+          38.5
+        ],
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Axe, Repair Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "8",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "105",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Stone Axe](https://7daystodie.wiki.gg/wiki/Stone_Axe)."
+      ],
+      "wikiPage": "Stone Axe"
+    },
+    "melee-tool-salvage-t3-impact-driver": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          16.6,
+          18.5,
+          20.4,
+          20.9,
+          22.6,
+          24.7
+        ],
+        "blockDamage": [
+          111.2,
+          124.1,
+          127.8,
+          140.3,
+          151.6,
+          165.1
+        ],
+        "modSlots": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Salvage Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "20",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "50",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Impact Driver](https://7daystodie.wiki.gg/wiki/Impact_Driver)."
+      ],
+      "wikiPage": "Impact Driver"
+    },
+    "melee-tool-salvage-t2-ratchet": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          16.7,
+          19.6,
+          22.5,
+          22.9,
+          25.9,
+          28.5
+        ],
+        "blockDamage": [
+          70.8,
+          78.6,
+          86.5,
+          89.1,
+          97.2,
+          104.5
+        ],
+        "durability": [
+          700,
+          850,
+          1000,
+          1150,
+          1300,
+          1450
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Salvage Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "18",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "50",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Ratchet](https://7daystodie.wiki.gg/wiki/Ratchet)."
+      ],
+      "wikiPage": "Ratchet"
+    },
+    "melee-tool-salvage-t1-wrench": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          16.6,
+          18.5,
+          20.3,
+          20.9,
+          22.8,
+          24.6
+        ],
+        "blockDamage": [
+          39.6,
+          43.9,
+          48.1,
+          49.5,
+          54.1,
+          58.4
+        ],
+        "durability": [
+          200,
+          300,
+          400,
+          500,
+          600,
+          700
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Salvage Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "16.5",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "50",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Wrench](https://7daystodie.wiki.gg/wiki/Wrench)."
+      ],
+      "wikiPage": "Wrench"
+    },
+    "melee-tool-shovel-t1-iron-shovel": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          15,
+          16.8,
+          18.5,
+          18.9,
+          20.7,
+          22.5
+        ],
+        "blockDamage": [
+          62.5,
+          69.7,
+          76.7,
+          78.6,
+          86,
+          93.2
+        ],
+        "durability": [
+          500,
+          600,
+          700,
+          800,
+          900,
+          1000
+        ],
+        "modSlots": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Shovel",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "20.3",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "50",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.6",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Iron Shovel](https://7daystodie.wiki.gg/wiki/Iron_Shovel)."
+      ],
+      "wikiPage": "Iron Shovel"
+    },
+    "melee-tool-shovel-t0-stone-shovel": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          9,
+          9.9,
+          10.8,
+          11.7,
+          12.5,
+          13.5
+        ],
+        "blockDamage": [
+          38,
+          41.8,
+          45.6,
+          49.3,
+          53.2,
+          57
+        ],
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Shovel",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "16.2",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "50",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.6",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Stone Shovel](https://7daystodie.wiki.gg/wiki/Stone_Shovel)."
+      ],
+      "wikiPage": "Stone Shovel"
+    },
+    "melee-tool-torch": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Lighting, Special Tool",
+          "tone": "neutral"
+        },
+        {
+          "label": "Stamina per swing",
+          "value": "21.8",
+          "tone": "warn"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "50",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2.4",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Torch](https://7daystodie.wiki.gg/wiki/Torch)."
+      ],
+      "wikiPage": "Torch"
+    },
+    "melee-tool-wire-tool": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Special Tool",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Wire Tool](https://7daystodie.wiki.gg/wiki/Wire_Tool)."
+      ],
+      "wikiPage": "Wire Tool"
+    },
+    "workbench": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Workstation",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Workbench](https://7daystodie.wiki.gg/wiki/Workbench)."
+      ],
+      "wikiPage": "Workbench"
+    },
+    "food-baked-potato": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+10",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "-5",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Baked Potato](https://7daystodie.wiki.gg/wiki/Baked_Potato)."
+      ],
+      "wikiPage": "Baked Potato"
+    },
+    "food-blueberry-pie": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+45",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Blueberry Pie](https://7daystodie.wiki.gg/wiki/Blueberry_Pie)."
+      ],
+      "wikiPage": "Blueberry Pie"
+    },
+    "food-boiled-meat": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+10",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "+10",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Boiled Meat](https://7daystodie.wiki.gg/wiki/Boiled_Meat)."
+      ],
+      "wikiPage": "Boiled Meat"
+    },
+    "food-charred-meat": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+10",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "-5",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Charred Meat](https://7daystodie.wiki.gg/wiki/Charred_Meat)."
+      ],
+      "wikiPage": "Charred Meat"
+    },
+    "food-chili-dog": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+53",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Chili Dog](https://7daystodie.wiki.gg/wiki/Chili_Dog)."
+      ],
+      "wikiPage": "Chili Dog"
+    },
+    "food-corn-bread": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+10",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Corn Bread](https://7daystodie.wiki.gg/wiki/Corn_Bread)."
+      ],
+      "wikiPage": "Corn Bread"
+    },
+    "food-egg": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Raw Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+5",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Egg](https://7daystodie.wiki.gg/wiki/Egg)."
+      ],
+      "wikiPage": "Egg"
+    },
+    "food-fish-tacos": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+46",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Fish Tacos](https://7daystodie.wiki.gg/wiki/Fish_Tacos)."
+      ],
+      "wikiPage": "Fish Tacos"
+    },
+    "drug-fort-bites": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        },
+        {
+          "label": "Water",
+          "value": "-20",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Fort Bites](https://7daystodie.wiki.gg/wiki/Fort_Bites)."
+      ],
+      "wikiPage": "Fort Bites"
+    },
+    "food-grilled-meat": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+10",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Grilled Meat](https://7daystodie.wiki.gg/wiki/Grilled_Meat)."
+      ],
+      "wikiPage": "Grilled Meat"
+    },
+    "food-gumbo-stew": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+112",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "+20",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Gumbo Stew](https://7daystodie.wiki.gg/wiki/Gumbo_Stew)."
+      ],
+      "wikiPage": "Gumbo Stew"
+    },
+    "food-hobo-stew": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+64",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "+20",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Hobo Stew](https://7daystodie.wiki.gg/wiki/Hobo_Stew)."
+      ],
+      "wikiPage": "Hobo Stew"
+    },
+    "food-meat-stew": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+50",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "+20",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Meat Stew](https://7daystodie.wiki.gg/wiki/Meat_Stew)."
+      ],
+      "wikiPage": "Meat Stew"
+    },
+    "food-pumpkin-bread": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+12",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pumpkin Bread](https://7daystodie.wiki.gg/wiki/Pumpkin_Bread)."
+      ],
+      "wikiPage": "Pumpkin Bread"
+    },
+    "food-pumpkin-cheesecake": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+42",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pumpkin Cheesecake](https://7daystodie.wiki.gg/wiki/Pumpkin_Cheesecake)."
+      ],
+      "wikiPage": "Pumpkin Cheesecake"
+    },
+    "food-pumpkin-pie": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+50",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Pumpkin Pie](https://7daystodie.wiki.gg/wiki/Pumpkin_Pie)."
+      ],
+      "wikiPage": "Pumpkin Pie"
+    },
+    "food-raw-meat": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Raw Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+2",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "-3",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Raw Meat](https://7daystodie.wiki.gg/wiki/Raw_Meat)."
+      ],
+      "wikiPage": "Raw Meat"
+    },
+    "food-rotting-flesh": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Raw Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+1",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "-3",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Rotting Flesh](https://7daystodie.wiki.gg/wiki/Rotting_Flesh)."
+      ],
+      "wikiPage": "Rotting Flesh"
+    },
+    "food-sham-chowder": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+53",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "+10",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Sham Chowder](https://7daystodie.wiki.gg/wiki/Sham_Chowder)."
+      ],
+      "wikiPage": "Sham Chowder"
+    },
+    "food-shepards-pie": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+104",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Shepards Pie](https://7daystodie.wiki.gg/wiki/Shepards_Pie)."
+      ],
+      "wikiPage": "Shepards Pie"
+    },
+    "food-spaghetti": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+122",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Spaghetti](https://7daystodie.wiki.gg/wiki/Spaghetti)."
+      ],
+      "wikiPage": "Spaghetti"
+    },
+    "food-tuna-fish-gravy-toast": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+90",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "0",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Tuna Fish Gravy Toast](https://7daystodie.wiki.gg/wiki/Tuna_Fish_Gravy_Toast)."
+      ],
+      "wikiPage": "Tuna Fish Gravy Toast"
+    },
+    "food-vegetable-stew": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Cooked Food",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+31",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "+20",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Vegetable Stew](https://7daystodie.wiki.gg/wiki/Vegetable_Stew)."
+      ],
+      "wikiPage": "Vegetable Stew"
+    },
+    "drink-yucca-juice-smoothie": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Drink",
+          "tone": "neutral"
+        },
+        {
+          "label": "Food",
+          "value": "+22",
+          "tone": "good"
+        },
+        {
+          "label": "Water",
+          "value": "+78",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Yucca Juice Smoothie](https://7daystodie.wiki.gg/wiki/Yucca_Juice_Smoothie)."
+      ],
+      "wikiPage": "Yucca Juice Smoothie"
+    },
+    "medical-aloe-cream": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Aloe Cream](https://7daystodie.wiki.gg/wiki/Aloe_Cream)."
+      ],
+      "wikiPage": "Aloe Cream"
+    },
+    "drug-antibiotics": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Antibiotics](https://7daystodie.wiki.gg/wiki/Antibiotics)."
+      ],
+      "wikiPage": "Antibiotics"
+    },
+    "medical-bandage": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Bandage](https://7daystodie.wiki.gg/wiki/Bandage)."
+      ],
+      "wikiPage": "Bandage"
+    },
+    "medical-blood-bag": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Blood Bag](https://7daystodie.wiki.gg/wiki/Blood_Bag)."
+      ],
+      "wikiPage": "Blood Bag"
+    },
+    "medical-first-aid-bandage": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg First Aid Bandage](https://7daystodie.wiki.gg/wiki/First_Aid_Bandage)."
+      ],
+      "wikiPage": "First Aid Bandage"
+    },
+    "medical-first-aid-kit": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg First Aid Kit](https://7daystodie.wiki.gg/wiki/First_Aid_Kit)."
+      ],
+      "wikiPage": "First Aid Kit"
+    },
+    "drug-herbal-antibiotics": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Herbal Antibiotics](https://7daystodie.wiki.gg/wiki/Herbal_Antibiotics)."
+      ],
+      "wikiPage": "Herbal Antibiotics"
+    },
+    "drug-painkillers": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        },
+        {
+          "label": "Water",
+          "value": "-40",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Painkillers](https://7daystodie.wiki.gg/wiki/Painkillers)."
+      ],
+      "wikiPage": "Painkillers"
+    },
+    "medical-plaster-cast": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Plaster Cast](https://7daystodie.wiki.gg/wiki/Plaster_Cast)."
+      ],
+      "wikiPage": "Plaster Cast"
+    },
+    "drug-recog": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        },
+        {
+          "label": "Water",
+          "value": "-30",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Recog](https://7daystodie.wiki.gg/wiki/Recog)."
+      ],
+      "wikiPage": "Recog"
+    },
+    "medical-splint": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Splint](https://7daystodie.wiki.gg/wiki/Splint)."
+      ],
+      "wikiPage": "Splint"
+    },
+    "drug-steroids": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        },
+        {
+          "label": "Water",
+          "value": "-30",
+          "tone": "good"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Steroids](https://7daystodie.wiki.gg/wiki/Steroids)."
+      ],
+      "wikiPage": "Steroids"
+    },
+    "drug-vitamins": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Medical Supply",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Vitamins](https://7daystodie.wiki.gg/wiki/Vitamins)."
+      ],
+      "wikiPage": "Vitamins"
+    },
+    "dart-trap": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Trap",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Dart Trap](https://7daystodie.wiki.gg/wiki/Dart_Trap)."
+      ],
+      "wikiPage": "Dart Trap"
+    },
+    "vehicle-bicycle-placeable": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Driveable",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Bicycle](https://7daystodie.wiki.gg/wiki/Bicycle)."
+      ],
+      "wikiPage": "Bicycle"
+    },
+    "vehicle-gyrocopter-placeable": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Driveable",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Gyrocopter](https://7daystodie.wiki.gg/wiki/Gyrocopter)."
+      ],
+      "wikiPage": "Gyrocopter"
+    },
+    "vehicle-minibike-placeable": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Driveable",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Minibike](https://7daystodie.wiki.gg/wiki/Minibike)."
+      ],
+      "wikiPage": "Minibike"
+    },
+    "vehicle-truck4x4-placeable": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Driveable",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg 4x4 Truck](https://7daystodie.wiki.gg/wiki/4x4_Truck)."
+      ],
+      "wikiPage": "4x4 Truck"
+    },
+    "armor-assassin-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Assassin Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Assassin Boots](https://7daystodie.wiki.gg/wiki/Assassin_Boots)."
+      ],
+      "wikiPage": "Assassin Boots"
+    },
+    "armor-assassin-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Assassin Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Assassin Gloves](https://7daystodie.wiki.gg/wiki/Assassin_Gloves)."
+      ],
+      "wikiPage": "Assassin Gloves"
+    },
+    "armor-assassin-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Assassin Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Assassin Outfit](https://7daystodie.wiki.gg/wiki/Assassin_Outfit)."
+      ],
+      "wikiPage": "Assassin Outfit"
+    },
+    "armor-athletic-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Athletic Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Athletic Gloves](https://7daystodie.wiki.gg/wiki/Athletic_Gloves)."
+      ],
+      "wikiPage": "Athletic Gloves"
+    },
+    "armor-athletic-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Athletic Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Athletic Outfit](https://7daystodie.wiki.gg/wiki/Athletic_Outfit)."
+      ],
+      "wikiPage": "Athletic Outfit"
+    },
+    "armor-biker-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Biker Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Biker Boots](https://7daystodie.wiki.gg/wiki/Biker_Boots)."
+      ],
+      "wikiPage": "Biker Boots"
+    },
+    "armor-biker-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Biker Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Biker Gloves](https://7daystodie.wiki.gg/wiki/Biker_Gloves)."
+      ],
+      "wikiPage": "Biker Gloves"
+    },
+    "armor-biker-helmet": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Biker Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Biker Helmet](https://7daystodie.wiki.gg/wiki/Biker_Helmet)."
+      ],
+      "wikiPage": "Biker Helmet"
+    },
+    "armor-biker-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Biker Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Biker Outfit](https://7daystodie.wiki.gg/wiki/Biker_Outfit)."
+      ],
+      "wikiPage": "Biker Outfit"
+    },
+    "armor-commando-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Commando Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Commando Boots](https://7daystodie.wiki.gg/wiki/Commando_Boots)."
+      ],
+      "wikiPage": "Commando Boots"
+    },
+    "armor-commando-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Commando Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Commando Gloves](https://7daystodie.wiki.gg/wiki/Commando_Gloves)."
+      ],
+      "wikiPage": "Commando Gloves"
+    },
+    "armor-commando-helmet": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Commando Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Commando Helmet](https://7daystodie.wiki.gg/wiki/Commando_Helmet)."
+      ],
+      "wikiPage": "Commando Helmet"
+    },
+    "armor-commando-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Commando Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Commando Outfit](https://7daystodie.wiki.gg/wiki/Commando_Outfit)."
+      ],
+      "wikiPage": "Commando Outfit"
+    },
+    "armor-enforcer-gloves": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Enforcer Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Enforcer Gloves](https://7daystodie.wiki.gg/wiki/Enforcer_Gloves)."
+      ],
+      "wikiPage": "Enforcer Gloves"
+    },
+    "armor-enforcer-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Enforcer Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Enforcer Outfit](https://7daystodie.wiki.gg/wiki/Enforcer_Outfit)."
+      ],
+      "wikiPage": "Enforcer Outfit"
+    },
+    "armor-farmer-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Farmer Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Farmer Boots](https://7daystodie.wiki.gg/wiki/Farmer_Boots)."
+      ],
+      "wikiPage": "Farmer Boots"
+    },
+    "armor-farmer-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Farmer Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Farmer Gloves](https://7daystodie.wiki.gg/wiki/Farmer_Gloves)."
+      ],
+      "wikiPage": "Farmer Gloves"
+    },
+    "armor-farmer-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Farmer Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Farmer Outfit](https://7daystodie.wiki.gg/wiki/Farmer_Outfit)."
+      ],
+      "wikiPage": "Farmer Outfit"
+    },
+    "armor-lumberjack-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Lumberjack Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Lumberjack Boots](https://7daystodie.wiki.gg/wiki/Lumberjack_Boots)."
+      ],
+      "wikiPage": "Lumberjack Boots"
+    },
+    "armor-lumberjack-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Lumberjack Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Lumberjack Gloves](https://7daystodie.wiki.gg/wiki/Lumberjack_Gloves)."
+      ],
+      "wikiPage": "Lumberjack Gloves"
+    },
+    "armor-lumberjack-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Lumberjack Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Lumberjack Outfit](https://7daystodie.wiki.gg/wiki/Lumberjack_Outfit)."
+      ],
+      "wikiPage": "Lumberjack Outfit"
+    },
+    "armor-miner-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Miner Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Miner Boots](https://7daystodie.wiki.gg/wiki/Miner_Boots)."
+      ],
+      "wikiPage": "Miner Boots"
+    },
+    "armor-miner-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Miner Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Miner Gloves](https://7daystodie.wiki.gg/wiki/Miner_Gloves)."
+      ],
+      "wikiPage": "Miner Gloves"
+    },
+    "armor-miner-helmet": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Miner Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Miner Helmet](https://7daystodie.wiki.gg/wiki/Miner_Helmet)."
+      ],
+      "wikiPage": "Miner Helmet"
+    },
+    "armor-miner-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Miner Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Miner Outfit](https://7daystodie.wiki.gg/wiki/Miner_Outfit)."
+      ],
+      "wikiPage": "Miner Outfit"
+    },
+    "armor-nerd-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Nerd Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Nerd Boots](https://7daystodie.wiki.gg/wiki/Nerd_Boots)."
+      ],
+      "wikiPage": "Nerd Boots"
+    },
+    "armor-nerd-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Nerd Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Nerd Gloves](https://7daystodie.wiki.gg/wiki/Nerd_Gloves)."
+      ],
+      "wikiPage": "Nerd Gloves"
+    },
+    "armor-nerd-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Nerd Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Nerd Outfit](https://7daystodie.wiki.gg/wiki/Nerd_Outfit)."
+      ],
+      "wikiPage": "Nerd Outfit"
+    },
+    "armor-nomad-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Nomad Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Nomad Boots](https://7daystodie.wiki.gg/wiki/Nomad_Boots)."
+      ],
+      "wikiPage": "Nomad Boots"
+    },
+    "armor-nomad-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Nomad Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Nomad Gloves](https://7daystodie.wiki.gg/wiki/Nomad_Gloves)."
+      ],
+      "wikiPage": "Nomad Gloves"
+    },
+    "armor-nomad-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Nomad Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Nomad Outfit](https://7daystodie.wiki.gg/wiki/Nomad_Outfit)."
+      ],
+      "wikiPage": "Nomad Outfit"
+    },
+    "armor-preacher-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Preacher Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Preacher Boots](https://7daystodie.wiki.gg/wiki/Preacher_Boots)."
+      ],
+      "wikiPage": "Preacher Boots"
+    },
+    "armor-preacher-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Preacher Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Preacher Gloves](https://7daystodie.wiki.gg/wiki/Preacher_Gloves)."
+      ],
+      "wikiPage": "Preacher Gloves"
+    },
+    "armor-preacher-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Preacher Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Preacher Outfit](https://7daystodie.wiki.gg/wiki/Preacher_Outfit)."
+      ],
+      "wikiPage": "Preacher Outfit"
+    },
+    "armor-primitive-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Primitive Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Primitive Gloves](https://7daystodie.wiki.gg/wiki/Primitive_Gloves)."
+      ],
+      "wikiPage": "Primitive Gloves"
+    },
+    "armor-primitive-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Primitive Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Primitive Outfit](https://7daystodie.wiki.gg/wiki/Primitive_Outfit)."
+      ],
+      "wikiPage": "Primitive Outfit"
+    },
+    "armor-raider-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Raider Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Raider Boots](https://7daystodie.wiki.gg/wiki/Raider_Boots)."
+      ],
+      "wikiPage": "Raider Boots"
+    },
+    "armor-raider-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Raider Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Raider Gloves](https://7daystodie.wiki.gg/wiki/Raider_Gloves)."
+      ],
+      "wikiPage": "Raider Gloves"
+    },
+    "armor-raider-helmet": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Raider Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Raider Helmet](https://7daystodie.wiki.gg/wiki/Raider_Helmet)."
+      ],
+      "wikiPage": "Raider Helmet"
+    },
+    "armor-raider-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Raider Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Raider Outfit](https://7daystodie.wiki.gg/wiki/Raider_Outfit)."
+      ],
+      "wikiPage": "Raider Outfit"
+    },
+    "armor-ranger-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Ranger Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Ranger Boots](https://7daystodie.wiki.gg/wiki/Ranger_Boots)."
+      ],
+      "wikiPage": "Ranger Boots"
+    },
+    "armor-ranger-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Ranger Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Ranger Gloves](https://7daystodie.wiki.gg/wiki/Ranger_Gloves)."
+      ],
+      "wikiPage": "Ranger Gloves"
+    },
+    "armor-ranger-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Ranger Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Ranger Outfit](https://7daystodie.wiki.gg/wiki/Ranger_Outfit)."
+      ],
+      "wikiPage": "Ranger Outfit"
+    },
+    "armor-rogue-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Rogue Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Rogue Boots](https://7daystodie.wiki.gg/wiki/Rogue_Boots)."
+      ],
+      "wikiPage": "Rogue Boots"
+    },
+    "armor-rogue-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Rogue Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Rogue Gloves](https://7daystodie.wiki.gg/wiki/Rogue_Gloves)."
+      ],
+      "wikiPage": "Rogue Gloves"
+    },
+    "armor-rogue-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Rogue Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Rogue Outfit](https://7daystodie.wiki.gg/wiki/Rogue_Outfit)."
+      ],
+      "wikiPage": "Rogue Outfit"
+    },
+    "armor-scavenger-boots": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Scavenger Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Scavenger Boots](https://7daystodie.wiki.gg/wiki/Scavenger_Boots)."
+      ],
+      "wikiPage": "Scavenger Boots"
+    },
+    "armor-scavenger-gloves": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Scavenger Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Scavenger Gloves](https://7daystodie.wiki.gg/wiki/Scavenger_Gloves)."
+      ],
+      "wikiPage": "Scavenger Gloves"
+    },
+    "armor-scavenger-outfit": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          250,
+          300,
+          350,
+          400,
+          450,
+          500
+        ],
+        "modSlots": [
+          2,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Scavenger Armor",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Scavenger Outfit](https://7daystodie.wiki.gg/wiki/Scavenger_Outfit)."
+      ],
+      "wikiPage": "Scavenger Outfit"
+    },
+    "gun-bot-t3-junk-drone": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "durability": [
+          300,
+          360,
+          420,
+          480,
+          540,
+          600
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Robotic",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Robotic Drone](https://7daystodie.wiki.gg/wiki/Robotic_Drone)."
+      ],
+      "wikiPage": "Robotic Drone"
+    },
+    "gun-bot-t1-junk-sledge": {
+      "qualityScale": true,
+      "qualityByTier": {
+        "entityDamage": [
+          11.6,
+          13.6,
+          15.7,
+          15.8,
+          18,
+          20
+        ],
+        "blockDamage": [
+          17.3,
+          20.3,
+          20.7,
+          23.5,
+          26.8,
+          29.8
+        ],
+        "durability": [
+          300,
+          360,
+          420,
+          480,
+          540,
+          600
+        ],
+        "modSlots": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          4
+        ]
+      },
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Robotic",
+          "tone": "neutral"
+        },
+        {
+          "label": "Attacks per minute",
+          "value": "30",
+          "tone": "neutral"
+        },
+        {
+          "label": "Range (m)",
+          "value": "2",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Robotic Sledge](https://7daystodie.wiki.gg/wiki/Robotic_Sledge)."
+      ],
+      "wikiPage": "Robotic Sledge"
+    },
+    "gun-bot-robotics-parts": {
+      "qualityScale": false,
+      "qualityByTier": {},
+      "staticEffects": [
+        {
+          "label": "Type",
+          "value": "Parts",
+          "tone": "neutral"
+        }
+      ],
+      "notes": [
+        "Stats from [wiki.gg Robotics Parts](https://7daystodie.wiki.gg/wiki/Robotics_Parts)."
+      ],
+      "wikiPage": "Robotics Parts"
+    }
+  },
+  "missing": [
+    {
+      "id": "melee-wpn-baton-t2-stun-baton-parts",
+      "page": "Stun Baton Parts"
+    },
+    {
+      "id": "melee-wpn-blade-t1-candy-knife",
+      "page": "Candy Knife"
+    },
+    {
+      "id": "melee-wpn-club-t1-candy-club",
+      "page": "Candy Club"
+    },
+    {
+      "id": "melee-wpn-knuckles-t0-leather-knuckles",
+      "page": "Leather Knuckles"
+    },
+    {
+      "id": "gun-bow-t1-wooden-bow-parts",
+      "page": "Wooden Bow Parts"
+    },
+    {
+      "id": "gun-handgun-t3-desert-vulture",
+      "page": "Desert Vulture"
+    },
+    {
+      "id": "gun-m-g-t1-a-k47-parts",
+      "page": "M G A K47 Parts"
+    },
+    {
+      "id": "gun-rifle-t2-lever-action-rifle",
+      "page": "Lever Action Rifle"
+    },
+    {
+      "id": "gun-shotgun-t1-double-barrel-parts",
+      "page": "Double Barrel Parts"
+    },
+    {
+      "id": "ammo44-magnum-bullet-a-p",
+      "page": "44 Magnum Bullet A P"
+    },
+    {
+      "id": "ammo44-magnum-bullet-ball",
+      "page": "44 Magnum Bullet Ball"
+    },
+    {
+      "id": "ammo44-magnum-bullet-h-p",
+      "page": "44 Magnum Bullet H P"
+    },
+    {
+      "id": "ammo762mm-bullet-a-p",
+      "page": "762mm Bullet A P"
+    },
+    {
+      "id": "ammo762mm-bullet-ball",
+      "page": "762mm Bullet Ball"
+    },
+    {
+      "id": "ammo762mm-bullet-h-p",
+      "page": "762mm Bullet H P"
+    },
+    {
+      "id": "ammo9mm-bullet-a-p",
+      "page": "9mm Bullet A P"
+    },
+    {
+      "id": "ammo9mm-bullet-ball",
+      "page": "9mm Bullet Ball"
+    },
+    {
+      "id": "ammo9mm-bullet-h-p",
+      "page": "9mm Bullet H P"
+    },
+    {
+      "id": "ammo-arrow-exploding",
+      "page": "Arrow Exploding"
+    },
+    {
+      "id": "ammo-arrow-flaming",
+      "page": "Arrow Flaming"
+    },
+    {
+      "id": "ammo-arrow-iron",
+      "page": "Arrow Iron"
+    },
+    {
+      "id": "ammo-arrow-steel-a-p",
+      "page": "Arrow Steel A P"
+    },
+    {
+      "id": "ammo-arrow-stone",
+      "page": "Arrow Stone"
+    },
+    {
+      "id": "ammo-crossbow-bolt-exploding",
+      "page": "Crossbow Bolt Exploding"
+    },
+    {
+      "id": "ammo-crossbow-bolt-flaming",
+      "page": "Crossbow Bolt Flaming"
+    },
+    {
+      "id": "ammo-crossbow-bolt-iron",
+      "page": "Crossbow Bolt Iron"
+    },
+    {
+      "id": "ammo-crossbow-bolt-steel-a-p",
+      "page": "Crossbow Bolt Steel A P"
+    },
+    {
+      "id": "ammo-crossbow-bolt-stone",
+      "page": "Crossbow Bolt Stone"
+    },
+    {
+      "id": "ammo-dart-iron",
+      "page": "Dart Iron"
+    },
+    {
+      "id": "ammo-junk-turret-a-p",
+      "page": "Junk Turret A P"
+    },
+    {
+      "id": "ammo-junk-turret-regular",
+      "page": "Junk Turret Regular"
+    },
+    {
+      "id": "ammo-junk-turret-shell",
+      "page": "Junk Turret Shell"
+    },
+    {
+      "id": "ammo-rocket-h-e",
+      "page": "Rocket H E"
+    },
+    {
+      "id": "ammo-shotgun-breaching-slug",
+      "page": "Breaching Slug"
+    },
+    {
+      "id": "ammo-shotgun-shell",
+      "page": "Shell"
+    },
+    {
+      "id": "ammo-shotgun-slug",
+      "page": "Slug"
+    },
+    {
+      "id": "melee-tool-all-steel-parts",
+      "page": "Parts"
+    },
+    {
+      "id": "melee-tool-flashlight02",
+      "page": "Flashlight02"
+    },
+    {
+      "id": "melee-tool-paint-tool",
+      "page": "Paint Tool"
+    },
+    {
+      "id": "melee-tool-pick-t1-iron-pickaxe",
+      "page": "Iron Pickaxe"
+    },
+    {
+      "id": "melee-tool-pick-t2-steel-pickaxe",
+      "page": "Steel Pickaxe"
+    },
+    {
+      "id": "drug-atom-junkies",
+      "page": "Atom Junkies"
+    },
+    {
+      "id": "food-atomic-smoothie",
+      "page": "Atomic Smoothie"
+    },
+    {
+      "id": "food-bacon-and-eggs",
+      "page": "Bacon And Eggs"
+    },
+    {
+      "id": "food-burnt-smoothie",
+      "page": "Burnt Smoothie"
+    },
+    {
+      "id": "food-can-beef",
+      "page": "Can Beef"
+    },
+    {
+      "id": "food-can-catfood",
+      "page": "Can Catfood"
+    },
+    {
+      "id": "food-can-chicken",
+      "page": "Can Chicken"
+    },
+    {
+      "id": "food-can-chili",
+      "page": "Can Chili"
+    },
+    {
+      "id": "food-can-dogfood",
+      "page": "Can Dogfood"
+    },
+    {
+      "id": "food-can-lamb",
+      "page": "Can Lamb"
+    },
+    {
+      "id": "drink-can-mega-crush",
+      "page": "Can Mega Crush"
+    },
+    {
+      "id": "food-can-miso",
+      "page": "Can Miso"
+    },
+    {
+      "id": "food-can-pasta",
+      "page": "Can Pasta"
+    },
+    {
+      "id": "food-can-pears",
+      "page": "Can Pears"
+    },
+    {
+      "id": "food-can-peas",
+      "page": "Can Peas"
+    },
+    {
+      "id": "food-can-salmon",
+      "page": "Can Salmon"
+    },
+    {
+      "id": "food-can-sham",
+      "page": "Can Sham"
+    },
+    {
+      "id": "food-can-soup",
+      "page": "Can Soup"
+    },
+    {
+      "id": "food-can-stock",
+      "page": "Can Stock"
+    },
+    {
+      "id": "food-can-tuna",
+      "page": "Can Tuna"
+    },
+    {
+      "id": "food-corn-meal",
+      "page": "Corn Meal"
+    },
+    {
+      "id": "food-corn-on-the-cob",
+      "page": "Corn On The Cob"
+    },
+    {
+      "id": "drug-covert-cats",
+      "page": "Covert Cats"
+    },
+    {
+      "id": "food-crop-blueberries",
+      "page": "Crop Blueberries"
+    },
+    {
+      "id": "food-crop-corn",
+      "page": "Crop Corn"
+    },
+    {
+      "id": "food-crop-mushrooms",
+      "page": "Crop Mushrooms"
+    },
+    {
+      "id": "food-crop-potato",
+      "page": "Crop Potato"
+    },
+    {
+      "id": "food-crop-yucca-fruit",
+      "page": "Crop Yucca Fruit"
+    },
+    {
+      "id": "food-egg-boiled",
+      "page": "Egg Boiled"
+    },
+    {
+      "id": "drug-eye-kandy",
+      "page": "Eye Kandy"
+    },
+    {
+      "id": "food-frostbite-smoothie",
+      "page": "Frostbite Smoothie"
+    },
+    {
+      "id": "drug-hackers",
+      "page": "Hackers"
+    },
+    {
+      "id": "drug-health-bar",
+      "page": "Health Bar"
+    },
+    {
+      "id": "food-honey",
+      "page": "Honey"
+    },
+    {
+      "id": "drinkingfountain-double",
+      "page": "Ingfountain Double"
+    },
+    {
+      "id": "drinkingfountain-single",
+      "page": "Ingfountain Single"
+    },
+    {
+      "id": "drug-jail-breakers",
+      "page": "Jail Breakers"
+    },
+    {
+      "id": "drink-jar-beer",
+      "page": "Jar Beer"
+    },
+    {
+      "id": "drink-jar-black-strap-coffee",
+      "page": "Jar Black Strap Coffee"
+    },
+    {
+      "id": "drink-jar-boiled-water",
+      "page": "Jar Boiled Water"
+    },
+    {
+      "id": "drink-jar-coffee",
+      "page": "Jar Coffee"
+    },
+    {
+      "id": "drink-jar-golden-rod-tea",
+      "page": "Jar Golden Rod Tea"
+    },
+    {
+      "id": "drink-jar-grandpas-awesome-sauce",
+      "page": "Jar Grandpas Awesome Sauce"
+    },
+    {
+      "id": "drink-jar-grandpas-forgetting-elixir",
+      "page": "Jar Grandpas Forgetting Elixir"
+    },
+    {
+      "id": "drink-jar-grandpas-learning-elixir",
+      "page": "Jar Grandpas Learning Elixir"
+    },
+    {
+      "id": "drink-jar-grandpas-moonshine",
+      "page": "Jar Grandpas Moonshine"
+    },
+    {
+      "id": "drink-jar-pure-mineral-water",
+      "page": "Jar Pure Mineral Water"
+    },
+    {
+      "id": "drink-jar-red-tea",
+      "page": "Jar Red Tea"
+    },
+    {
+      "id": "drink-jar-river-water",
+      "page": "Jar River Water"
+    },
+    {
+      "id": "drink-jar-yucca-juice",
+      "page": "Jar Yucca Juice"
+    },
+    {
+      "id": "drug-nerd-tats",
+      "page": "Nerd Tats"
+    },
+    {
+      "id": "food-oasis-smoothie",
+      "page": "Oasis Smoothie"
+    },
+    {
+      "id": "drug-rock-busters",
+      "page": "Rock Busters"
+    },
+    {
+      "id": "food-sham-sandwich",
+      "page": "Sham Sandwich"
+    },
+    {
+      "id": "drug-skull-crushers",
+      "page": "Skull Crushers"
+    },
+    {
+      "id": "food-steak-and-potato",
+      "page": "Steak And Potato"
+    },
+    {
+      "id": "drug-sugar-butts",
+      "page": "Sugar Butts"
+    },
+    {
+      "id": "drug-oh-shitz-drops",
+      "page": "Oh Shitz Drops"
+    },
+    {
+      "id": "auto-turret",
+      "page": "Auto Turret"
+    },
+    {
+      "id": "barbed-fence",
+      "page": "Barbed Fence"
+    },
+    {
+      "id": "barbed-fence-damaged01",
+      "page": "Barbed Fence Damaged01"
+    },
+    {
+      "id": "barbed-fence-damaged02",
+      "page": "Barbed Fence Damaged02"
+    },
+    {
+      "id": "blade-trap",
+      "page": "Trap"
+    },
+    {
+      "id": "electricfencepost",
+      "page": "Electricfencepost"
+    },
+    {
+      "id": "shotgun-turret",
+      "page": "Shotgun Turret"
+    },
+    {
+      "id": "trap-glass-business-sheet1x2",
+      "page": "Trap Glass Business Sheet1x2"
+    },
+    {
+      "id": "trap-spikes-iron-dmg1",
+      "page": "Trap Spikes Iron Dmg1"
+    },
+    {
+      "id": "trap-spikes-iron-dmg2",
+      "page": "Trap Spikes Iron Dmg2"
+    },
+    {
+      "id": "trap-spikes-scrap-iron-master",
+      "page": "Trap Spikes Scrap Iron Master"
+    },
+    {
+      "id": "trap-spikes-wood-dmg1",
+      "page": "Trap Spikes Wood Dmg1"
+    },
+    {
+      "id": "trap-spikes-wood-dmg2",
+      "page": "Trap Spikes Wood Dmg2"
+    },
+    {
+      "id": "trap-spikes-wood-master",
+      "page": "Trap Spikes Wood Master"
+    },
+    {
+      "id": "gyrocopter-static",
+      "page": "Gyrocopter Static"
+    },
+    {
+      "id": "vehicle-motorcycle-placeable",
+      "page": "Motorcycle"
+    },
+    {
+      "id": "armor-assassin-helmet",
+      "page": "Assassin Helmet"
+    },
+    {
+      "id": "armor-athletic-boots",
+      "page": "Athletic Boots"
+    },
+    {
+      "id": "armor-athletic-helmet",
+      "page": "Athletic Helmet"
+    },
+    {
+      "id": "armor-crimson-warlord-boots",
+      "page": "Crimson Warlord Boots"
+    },
+    {
+      "id": "armor-crimson-warlord-gloves",
+      "page": "Crimson Warlord Gloves"
+    },
+    {
+      "id": "armor-crimson-warlord-helmet",
+      "page": "Crimson Warlord Helmet"
+    },
+    {
+      "id": "armor-crimson-warlord-outfit",
+      "page": "Crimson Warlord Outfit"
+    },
+    {
+      "id": "armor-desert-boots",
+      "page": "Desert Boots"
+    },
+    {
+      "id": "armor-desert-gloves",
+      "page": "Desert Gloves"
+    },
+    {
+      "id": "armor-desert-helmet",
+      "page": "Desert Helmet"
+    },
+    {
+      "id": "armor-desert-outfit",
+      "page": "Desert Outfit"
+    },
+    {
+      "id": "armor-enforcer-boots",
+      "page": "Enforcer Boots"
+    },
+    {
+      "id": "armor-enforcer-helmet",
+      "page": "Enforcer Helmet"
+    },
+    {
+      "id": "armor-farmer-helmet",
+      "page": "Farmer Helmet"
+    },
+    {
+      "id": "armor-hoarder-boots",
+      "page": "Hoarder Boots"
+    },
+    {
+      "id": "armor-hoarder-gloves",
+      "page": "Hoarder Gloves"
+    },
+    {
+      "id": "armor-hoarder-helmet",
+      "page": "Hoarder Helmet"
+    },
+    {
+      "id": "armor-hoarder-outfit",
+      "page": "Hoarder Outfit"
+    },
+    {
+      "id": "armor-lumberjack-helmet",
+      "page": "Lumberjack Helmet"
+    },
+    {
+      "id": "armor-marauder-boots",
+      "page": "Marauder Boots"
+    },
+    {
+      "id": "armor-marauder-gloves",
+      "page": "Marauder Gloves"
+    },
+    {
+      "id": "armor-marauder-helmet",
+      "page": "Marauder Helmet"
+    },
+    {
+      "id": "armor-marauder-outfit",
+      "page": "Marauder Outfit"
+    },
+    {
+      "id": "armor-nerd-helmet",
+      "page": "Nerd Helmet"
+    },
+    {
+      "id": "armor-nomad-helmet",
+      "page": "Nomad Helmet"
+    },
+    {
+      "id": "armor-parts",
+      "page": "Parts"
+    },
+    {
+      "id": "armor-preacher-helmet",
+      "page": "Preacher Helmet"
+    },
+    {
+      "id": "armor-primitive-boots",
+      "page": "Primitive Boots"
+    },
+    {
+      "id": "armor-primitive-helmet",
+      "page": "Primitive Helmet"
+    },
+    {
+      "id": "armor-ranger-helmet",
+      "page": "Ranger Helmet"
+    },
+    {
+      "id": "armor-rogue-helmet",
+      "page": "Rogue Helmet"
+    },
+    {
+      "id": "armor-samurai-boots",
+      "page": "Samurai Boots"
+    },
+    {
+      "id": "armor-samurai-gloves",
+      "page": "Samurai Gloves"
+    },
+    {
+      "id": "armor-samurai-helmet",
+      "page": "Samurai Helmet"
+    },
+    {
+      "id": "armor-samurai-outfit",
+      "page": "Samurai Outfit"
+    },
+    {
+      "id": "armor-scavenger-helmet",
+      "page": "Scavenger Helmet"
+    },
+    {
+      "id": "gun-bot-t2-junk-turret",
+      "page": "Junk Turret"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "survivors-codex",
+  "version": "1.0.0",
+  "description": "A modern, vanilla-only resource codex for 7 Days to Die. Static front-end + tiny Express auth backend.",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "icons:sync": "node scripts/sync-item-icons.mjs",
+    "icons:map": "node scripts/build-icon-map.mjs",
+    "icons:github": "node scripts/sync-github-icons.mjs",
+    "icons:entities": "node scripts/sync-entity-icons.mjs",
+    "icons:refresh": "node scripts/build-icon-map.mjs && node scripts/sync-github-icons.mjs",
+    "icons:all": "npm run icons:refresh && npm run icons:entities",
+    "stats:generate": "node scripts/sync-wiki-item-stats.mjs && node scripts/generate-item-stats.mjs",
+    "stats:wiki": "node scripts/sync-wiki-item-stats.mjs",
+    "catalog:build": "node scripts/build-full-catalog.mjs && node scripts/prune-removed-entities.mjs",
+    "gear:build": "node scripts/build-perk-gear.mjs",
+    "mods:build": "node scripts/build-mod-compatibility.mjs",
+    "catalog:refresh": "npm run catalog:build && npm run gear:build && npm run mods:build && npm run stats:generate && npm run icons:refresh",
+    "catalog:expand": "node scripts/generate-catalog-extensions.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2"
+  }
+}

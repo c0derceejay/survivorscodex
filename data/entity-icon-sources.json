@@ -1,0 +1,126 @@
+{
+  "_comment": "Zombie portraits from 7daystodie.wiki.gg / fandom.com — normalized for catalog cards.",
+  "_license": "Fan wiki images; © The Fun Pimps. Personal/fan use.",
+  "sources": {
+    "zombie-bear": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Bear",
+      "file": "File:Forest zombie bear.png",
+      "url": "https://7daystodie.wiki.gg/images/Forest_zombie_bear.png?463ba1",
+      "sourceWidth": 997,
+      "sourceHeight": 773
+    },
+    "zombie-big-mama": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Big_Mama",
+      "file": "File:Female Fatso.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Female_Fatso.jpg?757622",
+      "sourceWidth": 579,
+      "sourceHeight": 923
+    },
+    "zombie-biker": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Biker",
+      "file": "File:Biker.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Biker.jpg?9cbc6c",
+      "sourceWidth": 577,
+      "sourceHeight": 933
+    },
+    "zombie-burnt": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Burnt_Zombie",
+      "file": "File:BurnVictim.png",
+      "url": "https://7daystodie.wiki.gg/images/BurnVictim.png?6895d6",
+      "sourceWidth": 700,
+      "sourceHeight": 1080
+    },
+    "zombie-chuck": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Chuck",
+      "file": "File:Chuck2.5.png",
+      "url": "https://7daystodie.wiki.gg/images/Chuck2.5.png?239eef",
+      "sourceWidth": 427,
+      "sourceHeight": 529
+    },
+    "zombie-cop": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Cop_Zombie",
+      "file": "File:FatCop.png",
+      "url": "https://7daystodie.wiki.gg/images/FatCop.png?e4aaa6",
+      "sourceWidth": 664,
+      "sourceHeight": 1080
+    },
+    "zombie-crawler": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Crawler_Zombie",
+      "file": "File:A13CrawlerSteve.jpg",
+      "url": "https://7daystodie.wiki.gg/images/A13CrawlerSteve.jpg?a78299",
+      "sourceWidth": 801,
+      "sourceHeight": 615
+    },
+    "zombie-demolition": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Demolition_Zombie",
+      "file": "File:Demolisher.png",
+      "url": "https://7daystodie.wiki.gg/images/Demolisher.png?1fc305",
+      "sourceWidth": 700,
+      "sourceHeight": 1080
+    },
+    "zombie-dog": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Dog",
+      "file": "File:ZombieDog.png",
+      "url": "https://7daystodie.wiki.gg/images/ZombieDog.png?c2595b",
+      "sourceWidth": 1000,
+      "sourceHeight": 998
+    },
+    "zombie-grace": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Grace",
+      "file": "File:Grace Boar.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Grace_Boar.jpg?81a08f",
+      "sourceWidth": 1073,
+      "sourceHeight": 953
+    },
+    "zombie-hazmat": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Hazmat_Zombie",
+      "file": "File:MaleHazmat.png",
+      "url": "https://7daystodie.wiki.gg/images/MaleHazmat.png?d8f219",
+      "sourceWidth": 700,
+      "sourceHeight": 1080
+    },
+    "zombie-janitor": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Janitor",
+      "file": "File:ZombieJanitor.png",
+      "url": "https://7daystodie.wiki.gg/images/ZombieJanitor.png?811298",
+      "sourceWidth": 541,
+      "sourceHeight": 991
+    },
+    "zombie-joe": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Joe",
+      "file": "File:Joe.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Joe.jpg?f5fac1",
+      "sourceWidth": 521,
+      "sourceHeight": 989
+    },
+    "zombie-lab-worker": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Lab_Worker",
+      "file": "File:LabZombie.jpg",
+      "url": "https://7daystodie.wiki.gg/images/LabZombie.jpg?2ab5fa",
+      "sourceWidth": 507,
+      "sourceHeight": 893
+    },
+    "zombie-lumberjack": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Lumberjack",
+      "file": "File:ZombieLumberjack.png",
+      "url": "https://7daystodie.wiki.gg/images/ZombieLumberjack.png?4dbd82",
+      "sourceWidth": 700,
+      "sourceHeight": 1080
+    }
+  }
+}

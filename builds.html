@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Public Builds · Survivor's Codex</title>
+  <meta name="description" content="Starter build templates and community perk builds — filter by focus, weapons, perks, and attributes. Copy any build to the planner." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="builds-page">
+  <header class="nav">
+    <a class="brand" href="splash.html">
+      <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide.html">Guide</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="skills.html">Planner</a>
+      <a href="builds.html" class="active">Builds</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta"></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <header class="section-head builds-head reveal" style="padding-top:24px">
+        <div>
+          <span class="eyebrow">Codex · Community</span>
+          <h1>Public builds</h1>
+          <p class="muted" style="max-width:720px">
+            Start from official templates or browse builds shared by other survivors. Filter by focus, weapons, perks,
+            and attributes — then copy any build into the <a href="skills.html" style="color:var(--color-red-bright)">planner</a>
+            to tweak and save as your own.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="skills.html">Open planner</a>
+      </header>
+
+      <details id="starter-templates" class="builds-starter-panel profile-build-details reveal" open>
+        <summary class="builds-starter-panel__summary profile-build-summary">
+          <span class="profile-build-chevron" aria-hidden="true"></span>
+          <div class="builds-starter-panel__summary-text profile-build-summary-text">
+            <span class="eyebrow">Templates</span>
+            <h2>Starter builds</h2>
+          </div>
+        </summary>
+        <div class="builds-starter-panel__content">
+          <p class="builds-starter-summary muted" style="max-width:720px">
+            Ready-made perk paths for common early and mid-game playstyles. Open a template in the planner,
+            adjust it to your survivor level, and save your own version.
+          </p>
+          <div id="starter-templates-grid" class="guide-presets builds-templates-grid"></div>
+        </div>
+      </details>
+
+      <header class="section-head builds-community-head reveal">
+        <div>
+          <span class="eyebrow">Community</span>
+          <h2>Shared by survivors</h2>
+        </div>
+      </header>
+
+      <section class="builds-toolbar reveal" aria-label="Build filters">
+        <div class="builds-search-row">
+          <input type="search" id="builds-search" class="builds-search" placeholder="Search build name or author…" autocomplete="off" />
+          <button type="button" class="btn btn-ghost" id="builds-clear-filters">Clear filters</button>
+        </div>
+
+        <div id="build-type-filters" class="build-type-filters"></div>
+
+        <div class="builds-filter-grid">
+          <label class="builds-filter-field">
+            <span class="builds-filter-label">Attribute</span>
+            <select id="filter-attribute" class="builds-select">
+              <option value="">Any attribute</option>
+            </select>
+          </label>
+          <label class="builds-filter-field">
+            <span class="builds-filter-label">Perk</span>
+            <select id="filter-perk" class="builds-select">
+              <option value="">Any perk</option>
+            </select>
+          </label>
+          <label class="builds-filter-field">
+            <span class="builds-filter-label">Weapon</span>
+            <select id="filter-weapon" class="builds-select">
+              <option value="">Any weapon</option>
+            </select>
+          </label>
+          <label class="builds-filter-field">
+            <span class="builds-filter-label">Tool</span>
+            <select id="filter-tool" class="builds-select">
+              <option value="">Any tool</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="builds-result-count" class="builds-result-count muted" aria-live="polite"></p>
+      </section>
+
+      <div id="builds-grid" class="profile-build-grid builds-grid reveal"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
+      <div style="display:flex;gap:18px">
+        <a href="splash.html">Splash</a>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Planner</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/build-types.js"></script>
+  <script src="js/item-tooltips.js"></script>
+  <script src="js/perk-gear.js"></script>
+  <script src="js/loadout.js"></script>
+  <script src="js/build-detail.js"></script>
+  <script src="js/builds.js"></script>
+</body>
+</html>

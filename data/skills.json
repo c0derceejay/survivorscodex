@@ -1,0 +1,616 @@
+{
+  "meta": {
+    "maxAttributeLevel": 10,
+    "maxPerkLevel": 5,
+    "attributeCosts": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5],
+    "defaultPlayerLevel": 300,
+    "maxPlayerLevel": 300,
+    "startingSkillPoints": 4,
+    "skillPointsPerLevel": 1,
+    "challengeSkillPoints": 0,
+    "maxSkillPointBudget": 303,
+    "note": "Vanilla A21+ budget at level 300: 4 starting skill points + 1 per level (299) = 303 total. Perk magazines grant perk levels without spending skill points."
+  },
+  "attributes": [
+    {
+      "id": "perception",
+      "name": "Perception",
+      "abbr": "PER",
+      "tagline": "Loot, salvage, and precision at range.",
+      "color": "#d4a017",
+      "perks": [
+        {
+          "id": "lucky-looter",
+          "name": "Lucky Looter",
+          "icon": "★",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Better loot rolls from containers and zombies.",
+          "levels": [
+            { "effect": "+5% loot stage", "craftTier": null },
+            { "effect": "+10% loot stage", "craftTier": null },
+            { "effect": "+15% loot stage", "craftTier": null },
+            { "effect": "+20% loot stage", "craftTier": null },
+            { "effect": "+25% loot stage; find buried supplies easier", "craftTier": null }
+          ]
+        },
+        {
+          "id": "salvage-operations",
+          "name": "Salvage Operations",
+          "icon": "⚙",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Salvage tools deal more block damage and return more resources.",
+          "levels": [
+            { "effect": "+10% salvage damage", "craftTier": "Stone Salvage Tools" },
+            { "effect": "+20% salvage damage", "craftTier": "Iron Salvage Tools" },
+            { "effect": "+30% salvage damage", "craftTier": "Steel Salvage Tools" },
+            { "effect": "+40% salvage damage; better resource return", "craftTier": null },
+            { "effect": "+50% salvage damage; max scrap yields", "craftTier": null }
+          ]
+        },
+        {
+          "id": "treasure-hunter",
+          "name": "Treasure Hunter",
+          "icon": "◎",
+          "maxLevel": 5,
+          "requires": { "attribute": 3, "perks": [{ "id": "lucky-looter", "level": 2 }] },
+          "summary": "Buried treasure yields better loot and digs faster.",
+          "levels": [
+            { "effect": "Treasure radius +1 block", "craftTier": null },
+            { "effect": "Faster treasure dig speed", "craftTier": null },
+            { "effect": "Better treasure loot quality", "craftTier": null },
+            { "effect": "Reduced stamina while digging", "craftTier": null },
+            { "effect": "Maximum treasure loot tier", "craftTier": null }
+          ]
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "icon": "◈",
+          "maxLevel": 5,
+          "requires": { "attribute": 4 },
+          "summary": "Sneak damage, trap crafting, and mine disarm.",
+          "levels": [
+            { "effect": "+20% sneak attack damage", "craftTier": "Hubcap Land Mine" },
+            { "effect": "+40% sneak attack damage", "craftTier": "Dynamite Bundle" },
+            { "effect": "+60% sneak attack damage", "craftTier": "Pressure Plate Mine" },
+            { "effect": "+80% sneak attack damage; disarm mines", "craftTier": null },
+            { "effect": "+100% sneak attack damage", "craftTier": null }
+          ]
+        },
+        {
+          "id": "the-penetrator",
+          "name": "The Penetrator",
+          "icon": "➤",
+          "maxLevel": 5,
+          "requires": { "attribute": 5, "perks": [{ "id": "infiltrator", "level": 3 }] },
+          "summary": "Rifles and bows ignore armor on headshots.",
+          "levels": [
+            { "effect": "Ignore 10% target armor (headshots)", "craftTier": null },
+            { "effect": "Ignore 20% target armor", "craftTier": null },
+            { "effect": "Ignore 30% target armor", "craftTier": null },
+            { "effect": "Ignore 40% target armor", "craftTier": null },
+            { "effect": "Ignore 50% target armor", "craftTier": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fortitude",
+      "name": "Fortitude",
+      "abbr": "FOR",
+      "tagline": "Survival, healing, and carrying capacity.",
+      "color": "#e85d4a",
+      "perks": [
+        {
+          "id": "pack-mule",
+          "name": "Pack Mule",
+          "icon": "▣",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Carry more without slowing down.",
+          "levels": [
+            { "effect": "+3 carry slots", "craftTier": null },
+            { "effect": "+6 carry slots", "craftTier": null },
+            { "effect": "+9 carry slots", "craftTier": null },
+            { "effect": "+12 carry slots", "craftTier": null },
+            { "effect": "+15 carry slots", "craftTier": null }
+          ]
+        },
+        {
+          "id": "living-off-the-land",
+          "name": "Living Off The Land",
+          "icon": "🌿",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Farm plots, seeds, and better harvest yields.",
+          "levels": [
+            { "effect": "Craft farm plots & basic seeds", "craftTier": "Farm Plot" },
+            { "effect": "+1 crop harvest", "craftTier": "Super Corn Seed" },
+            { "effect": "+2 crop harvest", "craftTier": null },
+            { "effect": "Faster crop growth", "craftTier": null },
+            { "effect": "Maximum harvest yields", "craftTier": null }
+          ]
+        },
+        {
+          "id": "healing-factor",
+          "name": "Healing Factor",
+          "icon": "+",
+          "maxLevel": 5,
+          "requires": { "attribute": 2 },
+          "summary": "Passive health regeneration out of combat.",
+          "levels": [
+            { "effect": "Slow HP regen", "craftTier": null },
+            { "effect": "Moderate HP regen", "craftTier": null },
+            { "effect": "Faster HP regen", "craftTier": null },
+            { "effect": "Strong HP regen", "craftTier": null },
+            { "effect": "Maximum passive regen", "craftTier": null }
+          ]
+        },
+        {
+          "id": "slow-metabolism",
+          "name": "Slow Metabolism",
+          "icon": "◷",
+          "maxLevel": 5,
+          "requires": { "attribute": 3 },
+          "summary": "Food and water drain more slowly.",
+          "levels": [
+            { "effect": "-7% food/water drain", "craftTier": null },
+            { "effect": "-14% food/water drain", "craftTier": null },
+            { "effect": "-21% food/water drain", "craftTier": null },
+            { "effect": "-28% food/water drain", "craftTier": null },
+            { "effect": "-35% food/water drain", "craftTier": null }
+          ]
+        },
+        {
+          "id": "well-insulated",
+          "name": "Well Insulated",
+          "icon": "❄",
+          "maxLevel": 5,
+          "requires": { "attribute": 4 },
+          "summary": "Resist extreme heat and cold.",
+          "levels": [
+            { "effect": "+5 temperature tolerance", "craftTier": null },
+            { "effect": "+10 temperature tolerance", "craftTier": null },
+            { "effect": "+15 temperature tolerance", "craftTier": null },
+            { "effect": "+20 temperature tolerance", "craftTier": null },
+            { "effect": "+25 temperature tolerance", "craftTier": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "strength",
+      "name": "Strength",
+      "abbr": "STR",
+      "tagline": "Mining, blunt weapons, and heavy hits.",
+      "color": "#c44d2e",
+      "perks": [
+        {
+          "id": "miner-69er",
+          "name": "Miner 69'er",
+          "icon": "⛏",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Pickaxes and axes for mining and chopping.",
+          "catalogPerk": "Miner 69er",
+          "levels": [
+            { "effect": "Stone tools craftable", "craftTier": "Stone Axe / Pickaxe" },
+            { "effect": "Iron tools craftable", "craftTier": "Iron Pickaxe / Fireaxe" },
+            { "effect": "Steel tools craftable", "craftTier": "Steel Pickaxe / Fireaxe" },
+            { "effect": "+tool damage & durability", "craftTier": null },
+            { "effect": "Maximum tool tier bonuses", "craftTier": null }
+          ]
+        },
+        {
+          "id": "mother-lode",
+          "name": "Mother Lode",
+          "icon": "◆",
+          "maxLevel": 5,
+          "requires": { "attribute": 2, "perks": [{ "id": "miner-69er", "level": 1 }] },
+          "summary": "Harvest more ore and stone per swing.",
+          "catalogPerk": "Mother Lode",
+          "levels": [
+            { "effect": "+10% ore yield", "craftTier": null },
+            { "effect": "+20% ore yield", "craftTier": null },
+            { "effect": "+30% ore yield", "craftTier": null },
+            { "effect": "+40% ore yield", "craftTier": null },
+            { "effect": "+50% ore yield", "craftTier": null }
+          ]
+        },
+        {
+          "id": "pummel-pete",
+          "name": "Pummel Pete",
+          "icon": "⚒",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Clubs and bats — stun and knockdown.",
+          "catalogPerk": "Pummel Pete",
+          "levels": [
+            { "effect": "Clubs craftable; +damage", "craftTier": "Wooden / Stone Club" },
+            { "effect": "Iron clubs", "craftTier": "Iron Reinforced Club" },
+            { "effect": "Steel clubs", "craftTier": "Steel Club" },
+            { "effect": "Power attack knockdown chance", "craftTier": null },
+            { "effect": "Maximum club damage & stun", "craftTier": null }
+          ]
+        },
+        {
+          "id": "skull-crusher",
+          "name": "Skull Crusher",
+          "icon": "☠",
+          "maxLevel": 5,
+          "requires": { "attribute": 3, "perks": [{ "id": "pummel-pete", "level": 2 }] },
+          "summary": "Sledgehammers — massive single-target damage.",
+          "levels": [
+            { "effect": "Sledgehammers craftable", "craftTier": "Stone Sledgehammer" },
+            { "effect": "Iron sledge", "craftTier": null },
+            { "effect": "Steel sledge", "craftTier": "Steel Sledgehammer" },
+            { "effect": "Increased power attack damage", "craftTier": null },
+            { "effect": "Maximum sledge damage", "craftTier": null }
+          ]
+        },
+        {
+          "id": "grand-slam",
+          "name": "Grand Slam",
+          "icon": "▼",
+          "maxLevel": 5,
+          "requires": { "attribute": 5, "perks": [{ "id": "skull-crusher", "level": 3 }] },
+          "summary": "Power attacks send zombies flying.",
+          "levels": [
+            { "effect": "Small knockback radius", "craftTier": null },
+            { "effect": "Wider knockback", "craftTier": null },
+            { "effect": "Stuns nearby zombies", "craftTier": null },
+            { "effect": "Heavy AOE knockdown", "craftTier": null },
+            { "effect": "Maximum slam radius", "craftTier": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agility",
+      "name": "Agility",
+      "abbr": "AGI",
+      "tagline": "Bows, blades, pistols, and mobility.",
+      "color": "#4caf7a",
+      "perks": [
+        {
+          "id": "archery",
+          "name": "Archery",
+          "icon": "⌖",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Bows, crossbows, and arrows.",
+          "catalogPerk": "Archery",
+          "levels": [
+            { "effect": "Bows & stone arrows", "craftTier": "Wooden Bow" },
+            { "effect": "Iron crossbow & bolts", "craftTier": "Iron Crossbow" },
+            { "effect": "Compound bow", "craftTier": "Compound Bow" },
+            { "effect": "Steel arrows & compound crossbow", "craftTier": "Compound Crossbow" },
+            { "effect": "Maximum bow damage & draw speed", "craftTier": null }
+          ]
+        },
+        {
+          "id": "gunslinger",
+          "name": "Gunslinger",
+          "icon": "◎",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Pistols, revolvers, and 9mm ammo.",
+          "catalogPerk": "Gunslinger",
+          "levels": [
+            { "effect": "Pipe pistol & 9mm", "craftTier": "Pipe Pistol" },
+            { "effect": "9mm Pistol", "craftTier": "9mm Pistol" },
+            { "effect": ".44 Magnum", "craftTier": ".44 Magnum" },
+            { "effect": "Desert Vulture", "craftTier": "Desert Vulture" },
+            { "effect": "Maximum pistol damage", "craftTier": null }
+          ]
+        },
+        {
+          "id": "deep-cuts",
+          "name": "Deep Cuts",
+          "icon": "†",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Knives and machetes — bleed and harvest.",
+          "catalogPerk": "Deep Cuts",
+          "levels": [
+            { "effect": "Bone knife craftable", "craftTier": "Bone Knife" },
+            { "effect": "Hunting knife", "craftTier": "Hunting Knife" },
+            { "effect": "Machete", "craftTier": "Machete" },
+            { "effect": "Bleed damage on power attacks", "craftTier": null },
+            { "effect": "Limb sever chance; max blade damage", "craftTier": null }
+          ]
+        },
+        {
+          "id": "javelin-master",
+          "name": "Javelin Master",
+          "icon": "↗",
+          "maxLevel": 5,
+          "requires": { "attribute": 2 },
+          "summary": "Spears — thrust, throw, and retrieve.",
+          "catalogPerk": "Javelin Master",
+          "levels": [
+            { "effect": "Stone spear", "craftTier": "Stone Spear" },
+            { "effect": "Iron spear", "craftTier": "Iron Spear" },
+            { "effect": "Steel spear", "craftTier": "Steel Spear" },
+            { "effect": "Thrown spear returns at high rank", "craftTier": null },
+            { "effect": "Maximum spear damage", "craftTier": null }
+          ]
+        },
+        {
+          "id": "boomstick",
+          "name": "Boomstick",
+          "icon": "▮",
+          "maxLevel": 5,
+          "requires": { "attribute": 3 },
+          "summary": "Shotguns and shell crafting.",
+          "catalogPerk": "Boomstick",
+          "levels": [
+            { "effect": "Pipe shotgun", "craftTier": "Pipe Shotgun" },
+            { "effect": "Double barrel", "craftTier": "Double Barrel Shotgun" },
+            { "effect": "Pump shotgun", "craftTier": "Pump Shotgun" },
+            { "effect": "Auto shotgun", "craftTier": "Auto Shotgun" },
+            { "effect": "Maximum shotgun damage", "craftTier": null }
+          ]
+        },
+        {
+          "id": "dead-eye",
+          "name": "Dead Eye",
+          "icon": "⊕",
+          "maxLevel": 5,
+          "requires": { "attribute": 3 },
+          "summary": "Rifles — precision at range.",
+          "catalogPerk": "Dead Eye",
+          "levels": [
+            { "effect": "Pipe rifle", "craftTier": "Pipe Rifle" },
+            { "effect": "Hunting rifle", "craftTier": "Hunting Rifle" },
+            { "effect": "Lever action", "craftTier": "Lever Action Rifle" },
+            { "effect": "Marksman & sniper rifles", "craftTier": "Sniper Rifle" },
+            { "effect": "Maximum rifle headshot damage", "craftTier": null }
+          ]
+        },
+        {
+          "id": "machine-gunner",
+          "name": "Machine Gunner",
+          "icon": "≡",
+          "maxLevel": 5,
+          "requires": { "attribute": 4 },
+          "summary": "Automatic weapons and LMGs.",
+          "catalogPerk": "Machine Gunner",
+          "levels": [
+            { "effect": "Pipe machine gun", "craftTier": "Pipe Machine Gun" },
+            { "effect": "SMG-5", "craftTier": "SMG-5" },
+            { "effect": "AK-47", "craftTier": "AK-47 Machine Gun" },
+            { "effect": "Tactical AR", "craftTier": "Tactical Assault Rifle" },
+            { "effect": "M60 machine gun", "craftTier": "M60 Machine Gun" }
+          ]
+        },
+        {
+          "id": "run-and-gun",
+          "name": "Run And Gun",
+          "icon": "»",
+          "maxLevel": 5,
+          "requires": { "attribute": 5, "perks": [{ "id": "gunslinger", "level": 2 }] },
+          "summary": "Move while firing with reduced accuracy penalty.",
+          "levels": [
+            { "effect": "Slight move-speed while aiming", "craftTier": null },
+            { "effect": "Reduced spread while moving", "craftTier": null },
+            { "effect": "Better moving accuracy", "craftTier": null },
+            { "effect": "Sprint-and-shoot (pistols)", "craftTier": null },
+            { "effect": "Maximum mobility while firing", "craftTier": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intellect",
+      "name": "Intellect",
+      "abbr": "INT",
+      "tagline": "Crafting, trading, traps, and robotics.",
+      "color": "#5b8fd4",
+      "perks": [
+        {
+          "id": "better-barter",
+          "name": "Better Barter",
+          "icon": "$",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Buy cheaper and sell for more at traders.",
+          "levels": [
+            { "effect": "+5% buy/sell prices", "craftTier": null },
+            { "effect": "+10% buy/sell prices", "craftTier": null },
+            { "effect": "+15% buy/sell prices", "craftTier": null },
+            { "effect": "+20% buy/sell prices", "craftTier": null },
+            { "effect": "+25% buy/sell prices", "craftTier": null }
+          ]
+        },
+        {
+          "id": "master-chef",
+          "name": "Master Chef",
+          "icon": "🍳",
+          "maxLevel": 5,
+          "requires": { "attribute": 1 },
+          "summary": "Advanced food recipes and better buff duration.",
+          "catalogPerk": "Master Chef",
+          "levels": [
+            { "effect": "Basic cooked meals", "craftTier": "Grilled Meat" },
+            { "effect": "Stew recipes", "craftTier": "Vegetable Stew" },
+            { "effect": "Sham chowder & advanced meals", "craftTier": "Sham Chowder" },
+            { "effect": "Longer food buff duration", "craftTier": null },
+            { "effect": "Maximum meal buffs", "craftTier": null }
+          ]
+        },
+        {
+          "id": "grease-monkey",
+          "name": "Grease Monkey",
+          "icon": "⚙",
+          "maxLevel": 5,
+          "requires": { "attribute": 2 },
+          "summary": "Vehicles, engines, and mechanical crafting.",
+          "levels": [
+            { "effect": "Bicycle craftable", "craftTier": "Bicycle" },
+            { "effect": "Minibike", "craftTier": "Minibike" },
+            { "effect": "Motorcycle", "craftTier": "Motorcycle" },
+            { "effect": "4x4 truck", "craftTier": "4x4 Truck" },
+            { "effect": "Gyrocopter", "craftTier": "Gyrocopter" }
+          ]
+        },
+        {
+          "id": "electrocutioner",
+          "name": "Electrocutioner",
+          "icon": "⚡",
+          "maxLevel": 5,
+          "requires": { "attribute": 3 },
+          "summary": "Stun batons and electric trap damage.",
+          "catalogPerk": "Electrocutioner",
+          "levels": [
+            { "effect": "Pipe baton", "craftTier": "Pipe Baton" },
+            { "effect": "Stun baton", "craftTier": "Stun Baton" },
+            { "effect": "Electric fence posts", "craftTier": "Electric Fence Post" },
+            { "effect": "Increased shock damage", "craftTier": null },
+            { "effect": "Maximum stun & shock DPS", "craftTier": null }
+          ]
+        },
+        {
+          "id": "robotics-inventor",
+          "name": "Robotics Inventor",
+          "icon": "◉",
+          "maxLevel": 5,
+          "requires": { "attribute": 4, "perks": [{ "id": "electrocutioner", "level": 2 }] },
+          "summary": "Junk turrets, robotic sledges, and drones.",
+          "catalogPerk": "Robotics Inventor",
+          "levels": [
+            { "effect": "Junk turret", "craftTier": "Junk Turret" },
+            { "effect": "Robotic sledge", "craftTier": "Robotic Sledge" },
+            { "effect": "Robotic drone", "craftTier": "Robotic Drone" },
+            { "effect": "Turret ammo efficiency", "craftTier": null },
+            { "effect": "Maximum robot damage & range", "craftTier": null }
+          ]
+        },
+        {
+          "id": "demolitions-expert",
+          "name": "Demolitions Expert",
+          "icon": "✸",
+          "maxLevel": 5,
+          "requires": { "attribute": 5 },
+          "summary": "Explosives, rockets, and block damage.",
+          "catalogPerk": "Demolitions Expert",
+          "levels": [
+            { "effect": "Pipe bombs & molotovs", "craftTier": "Pipe Bomb" },
+            { "effect": "Timed charges", "craftTier": "Timed Charge" },
+            { "effect": "Rocket launcher", "craftTier": "Rocket Launcher" },
+            { "effect": "HE & frag rockets", "craftTier": "Rocket HE" },
+            { "effect": "Maximum explosive damage", "craftTier": null }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "id": "first-week-miner",
+      "name": "First Week Miner",
+      "icon": "⛏",
+      "tag": "Days 1–7 · Lvl ~15",
+      "playerLevel": 15,
+      "unlimited": false,
+      "blurb": "Prioritize ore, carry weight, and a simple club. The safest generic start.",
+      "attributes": { "perception": 1, "fortitude": 2, "strength": 3, "agility": 0, "intellect": 0 },
+      "perks": {
+        "lucky-looter": 1,
+        "pack-mule": 2,
+        "miner-69er": 2,
+        "mother-lode": 1,
+        "pummel-pete": 1
+      },
+      "focusPerk": "miner-69er"
+    },
+    {
+      "id": "stealth-archer",
+      "name": "Stealth Archer",
+      "icon": "⌖",
+      "tag": "Days 5–14 · Lvl ~18",
+      "playerLevel": 18,
+      "unlimited": false,
+      "blurb": "Silent bow kills for POIs. Pair with Lucky Looter for container quality.",
+      "attributes": { "perception": 2, "fortitude": 1, "strength": 0, "agility": 4, "intellect": 0 },
+      "perks": {
+        "lucky-looter": 2,
+        "pack-mule": 1,
+        "archery": 3,
+        "deep-cuts": 1
+      },
+      "focusPerk": "archery"
+    },
+    {
+      "id": "poi-salvager",
+      "name": "POI Salvager",
+      "icon": "⚙",
+      "tag": "Loot runs · Lvl ~20",
+      "playerLevel": 20,
+      "unlimited": false,
+      "blurb": "Strip buildings fast and roll better loot. Less combat-focused.",
+      "attributes": { "perception": 4, "fortitude": 2, "strength": 0, "agility": 1, "intellect": 0 },
+      "perks": {
+        "lucky-looter": 2,
+        "salvage-operations": 2,
+        "pack-mule": 2
+      },
+      "focusPerk": "salvage-operations"
+    },
+    {
+      "id": "horde-shotgun",
+      "name": "Horde Night Shotgun",
+      "icon": "▮",
+      "tag": "Blood moon · Lvl ~28",
+      "playerLevel": 28,
+      "unlimited": false,
+      "blurb": "Close-range boomstick power with enough FOR to survive mistakes.",
+      "attributes": { "perception": 0, "fortitude": 3, "strength": 1, "agility": 5, "intellect": 0 },
+      "perks": {
+        "pack-mule": 2,
+        "healing-factor": 1,
+        "boomstick": 3,
+        "gunslinger": 1
+      },
+      "focusPerk": "boomstick"
+    },
+    {
+      "id": "base-crafter",
+      "name": "Base Crafter",
+      "icon": "▣",
+      "tag": "Mid game · Lvl ~25",
+      "playerLevel": 25,
+      "unlimited": false,
+      "blurb": "Vehicles, food buffs, and mining to feed your base project.",
+      "attributes": { "perception": 0, "fortitude": 2, "strength": 3, "agility": 0, "intellect": 4 },
+      "perks": {
+        "living-off-the-land": 1,
+        "pack-mule": 1,
+        "miner-69er": 2,
+        "better-barter": 1,
+        "master-chef": 2,
+        "grease-monkey": 2
+      },
+      "focusPerk": "grease-monkey"
+    },
+    {
+      "id": "trap-base",
+      "name": "Electric Trap Base",
+      "icon": "⚡",
+      "tag": "Defense · Lvl ~35",
+      "playerLevel": 35,
+      "unlimited": false,
+      "blurb": "Stun batons, fences, and junk turrets for horde lanes.",
+      "attributes": { "perception": 0, "fortitude": 2, "strength": 2, "agility": 0, "intellect": 5 },
+      "perks": {
+        "pack-mule": 1,
+        "miner-69er": 1,
+        "electrocutioner": 3,
+        "robotics-inventor": 2
+      },
+      "focusPerk": "robotics-inventor"
+    }
+  ]
+}

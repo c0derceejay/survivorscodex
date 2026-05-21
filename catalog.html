@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catalog · Survivor's Codex</title>
+  <meta name="description" content="Search and filter every base-game item, weapon, trap, and resource in 7 Days to Die." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="splash.html">
+      <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide.html">Guide</a>
+      <a href="catalog.html" class="active">Catalog</a>
+      <a href="skills.html">Planner</a>
+      <a href="builds.html">Builds</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta"></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <header class="section-head" style="padding-top:24px">
+        <div>
+          <span class="eyebrow">Codex · Catalog</span>
+          <h1>Every base-game item</h1>
+          <p class="muted" style="max-width:640px">
+            Filter by category or search by name, perk, or use-case. Click any card to inspect the full record.
+            Star anything you want pinned to your profile. Resources &amp; tools can show
+            <a href="about.html#item-images" style="color:var(--color-red-bright)">in-game icons</a> after you sync them from your install.
+          </p>
+        </div>
+      </header>
+
+      <div class="catalog-toolbar">
+        <label class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <input id="search" type="search" placeholder="Search items, zombies, perks, or use-cases…" aria-label="Search items" />
+        </label>
+        <select id="tier-filter" class="btn btn-ghost" style="height:46px;padding-right:36px">
+          <option value="">All tiers</option>
+          <option value="1">Tier 1</option>
+          <option value="2">Tier 2</option>
+          <option value="3">Tier 3</option>
+        </select>
+      </div>
+
+      <div class="chips" id="cat-chips"></div>
+
+      <div id="catalog" class="catalog-grid"></div>
+    </div>
+  </main>
+
+  <!-- Item detail modal -->
+  <div class="modal-backdrop" id="item-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="Close">×</button>
+      <div class="modal-img" id="modal-img"></div>
+      <span class="eyebrow" id="modal-cat"></span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-summary" class="muted" style="font-size:1rem"></p>
+      <div id="modal-quality-wrap"></div>
+      <h4>Effects &amp; stats</h4>
+      <div id="modal-tooltip"></div>
+      <div class="kv-grid" id="modal-kv"></div>
+      <h4>Recipe inputs</h4>
+      <div class="tag-list" id="modal-ingredients"></div>
+      <h4>Best at</h4>
+      <div class="tag-list" id="modal-uses"></div>
+      <div style="display:flex;gap:8px;margin-top:24px">
+        <button class="btn btn-primary" id="modal-fav">★ Favorite</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
+      <div style="display:flex;gap:18px">
+        <a href="splash.html">Splash</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/item-tooltips.js"></script>
+  <script>
+    let catalog = { items: [], categories: [] };
+    let activeCategory = "";
+    let activeTier = "";
+    let query = "";
+    let modalItem = null;
+    let modalQuality = 6;
+
+    const grid = document.getElementById("catalog");
+    const chipBar = document.getElementById("cat-chips");
+    const search = document.getElementById("search");
+    const tierFilter = document.getElementById("tier-filter");
+    const modal = document.getElementById("item-modal");
+
+    // ---- Render category chips ----
+    function renderChips() {
+      const all = `<button class="chip ${activeCategory === "" ? "active" : ""}" data-cat="">All (${catalog.items.length})</button>`;
+      const counts = {};
+      catalog.items.forEach((i) => (counts[i.category] = (counts[i.category] || 0) + 1));
+      const chips = catalog.categories.map((c) =>
+        `<button class="chip ${activeCategory === c.id ? "active" : ""}" data-cat="${c.id}">${c.name} <span style="opacity:.55">${counts[c.id] || 0}</span></button>`
+      ).join("");
+      chipBar.innerHTML = all + chips;
+      chipBar.querySelectorAll(".chip").forEach((b) => {
+        b.addEventListener("click", () => {
+          activeCategory = b.dataset.cat;
+          renderChips();
+          renderGrid();
+          updateUrl();
+        });
+      });
+    }
+
+    // ---- Render the item grid ----
+    function renderGrid() {
+      const q = query.trim().toLowerCase();
+      const filtered = catalog.items.filter((i) => {
+        if (activeCategory && i.category !== activeCategory) return false;
+        if (activeTier && String(i.tier) !== activeTier) return false;
+        if (!q) return true;
+        const blob = (
+          i.name + " " + (i.aliases || []).join(" ") + " " + (i.entityId || "") + " "
+          + (i.summary || "") + " " + (i.perk || "") + " " + (i.uses || []).join(" ") + " " + (i.ingredients || []).join(" ")
+        ).toLowerCase();
+        return blob.includes(q);
+      });
+
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="empty-state">No items match those filters. Try clearing the search or category.</div>`;
+        return;
+      }
+
+      const cats = Object.fromEntries(catalog.categories.map((c) => [c.id, c.name]));
+      grid.innerHTML = filtered.map((i) => {
+        const fav = SDD.Store.isFavorite(i.id);
+        const hasIcon = SDD.hasItemImage(i.id);
+        return `
+          <article class="item-card ${hasIcon ? "has-game-icon" : ""}" data-id="${i.id}" tabindex="0" role="button" aria-label="${SDD.escapeHTML(i.name)}">
+            <div class="item-img">${SDD.itemImage(i, catalog.categories)}</div>
+            <button class="fav-btn ${fav ? "is-fav" : ""}" data-fav="${i.id}" aria-label="Favorite ${SDD.escapeHTML(i.name)}" type="button">★</button>
+            <div class="item-body">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">${SDD.escapeHTML(i.name)}</div>
+                  <div class="item-cat">${SDD.escapeHTML(cats[i.category] || i.category)}</div>
+                </div>
+                <span class="tier-pill tier-${i.tier}">T${i.tier}</span>
+              </div>
+              <p class="item-summary">${SDD.escapeHTML(i.summary || "")}</p>
+              <div class="item-meta">
+                <span>Stack <strong>${i.stack ?? "—"}</strong></span>
+                <span>Wt <strong>${i.weight ?? 0}</strong></span>
+                ${i.perk ? `<span>Perk <strong>${SDD.escapeHTML(i.perk)}</strong></span>` : ""}
+              </div>
+            </div>
+          </article>`;
+      }).join("");
+
+      grid.querySelectorAll(".item-card").forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (e.target.closest(".fav-btn")) return;
+          openItem(card.dataset.id);
+        });
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openItem(card.dataset.id);
+          }
+        });
+      });
+      grid.querySelectorAll(".fav-btn").forEach((b) => {
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const added = SDD.Store.toggleFavorite(b.dataset.fav);
+          b.classList.toggle("is-fav", added);
+          SDD.toast(added ? "Added to favorites." : "Removed from favorites.");
+        });
+      });
+    }
+
+    function renderModalTooltip() {
+      if (!modalItem) return;
+      const wrap = modal.querySelector("#modal-quality-wrap");
+      wrap.innerHTML = ItemTooltips.supportsQuality(modalItem)
+        ? ItemTooltips.renderQualityPicker(modalItem, modalQuality)
+        : "";
+      modal.querySelector("#modal-tooltip").innerHTML = ItemTooltips.renderItemTooltip(modalItem, modalQuality);
+    }
+
+    // ---- Modal ----
+    function openItem(id) {
+      const i = catalog.items.find((x) => x.id === id);
+      if (!i) return;
+      modalItem = i;
+      modalQuality = ItemTooltips.supportsQuality(i) ? 6 : 1;
+      const cats = Object.fromEntries(catalog.categories.map((c) => [c.id, c.name]));
+      modal.querySelector("#modal-img").innerHTML = SDD.itemImage(i, catalog.categories);
+      modal.querySelector("#modal-title").textContent = i.name;
+      const isEntity = Boolean(i.entityId);
+      modal.querySelector("#modal-cat").textContent = isEntity
+        ? `${cats[i.category] || i.category} · ${i.threat || "Unknown"} threat`
+        : `${cats[i.category] || i.category} · Craft tier ${i.tier}`;
+      modal.querySelector("#modal-summary").textContent = i.summary || "";
+      renderModalTooltip();
+      modal.querySelector("#modal-kv").innerHTML = isEntity
+        ? `
+        <div><span>Threat</span><span>${SDD.escapeHTML(i.threat || "—")}</span></div>
+        <div><span>Entity ID</span><span><code>${SDD.escapeHTML(i.entityId || "—")}</code></span></div>
+        ${i.aliases?.length ? `<div><span>Also known as</span><span>${SDD.escapeHTML(i.aliases.join(", "))}</span></div>` : ""}
+        <div><span>Game stage tier</span><span>T${i.tier}</span></div>
+        ${i.biomes?.length ? `<div><span>Biomes</span><span>${SDD.escapeHTML(i.biomes.join(", "))}</span></div>` : ""}
+      `
+        : `
+        <div><span>Craft tier</span><span>T${i.tier}</span></div>
+        <div><span>Stack size</span><span>${i.stack ?? "—"}</span></div>
+        <div><span>Weight</span><span>${i.weight ?? 0}</span></div>
+        ${i.perk ? `<div><span>Boosts via</span><span>${SDD.escapeHTML(i.perk)}</span></div>` : ""}
+      `;
+      modal.querySelector("#modal-ingredients").innerHTML = (i.ingredients || []).map((g) => `<span class="tag">${SDD.escapeHTML(g)}</span>`).join("");
+      modal.querySelector("#modal-uses").innerHTML = (i.uses || []).map((u) => `<span class="tag">${SDD.escapeHTML(u)}</span>`).join("");
+      const favBtn = modal.querySelector("#modal-fav");
+      const setFavLabel = () => {
+        const isFav = SDD.Store.isFavorite(i.id);
+        favBtn.textContent = isFav ? "★ Favorited" : "★ Favorite";
+        favBtn.classList.toggle("btn-primary", !isFav);
+        favBtn.classList.toggle("btn-ghost", isFav);
+      };
+      setFavLabel();
+      favBtn.onclick = () => {
+        const added = SDD.Store.toggleFavorite(i.id);
+        SDD.toast(added ? "Added to favorites." : "Removed from favorites.");
+        setFavLabel();
+        const card = grid.querySelector(`[data-fav="${i.id}"]`);
+        if (card) card.classList.toggle("is-fav", added);
+      };
+      modal.classList.add("open");
+    }
+    modal.querySelector("#modal-quality-wrap").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-quality]");
+      if (!btn || !modalItem) return;
+      modalQuality = Number(btn.dataset.quality);
+      renderModalTooltip();
+    });
+
+    modal.querySelector(".modal-close").addEventListener("click", () => modal.classList.remove("open"));
+    modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.classList.remove("open"); });
+
+    // ---- URL state ----
+    function updateUrl() {
+      const params = new URLSearchParams();
+      if (activeCategory) params.set("cat", activeCategory);
+      if (activeTier) params.set("tier", activeTier);
+      if (query) params.set("q", query);
+      const qs = params.toString();
+      history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+    }
+    function readUrl() {
+      const p = new URLSearchParams(location.search);
+      activeCategory = p.get("cat") || "";
+      activeTier = p.get("tier") || "";
+      query = p.get("q") || "";
+      search.value = query;
+      tierFilter.value = activeTier;
+    }
+
+    search.addEventListener("input", () => { query = search.value; renderGrid(); updateUrl(); });
+    tierFilter.addEventListener("change", () => { activeTier = tierFilter.value; renderGrid(); updateUrl(); });
+
+    async function bootCatalog() {
+      const [itemsRes] = await Promise.all([
+        fetch("data/items.json"),
+        SDD.loadImageManifest(),
+        ItemTooltips.loadItemStats(),
+      ]);
+      catalog = await itemsRes.json();
+      readUrl();
+      renderChips();
+      renderGrid();
+    }
+    bootCatalog();
+  </script>
+</body>
+</html>
