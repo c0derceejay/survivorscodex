@@ -35,6 +35,7 @@
           <a href="#mindset">Mindset</a>
           <a href="#first-hour">First hour</a>
           <a href="#days-2-7">Days 2–7</a>
+          <a href="#structural-integrity">Structural integrity</a>
           <a href="#blood-moon">Blood moon</a>
           <a href="#poi-loot">POI looting</a>
           <a href="#perk-order">Perk order</a>
@@ -121,7 +122,8 @@
               <h3>Base shape</h3>
               <p class="muted">
                 Two stories: ground floor traps and storage, upper floor shooting windows. Cobblestone or
-                concrete before wood on horde-facing walls.
+                concrete before wood on horde-facing walls. See
+                <a href="#structural-integrity">structural integrity</a> before you dig out under your base.
               </p>
             </div>
             <div class="guide-card">
@@ -132,6 +134,137 @@
               </p>
             </div>
           </div>
+        </section>
+
+        <section id="structural-integrity" class="guide-section">
+          <h2>Structural integrity (building blocks)</h2>
+          <p>
+            Bases in 7 Days to Die obey physics. Every block has a <strong>Max Load</strong> (how much weight each
+            face can hold) and a <strong>Mass</strong> (how heavy the block is). Think of Max Load as glue — if you
+            hang too much mass off a wall or ceiling, blocks collapse or refuse to place.
+          </p>
+          <div class="guide-callout">
+            <strong>Quick formula:</strong>
+            Unsupported span per face ≈ round down (Max Load ÷ Mass).
+            Check any block’s tooltip in-game for its exact numbers.
+          </div>
+
+          <figure class="guide-figure">
+            <img
+              src="images/7d2d_structural_support_guide.webp"
+              alt="Diagram showing how structural integrity spreads from a bedrock pillar through supported blocks, with examples of safe wood spans versus collapses when mass limits are exceeded"
+              width="1200"
+              height="675"
+              loading="lazy"
+            />
+            <figcaption>
+              Supported blocks (yellow) transfer load down a continuous pillar to bedrock. Exceed mass limits on
+              horizontal spans and blocks fall — or refuse to place (red / pink preview).
+            </figcaption>
+          </figure>
+
+          <h3>Placement preview colors</h3>
+          <ul class="guide-list">
+            <li><strong>Yellow</strong> — Stable. Brighter yellow means less margin before failure.</li>
+            <li><strong>Red</strong> — Placing here would cause a collapse unless you reinforce elsewhere first.</li>
+            <li><strong>Pink</strong> — This block would fall immediately; not enough support.</li>
+          </ul>
+
+          <h3>Vertical vs horizontal</h3>
+          <ul class="guide-list">
+            <li>
+              <strong>Vertical stacks are unlimited</strong> — you can pile hundreds of blocks on one pillar
+              (until you hit the world height cap). A one-block pillar base is possible but suicidal on horde night.
+            </li>
+            <li>
+              <strong>Horizontal spans are limited</strong> — each block you extend sideways counts toward the
+              support limit of the block it hangs from.
+            </li>
+            <li>
+              <strong>The “magic 8” rule</strong> — on a single-block-thick floor or bridge, the 9th block from
+              support will collapse when you step on it (count every block between you and the pillar, including turns).
+            </li>
+            <li>
+              <strong>Pillar material matters for attachments</strong> — stack the tower in wood if you want, but use
+              iron frames or metal trussing on the segment that must hold heavy side loads.
+            </li>
+          </ul>
+
+          <h3>Common block spans (vanilla)</h3>
+          <p class="muted">
+            Values from in-game tooltips; rounded down. Mixed-material builds use the weaker of the two calculations.
+          </p>
+          <div class="guide-table-wrap">
+            <table class="guide-table">
+              <thead>
+                <tr><th>Material</th><th>Typical Max Load</th><th>Typical Mass</th><th>Span per face</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Wood frame</td>
+                  <td>24–40</td>
+                  <td>5–6</td>
+                  <td>4–8 blocks</td>
+                </tr>
+                <tr>
+                  <td>Cobblestone / concrete</td>
+                  <td>90</td>
+                  <td>15</td>
+                  <td>6 blocks</td>
+                </tr>
+                <tr>
+                  <td>Brick</td>
+                  <td>65</td>
+                  <td>13</td>
+                  <td>5 blocks</td>
+                </tr>
+                <tr>
+                  <td>Reinforced concrete</td>
+                  <td>110</td>
+                  <td>15</td>
+                  <td>7 blocks</td>
+                </tr>
+                <tr>
+                  <td>Metal trussing / iron frame</td>
+                  <td>320</td>
+                  <td>20</td>
+                  <td>15–16 blocks</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Base-building mistakes to avoid</h3>
+          <ul class="guide-list">
+            <li>
+              <strong>Undermining your own pillar</strong> — digging out the ground under a “green” support column
+              turns the whole stack into unsupported blocks. One wrong mining swing can drop your floor.
+            </li>
+            <li>
+              <strong>Upgrading inconsistently</strong> — pouring concrete over metal rebar frames temporarily
+              lowers SI to wood-tier stats until the full upgrade chain completes. Use temporary supports when upgrading.
+            </li>
+            <li>
+              <strong>Weak variants</strong> — some wood shapes (e.g. shingles) have lower Max Load than standard frames.
+              Always read the tooltip before using them structurally.
+            </li>
+            <li>
+              <strong>Mixing materials blindly</strong> — heavy blocks on a wood anchor fail sooner than the same
+              span in one material. Match your anchor to the heaviest attached mass.
+            </li>
+          </ul>
+
+          <p>
+            Search building materials in the
+            <a href="catalog.html?q=frame">catalog</a> (frames, cobblestone, concrete, trussing).
+          </p>
+          <p class="guide-reference muted">
+            Reference:
+            <a href="https://7daystodie.fandom.com/wiki/Structural_Integrity" rel="noopener noreferrer" target="_blank">
+              Structural Integrity — 7 Days to Die Wiki
+            </a>
+            (Gazz’s SI tutorial &amp; community examples). Fan wiki; verify against your game version’s tooltips.
+          </p>
         </section>
 
         <section id="blood-moon" class="guide-section">
