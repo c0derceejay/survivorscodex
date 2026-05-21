@@ -2,6 +2,7 @@
 node_modules/
 
 # Local auth database — users, bcrypt hashes, sessions, builds, reset tokens
+var/
 data/auth.json
 data/auth.json.tmp
 data/auth.json.*

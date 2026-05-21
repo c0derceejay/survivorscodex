@@ -1,10 +1,10 @@
 /* ==========================================================================
    Survivor's Codex — auth + static server
    - Express serves the static front-end from this directory.
-   - Real accounts: bcrypt-hashed passwords stored in a JSON file at
-     data/auth.json (no native deps, works on any Node 18+).
+   - Real accounts: bcrypt-hashed passwords stored in var/auth.json (gitignored).
    - Sessions: opaque token in an httpOnly cookie, server-side row.
-   - Skill builds: persisted per account in data/auth.json when signed in.
+   - Skill builds: persisted per account in var/auth.json when signed in.
+   - Catalog/skills JSON stays in data/ — mount Railway volumes at /app/var, not /app/data.
    - Favorites & uploaded photos remain client-side (localStorage) by design.
    ========================================================================== */
 
@@ -21,11 +21,38 @@ const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
 const RESET_TTL_MS = 1000 * 60 * 60; // 1 hour
 const MAX_BUILDS_PER_USER = 24;
 const ROOT = __dirname;
-const DB_PATH = path.join(ROOT, "data", "auth.json");
+const VAR_DIR = path.join(ROOT, "var");
+const DB_PATH = path.join(VAR_DIR, "auth.json");
+const LEGACY_DB_PATH = path.join(ROOT, "data", "auth.json");
 
-const BUILD_TYPES_CONFIG = JSON.parse(
-  fs.readFileSync(path.join(ROOT, "data", "build-types.json"), "utf8")
-);
+function ensureVarDir() {
+  fs.mkdirSync(VAR_DIR, { recursive: true });
+}
+
+function migrateLegacyAuthDb() {
+  if (fs.existsSync(DB_PATH) || !fs.existsSync(LEGACY_DB_PATH)) return;
+  try {
+    fs.copyFileSync(LEGACY_DB_PATH, DB_PATH);
+    console.log("[auth] Migrated legacy data/auth.json → var/auth.json");
+  } catch (err) {
+    console.error("[auth] Could not migrate legacy auth database:", err.message);
+  }
+}
+
+function readRequiredJson(relativePath) {
+  const fullPath = path.join(ROOT, relativePath);
+  if (!fs.existsSync(fullPath)) {
+    console.error(`[boot] Missing required file: ${relativePath}`);
+    console.error("[boot] If a Railway volume is mounted at /app/data, remove it and mount at /app/var instead.");
+    process.exit(1);
+  }
+  return JSON.parse(fs.readFileSync(fullPath, "utf8"));
+}
+
+ensureVarDir();
+migrateLegacyAuthDb();
+
+const BUILD_TYPES_CONFIG = readRequiredJson("data/build-types.json");
 const DEFAULT_BUILD_TYPE = BUILD_TYPES_CONFIG.default || "general";
 const BUILD_TYPE_IDS = new Set((BUILD_TYPES_CONFIG.types || []).map((t) => t.id));
 
@@ -40,11 +67,15 @@ function loadDb() {
   }
 }
 function saveDb(db) {
-  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
-  // Atomic write
+  ensureVarDir();
   const tmp = DB_PATH + ".tmp";
-  fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
-  fs.renameSync(tmp, DB_PATH);
+  try {
+    fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
+    fs.renameSync(tmp, DB_PATH);
+  } catch (err) {
+    console.error("[auth] Could not save auth database:", err.message);
+    throw err;
+  }
 }
 function migrateBuildRecords(db) {
   let changed = false;
@@ -633,6 +664,13 @@ app.delete("/api/builds/:id", requireAuth, (req, res) => {
 });
 
 // ---------------------------------------------------------------------------
+// Health (Railway / uptime checks)
+// ---------------------------------------------------------------------------
+app.get("/health", (_req, res) => {
+  res.status(200).json({ ok: true, service: "survivors-codex" });
+});
+
+// ---------------------------------------------------------------------------
 // Static front-end
 // ---------------------------------------------------------------------------
 app.get("/", (_req, res) => res.redirect("/splash.html"));
@@ -645,6 +683,15 @@ app.use(express.static(ROOT, {
 // ---------------------------------------------------------------------------
 // Boot
 // ---------------------------------------------------------------------------
-app.listen(PORT, () => {
-  console.log(`\n  Survivor's Codex listening on  http://localhost:${PORT}\n`);
+process.on("uncaughtException", (err) => {
+  console.error("[fatal] uncaughtException:", err);
+  process.exit(1);
+});
+process.on("unhandledRejection", (err) => {
+  console.error("[fatal] unhandledRejection:", err);
+  process.exit(1);
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`\n  Survivor's Codex listening on 0.0.0.0:${PORT}\n`);
 });

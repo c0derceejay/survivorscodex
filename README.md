@@ -14,8 +14,9 @@ A modern, vanilla-only field guide to every base-game resource in 7 Days to Die.
 
 ## What lives where
 
-- **Accounts** (username, email, bcrypt-hashed password) — server-side JSON at `data/auth.json` (gitignored)
-- **Sessions** — opaque tokens in an httpOnly cookie, server-side rows in `data/auth.json`
+- **Accounts** (username, email, bcrypt-hashed password) — server-side JSON at `var/auth.json` (gitignored)
+- **Sessions** — opaque tokens in an httpOnly cookie, server-side rows in `var/auth.json`
+- **Railway volume** — mount at `/app/var` (not `/app/data`; `data/` holds catalog JSON from git)
 - **Skill builds** — server-side per account when signed in; guests use `localStorage` until they sign in
 - **Favorites & uploaded photos** — client-side only, in `localStorage`, keyed per user
 - **Catalog data** — `data/items.json` (~495 entries: craftables + zombies)
