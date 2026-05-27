@@ -580,10 +580,6 @@
     const links = nav.querySelector(".nav-links");
     if (!links) return;
 
-    const panel = document.createElement("div");
-    panel.className = "nav-mobile-panel";
-    panel.id = "site-nav-panel";
-
     const auth = document.createElement("div");
     auth.className = "nav-menu-auth";
     auth.setAttribute("aria-label", "Account");
@@ -591,10 +587,14 @@
     const divider = document.createElement("hr");
     divider.className = "nav-menu-divider";
 
+    const panel = document.createElement("div");
+    panel.className = "nav-mobile-panel";
+    panel.id = "site-nav-panel";
     panel.appendChild(auth);
     panel.appendChild(divider);
-    panel.appendChild(links);
-    nav.appendChild(panel);
+
+    // Keep .nav-links in place so desktop layout stays: brand | links | cta
+    nav.insertBefore(panel, links);
 
     const toggle = document.createElement("button");
     toggle.className = "nav-toggle";
@@ -603,7 +603,7 @@
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-controls", panel.id);
     toggle.innerHTML = "<span></span><span></span><span></span>";
-    nav.insertBefore(toggle, panel);
+    nav.appendChild(toggle);
 
     const closeMenu = () => {
       nav.classList.remove("nav-open");
@@ -621,8 +621,9 @@
     });
 
     panel.addEventListener("click", (e) => {
-      if (e.target.closest("a[href]")) closeMenu();
+      if (e.target.closest("a[href], button")) closeMenu();
     });
+    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
     });
