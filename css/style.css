@@ -892,6 +892,7 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .category-slider__track { transition: none; }
   .category-slide { transition: none; opacity: 1; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 @media (max-width: 720px) {

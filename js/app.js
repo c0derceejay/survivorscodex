@@ -650,19 +650,36 @@
   // -------------------------------------------------------------------------
   function setupReveal() {
     const els = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window) || !els.length) {
-      els.forEach((e) => e.classList.add("in"));
+    if (!els.length) return;
+
+    const show = (el) => el.classList.add("in");
+
+    const revealVisibleNow = () => {
+      els.forEach((el) => {
+        if (el.classList.contains("in")) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) show(el);
+      });
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(show);
       return;
     }
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("in");
+          show(entry.target);
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+
     els.forEach((e) => io.observe(e));
+    revealVisibleNow();
+    window.addEventListener("load", revealVisibleNow, { once: true });
+    window.addEventListener("resize", revealVisibleNow);
   }
 
   // -------------------------------------------------------------------------
