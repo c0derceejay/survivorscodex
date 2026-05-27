@@ -74,7 +74,7 @@
       <h4>Effects &amp; stats</h4>
       <div id="modal-tooltip"></div>
       <div class="kv-grid" id="modal-kv"></div>
-      <h4>Recipe inputs</h4>
+      <h4 id="modal-recipe-heading">Recipe inputs</h4>
       <div class="tag-list" id="modal-ingredients"></div>
       <h4>Best at</h4>
       <div class="tag-list" id="modal-uses"></div>
@@ -206,6 +206,51 @@
       modal.querySelector("#modal-tooltip").innerHTML = ItemTooltips.renderItemTooltip(modalItem, modalQuality);
     }
 
+    function renderRecipeInputs(item) {
+      const heading = modal.querySelector("#modal-recipe-heading");
+      const wrap = modal.querySelector("#modal-ingredients");
+
+      if (item.entityId) {
+        heading.textContent = "Recipe inputs";
+        wrap.innerHTML = `<span class="tag tag-muted">Spawned in world</span>`;
+        return;
+      }
+
+      const recipe = item.recipe;
+      if (recipe?.craftAreaLabel) {
+        heading.textContent = `Recipe inputs · ${recipe.craftAreaLabel}`;
+      } else {
+        heading.textContent = "Recipe inputs";
+      }
+
+      if (recipe?.ingredients?.length) {
+        wrap.innerHTML = recipe.ingredients.map((ing) => {
+          const label = `${ing.count}× ${ing.name}`;
+          if (ing.id && catalog.items.some((x) => x.id === ing.id)) {
+            return `<button type="button" class="tag recipe-link" data-recipe-item="${SDD.escapeHTML(ing.id)}">${SDD.escapeHTML(label)}</button>`;
+          }
+          return `<span class="tag">${SDD.escapeHTML(label)}</span>`;
+        }).join("");
+        if (recipe.hasQualityScaling) {
+          wrap.innerHTML += `<p class="recipe-note muted">Higher qualities require additional materials.</p>`;
+        }
+        return;
+      }
+
+      if (recipe?.forgeOnly) {
+        wrap.innerHTML = `<span class="tag tag-muted">Forge or salvage (material-based)</span>`;
+        return;
+      }
+
+      const legacy = item.ingredients || [];
+      if (legacy.length && legacy[0] !== "See in-game recipe / loot tables") {
+        wrap.innerHTML = legacy.map((g) => `<span class="tag">${SDD.escapeHTML(g)}</span>`).join("");
+        return;
+      }
+
+      wrap.innerHTML = `<p class="muted" style="margin:0">Not in the standard recipe list — loot, trader, or workstation only.</p>`;
+    }
+
     // ---- Modal ----
     function openItem(id) {
       const i = catalog.items.find((x) => x.id === id);
@@ -235,7 +280,7 @@
         <div><span>Weight</span><span>${i.weight ?? 0}</span></div>
         ${i.perk ? `<div><span>Boosts via</span><span>${SDD.escapeHTML(i.perk)}</span></div>` : ""}
       `;
-      modal.querySelector("#modal-ingredients").innerHTML = (i.ingredients || []).map((g) => `<span class="tag">${SDD.escapeHTML(g)}</span>`).join("");
+      renderRecipeInputs(i);
       modal.querySelector("#modal-uses").innerHTML = (i.uses || []).map((u) => `<span class="tag">${SDD.escapeHTML(u)}</span>`).join("");
       const favBtn = modal.querySelector("#modal-fav");
       const setFavLabel = () => {
@@ -261,6 +306,11 @@
       renderModalTooltip();
     });
 
+    modal.querySelector("#modal-ingredients").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-recipe-item]");
+      if (!btn) return;
+      openItem(btn.dataset.recipeItem);
+    });
     modal.querySelector(".modal-close").addEventListener("click", () => modal.classList.remove("open"));
     modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.classList.remove("open"); });

@@ -20,6 +20,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# Generated recipe cache (also merged into items.json)
+data/recipes-v2.1.xml
+
 # Logs
 logs/
 *.log

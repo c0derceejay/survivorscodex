@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
+    "auth:reset-password": "node scripts/reset-user-password.mjs",
     "icons:sync": "node scripts/sync-item-icons.mjs",
     "icons:map": "node scripts/build-icon-map.mjs",
     "icons:github": "node scripts/sync-github-icons.mjs",
@@ -14,10 +15,11 @@
     "icons:all": "npm run icons:refresh && npm run icons:entities",
     "stats:generate": "node scripts/sync-wiki-item-stats.mjs && node scripts/generate-item-stats.mjs",
     "stats:wiki": "node scripts/sync-wiki-item-stats.mjs",
+    "recipes:sync": "node scripts/sync-recipes.mjs",
     "catalog:build": "node scripts/build-full-catalog.mjs && node scripts/prune-removed-entities.mjs",
     "gear:build": "node scripts/build-perk-gear.mjs",
     "mods:build": "node scripts/build-mod-compatibility.mjs",
-    "catalog:refresh": "npm run catalog:build && npm run gear:build && npm run mods:build && npm run stats:generate && npm run icons:refresh",
+    "catalog:refresh": "npm run catalog:build && npm run recipes:sync && npm run gear:build && npm run mods:build && npm run stats:generate && npm run icons:refresh",
     "catalog:expand": "node scripts/generate-catalog-extensions.mjs"
   },
   "engines": {

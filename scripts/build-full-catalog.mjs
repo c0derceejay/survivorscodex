@@ -210,6 +210,7 @@ function buildItemFromIcon(icon, category, curated = {}) {
     perk: curated.perk ?? "",
     uses: curated.uses ?? [],
   };
+  if (curated.recipe) item.recipe = curated.recipe;
   const slot = inferModSlot(icon, category);
   if (slot) item.modSlot = slot;
   return item;

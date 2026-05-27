@@ -93,6 +93,7 @@
   <script src="js/item-tooltips.js"></script>
   <script src="js/perk-gear.js"></script>
   <script src="js/loadout.js"></script>
+  <script src="js/loadout-mannequin.js"></script>
   <script src="js/build-detail.js"></script>
   <script>
     let catalog = { items: [], categories: [] };
@@ -240,6 +241,7 @@
           </div>
         </article>`;
       }).join("");
+      SDD.Mannequin?.hydrate?.(grid) || SDD.attachItemPhotoHandlers?.(grid);
       grid.querySelectorAll(".build-del-profile").forEach((btn) => {
         btn.addEventListener("click", async () => {
           if (!confirm("Delete this saved build?")) return;

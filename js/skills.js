@@ -602,6 +602,11 @@
     if (waterEl) SDD.attachItemPhotoHandlers(waterEl);
     if (medicalEl) SDD.attachItemPhotoHandlers(medicalEl);
     if (vehiclesEl) SDD.attachItemPhotoHandlers(vehiclesEl);
+
+    const mannequinEl = document.getElementById("loadout-mannequin");
+    if (mannequinEl && SDD.Mannequin) {
+      SDD.Mannequin.mount(mannequinEl, state.loadout, ctx);
+    }
   }
 
   function render() {

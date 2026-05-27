@@ -20,7 +20,13 @@
     let json = null;
     try { json = await res.json(); } catch (_) {}
     if (!res.ok) {
-      const err = new Error((json && json.error) || `Request failed (${res.status})`);
+      let message = (json && json.error) || `Request failed (${res.status})`;
+      if ((res.status === 405 || res.status === 501) && path.startsWith("/api/")) {
+        message = "Auth server unavailable. Use npm start locally (http://localhost:3000) or your deployed Railway URL — not Live Server or opening HTML files directly.";
+      } else if (res.status === 404 && path.startsWith("/api/")) {
+        message = "Auth API not found. Start the Express server with npm start, or deploy the latest server.js to Railway.";
+      }
+      const err = new Error(message);
       err.status = res.status;
       throw err;
     }

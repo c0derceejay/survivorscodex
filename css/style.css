@@ -1318,6 +1318,25 @@ main {
   font-size: 0.85rem;
   color: var(--color-white);
 }
+.tag-muted {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-muted);
+}
+.recipe-link {
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+.recipe-link:hover {
+  background: rgba(214, 40, 40, 0.18);
+  border-color: rgba(214, 40, 40, 0.55);
+}
+.recipe-note {
+  flex-basis: 100%;
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+}
 
 /* ==========================================================================
    Auth modal
@@ -2687,6 +2706,249 @@ main {
   max-width: 640px;
   font-size: 0.88rem;
 }
+
+/* ---- Loadout mannequin ---- */
+.loadout-mannequin-section {
+  margin-top: var(--space-6);
+}
+.loadout-mannequin-wrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-5) var(--space-4);
+}
+.build-mannequin-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  padding: var(--space-3) 0;
+}
+.loadout-mannequin {
+  --mannequin-slot: 64px;
+  --mannequin-card: 148px;
+  --mannequin-gap: 14px;
+  --mannequin-pad: 20px;
+  width: 100%;
+  max-width: 560px;
+  color: var(--color-text-mute);
+}
+.loadout-mannequin--compact {
+  --mannequin-slot: 52px;
+  --mannequin-card: 120px;
+  --mannequin-gap: 10px;
+  --mannequin-pad: 14px;
+  max-width: 420px;
+}
+.loadout-mannequin__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--mannequin-gap);
+  padding: var(--mannequin-pad);
+  align-items: start;
+}
+.loadout-mannequin__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mannequin-gap);
+  min-width: 0;
+}
+.loadout-mannequin__aside {
+  min-width: var(--mannequin-card);
+  max-width: var(--mannequin-card);
+}
+.mannequin-section {
+  padding: 14px 16px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.22);
+}
+.mannequin-section.is-filled {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: var(--color-surface-2);
+}
+.mannequin-section--aside {
+  position: sticky;
+  top: 0;
+}
+.mannequin-section__label {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-mute);
+}
+.mannequin-gear-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.mannequin-gear-grid {
+  display: grid;
+  grid-template-columns: repeat(2, var(--mannequin-card));
+  grid-template-rows: repeat(2, auto);
+  gap: 12px;
+  width: calc(var(--mannequin-card) * 2 + 12px);
+}
+.mannequin-gear-grid--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(var(--mannequin-slot) + 48px);
+  width: 100%;
+}
+.mannequin-gear-grid__cell {
+  position: relative;
+  width: var(--mannequin-card);
+  min-height: calc(var(--mannequin-slot) + 44px);
+  padding: 10px 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mannequin-gear-grid__cell.is-filled {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.28);
+}
+.mannequin-gear-grid__extra {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--color-text-mute);
+}
+.mannequin-medical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+.mannequin-medical-stack__cell {
+  position: relative;
+  width: 100%;
+  min-height: calc(var(--mannequin-slot) + 44px);
+  padding: 10px 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mannequin-medical-stack__cell.is-filled {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.28);
+}
+.mannequin-slot__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+.mannequin-slot__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--mannequin-slot);
+  height: var(--mannequin-slot);
+  flex-shrink: 0;
+}
+.mannequin-slot__icon .item-icon,
+.mannequin-slot__icon .item-icon--compact {
+  width: 100%;
+  height: 100%;
+}
+.mannequin-slot__icon .item-photo--compact {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.mannequin-slot__name {
+  display: block;
+  width: 100%;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--color-text-soft);
+  white-space: normal;
+  word-break: break-word;
+}
+.loadout-mannequin--compact .mannequin-slot__name {
+  font-size: 0.62rem;
+}
+.mannequin-slot__ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--mannequin-slot);
+  opacity: 0.35;
+}
+.mannequin-slot__ghost-label {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+}
+.mannequin-slot__q {
+  position: absolute;
+  right: 4px;
+  top: calc(var(--mannequin-slot) - 6px);
+  padding: 2px 5px;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.85);
+  color: var(--q-color, var(--color-text-soft));
+  border: 1px solid var(--q-color, var(--color-line));
+  pointer-events: none;
+}
+.mannequin-slot__mods {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 3px;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  pointer-events: none;
+}
+@media (max-width: 520px) {
+  .loadout-mannequin__layout {
+    grid-template-columns: 1fr;
+  }
+  .loadout-mannequin__aside {
+    max-width: none;
+  }
+  .mannequin-medical-stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .mannequin-medical-stack__cell {
+    width: var(--mannequin-card);
+  }
+}
+
 .loadout-outfit-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));

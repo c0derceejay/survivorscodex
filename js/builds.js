@@ -263,6 +263,7 @@
         </article>`;
     }).join("");
 
+    SDD.Mannequin?.hydrate?.(grid) || SDD.attachItemPhotoHandlers?.(grid);
     grid.querySelectorAll(".builds-save-copy").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const build = allBuilds.find((x) => x.id === btn.dataset.copyBuild);

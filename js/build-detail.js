@@ -82,8 +82,11 @@
       ctx.categories,
       ctx.itemStats
     ) || "";
+    const mannequinHtml = window.SDD.Mannequin?.hasMannequinGear(build.loadout, ctx.items)
+      ? `<div class="build-mannequin-wrap">${window.SDD.Mannequin.renderMannequinHtml(build.loadout, ctx, { compact: true })}</div>`
+      : "";
 
-    if (!hasAttrs && !hasPerks && !loadoutHtml) {
+    if (!hasAttrs && !hasPerks && !loadoutHtml && !mannequinHtml) {
       return `<p class="muted profile-build-empty">No points allocated in this build.</p>`;
     }
 
@@ -93,7 +96,8 @@
           <h4 class="build-section-title">Attributes</h4>
           <ul class="build-attr-list">${attrsHtml}</ul>
         </section>` : ""}
-      ${hasPerks ? perksHtml : (hasAttrs && !loadoutHtml ? `<p class="muted profile-build-hint">No perk points spent yet — attributes only.</p>` : "")}
+      ${hasPerks ? perksHtml : (hasAttrs && !loadoutHtml && !mannequinHtml ? `<p class="muted profile-build-hint">No perk points spent yet — attributes only.</p>` : "")}
+      ${mannequinHtml}
       ${loadoutHtml}`;
   }
 

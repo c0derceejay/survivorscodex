@@ -35,7 +35,26 @@ npm start
 
 Then open http://localhost:3000 — the root redirects to `splash.html`.
 
+**Important:** Sign-in, password reset, and saved builds require the Express server. Opening HTML with Live Server, VS Code “Open with Live Preview”, or `python -m http.server` will show the site but auth API calls fail (405/501). Always use `npm start` locally or your deployed Railway URL.
+
 Stop the server with **Ctrl + C** in that terminal. If the site still loads afterward, another Node process may still be bound to port 3000 — run `lsof -i :3000` and `kill <PID>`.
+
+## Password reset
+
+There is no email provider wired up yet — reset links are shown in the UI and logged on the server.
+
+1. Open the site via **`npm start`** (local) or your **Railway URL** (production).
+2. Sign in modal → **Forgot password?** → enter your account email → **Send reset link**.
+3. If the account exists, click **Open reset page** in the success panel (link expires in 1 hour, single use).
+4. On Railway, the same link appears in deploy logs: `[password-reset] Link for user@email.com: …`
+
+**Admin recovery** (direct edit of `var/auth.json` on the server):
+
+```bash
+npm run auth:reset-password -- user@example.com newpassword123
+```
+
+On Railway, run that in a one-off shell against the volume mounted at `/app/var`.
 
 ## API
 
@@ -46,6 +65,8 @@ All endpoints accept / return JSON and use the `sdd_session` cookie.
 | POST   | `/api/signup`  | `{ username, email, password }`   | 6+ char password, sets cookie |
 | POST   | `/api/login`   | `{ email, password }`             | Sets cookie                   |
 | POST   | `/api/logout`  | —                                 | Clears cookie + session row   |
+| POST   | `/api/forgot-password` | `{ email }`               | Starts password reset (see below) |
+| POST   | `/api/reset-password`  | `{ token, password }`     | Set new password from reset link |
 | GET    | `/api/me`      | —                                 | Returns the signed-in user    |
 | GET    | `/api/builds`  | —                                 | List saved skill builds (auth required) |
 | POST   | `/api/builds`  | `{ name, buildType, playerLevel, unlimited, attributes, perks }` | Save a build (auth required, max 24) |
