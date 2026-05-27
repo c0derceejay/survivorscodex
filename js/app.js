@@ -572,6 +572,49 @@
   }
 
   // -------------------------------------------------------------------------
+  // Mobile navigation
+  // -------------------------------------------------------------------------
+  function setupMobileNav() {
+    const nav = document.querySelector(".nav");
+    if (!nav || nav.querySelector(".nav-toggle")) return;
+    const links = nav.querySelector(".nav-links");
+    if (!links) return;
+
+    links.id = links.id || "site-nav";
+    const toggle = document.createElement("button");
+    toggle.className = "nav-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-label", "Open menu");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", links.id);
+    toggle.innerHTML = "<span></span><span></span><span></span>";
+    nav.insertBefore(toggle, links);
+
+    const closeMenu = () => {
+      nav.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+      document.body.classList.remove("nav-menu-open");
+    };
+
+    toggle.addEventListener("click", () => {
+      const open = !nav.classList.contains("nav-open");
+      nav.classList.toggle("nav-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("nav-menu-open", open);
+    });
+
+    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) closeMenu();
+    });
+  }
+
+  // -------------------------------------------------------------------------
   // Nav rendering
   // -------------------------------------------------------------------------
   function renderNav() {
@@ -582,9 +625,9 @@
 
     if (Auth.user) {
       cta.innerHTML = `
-        <a href="profile.html" class="btn btn-ghost">
+        <a href="profile.html" class="btn btn-ghost nav-profile-btn">
           <span class="avatar" style="width:24px;height:24px;font-size:.75rem">${Auth.user.username.charAt(0).toUpperCase()}</span>
-          ${escapeHTML(Auth.user.username)}
+          <span class="nav-profile-name">${escapeHTML(Auth.user.username)}</span>
         </a>
         <button class="btn btn-sm" id="nav-logout" type="button">Sign out</button>`;
       cta.querySelector("#nav-logout").addEventListener("click", async () => {
@@ -895,6 +938,7 @@
   // -------------------------------------------------------------------------
   Auth.onChange(renderNav);
   document.addEventListener("DOMContentLoaded", async () => {
+    setupMobileNav();
     setupReveal();
     renderNav();
     injectFooterSources();
