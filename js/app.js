@@ -580,15 +580,30 @@
     const links = nav.querySelector(".nav-links");
     if (!links) return;
 
-    links.id = links.id || "site-nav";
+    const panel = document.createElement("div");
+    panel.className = "nav-mobile-panel";
+    panel.id = "site-nav-panel";
+
+    const auth = document.createElement("div");
+    auth.className = "nav-menu-auth";
+    auth.setAttribute("aria-label", "Account");
+
+    const divider = document.createElement("hr");
+    divider.className = "nav-menu-divider";
+
+    panel.appendChild(auth);
+    panel.appendChild(divider);
+    panel.appendChild(links);
+    nav.appendChild(panel);
+
     const toggle = document.createElement("button");
     toggle.className = "nav-toggle";
     toggle.type = "button";
     toggle.setAttribute("aria-label", "Open menu");
     toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-controls", links.id);
+    toggle.setAttribute("aria-controls", panel.id);
     toggle.innerHTML = "<span></span><span></span><span></span>";
-    nav.insertBefore(toggle, links);
+    nav.insertBefore(toggle, panel);
 
     const closeMenu = () => {
       nav.classList.remove("nav-open");
@@ -605,12 +620,36 @@
       document.body.classList.toggle("nav-menu-open", open);
     });
 
-    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    panel.addEventListener("click", (e) => {
+      if (e.target.closest("a[href]")) closeMenu();
+    });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
     });
     window.addEventListener("resize", () => {
       if (window.innerWidth > 900) closeMenu();
+    });
+  }
+
+  function bindAuthButtons(root, nav) {
+    if (!root) return;
+    root.querySelectorAll("[data-auth]").forEach((b) => {
+      b.addEventListener("click", () => {
+        nav?.classList.remove("nav-open");
+        document.body.classList.remove("nav-menu-open");
+        openAuthModal(b.dataset.auth);
+      });
+    });
+  }
+
+  function bindLogout(btn, nav) {
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      nav?.classList.remove("nav-open");
+      document.body.classList.remove("nav-menu-open");
+      await Auth.logout();
+      toast("Signed out.");
+      if (location.pathname.endsWith("profile.html")) location.href = "index.html";
     });
   }
 
@@ -622,6 +661,7 @@
     if (!nav) return;
     const cta = nav.querySelector(".nav-cta");
     if (!cta) return;
+    const menuAuth = nav.querySelector(".nav-menu-auth");
 
     if (Auth.user) {
       cta.innerHTML = `
@@ -630,18 +670,26 @@
           <span class="nav-profile-name">${escapeHTML(Auth.user.username)}</span>
         </a>
         <button class="btn btn-sm" id="nav-logout" type="button">Sign out</button>`;
-      cta.querySelector("#nav-logout").addEventListener("click", async () => {
-        await Auth.logout();
-        toast("Signed out.");
-        if (location.pathname.endsWith("profile.html")) location.href = "index.html";
-      });
+      bindLogout(cta.querySelector("#nav-logout"), nav);
+
+      if (menuAuth) {
+        menuAuth.innerHTML = `
+          <a href="profile.html" class="nav-menu-link">${escapeHTML(Auth.user.username)}</a>
+          <button type="button" class="nav-menu-link nav-menu-btn" id="nav-menu-logout">Sign out</button>`;
+        bindLogout(menuAuth.querySelector("#nav-menu-logout"), nav);
+      }
     } else {
       cta.innerHTML = `
         <button class="btn btn-ghost" data-auth="signin" type="button">Sign in</button>
         <button class="btn btn-primary" data-auth="signup" type="button">Create account</button>`;
-      cta.querySelectorAll("[data-auth]").forEach((b) =>
-        b.addEventListener("click", () => openAuthModal(b.dataset.auth))
-      );
+      bindAuthButtons(cta, nav);
+
+      if (menuAuth) {
+        menuAuth.innerHTML = `
+          <button type="button" class="nav-menu-link nav-menu-btn nav-menu-link--primary" data-auth="signup">Create Account</button>
+          <button type="button" class="nav-menu-link nav-menu-btn" data-auth="signin">Sign-in</button>`;
+        bindAuthButtons(menuAuth, nav);
+      }
     }
   }
 
