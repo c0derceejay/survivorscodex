@@ -39,6 +39,28 @@ Then open http://localhost:3000 — the root redirects to `splash.html`.
 
 Stop the server with **Ctrl + C** in that terminal. If the site still loads afterward, another Node process may still be bound to port 3000 — run `lsof -i :3000` and `kill <PID>`.
 
+## Deploy on Railway
+
+The repo includes `railway.json` with the recommended settings:
+
+| Setting | Value |
+|---------|--------|
+| **Start command** | `node server.js` (not `npm start` — npm can swallow SIGTERM and confuse restarts) |
+| **Health check** | `GET /health` |
+| **Volume mount** | `/app/var` only — for `auth.json` and saved builds |
+
+**Do not mount a volume at `/app/data`.** That replaces catalog JSON from git with an empty disk and breaks the site (or prevents boot if `build-types.json` is missing).
+
+### If deploys restart in a loop
+
+1. **Railway → Service → Settings → Deploy** — confirm start command is `node server.js` and health check path is `/health`.
+2. **Volumes** — one volume at mount path `/app/var`. Remove any volume on `/app/data`.
+3. **Logs after “listening on 8080”** — look for `[fatal]` lines (uncaught errors) or `Stopping Container` / `SIGTERM` ~30–60s later (often failed health check or memory limit).
+4. **Metrics** — memory spikes on the free tier can OOM-kill the container; bump RAM if needed.
+5. **Smoke test** — open `https://YOUR-APP.up.railway.app/health` — should return `{"ok":true,...}`.
+
+Optional env vars: `APP_BASE_URL=https://your-domain` (password-reset links), `NODE_ENV=production`.
+
 ## Password reset
 
 There is no email provider wired up yet — reset links are shown in the UI and logged on the server.

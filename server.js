@@ -44,13 +44,38 @@ function readRequiredJson(relativePath) {
   if (!fs.existsSync(fullPath)) {
     console.error(`[boot] Missing required file: ${relativePath}`);
     console.error("[boot] If a Railway volume is mounted at /app/data, remove it and mount at /app/var instead.");
+    console.error("[boot] Catalog JSON (data/) must come from git — only auth DB lives on the /app/var volume.");
     process.exit(1);
   }
-  return JSON.parse(fs.readFileSync(fullPath, "utf8"));
+  try {
+    return JSON.parse(fs.readFileSync(fullPath, "utf8"));
+  } catch (err) {
+    console.error(`[boot] Invalid JSON in ${relativePath}:`, err.message);
+    process.exit(1);
+  }
+}
+
+function verifyDeployLayout() {
+  const dataDir = path.join(ROOT, "data");
+  if (!fs.existsSync(dataDir)) {
+    console.error("[boot] data/ directory missing — check Railway volume mounts (use /app/var only, not /app/data).");
+    process.exit(1);
+  }
+  for (const file of ["data/items.json", "data/skills.json"]) {
+    if (!fs.existsSync(path.join(ROOT, file))) {
+      console.warn(`[boot] Warning: ${file} missing — site may be incomplete.`);
+    }
+  }
+  try {
+    fs.accessSync(VAR_DIR, fs.constants.W_OK);
+  } catch (_) {
+    console.warn("[boot] Warning: var/ is not writable — auth saves may fail. Mount a volume at /app/var.");
+  }
 }
 
 ensureVarDir();
 migrateLegacyAuthDb();
+verifyDeployLayout();
 
 const BUILD_TYPES_CONFIG = readRequiredJson("data/build-types.json");
 const DEFAULT_BUILD_TYPE = BUILD_TYPES_CONFIG.default || "general";
@@ -97,7 +122,11 @@ function migrateBuildRecords(db) {
 }
 
 let db = loadDb();
-if (migrateBuildRecords(db)) saveDb(db);
+try {
+  if (migrateBuildRecords(db)) saveDb(db);
+} catch (err) {
+  console.error("[auth] Could not migrate auth database on startup:", err.message);
+}
 
 const Store = {
   findUserByEmail(email) {
@@ -260,6 +289,7 @@ setInterval(() => Store.cleanupExpired(), 1000 * 60 * 60).unref?.();
 // App
 // ---------------------------------------------------------------------------
 const app = express();
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
 
@@ -667,7 +697,11 @@ app.delete("/api/builds/:id", requireAuth, (req, res) => {
 // Health (Railway / uptime checks)
 // ---------------------------------------------------------------------------
 app.get("/health", (_req, res) => {
-  res.status(200).json({ ok: true, service: "survivors-codex" });
+  res.status(200).json({
+    ok: true,
+    service: "survivors-codex",
+    uptime: Math.floor(process.uptime()),
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -692,6 +726,23 @@ process.on("unhandledRejection", (err) => {
   process.exit(1);
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`\n  Survivor's Codex listening on 0.0.0.0:${PORT}\n`);
+const server = app.listen(PORT, "0.0.0.0", () => {
+  console.log(`\n  Survivor's Codex listening on 0.0.0.0:${PORT}`);
+  console.log(`  NODE_ENV=${process.env.NODE_ENV || "(unset)"}`);
+  console.log(`  Health: http://0.0.0.0:${PORT}/health\n`);
 });
+
+function shutdown(signal) {
+  console.log(`[boot] Received ${signal}, closing server…`);
+  server.close(() => {
+    console.log("[boot] Server closed.");
+    process.exit(0);
+  });
+  setTimeout(() => {
+    console.error("[boot] Forced exit after shutdown timeout.");
+    process.exit(1);
+  }, 10000).unref?.();
+}
+
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+process.on("SIGINT", () => shutdown("SIGINT"));
