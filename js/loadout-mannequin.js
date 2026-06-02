@@ -1,15 +1,18 @@
 /* ==========================================================================
-   Loadout mannequin — 2D gear preview (weapons, tools, armor, medical)
+   Loadout mannequin — 2D paper-doll (armor) + gear panels
    ========================================================================== */
 
 (() => {
   const GRID_VISIBLE = 4;
-  const OUTFIT_PIECES = [
-    { slot: "head", label: "Head" },
-    { slot: "chest", label: "Chest" },
-    { slot: "hands", label: "Hands" },
-    { slot: "feet", label: "Feet" },
+
+  const BODY_SLOTS = [
+    { id: "head", label: "Head", area: "head", armorKey: "head" },
+    { id: "chest", label: "Chest", area: "chest", armorKey: "chest" },
+    { id: "hands", label: "Hands", area: "hands", armorKey: "hands" },
+    { id: "feet", label: "Feet", area: "feet", armorKey: "feet" },
   ];
+
+  const SILHOUETTE_HTML = `<img class="paper-doll__silhouette" src="images/mannequin-base.svg" alt="" width="120" height="200" decoding="async" />`;
 
   function findCatalogItem(items, id) {
     return items?.find((i) => i.id === id) || { id, name: id, category: "resources", tier: 1 };
@@ -49,14 +52,14 @@
     return `<span class="mannequin-slot__q" style="--q-color:${color}">Q${quality}</span>`;
   }
 
-  function renderSlotItem(itemId, loadout, catalogItems, categories) {
+  function renderSlotItem(itemId, loadout, catalogItems, categories, iconOnly = false) {
     const esc = SDD.escapeHTML;
     const item = findCatalogItem(catalogItems, itemId);
     const mods = modCount(loadout, itemId);
     return `
       <div class="mannequin-slot__item" title="${esc(item.name)}">
         <span class="mannequin-slot__icon">${renderGameIcon(itemId, catalogItems, categories)}</span>
-        <span class="mannequin-slot__name">${esc(item.name)}</span>
+        ${iconOnly ? "" : `<span class="mannequin-slot__name">${esc(item.name)}</span>`}
         ${qualityBadge(itemId, loadout, catalogItems)}
         ${mods ? `<span class="mannequin-slot__mods" title="${mods} mod${mods === 1 ? "" : "s"}">${mods}</span>` : ""}
       </div>`;
@@ -67,47 +70,26 @@
     return `<span class="mannequin-slot__ghost" aria-hidden="true"><span class="mannequin-slot__ghost-label">${esc(label)}</span></span>`;
   }
 
-  function renderGridCell(inner, filled = false) {
-    return `<div class="mannequin-gear-grid__cell${filled ? " is-filled" : ""}">${inner}</div>`;
-  }
-
-  function renderTwoByTwo(cells, emptyLabel, extraCount = 0) {
-    if (!cells.length) {
-      return `
-        <div class="mannequin-gear-grid mannequin-gear-grid--empty">
-          ${renderEmptySlot(emptyLabel)}
-        </div>`;
-    }
-
-    const extra = extraCount
-      ? `<p class="mannequin-gear-grid__extra">+${extraCount} more</p>`
-      : "";
-
-    return `
-      <div class="mannequin-gear-grid-wrap">
-        <div class="mannequin-gear-grid">${cells.join("")}</div>
-        ${extra}
-      </div>`;
-  }
-
   function resolveSlots(loadout, catalogItems) {
     const normalized = SDD.Loadout.normalizeLoadout(loadout || {}, catalogItems);
-    const weapons = normalized.weapons || [];
-    const tools = normalized.tools || [];
-
     return {
       normalized,
       slots: {
         armorSet: normalized.armorSet || null,
-        weapons: weapons.slice(0, GRID_VISIBLE),
-        belt: tools.slice(0, GRID_VISIBLE),
+        weapons: normalized.weapons || [],
+        tools: normalized.tools || [],
         medical: normalized.medical || [],
-        _extra: {
-          weapons: weapons.length > GRID_VISIBLE ? weapons.length - GRID_VISIBLE : 0,
-          tools: tools.length > GRID_VISIBLE ? tools.length - GRID_VISIBLE : 0,
-        },
       },
     };
+  }
+
+  function resolvePaperDoll(loadout, catalogItems) {
+    const { normalized, slots } = resolveSlots(loadout, catalogItems);
+    const body = {};
+    for (const key of ["head", "chest", "hands", "feet"]) {
+      body[key] = slots.armorSet ? armorPieceForSlot(slots.armorSet, key) : null;
+    }
+    return { normalized, armorSet: slots.armorSet, body, ...slots };
   }
 
   function hasMannequinGear(loadout, catalogItems = []) {
@@ -120,107 +102,101 @@
     );
   }
 
-  function renderOutfitSection(armorSet, loadout, catalogItems, categories) {
-    if (!armorSet) {
-      return renderTwoByTwo([], "Outfit");
-    }
-
-    const cells = OUTFIT_PIECES.map(({ slot, label }) => {
-      const pieceId = armorPieceForSlot(armorSet, slot);
-      const inner = pieceId
-        ? renderSlotItem(pieceId, loadout, catalogItems, categories)
-        : renderEmptySlot(label);
-      return renderGridCell(inner, Boolean(pieceId));
-    });
-
-    return renderTwoByTwo(cells);
+  function armorSetLabel(armorSetSlug) {
+    const set = SDD.Loadout?.armorSets?.[armorSetSlug];
+    return set?.label || armorSetSlug;
   }
 
-  function renderItemGrid(itemIds, loadout, catalogItems, categories, emptyLabel, extraCount) {
-    if (!itemIds?.length) {
-      return renderTwoByTwo([], emptyLabel);
-    }
-
-    const cells = itemIds.map((id) =>
-      renderGridCell(renderSlotItem(id, loadout, catalogItems, categories), true)
-    );
-
-    return renderTwoByTwo(cells, emptyLabel, extraCount);
-  }
-
-  function renderMedicalStack(itemIds, loadout, catalogItems, categories) {
-    if (!itemIds?.length) {
-      return renderEmptySlot("Medical");
-    }
+  function renderBodyCell(slot, doll, loadout, catalogItems, categories) {
+    const esc = SDD.escapeHTML;
+    const itemId = doll.body[slot.armorKey];
+    const filled = Boolean(itemId);
+    const inner = itemId
+      ? renderSlotItem(itemId, loadout, catalogItems, categories, true)
+      : renderEmptySlot(slot.label);
 
     return `
-      <div class="mannequin-medical-stack">
-        ${itemIds.map((id) => `
-          <div class="mannequin-medical-stack__cell is-filled">
-            ${renderSlotItem(id, loadout, catalogItems, categories)}
-          </div>`).join("")}
+      <div class="paper-doll__cell paper-doll__cell--body paper-doll__cell--${slot.area}${filled ? " is-filled" : ""}"
+           style="grid-area:${slot.area}" data-slot="${esc(slot.id)}" aria-label="${esc(slot.label)}">
+        <span class="paper-doll__cell-label">${esc(slot.label)}</span>
+        ${inner}
       </div>`;
   }
 
-  function renderSection(id, label, inner, filled, aside = false) {
+  function renderMedicalPanel(itemIds, loadout, catalogItems, categories, compact) {
+    return renderGearPanel("Medical", itemIds, loadout, catalogItems, categories, compact, {
+      showAll: true,
+      wide: true,
+      defaultOpen: false,
+    });
+  }
+
+  function renderGearPanel(title, itemIds, loadout, catalogItems, categories, compact, opts = {}) {
+    const { showAll = false, wide = false, defaultOpen = false } = opts;
     const esc = SDD.escapeHTML;
+    const filled = Boolean(itemIds?.length);
+    const count = itemIds?.length || 0;
+    const visible = showAll ? (itemIds || []) : (itemIds || []).slice(0, GRID_VISIBLE);
+    const extra = showAll ? 0 : Math.max(0, count - visible.length);
+    const panelClass = wide ? " paper-doll__gear-panel--wide" : "";
+    const gridClass = wide ? " paper-doll__gear-grid--wide" : "";
+    const openAttr = defaultOpen ? " open" : "";
+
+    const inner = filled
+      ? `<div class="paper-doll__gear-grid${gridClass}">
+          ${visible.map((id) => `
+            <div class="paper-doll__gear-cell is-filled">
+              ${renderSlotItem(id, loadout, catalogItems, categories, compact)}
+            </div>`).join("")}
+        </div>${extra ? `<p class="paper-doll__gear-extra">+${extra} more</p>` : ""}`
+      : `<div class="paper-doll__gear-grid paper-doll__gear-grid--empty${gridClass}">${renderEmptySlot(title)}</div>`;
+
     return `
-      <section class="mannequin-section mannequin-section--${id}${filled ? " is-filled" : ""}${aside ? " mannequin-section--aside" : ""}"
-               data-slot="${esc(id)}" aria-label="${esc(label)}">
-        <h3 class="mannequin-section__label">${esc(label)}</h3>
-        ${inner}
-      </section>`;
+      <details class="paper-doll__gear-details${panelClass}${filled ? " is-filled" : ""}" data-gear-panel="${esc(title)}"${openAttr}>
+        <summary class="paper-doll__gear-summary">
+          <span class="paper-doll__gear-chevron" aria-hidden="true"></span>
+          <span class="paper-doll__gear-panel-label">${esc(title)}</span>
+          ${filled ? `<span class="paper-doll__gear-count">${count}</span>` : ""}
+        </summary>
+        <div class="paper-doll__gear-body">
+          ${inner}
+        </div>
+      </details>`;
   }
 
   function renderMannequinHtml(loadout, ctx = {}, opts = {}) {
     const { catalogItems = ctx.items || [], categories = ctx.categories || [] } = ctx;
     const compact = Boolean(opts.compact);
-    const { normalized, slots } = resolveSlots(loadout, catalogItems);
+    const doll = resolvePaperDoll(loadout, catalogItems);
+    const { normalized, weapons, tools, medical } = doll;
 
-    const outfitHtml = renderSection(
-      "outfit",
-      "Outfit",
-      renderOutfitSection(slots.armorSet, normalized, catalogItems, categories),
-      Boolean(slots.armorSet)
-    );
+    const bodyCells = BODY_SLOTS.map((slot) =>
+      renderBodyCell(slot, doll, normalized, catalogItems, categories)
+    ).join("");
 
-    const weaponsHtml = renderSection(
-      "weapons",
-      "Weapons",
-      renderItemGrid(slots.weapons, normalized, catalogItems, categories, "Weapons", slots._extra.weapons),
-      Boolean(slots.weapons?.length)
-    );
-
-    const toolsHtml = renderSection(
-      "belt",
-      "Tools",
-      renderItemGrid(slots.belt, normalized, catalogItems, categories, "Tools", slots._extra.tools),
-      Boolean(slots.belt?.length)
-    );
-
-    const medicalHtml = renderSection(
-      "medical",
-      "Medical",
-      renderMedicalStack(slots.medical, normalized, catalogItems, categories),
-      Boolean(slots.medical?.length),
-      true
-    );
+    const setMeta = doll.armorSet
+      ? `<p class="paper-doll__set-meta">${SDD.escapeHTML(armorSetLabel(doll.armorSet))}${normalized.armorQuality ? ` · Q${normalized.armorQuality}` : ""}</p>`
+      : "";
 
     const gearLabel = hasMannequinGear(loadout, catalogItems)
       ? "Equipped gear preview"
       : "Loadout preview — pick gear below";
 
     return `
-      <div class="loadout-mannequin${compact ? " loadout-mannequin--compact" : ""}" role="img" aria-label="${SDD.escapeHTML(gearLabel)}">
+      <div class="loadout-mannequin loadout-mannequin--paper${compact ? " loadout-mannequin--compact" : ""}" role="img" aria-label="${SDD.escapeHTML(gearLabel)}">
         <div class="loadout-mannequin__layout">
-          <div class="loadout-mannequin__main">
-            ${outfitHtml}
-            ${weaponsHtml}
-            ${toolsHtml}
+          <div class="paper-doll__grid">
+            <div class="paper-doll__backdrop" aria-hidden="true">${SILHOUETTE_HTML}</div>
+            ${bodyCells}
           </div>
-          <aside class="loadout-mannequin__aside">
-            ${medicalHtml}
-          </aside>
+          ${setMeta}
+          <div class="paper-doll__gear-stack">
+            <div class="paper-doll__gear-row">
+              ${renderGearPanel("Weapons", weapons, normalized, catalogItems, categories, compact)}
+              ${renderGearPanel("Tools", tools, normalized, catalogItems, categories, compact)}
+            </div>
+            ${renderMedicalPanel(medical, normalized, catalogItems, categories, compact)}
+          </div>
         </div>
       </div>`;
   }
@@ -232,7 +208,17 @@
 
   function mount(container, loadout, ctx = {}, opts = {}) {
     if (!container) return;
+    const openPanels = new Set();
+    container.querySelectorAll(".paper-doll__gear-details[open]").forEach((el) => {
+      const key = el.dataset.gearPanel;
+      if (key) openPanels.add(key);
+    });
     container.innerHTML = renderMannequinHtml(loadout, ctx, opts);
+    if (openPanels.size) {
+      container.querySelectorAll(".paper-doll__gear-details").forEach((el) => {
+        if (openPanels.has(el.dataset.gearPanel)) el.open = true;
+      });
+    }
     hydrate(container);
   }
 
