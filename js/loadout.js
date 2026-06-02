@@ -471,10 +471,77 @@
       </div>`;
   }
 
+  function collectModWarnings(loadout, catalogItems) {
+    const warnings = [];
+    const normalized = normalizeLoadout(loadout, catalogItems);
+
+    for (const itemId of getSelectedLoadoutItemIds(normalized)) {
+      if (!modCompat?.items?.[itemId]) continue;
+      const item = findCatalogItem(catalogItems, itemId);
+      const maxSlots = isArmorItemId(itemId)
+        ? getModSlotCount(itemId, normalized.armorQuality)
+        : (modCompat.items[itemId].slots?.length || 0);
+      if (!maxSlots) continue;
+
+      const installed = normalized.mods?.[itemId] || {};
+      const filled = Object.values(installed).filter(Boolean).length;
+      const empty = maxSlots - filled;
+
+      if (empty > 0) {
+        warnings.push({
+          severity: empty === maxSlots ? "info" : "info",
+          message: `${item.name}: ${empty} empty mod slot${empty === 1 ? "" : "s"} (${filled}/${maxSlots} filled)`,
+          itemId,
+        });
+      }
+    }
+
+    if (normalized.armorSet && normalized.armorQuality < 6) {
+      const pieces = getArmorPieceIds(normalized.armorSet);
+      const sampleId = pieces.find((p) => p.endsWith("-outfit")) || pieces[0];
+      if (sampleId) {
+        const atMax = getModSlotCount(sampleId, 6);
+        const atCur = getModSlotCount(sampleId, normalized.armorQuality);
+        if (atCur < atMax) {
+          warnings.push({
+            severity: "info",
+            message: `Armor quality Q${normalized.armorQuality} limits mod slots — raise quality to unlock more.`,
+          });
+        }
+      }
+    }
+
+    return warnings;
+  }
+
+  function renderModWarningsHtml(warnings) {
+    if (!warnings?.length) return "";
+    const esc = window.SDD.escapeHTML;
+    return `
+      <div class="loadout-mod-warnings" role="status">
+        ${warnings.map((w) => `<p class="loadout-mod-warning loadout-mod-warning--${w.severity}">${esc(w.message)}</p>`).join("")}
+      </div>`;
+  }
+
+  function countModsBeforeQualityTrim(rawLoadout, newQuality, catalogItems) {
+    const before = normalizeLoadout(rawLoadout, catalogItems);
+    let count = 0;
+    for (const slots of Object.values(before.mods || {})) {
+      count += Object.values(slots || {}).filter(Boolean).length;
+    }
+    const after = normalizeLoadout({ ...rawLoadout, armorQuality: newQuality }, catalogItems);
+    let afterCount = 0;
+    for (const slots of Object.values(after.mods || {})) {
+      afterCount += Object.values(slots || {}).filter(Boolean).length;
+    }
+    return before.mods ? count - afterCount : 0;
+  }
+
   function renderModsGrid(loadout, ctx) {
     const { catalogItems = [], categories = [] } = ctx;
     const itemIds = getLoadoutItemIds(loadout);
     const hasArmor = itemIds.some(isArmorItemId);
+    const warnings = collectModWarnings(loadout, catalogItems);
 
     if (!itemIds.length) {
       return `<p class="muted loadout-empty">Pick weapons, tools, an outfit, or vehicles above to configure compatible mods.</p>`;
@@ -485,7 +552,7 @@
       return `<p class="muted loadout-empty">No mod slots available for the current gear.</p>`;
     }
 
-    return `${hasArmor ? renderQualityBar(loadout) : ""}${rows.join("")}`;
+    return `${renderModWarningsHtml(warnings)}${hasArmor ? renderQualityBar(loadout) : ""}${rows.join("")}`;
   }
 
   function renderLoadoutPanel(loadout, ctx) {
@@ -523,10 +590,15 @@
     const qualitySel = container.querySelector("#loadout-armor-quality");
     if (qualitySel) {
       qualitySel.addEventListener("change", () => {
+        const newQ = clampQuality(qualitySel.value);
+        const dropped = countModsBeforeQualityTrim(loadout, newQ, catalogItems);
         onChange(normalizeLoadout(
-          { ...loadout, armorQuality: clampQuality(qualitySel.value) },
+          { ...loadout, armorQuality: newQ },
           catalogItems
         ));
+        if (dropped > 0 && window.SDD?.toast) {
+          SDD.toast(`${dropped} mod${dropped === 1 ? "" : "s"} removed — lower quality has fewer slots.`, "error");
+        }
       });
     }
   }
@@ -684,6 +756,8 @@
     bindModPickers,
     bindModSelects,
     renderLoadoutSummary,
+    collectModWarnings,
+    renderModWarningsHtml,
     get armorSets() { return armorSets; },
   };
 })();

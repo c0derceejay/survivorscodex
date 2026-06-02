@@ -9,8 +9,12 @@ A modern, vanilla-only field guide to every base-game resource in 7 Days to Die.
 - `guide.html` — Survival 101 new-player guide (blood moon, POIs, perk order)
 - `catalog.html` — searchable & filterable item grid with detail modal
 - `skills.html` — interactive perk build planner (attribute + skill points)
-- `about.html` — what's in scope, what isn't, credits
-- `profile.html` — favorites and field-photo gallery (auth-gated)
+- `builds.html` — starter templates + public community builds gallery
+- `enemies.html` — enemy codex index (all vanilla zombies)
+- `enemy.html` — single enemy detail profile (`?id=zombie-steve`)
+- `traders.html` — trader specialties and stock by game stage
+- `about.html` — what's in scope, changelog, credits
+- `profile.html` — favorites, saved builds, field photos, profile settings (auth-gated)
 
 ## What lives where
 
@@ -18,7 +22,8 @@ A modern, vanilla-only field guide to every base-game resource in 7 Days to Die.
 - **Sessions** — opaque tokens in an httpOnly cookie, server-side rows in `var/auth.json`
 - **Railway volume** — mount at `/app/var` (not `/app/data`; `data/` holds catalog JSON from git)
 - **Skill builds** — server-side per account when signed in; guests use `localStorage` until they sign in
-- **Favorites & uploaded photos** — client-side only, in `localStorage`, keyed per user
+- **Favorites** — synced to account when signed in (`/api/favorites`); guests use `localStorage`
+- **Uploaded photos** — client-side only, in `localStorage`, keyed per user
 - **Catalog data** — `data/items.json` (~495 entries: craftables + zombies)
 - **Zombie definitions** — `data/entities.json` (36 vanilla zombies, aligned with the [official wiki list](https://7daystodie.wiki.gg/wiki/List_of_Zombies))
 - **Item icons** — `images/items/*.png` + `images/manifest.json`
@@ -59,16 +64,28 @@ The repo includes `railway.json` with the recommended settings:
 4. **Metrics** — memory spikes on the free tier can OOM-kill the container; bump RAM if needed.
 5. **Smoke test** — open `https://YOUR-APP.up.railway.app/health` — should return `{"ok":true,...}`.
 
-Optional env vars: `APP_BASE_URL=https://your-domain` (password-reset links), `NODE_ENV=production`.
+Optional env vars:
+
+| Variable | Purpose |
+|----------|---------|
+| `APP_BASE_URL` | Canonical site URL for password-reset and share links |
+| `NODE_ENV=production` | Hides dev-only reset URLs from API responses |
+| `RESEND_API_KEY` | Sends password-reset emails via [Resend](https://resend.com) |
+| `EMAIL_FROM` | From address for reset emails (must be verified in Resend) |
 
 ## Password reset
 
-There is no email provider wired up yet — reset links are shown in the UI and logged on the server.
+When `RESEND_API_KEY` is set, reset links are emailed and never returned in the API response. Without it:
+
+1. **Development** — reset link appears in the forgot-password success panel.
+2. **Production** — generic success message only; link is logged on the server for admin recovery.
+
+Steps:
 
 1. Open the site via **`npm start`** (local) or your **Railway URL** (production).
 2. Sign in modal → **Forgot password?** → enter your account email → **Send reset link**.
-3. If the account exists, click **Open reset page** in the success panel (link expires in 1 hour, single use).
-4. On Railway, the same link appears in deploy logs: `[password-reset] Link for user@email.com: …`
+3. If the account exists, use the emailed link or dev panel link (expires in 1 hour, single use).
+4. On Railway without email, check deploy logs: `[password-reset] Link for user@email.com: …`
 
 **Admin recovery** (direct edit of `var/auth.json` on the server):
 
@@ -90,10 +107,20 @@ All endpoints accept / return JSON and use the `sdd_session` cookie.
 | POST   | `/api/forgot-password` | `{ email }`               | Starts password reset (see below) |
 | POST   | `/api/reset-password`  | `{ token, password }`     | Set new password from reset link |
 | GET    | `/api/me`      | —                                 | Returns the signed-in user    |
+| GET    | `/api/favorites` | —                               | List favorited item IDs (auth required) |
+| PUT    | `/api/favorites` | `{ favorites: string[] }`       | Replace favorites (auth required, max 200) |
 | GET    | `/api/builds`  | —                                 | List saved skill builds (auth required) |
 | POST   | `/api/builds`  | `{ name, buildType, playerLevel, unlimited, attributes, perks }` | Save a build (auth required, max 24) |
 | PUT    | `/api/builds/:id` | same fields as POST          | Update a build (auth required) |
 | DELETE | `/api/builds/:id` | —                            | Delete a build (auth required) |
+| GET    | `/api/builds/public` | — (query: `sort`, `type`, `q`, filters) | List public builds; `sort=trending` for trending |
+| GET    | `/api/builds/public/:id` | —                        | Single public build with author + stats |
+| GET    | `/api/builds/public/:id/comments` | —               | List comments on a public build |
+| POST   | `/api/builds/public/:id/comments` | `{ text }` (auth) | Add comment (rate limited) |
+| POST   | `/api/builds/public/:id/upvote` | — (auth)            | Toggle upvote; returns `{ upvoted, upvoteCount }` |
+| POST   | `/api/builds/public/:id/copy` | —                     | Increment copy counter (planner / save copy) |
+| GET    | `/api/users/:username/profile` | —                    | Public profile + shared builds |
+| PUT    | `/api/profile` | `{ bio?, profilePublic? }` (auth) | Update bio and profile visibility |
 
 ## Catalog & zombies
 
@@ -107,6 +134,7 @@ The catalog is built from the community [7dtd-assets](https://github.com/tassone
 | `npm run stats:generate` | Regenerate `data/item-stats.json` from items |
 | `npm run icons:refresh` | Rebuild `data/icon-map.json` and download craftable item PNGs |
 | `npm run icons:entities` | Download & normalize zombie portraits from wikis (needs `sharp`) |
+| `npm run icons:traders` | Download trader portrait PNGs from wiki.gg for the trader reference page |
 | `npm run icons:all` | `icons:refresh` then `icons:entities` |
 
 **Zombie list:** 36 in-game vanilla types only (current V1.0 / [wiki.gg](https://7daystodie.wiki.gg/wiki/List_of_Zombies)). Legacy Fandom-only lore names (e.g. Putrid Girl, Festering Cadaver) are not separate catalog entries — they map to in-game names like Zombie Arlene, Zombie Joe, etc.
@@ -153,7 +181,7 @@ Categories live at the top of `data/items.json`.
 
 Edit `data/skills.json` to add or tune perk trees. Each attribute has perks with `levels[]` (effect text + optional `craftTier`). Use `catalogPerk` when the in-game perk name differs from the display name (e.g. `Miner 69'er` → `Miner 69er` in items).
 
-Saved builds sync to your account when signed in (via `/api/builds`). Each build can be tagged with a **focus** (horde, PvP, crafting, etc.) — see `data/build-types.json`. Expanded builds show **perk gear** (craft unlocks with icons/stats) and **armor outfit sets** (Miner, Ranger, Farmer, etc.) via `data/perk-gear.json` — regenerate with `npm run gear:build`. Guests keep builds in `localStorage` until they sign in.
+Saved builds sync to your account when signed in (via `/api/builds`). **Favorites** sync the same way (`/api/favorites`) — guest favorites merge on sign-in. Each build can be tagged with a **focus** (horde, PvP, crafting, etc.) — see `data/build-types.json`. Expanded builds show **perk gear** (craft unlocks with icons/stats) and **armor outfit sets** (Miner, Ranger, Farmer, etc.) via `data/perk-gear.json` — regenerate with `npm run gear:build`. Guests keep builds in `localStorage` until they sign in.
 
 Starter presets live in `skills.json` under `presets[]`. Load via the planner UI or `skills.html?preset=first-week-miner`.
 

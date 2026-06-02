@@ -62,16 +62,25 @@
 
         <h2>How accounts work</h2>
         <p>
-          Sign in with an email and password — that's all we keep. Your account exists so the site
-          remembers <em>you</em> across devices. The actual favorites and uploaded photos stay on
-          your device in localStorage. We don't ship them to a server, we don't share them, and you can
-          clear them by signing out and clearing site data.
+          Sign in with an email and password. Your account lets you sync <strong>favorites</strong> and
+          <strong>saved builds</strong> across devices, share builds in the public gallery, and set up a
+          <a href="survivor.html" style="color:var(--color-red-bright)">public survivor profile</a>.
+          Field photos stay in your browser (localStorage) — we don't upload them to a server.
         </p>
         <p>
           Forgot your password? On the sign-in screen, choose <strong>Forgot password?</strong>, enter your account email,
           and use the one-time reset link shown there (valid for one hour). You can also open that link on the
           <a href="reset-password.html" style="color:var(--color-red-bright)">reset password page</a>.
         </p>
+
+        <h2>Changelog</h2>
+        <p class="muted" id="site-version-note">Catalog synced for the current vanilla game build — see the version in the site footer.</p>
+        <div id="site-changelog" class="changelog-list"></div>
+
+        <div class="about-community-cta">
+          <p class="muted">Questions, feedback, or want to share a build tip?</p>
+          <div id="discord-cta"></div>
+        </div>
 
         <h2>Credits</h2>
         <p>
@@ -95,7 +104,7 @@
           <div class="feature">
             <div class="feature-icon">▣</div>
             <h3>Your data, your device</h3>
-            <p class="muted">Favorites and photos live in your browser. Account is just for signing in.</p>
+            <p class="muted">Favorites and builds sync to your account. Photos stay in your browser.</p>
           </div>
           <div class="feature">
             <div class="feature-icon">⌨</div>
@@ -118,6 +127,17 @@
     </div>
   </footer>
 
+  <script src="js/site-meta.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      await SDD.SiteMeta?.loadSiteMeta?.();
+      const meta = SDD.SiteMeta?.meta;
+      const note = document.getElementById("site-version-note");
+      if (note && meta?.gameVersionLabel) {
+        note.textContent = `${meta.gameVersionLabel} — catalog last synced ${meta.catalogSyncedAt || "recently"}.`;
+      }
+    });
+  </script>
 </body>
 </html>

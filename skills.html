@@ -81,6 +81,8 @@
         </div>
       </div>
 
+      <aside id="planner-perk-hints" class="planner-perk-hints reveal" aria-live="polite" hidden></aside>
+
       <section class="skill-save-section reveal" aria-labelledby="skill-save-title">
         <header class="skill-save-section-head">
           <span class="eyebrow">Build</span>
@@ -134,6 +136,7 @@
           <p class="muted">Weapons, tools, outfit, and medical — updates as you pick gear below.</p>
         </header>
         <div id="loadout-mannequin" class="loadout-mannequin-wrap"></div>
+        <div id="planner-loadout-totals" class="planner-loadout-totals"></div>
       </section>
 
       <section class="loadout-section reveal" id="loadout-section-weapons" aria-labelledby="loadout-weapons-title">
@@ -208,6 +211,30 @@
         <div id="loadout-vehicles" class="loadout-gear-grid"></div>
       </section>
 
+      <section class="planner-insights-section reveal" id="planner-craft-section" aria-labelledby="planner-craft-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Crafting</span>
+          <h2 id="planner-craft-title">Craft rollup</h2>
+          <p class="muted">Perk crafts your loadout actually uses, plus ingredients to make selected gear.</p>
+        </header>
+        <div id="planner-craft-rollup" class="planner-insights-panel"></div>
+      </section>
+
+      <section class="planner-insights-section reveal" id="planner-compare-section" aria-labelledby="planner-compare-title">
+        <header class="loadout-section-head">
+          <span class="eyebrow">Compare</span>
+          <h2 id="planner-compare-title">Build compare</h2>
+          <p class="muted">Diff your current planner state against a saved build.</p>
+        </header>
+        <div class="planner-compare-controls">
+          <label class="planner-compare-label" for="planner-compare-select">Compare to</label>
+          <select id="planner-compare-select" class="planner-compare-select">
+            <option value="">— Select a saved build —</option>
+          </select>
+        </div>
+        <div id="planner-compare-output" class="planner-insights-panel"></div>
+      </section>
+
       <section class="skill-save-bottom reveal" aria-label="Save build">
         <div class="skill-save-bottom-inner">
           <div class="skill-save-bottom-copy">
@@ -240,12 +267,14 @@
     </div>
   </footer>
 
+  <script src="js/site-meta.js"></script>
   <script src="js/app.js"></script>
   <script src="js/build-types.js"></script>
   <script src="js/item-tooltips.js"></script>
   <script src="js/perk-gear.js"></script>
   <script src="js/loadout.js"></script>
   <script src="js/loadout-mannequin.js"></script>
+  <script src="js/planner-insights.js"></script>
   <script src="js/skills.js"></script>
 </body>
 </html>

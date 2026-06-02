@@ -15,6 +15,8 @@ const LOCAL_RECIPES = path.join(ROOT, "data/recipes-v2.1.xml");
 const ITEMS_PATH = path.join(ROOT, "data/items.json");
 const ICON_MAP_PATH = path.join(ROOT, "data/icon-map.json");
 const CACHE_PATH = path.join(ROOT, "data/recipe-ingredients.json");
+const USED_IN_PATH = path.join(ROOT, "data/recipe-used-in.json");
+const MAX_USED_IN = 24;
 
 const CRAFT_AREA_LABELS = {
   forge: "Forge",
@@ -222,10 +224,26 @@ function main() {
     fs.writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2) + "\n");
     fs.writeFileSync(ITEMS_PATH, JSON.stringify(catalog, null, 2) + "\n");
 
+    const usedIn = {};
+    const nameById = Object.fromEntries(catalog.items.map((item) => [item.id, item.name || item.id]));
+    for (const [itemId, recipe] of Object.entries(cache)) {
+      for (const ing of recipe.ingredients || []) {
+        if (!ing.id) continue;
+        if (!usedIn[ing.id]) usedIn[ing.id] = [];
+        if (usedIn[ing.id].includes(itemId) || usedIn[ing.id].length >= MAX_USED_IN) continue;
+        usedIn[ing.id].push(itemId);
+      }
+    }
+    for (const ids of Object.values(usedIn)) {
+      ids.sort((a, b) => (nameById[a] || a).localeCompare(nameById[b] || b));
+    }
+    fs.writeFileSync(USED_IN_PATH, JSON.stringify(usedIn, null, 2) + "\n");
+
     console.log(`Parsed ${parsed.size} unique recipe names from recipes.xml`);
     console.log(`Matched ${matched} catalog items (${withIngredients} with ingredients, ${forgeOnly} forge-only)`);
     console.log(`  ${unchanged} items still without recipe data`);
     console.log(`Wrote ${Object.keys(cache).length} entries → data/recipe-ingredients.json`);
+    console.log(`Wrote ${Object.keys(usedIn).length} ingredient reverse links → data/recipe-used-in.json`);
     console.log(`Updated data/items.json`);
   });
 }

@@ -2,6 +2,14 @@
   "_comment": "Zombie portraits from 7daystodie.wiki.gg / fandom.com — normalized for catalog cards.",
   "_license": "Fan wiki images; © The Fun Pimps. Personal/fan use.",
   "sources": {
+    "zombie-arlene": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Arlene",
+      "file": "File:A13ZombieArlene.jpg",
+      "url": "https://7daystodie.wiki.gg/images/A13ZombieArlene.jpg?3db506",
+      "sourceWidth": 427,
+      "sourceHeight": 845
+    },
     "zombie-bear": {
       "wiki": "wiki.gg",
       "wikiPage": "Zombie_Bear",
@@ -25,6 +33,22 @@
       "url": "https://7daystodie.wiki.gg/images/Biker.jpg?9cbc6c",
       "sourceWidth": 577,
       "sourceHeight": 933
+    },
+    "zombie-boe": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Boe",
+      "file": "File:ReanimatedCorpseA13.jpg",
+      "url": "https://7daystodie.wiki.gg/images/ReanimatedCorpseA13.jpg?7edd96",
+      "sourceWidth": 537,
+      "sourceHeight": 939
+    },
+    "zombie-businessman": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Businessman",
+      "file": "File:Businessman Zombie.png",
+      "url": "https://7daystodie.wiki.gg/images/Businessman_Zombie.png?1e9830",
+      "sourceWidth": 299,
+      "sourceHeight": 496
     },
     "zombie-burnt": {
       "wiki": "wiki.gg",
@@ -57,6 +81,14 @@
       "url": "https://7daystodie.wiki.gg/images/A13CrawlerSteve.jpg?a78299",
       "sourceWidth": 801,
       "sourceHeight": 615
+    },
+    "zombie-darlene": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Darlene",
+      "file": "File:A13ZombieDarlene2.jpg",
+      "url": "https://7daystodie.wiki.gg/images/A13ZombieDarlene2.jpg?7ba1af",
+      "sourceWidth": 601,
+      "sourceHeight": 608
     },
     "zombie-demolition": {
       "wiki": "wiki.gg",
@@ -121,6 +153,134 @@
       "url": "https://7daystodie.wiki.gg/images/ZombieLumberjack.png?4dbd82",
       "sourceWidth": 700,
       "sourceHeight": 1080
+    },
+    "zombie-marlene": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Marlene",
+      "file": "File:Marlene.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Marlene.jpg?8c39f9",
+      "sourceWidth": 529,
+      "sourceHeight": 955
+    },
+    "mutated-zombie": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Mutated_Zombie",
+      "file": "File:Mutated Zombie.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Mutated_Zombie.jpg?9b82fa",
+      "sourceWidth": 324,
+      "sourceHeight": 621
+    },
+    "zombie-nurse": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Nurse",
+      "file": "File:A13ZombieNurse.jpg",
+      "url": "https://7daystodie.wiki.gg/images/A13ZombieNurse.jpg?9c95ec",
+      "sourceWidth": 823,
+      "sourceHeight": 740
+    },
+    "zombie-party-girl": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Party_Girl",
+      "file": "File:ZombieStripperFace.jpg",
+      "url": "https://7daystodie.wiki.gg/images/ZombieStripperFace.jpg?fd9681",
+      "sourceWidth": 749,
+      "sourceHeight": 853
+    },
+    "zombie-rancher": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Rancher",
+      "file": "File:ZombieRancher2.5.png",
+      "url": "https://7daystodie.wiki.gg/images/ZombieRancher2.5.png?f17619",
+      "sourceWidth": 708,
+      "sourceHeight": 955
+    },
+    "zombie-screamer": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Screamer",
+      "file": "File:Screamer.png",
+      "url": "https://7daystodie.wiki.gg/images/Screamer.png?efff9c",
+      "sourceWidth": 698,
+      "sourceHeight": 1080
+    },
+    "zombie-soldier": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Soldier",
+      "file": "File:Soldier.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Soldier.jpg?7202fb",
+      "sourceWidth": 485,
+      "sourceHeight": 929
+    },
+    "zombie-spider": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Spider_Zombie",
+      "file": "File:SpiderZombie.png",
+      "url": "https://7daystodie.wiki.gg/images/SpiderZombie.png?a1c2fe",
+      "sourceWidth": 1400,
+      "sourceHeight": 930
+    },
+    "zombie-steve": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Steve",
+      "file": "File:Steve.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Steve.jpg?ec9883",
+      "sourceWidth": 515,
+      "sourceHeight": 945
+    },
+    "zombie-thug": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Thug",
+      "file": "File:Skater Punk Zombie.png",
+      "url": "https://7daystodie.wiki.gg/images/Skater_Punk_Zombie.png?d86259",
+      "sourceWidth": 483,
+      "sourceHeight": 915
+    },
+    "zombie-tom-clark": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Tom_Clark",
+      "file": "File:ZombieTomClark.png",
+      "url": "https://7daystodie.wiki.gg/images/ZombieTomClark.png?64b871",
+      "sourceWidth": 700,
+      "sourceHeight": 1080
+    },
+    "zombie-tourist": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Tourist",
+      "file": "File:FatHawaiian.png",
+      "url": "https://7daystodie.wiki.gg/images/FatHawaiian.png?81b9a9",
+      "sourceWidth": 623,
+      "sourceHeight": 1075
+    },
+    "zombie-utility-worker": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Utility_Worker",
+      "file": "File:UtilityWorkerZambieThatHasAMiningHelmetForSomeReason.jpg",
+      "url": "https://7daystodie.wiki.gg/images/UtilityWorkerZambieThatHasAMiningHelmetForSomeReason.jpg?84dbbf",
+      "sourceWidth": 537,
+      "sourceHeight": 979
+    },
+    "zombie-vulture": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Vulture",
+      "file": "File:Entity-id-68.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Entity-id-68.jpg?c7aa53",
+      "sourceWidth": 1357,
+      "sourceHeight": 823
+    },
+    "zombie-wight": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Wight",
+      "file": "File:FeralWight.png",
+      "url": "https://7daystodie.wiki.gg/images/FeralWight.png?c5adb4",
+      "sourceWidth": 700,
+      "sourceHeight": 1080
+    },
+    "zombie-yo": {
+      "wiki": "wiki.gg",
+      "wikiPage": "Zombie_Yo",
+      "file": "File:Yo.jpg",
+      "url": "https://7daystodie.wiki.gg/images/Yo.jpg?b14ee1",
+      "sourceWidth": 467,
+      "sourceHeight": 925
     }
   }
 }

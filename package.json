@@ -11,6 +11,7 @@
     "icons:map": "node scripts/build-icon-map.mjs",
     "icons:github": "node scripts/sync-github-icons.mjs",
     "icons:entities": "node scripts/sync-entity-icons.mjs",
+    "icons:traders": "node scripts/sync-trader-icons.mjs",
     "icons:refresh": "node scripts/build-icon-map.mjs && node scripts/sync-github-icons.mjs",
     "icons:all": "npm run icons:refresh && npm run icons:entities",
     "stats:generate": "node scripts/sync-wiki-item-stats.mjs && node scripts/generate-item-stats.mjs",

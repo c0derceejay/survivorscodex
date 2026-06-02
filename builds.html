@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Public Builds · Survivor's Codex</title>
   <meta name="description" content="Starter build templates and community perk builds — filter by focus, weapons, perks, and attributes. Copy any build to the planner." />
+  <meta property="og:title" content="Public Builds · Survivor's Codex" />
+  <meta property="og:description" content="Starter build templates and community perk builds for 7 Days to Die. Filter, copy, and share loadouts." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -69,6 +72,13 @@
       <section class="builds-toolbar reveal" aria-label="Build filters">
         <div class="builds-search-row">
           <input type="search" id="builds-search" class="builds-search" placeholder="Search build name or author…" autocomplete="off" />
+          <label class="builds-sort-field">
+            <span class="builds-filter-label">Sort</span>
+            <select id="builds-sort" class="builds-select">
+              <option value="new">Newest</option>
+              <option value="trending">Trending</option>
+            </select>
+          </label>
           <button type="button" class="btn btn-ghost" id="builds-clear-filters">Clear filters</button>
         </div>
 
@@ -119,6 +129,7 @@
     </div>
   </footer>
 
+  <script src="js/site-meta.js"></script>
   <script src="js/app.js"></script>
   <script src="js/build-types.js"></script>
   <script src="js/item-tooltips.js"></script>

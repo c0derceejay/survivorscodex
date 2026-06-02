@@ -1,0 +1,200 @@
+{
+  "_comment": "Vanilla trader reference — stock rotates; quality scales with game stage.",
+  "_source": "https://7daystodie.wiki.gg/wiki/Traders",
+  "meta": {
+    "hours": "04:05 – 21:50 (in-game time)",
+    "restockDays": 3,
+    "currency": "Duke's Casino Tokens",
+    "notes": [
+      "Each trader restocks every 3 in-game days (shown in the trader UI).",
+      "Item quality and tier availability scale with your game stage.",
+      "All traders also buy many loot types — sell what they specialize in for better margins.",
+      "Secret Stash tab appears with the Better Barter perk and holds rare high-tier goods."
+    ],
+    "secretStash": [
+      "Skill magazines and schematics",
+      "Quality 5–6 weapons and tools",
+      "Rare resources (acid, solar cells, engines)",
+      "Complete vehicles (bicycle through gyrocopter)"
+    ]
+  },
+  "stageBands": [
+    { "id": "early", "label": "Game stage 1–50", "description": "Pipe weapons, scrap armor, basic food and meds" },
+    { "id": "mid", "label": "51–100", "description": "Iron-tier gear, T2 weapons, improved meds and mods" },
+    { "id": "late", "label": "101–200", "description": "Steel tools, T3 weapons, armor sets, vehicle parts" },
+    { "id": "end", "label": "201+", "description": "Legendary-quality stock, military gear, endgame vehicles" }
+  ],
+  "traders": [
+    {
+      "id": "rekt",
+      "name": "Trader Rekt",
+      "image": "rekt.png",
+      "biome": "Pine Forest",
+      "specialty": "Food & farming",
+      "summary": "Hostile personality but fair prices on crops and consumables. Best early stop for food security.",
+      "sellTips": ["Harvested crops and canned food", "Plant-based resources"],
+      "buyTips": ["Crop seeds and plants (when stocked)", "Basic meals and water"],
+      "inventory": {
+        "early": [
+          { "id": "food-crop-corn", "note": "Farming staple" },
+          { "id": "food-crop-potato", "note": "Early crop" },
+          { "id": "food-crop-blueberries", "note": "Forage / farm" },
+          { "id": "drink-jar-boiled-water", "note": "Safe hydration" },
+          { "id": "food-bacon-and-eggs", "note": "Simple meal" },
+          { "id": "food-can-chili", "note": "Canned food" }
+        ],
+        "mid": [
+          { "id": "food-crop-corn", "note": "Higher stack sizes" },
+          { "id": "food-vegetable-stew", "note": "Better stamina food" },
+          { "id": "food-hobo-stew", "note": "Mid-tier meal" },
+          { "id": "drink-jar-coffee", "note": "Stamina buff" }
+        ],
+        "late": [
+          { "id": "food-atomic-smoothie", "note": "High-tier buff food" },
+          { "id": "food-pumpkin-pie", "note": "Strong consumable" }
+        ],
+        "end": [
+          { "id": "food-atomic-smoothie", "note": "Quality scales with GS" },
+          { "label": "Rare seeds & high-tier meals", "note": "Secret Stash often" }
+        ]
+      }
+    },
+    {
+      "id": "jen",
+      "name": "Trader Jen",
+      "image": "jen.png",
+      "biome": "Burnt Forest",
+      "specialty": "Medical supplies",
+      "summary": "Medical tents and chemistry focus. Stock more bandages, kits, and drugs than other traders.",
+      "sellTips": ["Medical supplies you craft in bulk", "Herbal and chemical ingredients"],
+      "buyTips": ["First aid kits and bandages", "Antibiotics and painkillers", "Aloe cream"],
+      "inventory": {
+        "early": [
+          { "id": "medical-bandage", "note": "Basic healing" },
+          { "id": "medical-aloe-cream", "note": "Laceration treatment" },
+          { "id": "drug-painkillers", "note": "Pain relief" },
+          { "id": "drug-vitamins", "note": "Early buff" }
+        ],
+        "mid": [
+          { "id": "medical-first-aid-bandage", "note": "Better heal" },
+          { "id": "medical-first-aid-kit", "note": "Mid-tier heal" },
+          { "id": "drug-antibiotics", "note": "Infection cure" },
+          { "id": "medical-splint", "note": "Broken limb fix" }
+        ],
+        "late": [
+          { "id": "medical-first-aid-kit", "note": "Higher quality at GS" },
+          { "id": "drug-steroids", "note": "Combat buff" },
+          { "id": "drug-recog", "note": "Stamina / carry buff" }
+        ],
+        "end": [
+          { "id": "medical-first-aid-kit", "note": "Legendary quality possible" },
+          { "label": "Rare medical schematics", "note": "Secret Stash" }
+        ]
+      }
+    },
+    {
+      "id": "bob",
+      "name": "Trader Bob",
+      "image": "bob.png",
+      "biome": "Desert",
+      "specialty": "Tools & vehicles",
+      "summary": "Mechanical focus — mining tools, vehicle parts, paint, and workstation supplies.",
+      "sellTips": ["Iron and steel", "Mechanical parts", "Vehicle salvage"],
+      "buyTips": ["Iron pickaxes and shovels", "Vehicle placeables and parts", "Mechanical components"],
+      "inventory": {
+        "early": [
+          { "id": "melee-tool-pick-t1-iron-pickaxe", "note": "Mining essential" },
+          { "id": "melee-tool-shovel-t1-iron-shovel", "note": "Dirt / sand" },
+          { "id": "resource-mechanical-parts", "note": "Crafting staple" },
+          { "id": "melee-tool-paint-tool", "note": "More paint than other traders" }
+        ],
+        "mid": [
+          { "id": "melee-tool-pick-t2-steel-pickaxe", "note": "Faster mining" },
+          { "id": "melee-tool-axe-t2-steel-axe", "note": "Tree harvesting" },
+          { "id": "vehicle-bicycle-placeable", "note": "First vehicle" },
+          { "id": "resource-mechanical-parts", "note": "Bulk stacks" }
+        ],
+        "late": [
+          { "id": "vehicle-minibike-placeable", "note": "Mid-game mobility" },
+          { "id": "vehicle-motorcycle-placeable", "note": "Fast travel" },
+          { "id": "melee-tool-pick-t3-auger", "note": "Endgame mining" }
+        ],
+        "end": [
+          { "id": "vehicle-truck4x4-placeable", "note": "When stocked" },
+          { "label": "Complete vehicles", "note": "Secret Stash common" }
+        ]
+      }
+    },
+    {
+      "id": "hugh",
+      "name": "Trader Hugh",
+      "image": "hugh.png",
+      "biome": "Snow",
+      "specialty": "Weapons & ammunition",
+      "summary": "Gruff weapons dealer — firearms, ammo, parts, and weapon mods appear more often here.",
+      "sellTips": ["Brass and bullet casings", "Gun parts", "Weapon mods you don't need"],
+      "buyTips": ["Pipe and iron-tier guns early", "Ammo bundles", "T2–T3 firearms at higher GS"],
+      "inventory": {
+        "early": [
+          { "id": "gun-handgun-t0-pipe-pistol", "note": "First firearm" },
+          { "id": "gun-rifle-t0-pipe-rifle", "note": "Early ranged" },
+          { "id": "gun-shotgun-t0-pipe-shotgun", "note": "Close range" },
+          { "id": "ammo9mm-bullet-ball", "note": "Handgun ammo" },
+          { "id": "ammo-shotgun-shell", "note": "Shotgun ammo" }
+        ],
+        "mid": [
+          { "id": "gun-handgun-t1-pistol", "note": "Reliable sidearm" },
+          { "id": "gun-rifle-t1-hunting-rifle", "note": "Mid-range" },
+          { "id": "gun-shotgun-t2-pump-shotgun", "note": "POI clearing" },
+          { "id": "ammo762mm-bullet-ball", "note": "Rifle ammo" },
+          { "id": "mod-gun-trigger-semi", "note": "Weapon mod" }
+        ],
+        "late": [
+          { "id": "gun-m-g-t2-tactical-a-r", "note": "Full-auto" },
+          { "id": "gun-handgun-t2-magnum44", "note": "High damage sidearm" },
+          { "id": "gun-rifle-t3-sniper-rifle", "note": "Long range" },
+          { "id": "ammo762mm-bullet-a-p", "note": "AP rounds" }
+        ],
+        "end": [
+          { "id": "gun-m-g-t3-m60", "note": "Heavy weapon" },
+          { "id": "gun-handgun-t3-desert-vulture", "note": "Legendary sidearm" },
+          { "label": "Quality 6 weapons", "note": "Secret Stash" }
+        ]
+      }
+    },
+    {
+      "id": "joel",
+      "name": "Trader Joel",
+      "image": "joel.png",
+      "biome": "Wasteland",
+      "specialty": "Armor & protection",
+      "summary": "Wasteland trader focused on armor pieces, outfit sets, and armor mods. Harder to reach early but essential for late-game protection.",
+      "sellTips": ["Armor pieces you replace", "Scrap cloth and leather"],
+      "buyTips": ["Light and medium armor sets", "Armor mods (plating, pockets, insulation)", "Higher-tier outfit pieces at GS"],
+      "inventory": {
+        "early": [
+          { "id": "armor-raider-helmet", "note": "Early light set" },
+          { "id": "armor-raider-outfit", "note": "Chest piece" },
+          { "id": "armor-raider-gloves", "note": "Set bonus piece" },
+          { "id": "mod-armor-plating-basic", "note": "Basic protection mod" }
+        ],
+        "mid": [
+          { "id": "armor-lumberjack-outfit", "note": "Mid outfit set" },
+          { "id": "armor-nomad-helmet", "note": "Nomad set" },
+          { "id": "mod-armor-improved-fittings", "note": "Better mod slot use" },
+          { "id": "mod-armor-cooling-mesh", "note": "Heat management" }
+        ],
+        "late": [
+          { "id": "armor-commando-outfit", "note": "Combat set" },
+          { "id": "armor-commando-helmet", "note": "High protection" },
+          { "id": "mod-armor-plating-reinforced", "note": "Heavy plating" },
+          { "id": "mod-armor-night-vision", "note": "Helmet mod" }
+        ],
+        "end": [
+          { "id": "armor-commando-outfit", "note": "Quality 6 possible" },
+          { "label": "Legendary armor & rare mods", "note": "Secret Stash" }
+        ]
+      }
+    }
+  ]
+}

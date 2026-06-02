@@ -35,6 +35,20 @@
           <strong id="profile-name">Survivor</strong>
           <span id="profile-email">—</span>
         </div>
+        <div class="profile-settings" id="profile-settings" hidden>
+          <label class="profile-settings-field">
+            <span class="profile-settings-label">Bio</span>
+            <textarea id="profile-bio" class="profile-bio-input" rows="3" maxlength="280" placeholder="Tell other survivors about your playstyle…"></textarea>
+          </label>
+          <label class="profile-settings-check">
+            <input type="checkbox" id="profile-public" checked />
+            Public profile — show my shared builds at <span id="profile-public-path"></span>
+          </label>
+          <div class="profile-settings-actions">
+            <button type="button" class="btn btn-primary btn-sm" id="profile-save">Save profile</button>
+            <a class="btn btn-ghost btn-sm" id="profile-public-link" href="#">View public page</a>
+          </div>
+        </div>
         <div class="profile-head-actions">
           <a class="btn btn-ghost" href="catalog.html">Browse catalog</a>
           <a class="btn btn-primary" href="skills.html">Open planner</a>
@@ -88,6 +102,7 @@
     </div>
   </footer>
 
+  <script src="js/site-meta.js"></script>
   <script src="js/app.js"></script>
   <script src="js/build-types.js"></script>
   <script src="js/item-tooltips.js"></script>
@@ -129,16 +144,47 @@
     function renderProfile(user) {
       if (!user) {
         profileHead.hidden = true;
+        document.getElementById("profile-settings").hidden = true;
         return;
       }
       profileHead.hidden = false;
       document.getElementById("avatar").textContent = user.username.charAt(0).toUpperCase();
       document.getElementById("profile-name").textContent = user.username;
       document.getElementById("profile-email").textContent = user.email;
+
+      const settings = document.getElementById("profile-settings");
+      const bioEl = document.getElementById("profile-bio");
+      const publicEl = document.getElementById("profile-public");
+      const publicLink = document.getElementById("profile-public-link");
+      const publicPath = document.getElementById("profile-public-path");
+      const profileUrl = `survivor.html?user=${encodeURIComponent(user.username)}`;
+      settings.hidden = false;
+      bioEl.value = user.bio || "";
+      publicEl.checked = user.profilePublic !== false;
+      publicPath.textContent = `@${user.username}`;
+      publicLink.href = profileUrl;
+
       renderFavorites();
       renderBuilds();
       renderPhotos();
     }
+
+    document.getElementById("profile-save")?.addEventListener("click", async () => {
+      if (!SDD.Auth.user) return;
+      const btn = document.getElementById("profile-save");
+      btn.disabled = true;
+      try {
+        await SDD.BuildStore.updateProfile({
+          bio: document.getElementById("profile-bio").value.trim(),
+          profilePublic: document.getElementById("profile-public").checked,
+        });
+        SDD.toast("Profile updated.", "success");
+      } catch (err) {
+        SDD.toast(err.message || "Could not save profile.", "error");
+      } finally {
+        btn.disabled = false;
+      }
+    });
 
     function buildSummary(b) {
       const meta = skillsData?.meta;
@@ -289,9 +335,16 @@
         const i = catalog.items.find((x) => x.id === id);
         if (!i) return "";
         const hasIcon = SDD.hasItemImage(i.id);
+        const isEnemy = i.category === "enemies";
+        const cardClass = [
+          "item-card",
+          hasIcon ? "has-game-icon" : "",
+          isEnemy ? "item-card--enemy" : "",
+        ].filter(Boolean).join(" ");
+        const imgClass = isEnemy ? "item-img item-img--portrait" : "item-img";
         return `
-          <article class="item-card ${hasIcon ? "has-game-icon" : ""}" data-id="${i.id}">
-            <div class="item-img">${SDD.itemImage(i, catalog.categories)}</div>
+          <article class="${cardClass}" data-id="${i.id}">
+            <div class="${imgClass}">${SDD.itemImage(i, catalog.categories)}</div>
             <button class="fav-btn is-fav" data-fav="${i.id}" aria-label="Unfavorite ${SDD.escapeHTML(i.name)}" type="button">★</button>
             <div class="item-body">
               <div class="item-head">
@@ -311,9 +364,9 @@
           </article>`;
       }).join("");
       grid.querySelectorAll(".fav-btn").forEach((b) => {
-        b.addEventListener("click", (e) => {
+        b.addEventListener("click", async (e) => {
           e.stopPropagation();
-          SDD.Store.toggleFavorite(b.dataset.fav);
+          await SDD.Store.toggleFavorite(b.dataset.fav);
           SDD.toast("Removed from favorites.");
           renderFavorites();
         });

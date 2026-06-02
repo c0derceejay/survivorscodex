@@ -1,0 +1,867 @@
+{
+  "resource-metal-pipe": [
+    "truck-accessories",
+    "melee-wpn-baton-t0-pipe-baton",
+    "bicycle-handlebars",
+    "chemistry-station",
+    "forge",
+    "gyro-accessories",
+    "gun-handgun-t0-pipe-pistol",
+    "gun-m-g-t0-pipe-machine-gun",
+    "minibike-handlebars",
+    "mod-vehicle-plow",
+    "gun-rifle-t0-pipe-rifle",
+    "gun-shotgun-t0-pipe-shotgun",
+    "mod-vehicle-super-charger",
+    "mod-vehicle-armor"
+  ],
+  "resource-leather": [
+    "truck-chassis",
+    "armor-assassin-boots",
+    "armor-assassin-gloves",
+    "melee-tool-axe-t1-iron-fireaxe",
+    "melee-wpn-baton-t0-pipe-baton",
+    "bicycle-chassis",
+    "bicycle-handlebars",
+    "melee-wpn-blade-t1-hunting-knife",
+    "gun-bow-t3-compound-bow",
+    "gun-bow-t3-compound-crossbow",
+    "gun-bow-t1-wooden-bow",
+    "melee-wpn-club-t1-baseball-bat",
+    "forge",
+    "gyro-chassis",
+    "melee-wpn-knuckles-t1-iron-knuckles",
+    "melee-wpn-knuckles-t3-steel-knuckles",
+    "minibike-chassis",
+    "motorcycle-chassis",
+    "melee-tool-paint-tool",
+    "melee-tool-pick-t1-iron-pickaxe",
+    "melee-tool-repair-t1-claw-hammer",
+    "melee-tool-shovel-t1-iron-shovel",
+    "melee-wpn-sledge-t1-iron-sledgehammer",
+    "melee-wpn-spear-t1-iron-spear"
+  ],
+  "melee-wpn-baton-t2-stun-baton-parts": [
+    "melee-wpn-baton-t2-stun-baton"
+  ],
+  "resource-forged-iron": [
+    "melee-tool-axe-t1-iron-fireaxe",
+    "melee-wpn-baton-t2-stun-baton",
+    "melee-wpn-blade-t1-hunting-knife",
+    "blade-trap",
+    "gun-bow-t1-iron-crossbow",
+    "cement-mixer",
+    "chemistry-station",
+    "melee-wpn-club-t1-baseball-bat",
+    "dart-trap",
+    "melee-tool-flashlight02",
+    "gun-handgun-t1-pistol",
+    "melee-wpn-knuckles-t1-iron-knuckles",
+    "resource-lock-pick",
+    "gun-m-g-t1-a-k47",
+    "melee-tool-pick-t1-iron-pickaxe",
+    "melee-tool-repair-t1-claw-hammer",
+    "resource-repair-kit",
+    "gun-rifle-t1-hunting-rifle",
+    "melee-tool-salvage-t1-wrench",
+    "gun-shotgun-t1-double-barrel",
+    "melee-tool-shovel-t1-iron-shovel",
+    "melee-wpn-sledge-t1-iron-sledgehammer",
+    "melee-wpn-spear-t1-iron-spear",
+    "workbench"
+  ],
+  "resource-duct-tape": [
+    "melee-wpn-baton-t2-stun-baton",
+    "melee-wpn-blade-t1-hunting-knife",
+    "melee-wpn-blade-t3-machete",
+    "gun-bow-t3-compound-bow",
+    "gun-bow-t3-compound-crossbow",
+    "gun-bow-t1-iron-crossbow",
+    "gun-bow-t1-wooden-bow",
+    "melee-wpn-club-t1-baseball-bat",
+    "melee-wpn-club-t3-steel-club",
+    "gun-explosives-t3-rocket-launcher",
+    "gun-handgun-t3-desert-vulture",
+    "gun-handgun-t2-magnum44",
+    "gun-handgun-t1-pistol",
+    "gun-handgun-t3-s-m-g5",
+    "melee-wpn-knuckles-t1-iron-knuckles",
+    "melee-wpn-knuckles-t3-steel-knuckles",
+    "gun-m-g-t1-a-k47",
+    "gun-m-g-t3-m60",
+    "gun-m-g-t2-tactical-a-r",
+    "gun-rifle-t1-hunting-rifle",
+    "melee-wpn-sledge-t1-iron-sledgehammer",
+    "melee-wpn-sledge-t3-steel-sledgehammer",
+    "melee-wpn-spear-t1-iron-spear",
+    "melee-wpn-spear-t3-steel-spear"
+  ],
+  "resource-electric-parts": [
+    "truck-accessories",
+    "truck-chassis",
+    "melee-wpn-baton-t2-stun-baton",
+    "blade-trap",
+    "gun-bot-t3-junk-drone",
+    "dart-trap",
+    "mod-drone-armor",
+    "mod-drone-cargo",
+    "mod-drone-headlamp",
+    "mod-drone-medic",
+    "mod-drone-morale",
+    "electricfencepost",
+    "melee-tool-flashlight02",
+    "gyro-accessories",
+    "gyro-chassis",
+    "mod-gun-laser-sight",
+    "minibike-chassis",
+    "minibike-handlebars",
+    "motorcycle-chassis",
+    "motorcycle-handlebars",
+    "mod-vehicle-offroad-lights",
+    "mod-gun-reflex-sight",
+    "mod-melee-stun-repulsor",
+    "mod-gun-flashlight"
+  ],
+  "resource-bone": [
+    "melee-wpn-blade-t0-bone-knife",
+    "food-can-sham",
+    "resource-glue"
+  ],
+  "resource-wood": [
+    "ammo-arrow-iron",
+    "ammo-arrow-stone",
+    "melee-tool-axe-t1-iron-fireaxe",
+    "melee-tool-axe-t2-steel-axe",
+    "melee-wpn-blade-t1-hunting-knife",
+    "melee-wpn-blade-t3-machete",
+    "gun-bow-t1-iron-crossbow",
+    "gun-bow-t0-primitive-bow",
+    "gun-bow-t1-wooden-bow",
+    "melee-wpn-club-t1-baseball-bat",
+    "melee-wpn-club-t3-steel-club",
+    "melee-wpn-club-t0-wooden-club",
+    "ammo-crossbow-bolt-iron",
+    "ammo-crossbow-bolt-stone",
+    "gun-handgun-t0-pipe-pistol",
+    "gun-m-g-t0-pipe-machine-gun",
+    "gun-rifle-t0-pipe-rifle",
+    "gun-shotgun-t0-pipe-shotgun",
+    "melee-wpn-sledge-t1-iron-sledgehammer",
+    "melee-wpn-sledge-t3-steel-sledgehammer",
+    "melee-wpn-sledge-t0-stone-sledgehammer",
+    "melee-wpn-spear-t1-iron-spear",
+    "melee-wpn-spear-t3-steel-spear",
+    "melee-wpn-spear-t0-stone-spear"
+  ],
+  "melee-wpn-blade-t3-machete-parts": [
+    "melee-wpn-blade-t3-machete"
+  ],
+  "resource-forged-steel": [
+    "melee-tool-axe-t3-chainsaw",
+    "melee-tool-axe-t2-steel-axe",
+    "melee-wpn-blade-t3-machete",
+    "gun-bow-t3-compound-crossbow",
+    "melee-wpn-club-t3-steel-club",
+    "gun-explosives-t3-rocket-launcher",
+    "gun-handgun-t3-desert-vulture",
+    "gun-handgun-t2-magnum44",
+    "gun-handgun-t3-s-m-g5",
+    "melee-wpn-knuckles-t3-steel-knuckles",
+    "gun-m-g-t3-m60",
+    "gun-m-g-t2-tactical-a-r",
+    "melee-tool-pick-t3-auger",
+    "melee-tool-pick-t2-steel-pickaxe",
+    "melee-tool-repair-t3-nailgun",
+    "gun-rifle-t2-lever-action-rifle",
+    "gun-rifle-t3-sniper-rifle",
+    "melee-tool-salvage-t3-impact-driver",
+    "melee-tool-salvage-t2-ratchet",
+    "gun-shotgun-t3-auto-shotgun",
+    "ammo-shotgun-breaching-slug",
+    "gun-shotgun-t2-pump-shotgun",
+    "melee-wpn-sledge-t3-steel-sledgehammer",
+    "melee-wpn-spear-t3-steel-spear"
+  ],
+  "melee-wpn-club-t3-steel-club-parts": [
+    "melee-wpn-club-t3-steel-club"
+  ],
+  "resource-mechanical-parts": [
+    "truck-accessories",
+    "truck-chassis",
+    "mod-bow-arrow-rest",
+    "mod-gun-trigger-auto",
+    "bicycle-chassis",
+    "bicycle-handlebars",
+    "vehicle-bicycle-placeable",
+    "blade-trap",
+    "cement-mixer",
+    "dart-trap",
+    "gyro-accessories",
+    "gyro-chassis",
+    "melee-wpn-knuckles-t1-iron-knuckles",
+    "resource-lock-pick",
+    "minibike-chassis",
+    "minibike-handlebars",
+    "motorcycle-chassis",
+    "motorcycle-handlebars",
+    "melee-tool-repair-t3-nailgun",
+    "melee-tool-salvage-t3-impact-driver",
+    "melee-tool-salvage-t2-ratchet",
+    "melee-tool-salvage-t1-wrench",
+    "melee-tool-wire-tool",
+    "workbench"
+  ],
+  "resource-scrap-iron": [
+    "barbed-fence",
+    "ammo-junk-turret-a-p",
+    "melee-wpn-knuckles-t0-leather-knuckles"
+  ],
+  "resource-cloth": [
+    "ammo-arrow-flaming",
+    "armor-athletic-boots",
+    "armor-athletic-gloves",
+    "armor-athletic-helmet",
+    "armor-athletic-outfit",
+    "medical-bandage",
+    "ammo-crossbow-bolt-flaming",
+    "resource-duct-tape",
+    "armor-enforcer-boots",
+    "armor-enforcer-gloves",
+    "armor-enforcer-helmet",
+    "armor-enforcer-outfit",
+    "melee-wpn-knuckles-t0-leather-knuckles",
+    "armor-lumberjack-boots",
+    "armor-lumberjack-gloves",
+    "armor-lumberjack-helmet",
+    "armor-lumberjack-outfit",
+    "medical-plaster-cast",
+    "armor-preacher-boots",
+    "armor-preacher-gloves",
+    "armor-preacher-helmet",
+    "armor-preacher-outfit",
+    "medical-splint",
+    "melee-tool-torch"
+  ],
+  "melee-wpn-knuckles-t3-steel-knuckles-parts": [
+    "melee-wpn-knuckles-t3-steel-knuckles"
+  ],
+  "melee-wpn-sledge-t3-steel-sledgehammer-parts": [
+    "melee-wpn-sledge-t3-steel-sledgehammer"
+  ],
+  "resource-rock-small": [
+    "ammo-arrow-stone",
+    "resource-cobblestones",
+    "resource-concrete-mix",
+    "ammo-crossbow-bolt-stone",
+    "melee-tool-repair-t0-stone-axe",
+    "melee-tool-shovel-t0-stone-shovel",
+    "melee-wpn-sledge-t0-stone-sledgehammer",
+    "melee-wpn-spear-t0-stone-spear"
+  ],
+  "resource-yucca-fibers": [
+    "gun-bow-t0-primitive-bow",
+    "food-burnt-smoothie",
+    "armor-primitive-boots",
+    "armor-primitive-gloves",
+    "armor-primitive-helmet",
+    "armor-primitive-outfit",
+    "melee-tool-repair-t0-stone-axe",
+    "melee-tool-shovel-t0-stone-shovel",
+    "melee-wpn-sledge-t0-stone-sledgehammer",
+    "melee-wpn-spear-t0-stone-spear"
+  ],
+  "melee-wpn-spear-t3-steel-spear-parts": [
+    "melee-wpn-spear-t3-steel-spear"
+  ],
+  "gun-bow-t1-wooden-bow-parts": [
+    "gun-bow-t3-compound-bow",
+    "gun-bow-t3-compound-crossbow",
+    "gun-bow-t1-iron-crossbow",
+    "gun-bow-t1-wooden-bow"
+  ],
+  "resource-spring": [
+    "truck-accessories",
+    "bicycle-chassis",
+    "bicycle-handlebars",
+    "gun-bow-t3-compound-bow",
+    "cement-mixer",
+    "gun-explosives-t3-rocket-launcher",
+    "gyro-accessories",
+    "gun-handgun-t3-desert-vulture",
+    "gun-handgun-t2-magnum44",
+    "gun-handgun-t1-pistol",
+    "gun-handgun-t3-s-m-g5",
+    "gun-m-g-t1-a-k47",
+    "gun-m-g-t3-m60",
+    "gun-m-g-t2-tactical-a-r",
+    "minibike-handlebars",
+    "melee-tool-repair-t3-nailgun",
+    "gun-rifle-t1-hunting-rifle",
+    "gun-rifle-t2-lever-action-rifle",
+    "gun-rifle-t3-sniper-rifle",
+    "melee-tool-salvage-t3-impact-driver",
+    "melee-tool-salvage-t2-ratchet",
+    "gun-shotgun-t3-auto-shotgun",
+    "gun-shotgun-t1-double-barrel",
+    "gun-shotgun-t2-pump-shotgun"
+  ],
+  "gun-explosives-t3-rocket-launcher-parts": [
+    "gun-explosives-t3-rocket-launcher"
+  ],
+  "gun-handgun-t1-pistol-parts": [
+    "auto-turret",
+    "gun-handgun-t3-desert-vulture",
+    "gun-handgun-t2-magnum44",
+    "gun-handgun-t1-pistol",
+    "gun-handgun-t3-s-m-g5"
+  ],
+  "resource-glue": [
+    "mod-bow-arrow-rest",
+    "mod-gun-trigger-auto",
+    "mod-gun-bipod",
+    "mod-gun-choke",
+    "mod-gun-cripple-em",
+    "mod-gun-duckbill",
+    "resource-duct-tape",
+    "mod-gun-foregrip",
+    "gun-handgun-t0-pipe-pistol",
+    "mod-gun-scope-large",
+    "mod-gun-laser-sight",
+    "gun-m-g-t0-pipe-machine-gun",
+    "mod-gun-mag-extender",
+    "mod-gun-scope-medium",
+    "resource-paper",
+    "mod-bow-polymer-string",
+    "mod-gun-rad-remover",
+    "mod-gun-reflex-sight",
+    "mod-gun-retracting-stock",
+    "gun-rifle-t0-pipe-rifle",
+    "mod-shotgun-sawed-off",
+    "mod-gun-trigger-semi",
+    "gun-shotgun-t0-pipe-shotgun",
+    "mod-gun-shotgun-tube"
+  ],
+  "gun-m-g-t1-a-k47-parts": [
+    "gun-m-g-t1-a-k47",
+    "gun-m-g-t3-m60",
+    "gun-m-g-t2-tactical-a-r"
+  ],
+  "gun-rifle-t1-hunting-rifle-parts": [
+    "gun-rifle-t1-hunting-rifle",
+    "gun-rifle-t2-lever-action-rifle",
+    "gun-rifle-t3-sniper-rifle"
+  ],
+  "gun-shotgun-t1-double-barrel-parts": [
+    "gun-shotgun-t3-auto-shotgun",
+    "gun-shotgun-t1-double-barrel",
+    "gun-shotgun-t2-pump-shotgun",
+    "shotgun-turret"
+  ],
+  "resource-bullet-tip": [
+    "ammo44-magnum-bullet-a-p",
+    "ammo44-magnum-bullet-ball",
+    "ammo44-magnum-bullet-h-p",
+    "ammo762mm-bullet-a-p",
+    "ammo762mm-bullet-ball",
+    "ammo762mm-bullet-h-p",
+    "ammo9mm-bullet-a-p",
+    "ammo9mm-bullet-ball",
+    "ammo9mm-bullet-h-p",
+    "ammo-shotgun-slug"
+  ],
+  "resource-gun-powder": [
+    "ammo44-magnum-bullet-a-p",
+    "ammo44-magnum-bullet-ball",
+    "ammo44-magnum-bullet-h-p",
+    "ammo762mm-bullet-a-p",
+    "ammo762mm-bullet-ball",
+    "ammo762mm-bullet-h-p",
+    "ammo9mm-bullet-a-p",
+    "ammo9mm-bullet-ball",
+    "ammo9mm-bullet-h-p",
+    "ammo-arrow-exploding",
+    "ammo-arrow-flaming",
+    "ammo-crossbow-bolt-exploding",
+    "ammo-crossbow-bolt-flaming",
+    "drink-jar-black-strap-coffee",
+    "ammo-rocket-frag",
+    "ammo-rocket-h-e",
+    "ammo-shotgun-breaching-slug",
+    "ammo-shotgun-shell",
+    "ammo-shotgun-slug"
+  ],
+  "resource-bullet-casing": [
+    "ammo44-magnum-bullet-a-p",
+    "ammo44-magnum-bullet-ball",
+    "ammo44-magnum-bullet-h-p",
+    "ammo762mm-bullet-a-p",
+    "ammo762mm-bullet-ball",
+    "ammo762mm-bullet-h-p",
+    "ammo9mm-bullet-a-p",
+    "ammo9mm-bullet-ball",
+    "ammo9mm-bullet-h-p"
+  ],
+  "resource-arrow-head-steel-a-p": [
+    "ammo-arrow-exploding",
+    "ammo-arrow-flaming",
+    "ammo-arrow-steel-a-p",
+    "ammo-crossbow-bolt-exploding",
+    "ammo-crossbow-bolt-flaming",
+    "ammo-crossbow-bolt-steel-a-p"
+  ],
+  "resource-scrap-polymers": [
+    "ammo-arrow-exploding",
+    "ammo-arrow-flaming",
+    "ammo-arrow-steel-a-p",
+    "mod-gun-trigger-auto",
+    "auto-turret",
+    "mod-gun-barrel-extender",
+    "ammo-crossbow-bolt-exploding",
+    "ammo-crossbow-bolt-flaming",
+    "ammo-crossbow-bolt-steel-a-p",
+    "mod-gun-drum-mag",
+    "melee-tool-flashlight02",
+    "mod-gun-scope-large",
+    "mod-gun-scope-medium",
+    "mod-gun-muzzle-brake",
+    "mod-bow-polymer-string",
+    "drug-recog",
+    "mod-gun-reflex-sight",
+    "mod-gun-trigger-semi",
+    "ammo-shotgun-breaching-slug",
+    "ammo-shotgun-slug",
+    "shotgun-turret",
+    "mod-gun-silencer",
+    "mod-gun-scope-small",
+    "vehicle-wheels"
+  ],
+  "resource-animal-fat": [
+    "ammo-arrow-flaming",
+    "food-blueberry-pie",
+    "food-can-sham",
+    "ammo-crossbow-bolt-flaming",
+    "food-frostbite-smoothie",
+    "food-gumbo-stew",
+    "food-hobo-stew",
+    "food-meat-stew",
+    "food-pumpkin-cheesecake",
+    "food-pumpkin-pie",
+    "food-shepards-pie",
+    "food-spaghetti",
+    "food-steak-and-potato",
+    "melee-tool-torch",
+    "food-tuna-fish-gravy-toast"
+  ],
+  "resource-arrow-head-iron": [
+    "ammo-arrow-iron",
+    "ammo-crossbow-bolt-iron"
+  ],
+  "resource-feather": [
+    "ammo-arrow-iron",
+    "ammo-arrow-stone",
+    "ammo-crossbow-bolt-iron",
+    "ammo-crossbow-bolt-stone"
+  ],
+  "resource-oil-shale": [
+    "ammo-gas-can",
+    "food-oasis-smoothie",
+    "resource-oil"
+  ],
+  "resource-scrap-lead": [
+    "ammo-junk-turret-a-p",
+    "ammo-junk-turret-regular",
+    "ammo-junk-turret-shell"
+  ],
+  "resource-buckshot": [
+    "ammo-junk-turret-shell",
+    "ammo-rocket-frag",
+    "ammo-shotgun-shell"
+  ],
+  "ammo-gas-can": [
+    "mod-melee-burning-shaft",
+    "drink-jar-grandpas-awesome-sauce",
+    "mod-fuel-tank-large",
+    "ammo-rocket-frag",
+    "ammo-rocket-h-e",
+    "mod-fuel-tank-small"
+  ],
+  "resource-rocket-casing": [
+    "ammo-rocket-frag",
+    "ammo-rocket-h-e"
+  ],
+  "resource-rocket-tip": [
+    "ammo-rocket-h-e"
+  ],
+  "resource-clay-lump": [
+    "resource-cobblestones",
+    "ammo-shotgun-breaching-slug"
+  ],
+  "resource-paper": [
+    "ammo-shotgun-shell"
+  ],
+  "melee-tool-axe-t3-chainsaw-parts": [
+    "melee-tool-axe-t3-chainsaw",
+    "melee-tool-pick-t3-auger",
+    "melee-tool-repair-t3-nailgun",
+    "melee-tool-salvage-t3-impact-driver"
+  ],
+  "bicycle-handlebars": [
+    "melee-tool-axe-t3-chainsaw",
+    "vehicle-bicycle-placeable",
+    "melee-tool-pick-t3-auger"
+  ],
+  "melee-tool-all-steel-parts": [
+    "melee-tool-axe-t2-steel-axe",
+    "melee-tool-pick-t2-steel-pickaxe",
+    "melee-tool-salvage-t2-ratchet"
+  ],
+  "resource-acid": [
+    "food-atomic-smoothie",
+    "chemistry-station",
+    "mod-vehicle-fuel-saver",
+    "drink-jar-grandpas-learning-elixir",
+    "drink-jar-grandpas-moonshine",
+    "drug-recog",
+    "vehicle-wheels"
+  ],
+  "resource-cobblestones": [
+    "forge"
+  ],
+  "resource-nail": [
+    "workbench"
+  ],
+  "food-crop-yucca-fruit": [
+    "food-atomic-smoothie",
+    "drink-jar-yucca-juice",
+    "drink-yucca-juice-smoothie"
+  ],
+  "food-raw-meat": [
+    "food-bacon-and-eggs",
+    "food-boiled-meat",
+    "food-charred-meat",
+    "food-chili-dog",
+    "food-grilled-meat",
+    "food-meat-stew",
+    "food-steak-and-potato"
+  ],
+  "food-egg": [
+    "food-bacon-and-eggs",
+    "food-blueberry-pie",
+    "food-egg-boiled",
+    "food-pumpkin-cheesecake",
+    "food-pumpkin-pie"
+  ],
+  "food-crop-potato": [
+    "food-baked-potato",
+    "food-hobo-stew",
+    "food-meat-stew",
+    "food-sham-chowder",
+    "food-shepards-pie",
+    "food-steak-and-potato",
+    "food-vegetable-stew"
+  ],
+  "food-crop-blueberries": [
+    "food-blueberry-pie",
+    "food-frostbite-smoothie",
+    "drug-herbal-antibiotics",
+    "drink-jar-grandpas-moonshine",
+    "drink-yucca-juice-smoothie"
+  ],
+  "food-corn-meal": [
+    "food-blueberry-pie",
+    "food-corn-bread",
+    "food-fish-tacos",
+    "drink-jar-grandpas-moonshine",
+    "medical-plaster-cast",
+    "food-pumpkin-bread",
+    "food-pumpkin-cheesecake",
+    "food-pumpkin-pie",
+    "food-tuna-fish-gravy-toast"
+  ],
+  "drink-jar-boiled-water": [
+    "drug-antibiotics",
+    "food-blueberry-pie",
+    "food-boiled-meat",
+    "food-burnt-smoothie",
+    "food-corn-bread",
+    "food-egg-boiled",
+    "food-frostbite-smoothie",
+    "food-gumbo-stew",
+    "drug-herbal-antibiotics",
+    "food-hobo-stew",
+    "drink-jar-beer",
+    "drink-jar-black-strap-coffee",
+    "drink-jar-coffee",
+    "drink-jar-golden-rod-tea",
+    "drink-jar-pure-mineral-water",
+    "drink-jar-red-tea",
+    "drink-jar-yucca-juice",
+    "food-meat-stew",
+    "food-oasis-smoothie",
+    "food-pumpkin-bread",
+    "food-pumpkin-pie",
+    "food-sham-chowder",
+    "food-spaghetti",
+    "food-vegetable-stew"
+  ],
+  "resource-coal": [
+    "food-burnt-smoothie",
+    "resource-gun-powder",
+    "drink-jar-pure-mineral-water",
+    "mod-armor-water-purifier",
+    "vehicle-wheels"
+  ],
+  "food-crop-mushrooms": [
+    "food-burnt-smoothie",
+    "drug-herbal-antibiotics",
+    "drink-jar-grandpas-awesome-sauce",
+    "food-oasis-smoothie",
+    "food-spaghetti",
+    "food-steak-and-potato",
+    "food-vegetable-stew"
+  ],
+  "food-rotting-flesh": [
+    "food-can-sham",
+    "drug-fort-bites",
+    "food-hobo-stew"
+  ],
+  "food-can-chili": [
+    "food-chili-dog"
+  ],
+  "food-corn-bread": [
+    "food-chili-dog",
+    "food-tuna-fish-gravy-toast"
+  ],
+  "food-crop-corn": [
+    "food-corn-meal",
+    "food-corn-on-the-cob",
+    "food-hobo-stew",
+    "food-meat-stew",
+    "food-sham-chowder",
+    "food-shepards-pie",
+    "food-vegetable-stew"
+  ],
+  "food-can-salmon": [
+    "food-fish-tacos"
+  ],
+  "medical-blood-bag": [
+    "medical-first-aid-kit",
+    "drug-fort-bites"
+  ],
+  "drink-jar-beer": [
+    "medical-first-aid-kit",
+    "drug-fort-bites",
+    "drink-jar-grandpas-learning-elixir",
+    "drink-jar-grandpas-moonshine",
+    "food-pumpkin-cheesecake",
+    "drug-recog",
+    "drug-steroids"
+  ],
+  "drug-vitamins": [
+    "drug-fort-bites",
+    "drug-recog"
+  ],
+  "resource-snow-ball": [
+    "food-frostbite-smoothie",
+    "drink-jar-river-water",
+    "drink-yucca-juice-smoothie"
+  ],
+  "food-can-beef": [
+    "food-gumbo-stew",
+    "food-spaghetti"
+  ],
+  "food-can-peas": [
+    "food-gumbo-stew",
+    "food-shepards-pie",
+    "food-tuna-fish-gravy-toast"
+  ],
+  "food-can-stock": [
+    "food-gumbo-stew"
+  ],
+  "resource-crop-coffee-beans": [
+    "drink-jar-black-strap-coffee",
+    "drink-jar-coffee"
+  ],
+  "drink-jar-river-water": [
+    "drink-jar-boiled-water"
+  ],
+  "food-honey": [
+    "drink-jar-grandpas-awesome-sauce"
+  ],
+  "food-can-dogfood": [
+    "drink-jar-grandpas-learning-elixir"
+  ],
+  "drink-jar-red-tea": [
+    "drink-jar-grandpas-learning-elixir"
+  ],
+  "resource-crop-aloe-leaf": [
+    "medical-aloe-cream",
+    "food-oasis-smoothie"
+  ],
+  "food-can-sham": [
+    "food-sham-chowder"
+  ],
+  "food-can-lamb": [
+    "food-shepards-pie"
+  ],
+  "food-can-pasta": [
+    "food-spaghetti"
+  ],
+  "food-can-tuna": [
+    "food-tuna-fish-gravy-toast"
+  ],
+  "food-sham-sandwich": [
+    "drug-antibiotics"
+  ],
+  "resource-potassium-nitrate-powder": [
+    "drug-antibiotics",
+    "resource-gun-powder",
+    "drug-herbal-antibiotics"
+  ],
+  "medical-aloe-cream": [
+    "medical-first-aid-bandage"
+  ],
+  "medical-bandage": [
+    "medical-first-aid-bandage",
+    "medical-first-aid-kit"
+  ],
+  "resource-sewing-kit": [
+    "mod-armor-advanced-muffled",
+    "resource-armor-crafting-kit",
+    "mod-armor-plating-basic",
+    "mod-armor-bandolier",
+    "mod-armor-cooling-mesh",
+    "mod-armor-custom-fittings",
+    "mod-armor-double-pocket",
+    "medical-first-aid-kit",
+    "mod-armor-helmet-light",
+    "mod-armor-impact-bracing",
+    "mod-armor-improved-fittings",
+    "mod-armor-insulated-liner",
+    "mod-armor-muffled-connectors",
+    "mod-armor-quad-pocket",
+    "mod-armor-plating-reinforced",
+    "mod-armor-stealth-boots",
+    "mod-armor-storage-pocket",
+    "mod-armor-triple-pocket",
+    "mod-armor-water-purifier"
+  ],
+  "resource-crushed-sand": [
+    "resource-concrete-mix",
+    "medical-plaster-cast"
+  ],
+  "resource-oil": [
+    "auto-turret",
+    "mod-gun-barrel-extender",
+    "blade-trap",
+    "mod-melee-burning-shaft",
+    "mod-armor-cooling-mesh",
+    "dart-trap",
+    "mod-gun-drum-mag",
+    "mod-gun-muzzle-brake",
+    "shotgun-turret",
+    "mod-gun-silencer",
+    "drug-steroids",
+    "vehicle-wheels"
+  ],
+  "resource-testosterone-extract": [
+    "drug-steroids"
+  ],
+  "armor-parts": [
+    "resource-armor-crafting-kit"
+  ],
+  "resource-cement": [
+    "resource-concrete-mix"
+  ],
+  "vehicle-wheels": [
+    "vehicle-bicycle-placeable",
+    "vehicle-gyrocopter-placeable",
+    "vehicle-minibike-placeable",
+    "vehicle-motorcycle-placeable",
+    "vehicle-truck4x4-placeable"
+  ],
+  "bicycle-chassis": [
+    "vehicle-bicycle-placeable"
+  ],
+  "gyro-chassis": [
+    "vehicle-gyrocopter-placeable"
+  ],
+  "gyro-accessories": [
+    "vehicle-gyrocopter-placeable"
+  ],
+  "minibike-chassis": [
+    "vehicle-minibike-placeable"
+  ],
+  "minibike-handlebars": [
+    "vehicle-minibike-placeable"
+  ],
+  "motorcycle-chassis": [
+    "vehicle-motorcycle-placeable"
+  ],
+  "motorcycle-handlebars": [
+    "vehicle-motorcycle-placeable"
+  ],
+  "truck-chassis": [
+    "vehicle-truck4x4-placeable"
+  ],
+  "truck-accessories": [
+    "vehicle-truck4x4-placeable"
+  ],
+  "resource-headlight": [
+    "truck-accessories",
+    "mod-drone-headlamp",
+    "gyro-accessories",
+    "minibike-handlebars",
+    "motorcycle-handlebars",
+    "mod-vehicle-offroad-lights"
+  ],
+  "resource-armor-crafting-kit": [
+    "armor-assassin-boots",
+    "armor-assassin-gloves",
+    "armor-assassin-helmet",
+    "armor-assassin-outfit",
+    "armor-athletic-boots",
+    "armor-athletic-gloves",
+    "armor-athletic-helmet",
+    "armor-athletic-outfit",
+    "armor-biker-boots",
+    "armor-biker-gloves",
+    "armor-biker-helmet",
+    "armor-biker-outfit",
+    "armor-commando-boots",
+    "armor-commando-gloves",
+    "armor-commando-helmet",
+    "armor-commando-outfit",
+    "armor-enforcer-boots",
+    "armor-enforcer-gloves",
+    "armor-enforcer-helmet",
+    "armor-enforcer-outfit",
+    "armor-farmer-boots",
+    "armor-farmer-gloves",
+    "armor-farmer-helmet",
+    "armor-farmer-outfit"
+  ],
+  "gun-bot-robotics-parts": [
+    "gun-bot-t3-junk-drone",
+    "gun-bot-t1-junk-sledge",
+    "gun-bot-t2-junk-turret"
+  ],
+  "resource-scope-lens": [
+    "mod-gun-scope-large",
+    "mod-gun-scope-medium",
+    "mod-gun-scope-small"
+  ],
+  "melee-tool-flashlight02": [
+    "mod-armor-helmet-light",
+    "mod-gun-flashlight"
+  ],
+  "resource-legendary-parts": [
+    "mod-armor-quad-pocket"
+  ],
+  "resource-raw-diamond": [
+    "mod-melee-diamond-tip"
+  ],
+  "resource-radiator": [
+    "mod-vehicle-super-charger"
+  ]
+}

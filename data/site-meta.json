@@ -1,0 +1,32 @@
+{
+  "gameVersion": "V 2.1 (b333)",
+  "gameVersionLabel": "Alpha 21.2 · vanilla catalog sync",
+  "catalogSyncedAt": "2026-05-18",
+  "discordInvite": "",
+  "discordLabel": "Survivor's Codex Discord",
+  "ogDescription": "Vanilla 7 Days to Die catalog, perk planner, and community builds — no mods required.",
+  "changelog": [
+    {
+      "date": "2026-05-18",
+      "title": "Community & planner depth",
+      "items": [
+        "Enemy codex with HP variants, biomes, and combat tips",
+        "Trader reference by game stage (Joel, Jen, Bob, Hugh, Rekt)",
+        "Public survivor profiles with shared builds",
+        "Trending builds, upvotes, and comments",
+        "Planner craft rollup, loadout totals, and build compare",
+        "Starter templates with suggested loadouts"
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "title": "Accounts & catalog polish",
+      "items": [
+        "Favorites sync to account",
+        "Recipe reverse links and improved catalog search",
+        "Build share URLs with Open Graph tags",
+        "Password reset email support via Resend"
+      ]
+    }
+  ]
+}

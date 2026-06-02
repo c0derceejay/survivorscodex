@@ -1,0 +1,140 @@
+{
+  "_comment": "Extended enemy notes beyond entities.json. Regenerate stats via npm run stats:generate.",
+  "_source": "https://7daystodie.wiki.gg/wiki/List_of_Zombies",
+  "defaults": {
+    "loot": "Rotting flesh and a loot bag — quality scales with your game stage.",
+    "combatTips": [
+      "Headshots deal bonus damage and prevent some special death effects.",
+      "Variant color (feral, radiated, charged, infernal) indicates higher HP and threat."
+    ]
+  },
+  "enemies": {
+    "zombie-cop": {
+      "behavior": "Leaves a toxic corpse explosion if killed without a headshot.",
+      "loot": "Rotting flesh, loot bag, police POI containers.",
+      "combatTips": [
+        "Always prioritize headshots — the corpse blast can wipe a room.",
+        "Clear from range in police stations and blood moon hordes."
+      ]
+    },
+    "zombie-screamer": {
+      "behavior": "Screams when alerted and calls additional zombies to your location.",
+      "loot": "Rotting flesh, loot bag.",
+      "combatTips": [
+        "Kill silently or from stealth before it screams.",
+        "Heat-map spawns — treat as priority target during base defense."
+      ]
+    },
+    "zombie-demolition": {
+      "behavior": "Smashes player-placed blocks and can breach bases quickly.",
+      "loot": "Rotting flesh, high-tier loot bag.",
+      "combatTips": [
+        "Focus fire immediately — do not let it reach your walls.",
+        "Common on late blood moons and city POIs."
+      ]
+    },
+    "zombie-crawler": {
+      "behavior": "Stays low, harder to headshot, can slip under some defenses.",
+      "loot": "Rotting flesh, loot bag.",
+      "combatTips": [
+        "Aim lower than standing walkers.",
+        "Watch floor-level gaps in spike traps and fences."
+      ]
+    },
+    "zombie-vulture": {
+      "behavior": "Flies and dive-bombs players; common on rooftops and blood moons.",
+      "loot": "Rotting flesh, feathers (via loot bag).",
+      "combatTips": [
+        "Clear rooftops before looting POI upper floors.",
+        "Low HP but annoying in groups — bring a rifle or bow."
+      ]
+    },
+    "zombie-rancher": {
+      "behavior": "Can summon insect swarms when damaged in the desert.",
+      "loot": "Rotting flesh, loot bag.",
+      "combatTips": [
+        "Finish quickly to reduce swarm uptime.",
+        "Pairs with Insect Swarm — clear both in desert POIs."
+      ]
+    },
+    "insect-swarm": {
+      "behavior": "Flying swarm spawned by rancher zombies; low HP but fast.",
+      "loot": "Minimal — nuisance spawn, not a loot source.",
+      "combatTips": [
+        "Use melee with wide swings or any ranged splash.",
+        "Usually appears alongside Zombie Rancher."
+      ]
+    },
+    "zombie-wight": {
+      "behavior": "Elite feral-tier walker that runs day and night.",
+      "loot": "Rotting flesh, high-quality loot bag.",
+      "combatTips": [
+        "Treat as a mini-boss — high HP and speed.",
+        "Common in wasteland, military POIs, and late blood moons."
+      ]
+    },
+    "mutated-zombie": {
+      "behavior": "Large bloated mutant — primary heavy walker in the wasteland.",
+      "loot": "Rotting flesh, high-tier loot bag.",
+      "combatTips": [
+        "High HP pool — armor-piercing weapons help.",
+        "Radiated and infernal variants appear at high game stage."
+      ]
+    },
+    "zombie-bear": {
+      "behavior": "Massive undead bear boss with extreme HP.",
+      "loot": "Rotting flesh, bear loot, boss-tier rewards.",
+      "combatTips": [
+        "Boss encounter — bring medical supplies and high-tier weapons.",
+        "Found in wasteland and special POIs."
+      ]
+    },
+    "zombie-grace": {
+      "behavior": "Giant mutated boar boss at farm POIs (Bob's Boars, Carl's Corn, Hogzilla Ranch).",
+      "loot": "Boss loot bag, farm POI rewards.",
+      "combatTips": [
+        "POI clear boss — kiting and ranged damage recommended.",
+        "Quest and tier rewards scale with game stage."
+      ]
+    },
+    "zombie-chuck": {
+      "behavior": "Heavy snow-biome zombie with high base HP.",
+      "loot": "Rotting flesh, loot bag.",
+      "combatTips": [
+        "Snow biome specialist — expect feral+ variants earlier than forest walkers."
+      ]
+    },
+    "zombie-dog": {
+      "behavior": "Fast pack hunter — closes distance quickly.",
+      "loot": "Rotting flesh, loot bag.",
+      "combatTips": [
+        "Dangerous at night in snow and wasteland.",
+        "Listen for growls before entering cities."
+      ]
+    },
+    "zombie-spider": {
+      "behavior": "Climbs walls and moves faster at night.",
+      "loot": "Rotting flesh, loot bag.",
+      "combatTips": [
+        "Can scale player walls — overhangs and spikes help.",
+        "More common outdoors after dark."
+      ]
+    },
+    "zombie-burnt": {
+      "behavior": "Fire-damaged walker common in Burnt Forest.",
+      "loot": "Rotting flesh, loot bag.",
+      "combatTips": [
+        "Often mixed with feral variants in burnt POIs.",
+        "Fire resistance perks reduce environmental stack damage nearby."
+      ]
+    },
+    "zombie-biker": {
+      "behavior": "Tougher than standard walkers; common mini-boss in garages and bars.",
+      "loot": "Rotting flesh, elevated loot bag.",
+      "combatTips": [
+        "Expect in POI boss rooms and garage clears.",
+        "Higher HP than standard tier-1 walkers."
+      ]
+    }
+  }
+}

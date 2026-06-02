@@ -56,6 +56,7 @@
       });
       this.user = data.user;
       await BuildStore.migrateGuestBuilds();
+      await Store.syncFavoritesOnLogin();
       this.notify();
       return data.user;
     },
@@ -66,6 +67,7 @@
       });
       this.user = data.user;
       await BuildStore.migrateGuestBuilds();
+      await Store.syncFavoritesOnLogin();
       this.notify();
       return data.user;
     },
@@ -96,6 +98,7 @@
       const id = Auth.user ? Auth.user.id : "guest";
       return `7dtd:${suffix}:${id}`;
     },
+    _favSyncTimer: null,
     getFavorites() {
       try { return JSON.parse(localStorage.getItem(this.key("favs")) || "[]"); }
       catch (_) { return []; }
@@ -103,12 +106,41 @@
     setFavorites(arr) {
       localStorage.setItem(this.key("favs"), JSON.stringify(arr));
     },
-    toggleFavorite(itemId) {
+    async pushFavoritesToServer(favs) {
+      if (!Auth.user) return;
+      await api("/api/favorites", {
+        method: "PUT",
+        body: JSON.stringify({ favorites: favs }),
+      });
+    },
+    scheduleFavoritesSync(favs) {
+      if (!Auth.user) return;
+      clearTimeout(this._favSyncTimer);
+      this._favSyncTimer = setTimeout(() => {
+        this.pushFavoritesToServer(favs).catch(() => {});
+      }, 400);
+    },
+    async syncFavoritesOnLogin() {
+      let guestFavs = [];
+      try { guestFavs = JSON.parse(localStorage.getItem("7dtd:favs:guest") || "[]"); }
+      catch (_) {}
+      try {
+        const data = await api("/api/favorites");
+        const serverFavs = data.favorites || [];
+        const merged = [...new Set([...serverFavs, ...guestFavs])].slice(0, 200);
+        this.setFavorites(merged);
+        if (merged.length !== serverFavs.length || guestFavs.length) {
+          await this.pushFavoritesToServer(merged);
+        }
+      } catch (_) {}
+    },
+    async toggleFavorite(itemId) {
       const favs = this.getFavorites();
       const i = favs.indexOf(itemId);
       if (i >= 0) favs.splice(i, 1);
       else favs.push(itemId);
       this.setFavorites(favs);
+      this.scheduleFavoritesSync(favs);
       return i < 0; // true when newly added
     },
     isFavorite(itemId) { return this.getFavorites().includes(itemId); },
@@ -283,7 +315,7 @@
 
     async copyPublicBuild(build, name) {
       if (!build) throw new Error("No build to copy.");
-      return this.save({
+      const saved = await this.save({
         name: String(name || `${build.name} (copy)`).trim() || "Untitled build",
         buildTypes: build.buildTypes ?? build.buildType,
         loadout: build.loadout,
@@ -293,6 +325,52 @@
         perks: build.perks,
         isPublic: false,
       });
+      if (build.id) {
+        try { await this.recordPublicCopy(build.id); } catch (_) {}
+      }
+      return saved;
+    },
+
+    async recordPublicCopy(id) {
+      const res = await fetch(`/api/builds/public/${encodeURIComponent(id)}/copy`, { method: "POST" });
+      if (!res.ok) return null;
+      return res.json();
+    },
+
+    async toggleUpvote(id) {
+      return api(`/api/builds/public/${encodeURIComponent(id)}/upvote`, { method: "POST" });
+    },
+
+    async fetchComments(id) {
+      const res = await fetch(`/api/builds/public/${encodeURIComponent(id)}/comments`);
+      if (!res.ok) throw new Error("Could not load comments.");
+      const data = await res.json();
+      return data.comments || [];
+    },
+
+    async postComment(id, text) {
+      return api(`/api/builds/public/${encodeURIComponent(id)}/comments`, {
+        method: "POST",
+        body: JSON.stringify({ text }),
+      });
+    },
+
+    async fetchPublicProfile(username) {
+      const res = await fetch(`/api/users/${encodeURIComponent(username)}/profile`);
+      if (!res.ok) throw new Error("Profile not found.");
+      return res.json();
+    },
+
+    async updateProfile({ bio, profilePublic }) {
+      const data = await api("/api/profile", {
+        method: "PUT",
+        body: JSON.stringify({ bio, profilePublic }),
+      });
+      if (data.user && Auth.user) {
+        Auth.user = { ...Auth.user, ...data.user };
+        Auth.notify();
+      }
+      return data.user;
     },
 
     async setPublic(id, isPublic) {
@@ -697,6 +775,32 @@
   // -------------------------------------------------------------------------
   // Reveal on scroll
   // -------------------------------------------------------------------------
+  function setupBackendBanner() {
+    const bannerId = "sdd-backend-banner";
+    if (document.getElementById(bannerId)) return;
+
+    fetch("/health", { method: "GET", cache: "no-store" })
+      .then((res) => {
+        if (res.ok) return;
+        throw new Error("unhealthy");
+      })
+      .catch(() => {
+        const banner = document.createElement("div");
+        banner.id = bannerId;
+        banner.className = "backend-banner";
+        banner.setAttribute("role", "status");
+        banner.innerHTML =
+          'Account features may be unavailable — the server isn\u2019t responding. Catalog pages still work. ' +
+          '<button type="button" class="backend-banner-dismiss" aria-label="Dismiss">\u00d7</button>';
+        document.body.prepend(banner);
+        document.body.classList.add("has-backend-banner");
+        banner.querySelector(".backend-banner-dismiss")?.addEventListener("click", () => {
+          banner.remove();
+          document.body.classList.remove("has-backend-banner");
+        });
+      });
+  }
+
   function setupReveal() {
     const els = document.querySelectorAll(".reveal");
     if (!els.length) return;
@@ -994,7 +1098,7 @@
   // Public API
   // -------------------------------------------------------------------------
   window.SDD = {
-    Auth, Store, BuildStore, SkillPoints, openAuthModal, toast, escapeHTML,
+    Auth, Store, BuildStore, SkillPoints, api, openAuthModal, toast, escapeHTML,
     itemImage, itemIcon, itemImageUrl, itemImageSvg, hasItemImage, handleItemPhotoError,
     attachItemPhotoHandlers, loadImageManifest, imageManifest,
   };
@@ -1006,6 +1110,7 @@
   document.addEventListener("DOMContentLoaded", async () => {
     setupMobileNav();
     setupReveal();
+    setupBackendBanner();
     renderNav();
     injectFooterSources();
     await loadImageManifest();

@@ -23,9 +23,9 @@ const WIKI_SOURCES = [
   { id: "fandom", api: "https://7daystodie.fandom.com/api.php", pageKey: "fandomPageOverrides" },
 ];
 
-const SIZE = 160;
-const PAD = 14;
-const INNER = SIZE - PAD * 2;
+const WIDTH = 240;
+const HEIGHT = 320;
+const PAD = 8;
 const BG = { r: 22, g: 21, b: 26, alpha: 1 };
 
 const JUNK_RE =
@@ -126,16 +126,22 @@ async function downloadBuffer(url) {
 }
 
 async function normalizeIcon(sharp, inputBuffer) {
-  return sharp(inputBuffer)
+  const innerW = WIDTH - PAD * 2;
+  const innerH = HEIGHT - PAD * 2;
+  const resized = await sharp(inputBuffer)
     .flatten({ background: BG })
-    .resize(INNER, INNER, { fit: "inside", withoutEnlargement: false })
-    .extend({
-      top: PAD,
-      bottom: PAD,
-      left: PAD,
-      right: PAD,
+    .resize(innerW, innerH, { fit: "inside", withoutEnlargement: false })
+    .toBuffer();
+
+  return sharp({
+    create: {
+      width: WIDTH,
+      height: HEIGHT,
+      channels: 4,
       background: BG,
-    })
+    },
+  })
+    .composite([{ input: resized, gravity: "south" }])
     .png({ compressionLevel: 9 })
     .toBuffer();
 }

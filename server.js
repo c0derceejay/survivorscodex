@@ -5,7 +5,7 @@
    - Sessions: opaque token in an httpOnly cookie, server-side row.
    - Skill builds: persisted per account in var/auth.json when signed in.
    - Catalog/skills JSON stays in data/ — mount Railway volumes at /app/var, not /app/data.
-   - Favorites & uploaded photos remain client-side (localStorage) by design.
+   - Favorites sync to account via /api/favorites; photos remain client-side.
    ========================================================================== */
 
 const fs = require("fs");
@@ -20,6 +20,10 @@ const COOKIE_NAME = "sdd_session";
 const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
 const RESET_TTL_MS = 1000 * 60 * 60; // 1 hour
 const MAX_BUILDS_PER_USER = 24;
+const MAX_FAVORITES = 200;
+const MAX_COMMENT_LENGTH = 500;
+const MAX_COMMENTS_PER_BUILD = 100;
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const ROOT = __dirname;
 const VAR_DIR = path.join(ROOT, "var");
 const DB_PATH = path.join(VAR_DIR, "auth.json");
@@ -121,9 +125,50 @@ function migrateBuildRecords(db) {
   return changed;
 }
 
+function migrateCommunityRecords(db) {
+  let changed = false;
+  if (!db.build_comments) {
+    db.build_comments = [];
+    changed = true;
+  }
+  if (!db.build_upvotes) {
+    db.build_upvotes = [];
+    changed = true;
+  }
+  for (const b of db.builds || []) {
+    if (b.upvote_count == null) {
+      b.upvote_count = 0;
+      changed = true;
+    }
+    if (b.copy_count == null) {
+      b.copy_count = 0;
+      changed = true;
+    }
+  }
+  for (const u of db.users || []) {
+    if (u.bio == null) {
+      u.bio = "";
+      changed = true;
+    }
+    if (u.profile_public == null) {
+      u.profile_public = true;
+      changed = true;
+    }
+  }
+  return changed;
+}
+
+function trendingScore(build) {
+  const ageMs = Date.now() - new Date(build.saved_at).getTime();
+  const weekBoost = ageMs < 7 * 24 * 60 * 60 * 1000 ? 5 : 0;
+  return (build.upvote_count || 0) * 3 + (build.copy_count || 0) * 2 + weekBoost;
+}
+
 let db = loadDb();
 try {
-  if (migrateBuildRecords(db)) saveDb(db);
+  let migrated = migrateBuildRecords(db);
+  if (migrateCommunityRecords(db)) migrated = true;
+  if (migrated) saveDb(db);
 } catch (err) {
   console.error("[auth] Could not migrate auth database on startup:", err.message);
 }
@@ -203,6 +248,19 @@ const Store = {
     db.sessions = db.sessions.filter((s) => s.user_id !== userId);
     if (db.sessions.length !== before) saveDb(db);
   },
+  getUserFavorites(userId) {
+    const user = db.users.find((u) => u.id === userId);
+    if (!user) return null;
+    if (!Array.isArray(user.favorite_ids)) user.favorite_ids = [];
+    return user.favorite_ids;
+  },
+  setUserFavorites(userId, ids) {
+    const user = db.users.find((u) => u.id === userId);
+    if (!user) return false;
+    user.favorite_ids = normalizeFavoriteIds(ids);
+    saveDb(db);
+    return true;
+  },
   listBuilds(userId) {
     if (!db.builds) db.builds = [];
     return db.builds
@@ -278,7 +336,89 @@ const Store = {
       }
     }
 
-    return result.sort((a, b) => new Date(b.saved_at) - new Date(a.saved_at));
+    return result.sort((a, b) => {
+      if (filters.sort === "trending") {
+        const diff = trendingScore(b) - trendingScore(a);
+        if (diff !== 0) return diff;
+      }
+      return new Date(b.saved_at) - new Date(a.saved_at);
+    });
+  },
+  countBuildComments(buildId) {
+    if (!db.build_comments) return 0;
+    return db.build_comments.filter((c) => c.build_id === buildId).length;
+  },
+  listBuildComments(buildId) {
+    if (!db.build_comments) db.build_comments = [];
+    return db.build_comments
+      .filter((c) => c.build_id === buildId)
+      .sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  },
+  addBuildComment({ buildId, userId, username, text }) {
+    if (!db.build_comments) db.build_comments = [];
+    const row = {
+      id: crypto.randomUUID(),
+      build_id: buildId,
+      user_id: userId,
+      username,
+      text,
+      created_at: new Date().toISOString(),
+    };
+    db.build_comments.push(row);
+    saveDb(db);
+    return row;
+  },
+  hasUserUpvoted(buildId, userId) {
+    if (!userId || !db.build_upvotes) return false;
+    return db.build_upvotes.some((r) => r.build_id === buildId && r.user_id === userId);
+  },
+  toggleBuildUpvote(buildId, userId) {
+    if (!db.build_upvotes) db.build_upvotes = [];
+    const build = db.builds?.find((b) => b.id === buildId);
+    if (!build) return null;
+    const idx = db.build_upvotes.findIndex((r) => r.build_id === buildId && r.user_id === userId);
+    if (idx >= 0) {
+      db.build_upvotes.splice(idx, 1);
+      build.upvote_count = Math.max(0, (build.upvote_count || 0) - 1);
+      saveDb(db);
+      return { upvoted: false, upvoteCount: build.upvote_count };
+    }
+    db.build_upvotes.push({ build_id: buildId, user_id: userId, created_at: Date.now() });
+    build.upvote_count = (build.upvote_count || 0) + 1;
+    saveDb(db);
+    return { upvoted: true, upvoteCount: build.upvote_count };
+  },
+  incrementBuildCopy(buildId) {
+    const build = db.builds?.find((b) => b.id === buildId);
+    if (!build || !build.is_public) return null;
+    build.copy_count = (build.copy_count || 0) + 1;
+    saveDb(db);
+    return build.copy_count;
+  },
+  getPublicProfile(username) {
+    const user = Store.findUserByUsername(username);
+    if (!user || user.profile_public === false) return null;
+    const builds = db.builds
+      ?.filter((b) => b.user_id === user.id && b.is_public)
+      .sort((a, b) => new Date(b.saved_at) - new Date(a.saved_at)) || [];
+    return {
+      user: {
+        id: user.id,
+        username: user.username,
+        bio: user.bio || "",
+        createdAt: user.created_at,
+        publicBuildCount: builds.length,
+      },
+      builds,
+    };
+  },
+  updateUserProfile(userId, patch) {
+    const user = db.users.find((u) => u.id === userId);
+    if (!user) return null;
+    if (patch.bio != null) user.bio = String(patch.bio).slice(0, 280);
+    if (patch.profilePublic != null) user.profile_public = Boolean(patch.profilePublic);
+    saveDb(db);
+    return user;
   },
 };
 
@@ -294,7 +434,23 @@ app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
 
 function publicUser(u) {
-  return { id: u.id, username: u.username, email: u.email, createdAt: u.created_at };
+  return {
+    id: u.id,
+    username: u.username,
+    email: u.email,
+    createdAt: u.created_at,
+    bio: u.bio || "",
+    profilePublic: u.profile_public !== false,
+  };
+}
+
+function publicProfileUser(u) {
+  return {
+    id: u.id,
+    username: u.username,
+    bio: u.bio || "",
+    createdAt: u.created_at,
+  };
 }
 
 function setSessionCookie(res, token) {
@@ -318,6 +474,78 @@ function hashResetToken(token) {
 function appBaseUrl(req) {
   if (process.env.APP_BASE_URL) return process.env.APP_BASE_URL.replace(/\/$/, "");
   return `${req.protocol}://${req.get("host")}`;
+}
+
+function normalizeFavoriteIds(raw) {
+  if (!Array.isArray(raw)) return [];
+  return [...new Set(raw.filter((id) => typeof id === "string" && id.length > 0 && id.length <= 120))].slice(
+    0,
+    MAX_FAVORITES
+  );
+}
+
+const rateBuckets = new Map();
+
+function clientIp(req) {
+  return req.ip || req.socket?.remoteAddress || "unknown";
+}
+
+function rateLimit({ windowMs, max, routeKey }) {
+  return (req, res, next) => {
+    const key = `${routeKey}:${clientIp(req)}`;
+    const now = Date.now();
+    let bucket = rateBuckets.get(key);
+    if (!bucket || bucket.resetAt <= now) {
+      bucket = { count: 0, resetAt: now + windowMs };
+      rateBuckets.set(key, bucket);
+    }
+    bucket.count += 1;
+    if (bucket.count > max) {
+      res.setHeader("Retry-After", String(Math.ceil((bucket.resetAt - now) / 1000)));
+      return res.status(429).json({ error: "Too many attempts. Please wait a few minutes and try again." });
+    }
+    next();
+  };
+}
+
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, bucket] of rateBuckets) {
+    if (bucket.resetAt <= now) rateBuckets.delete(key);
+  }
+}, 60_000).unref?.();
+
+async function sendPasswordResetEmail({ to, resetUrl }) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return false;
+
+  const from = process.env.EMAIL_FROM || "Survivor's Codex <onboarding@resend.dev>";
+  const subject = "Reset your Survivor's Codex password";
+  const html = `
+    <p>You requested a password reset for Survivor's Codex.</p>
+    <p><a href="${resetUrl}">Reset your password</a> (link valid for one hour).</p>
+    <p>If you didn't request this, you can ignore this email.</p>
+  `.trim();
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ from, to: [to], subject, html }),
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      console.error("[email] Resend failed:", res.status, err);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("[email] Resend error:", err.message);
+    return false;
+  }
 }
 
 function authMiddleware(req, _res, next) {
@@ -439,7 +667,7 @@ function publicAuthor(u) {
   return u ? { id: u.id, username: u.username } : null;
 }
 
-function publicBuild(b) {
+function publicBuild(b, viewerUserId) {
   let buildTypes = b.build_types;
   if (!Array.isArray(buildTypes) || !buildTypes.length) {
     buildTypes = b.build_type ? [b.build_type] : [DEFAULT_BUILD_TYPE];
@@ -456,12 +684,16 @@ function publicBuild(b) {
     attributes: b.attributes,
     perks: b.perks,
     isPublic: Boolean(b.is_public),
+    upvoteCount: b.upvote_count || 0,
+    copyCount: b.copy_count || 0,
+    commentCount: Store.countBuildComments(b.id),
+    userUpvoted: viewerUserId ? Store.hasUserUpvoted(b.id, viewerUserId) : false,
   };
 }
 
-function publicBuildWithAuthor(b) {
+function publicBuildWithAuthor(b, viewerUserId) {
   return {
-    ...publicBuild(b),
+    ...publicBuild(b, viewerUserId),
     author: publicAuthor(Store.findUserById(b.user_id)),
   };
 }
@@ -498,7 +730,13 @@ app.use(authMiddleware);
 // ---------------------------------------------------------------------------
 // API
 // ---------------------------------------------------------------------------
-app.post("/api/signup", async (req, res) => {
+const authRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, routeKey: "signup" });
+const loginRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, routeKey: "login" });
+const forgotRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 5, routeKey: "forgot" });
+const resetRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, routeKey: "reset" });
+const commentRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, routeKey: "comment" });
+
+app.post("/api/signup", authRateLimit, async (req, res) => {
   try {
     const { username = "", email = "", password = "" } = req.body || {};
     const u = String(username).trim();
@@ -526,7 +764,7 @@ app.post("/api/signup", async (req, res) => {
   }
 });
 
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", loginRateLimit, async (req, res) => {
   try {
     const { email = "", password = "" } = req.body || {};
     const e = String(email).trim().toLowerCase();
@@ -552,7 +790,7 @@ app.post("/api/logout", (req, res) => {
   res.json({ ok: true });
 });
 
-app.post("/api/forgot-password", (req, res) => {
+app.post("/api/forgot-password", forgotRateLimit, async (req, res) => {
   try {
     const e = String(req.body?.email || "").trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) {
@@ -560,30 +798,43 @@ app.post("/api/forgot-password", (req, res) => {
     }
 
     const user = Store.findUserByEmail(e);
-    const response = {
-      ok: true,
-      message: "If an account exists for that email, use the reset link below within the next hour.",
-    };
+    const genericMessage =
+      "If an account exists for that email, check your inbox for a reset link (valid for one hour).";
 
-    if (!user) return res.json(response);
+    if (!user) return res.json({ ok: true, message: genericMessage });
 
     const token = newToken();
     Store.insertPasswordReset(user.id, token);
     const resetUrl = `${appBaseUrl(req)}/reset-password.html?token=${encodeURIComponent(token)}`;
-    console.log(`[password-reset] Link for ${user.email}: ${resetUrl}`);
+    const emailSent = await sendPasswordResetEmail({ to: user.email, resetUrl });
 
-    res.json({
-      ...response,
-      resetUrl,
+    if (emailSent) {
+      console.log(`[password-reset] Email sent to ${user.email}`);
+    } else {
+      console.log(`[password-reset] Link for ${user.email}: ${resetUrl}`);
+    }
+
+    const response = {
+      ok: true,
+      message: emailSent
+        ? genericMessage
+        : IS_PRODUCTION
+          ? genericMessage
+          : "If an account exists for that email, use the reset link below within the next hour.",
+      emailSent,
       expiresInMinutes: RESET_TTL_MS / (1000 * 60),
-    });
+    };
+
+    if (!emailSent && !IS_PRODUCTION) response.resetUrl = resetUrl;
+
+    res.json(response);
   } catch (err) {
     console.error("[forgot-password]", err);
     res.status(500).json({ error: "Could not start password reset." });
   }
 });
 
-app.post("/api/reset-password", async (req, res) => {
+app.post("/api/reset-password", resetRateLimit, async (req, res) => {
   try {
     const token = String(req.body?.token || "").trim();
     const password = String(req.body?.password || "");
@@ -613,7 +864,19 @@ app.get("/api/me", (req, res) => {
   res.json({ user: publicUser(req.user) });
 });
 
+app.get("/api/favorites", requireAuth, (req, res) => {
+  const favorites = Store.getUserFavorites(req.user.id) || [];
+  res.json({ favorites });
+});
+
+app.put("/api/favorites", requireAuth, (req, res) => {
+  const favorites = normalizeFavoriteIds(req.body?.favorites);
+  Store.setUserFavorites(req.user.id, favorites);
+  res.json({ favorites });
+});
+
 app.get("/api/builds/public", (req, res) => {
+  const viewerId = req.user?.id || null;
   const builds = Store.listPublicBuilds({
     type: req.query.type,
     weapon: req.query.weapon,
@@ -622,7 +885,8 @@ app.get("/api/builds/public", (req, res) => {
     attribute: req.query.attribute,
     author: req.query.author,
     q: req.query.q,
-  }).map(publicBuildWithAuthor);
+    sort: req.query.sort,
+  }).map((b) => publicBuildWithAuthor(b, viewerId));
   res.json({ builds });
 });
 
@@ -631,11 +895,99 @@ app.get("/api/builds/public/:id", (req, res) => {
   if (!build || !build.is_public) {
     return res.status(404).json({ error: "Build not found." });
   }
-  res.json({ build: publicBuildWithAuthor(build) });
+  res.json({ build: publicBuildWithAuthor(build, req.user?.id || null) });
+});
+
+app.get("/api/builds/public/:id/comments", (req, res) => {
+  const build = Store.findBuild(req.params.id);
+  if (!build || !build.is_public) {
+    return res.status(404).json({ error: "Build not found." });
+  }
+  const comments = Store.listBuildComments(build.id).map((c) => ({
+    id: c.id,
+    text: c.text,
+    username: c.username,
+    createdAt: c.created_at,
+  }));
+  res.json({ comments });
+});
+
+app.post("/api/builds/public/:id/comments", requireAuth, commentRateLimit, (req, res) => {
+  const build = Store.findBuild(req.params.id);
+  if (!build || !build.is_public) {
+    return res.status(404).json({ error: "Build not found." });
+  }
+  const text = String(req.body?.text || "").trim();
+  if (!text) return res.status(400).json({ error: "Comment cannot be empty." });
+  if (text.length > MAX_COMMENT_LENGTH) {
+    return res.status(400).json({ error: `Comment must be ${MAX_COMMENT_LENGTH} characters or less.` });
+  }
+  if (Store.countBuildComments(build.id) >= MAX_COMMENTS_PER_BUILD) {
+    return res.status(400).json({ error: "This build has reached the comment limit." });
+  }
+  const row = Store.addBuildComment({
+    buildId: build.id,
+    userId: req.user.id,
+    username: req.user.username,
+    text,
+  });
+  res.status(201).json({
+    comment: {
+      id: row.id,
+      text: row.text,
+      username: row.username,
+      createdAt: row.created_at,
+    },
+    commentCount: Store.countBuildComments(build.id),
+  });
+});
+
+app.post("/api/builds/public/:id/upvote", requireAuth, (req, res) => {
+  const build = Store.findBuild(req.params.id);
+  if (!build || !build.is_public) {
+    return res.status(404).json({ error: "Build not found." });
+  }
+  const result = Store.toggleBuildUpvote(build.id, req.user.id);
+  if (!result) return res.status(404).json({ error: "Build not found." });
+  res.json(result);
+});
+
+app.post("/api/builds/public/:id/copy", (req, res) => {
+  const build = Store.findBuild(req.params.id);
+  if (!build || !build.is_public) {
+    return res.status(404).json({ error: "Build not found." });
+  }
+  const copyCount = Store.incrementBuildCopy(build.id);
+  res.json({ ok: true, copyCount });
+});
+
+app.get("/api/users/:username/profile", (req, res) => {
+  const profile = Store.getPublicProfile(req.params.username);
+  if (!profile) return res.status(404).json({ error: "Survivor not found or profile is private." });
+  const viewerId = req.user?.id || null;
+  res.json({
+    user: profile.user,
+    builds: profile.builds.map((b) => publicBuildWithAuthor(b, viewerId)),
+  });
+});
+
+app.put("/api/profile", requireAuth, (req, res) => {
+  const user = Store.updateUserProfile(req.user.id, {
+    bio: req.body?.bio,
+    profilePublic: req.body?.profilePublic,
+  });
+  if (!user) return res.status(404).json({ error: "Profile not found." });
+  res.json({
+    user: {
+      ...publicUser(user),
+      bio: user.bio || "",
+      profilePublic: user.profile_public !== false,
+    },
+  });
 });
 
 app.get("/api/builds", requireAuth, (req, res) => {
-  const builds = Store.listBuilds(req.user.id).map(publicBuild);
+  const builds = Store.listBuilds(req.user.id).map((b) => publicBuild(b, req.user.id));
   res.json({ builds });
 });
 
@@ -650,10 +1002,12 @@ app.post("/api/builds", requireAuth, (req, res) => {
       id: crypto.randomUUID(),
       user_id: req.user.id,
       saved_at: new Date().toISOString(),
+      upvote_count: 0,
+      copy_count: 0,
       ...fields,
     };
     Store.insertBuild(build);
-    res.status(201).json({ build: publicBuild(build) });
+    res.status(201).json({ build: publicBuild(build, req.user.id) });
   } catch (err) {
     console.error("[builds create]", err);
     res.status(500).json({ error: "Could not save build." });
@@ -681,7 +1035,7 @@ app.put("/api/builds/:id", requireAuth, (req, res) => {
     ...fields,
     saved_at: new Date().toISOString(),
   });
-  res.json({ build: publicBuild(updated) });
+  res.json({ build: publicBuild(updated, req.user.id) });
 });
 
 app.delete("/api/builds/:id", requireAuth, (req, res) => {

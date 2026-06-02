@@ -242,6 +242,7 @@
       setPublicCheckbox(build.isPublic);
       updateSaveHint();
       renderBuildList();
+      renderPlannerInsights();
       if (isPublic && SDD.Auth.user && !build.isPublic) {
         SDD.toast(
           "Build saved, but public sharing did not stick. Restart the dev server (npm start) and save again.",
@@ -310,6 +311,13 @@
       perks: preset.perks,
       focusPerk: preset.focusPerk,
     });
+    if (preset.buildTypes?.length) {
+      SDD.BuildTypes.setSelectedInUI(preset.buildTypes);
+    } else {
+      SDD.BuildTypes.setSelectedInUI([SDD.BuildTypes.defaultId]);
+    }
+    if (preset.loadout) applyLoadout(preset.loadout);
+    else applyLoadout(SDD.Loadout.emptyLoadout());
     SDD.toast(`Loaded preset: ${preset.name}.`, "success");
   }
 
@@ -327,6 +335,7 @@
       render();
       const author = b.author?.username ? ` by ${b.author.username}` : "";
       SDD.toast(`Copied "${b.name}"${author} — edit and save as your own.`, "success");
+      try { await SDD.BuildStore.recordPublicCopy(id); } catch (_) {}
     } catch (err) {
       SDD.toast(err.message || "Could not load build.", "error");
     }
@@ -336,6 +345,7 @@
     try {
       await SDD.BuildStore.delete(id);
       renderBuildList();
+      renderPlannerInsights();
     } catch (err) {
       SDD.toast(err.message || "Could not delete build.", "error");
     }
@@ -438,18 +448,32 @@
     const lvl = getPerkLevel(state, perk.id);
     const attr = skillsData.attributes.find((a) => a.id === perk.attrId);
     const nextCheck = lvl < perk.maxLevel ? canIncreasePerk(perk, state, skillsData) : null;
+    const loadoutIds = SDD.PlannerInsights?.getLoadoutIdSet?.(state.loadout, catalogItems) || new Set();
+    const craftCtx = {
+      perkLevel: lvl,
+      loadoutIds,
+      catalogItems,
+      gearConfig: perkGearConfig,
+    };
 
     const levelsHtml = perk.levels.map((row, i) => {
       const n = i + 1;
       const active = n <= lvl;
       const isNext = n === lvl + 1;
+      const craftCell = SDD.PlannerInsights?.renderPerkCraftUnlockCell?.(perk, i, craftCtx) || "—";
       return `
         <tr class="${active ? "active" : ""} ${isNext ? "next" : ""}">
           <td><span class="lvl-badge" style="${active ? `border-color:${attr.color};color:${attr.color}` : ""}">${n}</span></td>
           <td>${SDD.escapeHTML(row.effect)}</td>
-          <td>${row.craftTier ? `<span class="tag">${SDD.escapeHTML(row.craftTier)}</span>` : "—"}</td>
+          <td>${craftCell}</td>
         </tr>`;
     }).join("");
+
+    const loadoutCraftNote = lvl > 0 && loadoutIds.size
+      ? `<p class="muted skill-detail-craft-note">Craft unlocks shown only for gear in your loadout.</p>`
+      : lvl === 0
+        ? `<p class="muted skill-detail-craft-note">Add points to this perk to see loadout-relevant craft unlocks.</p>`
+        : `<p class="muted skill-detail-craft-note">Pick loadout gear to see which crafts this perk enables for your build.</p>`;
 
     panel.innerHTML = `
       <div class="skill-detail-grid">
@@ -465,6 +489,7 @@
         </div>
         <div class="skill-detail-levels">
           <h4>Levels &amp; unlocks</h4>
+          ${loadoutCraftNote}
           <div class="skill-table-wrap">
             <table class="skill-table">
               <thead><tr><th>Lvl</th><th>Effect</th><th>Craft unlock</th></tr></thead>
@@ -584,6 +609,8 @@
     const onLoadoutChange = (next) => {
       applyLoadout(next);
       renderLoadout();
+      renderDetail();
+      renderPlannerInsights();
     };
 
     if (weaponsEl) SDD.Loadout.bindGearGrid(weaponsEl, state.loadout, onLoadoutChange, catalogItems);
@@ -609,12 +636,89 @@
     }
   }
 
+  function populateCompareSelect() {
+    const select = document.getElementById("planner-compare-select");
+    if (!select) return;
+    const builds = getBuilds();
+    const current = select.value;
+    select.innerHTML = `<option value="">— Select a saved build —</option>${builds.map((b) =>
+      `<option value="${SDD.escapeHTML(b.id)}"${b.id === current ? " selected" : ""}>${SDD.escapeHTML(b.name)}</option>`
+    ).join("")}`;
+  }
+
+  async function renderPlannerInsights() {
+    if (!SDD.PlannerInsights) return;
+    const ctx = {
+      skillsData,
+      catalogItems,
+      categories: catalogCategories,
+      gearConfig: perkGearConfig,
+      itemStats,
+    };
+
+    const hintsEl = document.getElementById("planner-perk-hints");
+    if (hintsEl) {
+      const hints = SDD.PlannerInsights.collectPerkHints(state, skillsData);
+      if (hints.length) {
+        hintsEl.hidden = false;
+        hintsEl.innerHTML = SDD.PlannerInsights.renderPerkHintsHtml(hints);
+      } else {
+        hintsEl.hidden = true;
+        hintsEl.innerHTML = "";
+      }
+    }
+
+    const craftEl = document.getElementById("planner-craft-rollup");
+    if (craftEl) {
+      const rollup = await SDD.PlannerInsights.buildCraftRollup(state, ctx);
+      craftEl.innerHTML = SDD.PlannerInsights.renderCraftRollupHtml(rollup);
+    }
+
+    const totalsEl = document.getElementById("planner-loadout-totals");
+    if (totalsEl) {
+      const totals = SDD.PlannerInsights.computeLoadoutTotals(state.loadout, ctx);
+      totalsEl.innerHTML = SDD.PlannerInsights.renderLoadoutTotalsHtml(totals);
+    }
+
+    populateCompareSelect();
+    const compareEl = document.getElementById("planner-compare-output");
+    const compareSelect = document.getElementById("planner-compare-select");
+    if (compareEl && compareSelect) {
+      const compareId = compareSelect.value;
+      if (!compareId) {
+        compareEl.innerHTML = SDD.PlannerInsights.renderCompareHtml(null);
+      } else {
+        const other = getBuilds().find((b) => b.id === compareId);
+        const diff = other
+          ? SDD.PlannerInsights.diffBuilds(
+            {
+              playerLevel: state.playerLevel,
+              attributes: state.attributes,
+              perks: state.perks,
+              loadout: state.loadout,
+            },
+            {
+              playerLevel: SDD.SkillPoints.normalizePlayerLevel(skillsData.meta, other),
+              attributes: other.attributes,
+              perks: other.perks,
+              loadout: other.loadout,
+            },
+            skillsData,
+            catalogItems
+          )
+          : null;
+        compareEl.innerHTML = SDD.PlannerInsights.renderCompareHtml(diff, other?.name || "build");
+      }
+    }
+  }
+
   function render() {
     if (!skillsData) return;
     renderHeader();
     renderColumns();
     renderDetail();
     renderLoadout();
+    renderPlannerInsights();
   }
 
   function bindControls() {
@@ -630,6 +734,14 @@
     const triggerSave = () => saveBuild(document.getElementById("build-name").value);
     document.getElementById("btn-save").addEventListener("click", triggerSave);
     document.getElementById("btn-save-bottom").addEventListener("click", triggerSave);
+
+    document.getElementById("planner-compare-select")?.addEventListener("change", () => {
+      renderPlannerInsights();
+    });
+
+    document.getElementById("build-type-tags")?.addEventListener("change", () => {
+      renderPlannerInsights();
+    });
   }
 
   async function boot() {
@@ -638,6 +750,7 @@
     await SDD.PerkGear.loadPerkGear();
     perkGearConfig = await SDD.PerkGear.loadPerkGear();
     await SDD.Loadout.loadData();
+    await SDD.PlannerInsights?.loadRecipeCache?.();
     await SDD.BuildStore.load();
 
     updateSaveHint();
@@ -646,6 +759,7 @@
       await SDD.BuildStore.load();
       renderBuildList();
       updateBuildSyncStatus();
+      renderPlannerInsights();
     });
     const [skillsRes, itemsRes, statsRes] = await Promise.all([
       fetch("data/skills.json"),

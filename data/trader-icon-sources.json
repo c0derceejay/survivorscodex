@@ -1,0 +1,42 @@
+{
+  "_comment": "Trader portraits from 7daystodie.wiki.gg — normalized for trader reference page.",
+  "_license": "Fan wiki images; © The Fun Pimps. Personal/fan use.",
+  "_source": "https://7daystodie.wiki.gg/wiki/Traders",
+  "traders": {
+    "rekt": {
+      "file": "rekt.png",
+      "wikiPage": "Trader_Rekt",
+      "portraitFile": "File:RektPortrait.png",
+      "sourceUrl": "https://7daystodie.wiki.gg/images/RektPortrait.png",
+      "wiki": "7daystodie.wiki.gg"
+    },
+    "jen": {
+      "file": "jen.png",
+      "wikiPage": "Trader_Jen",
+      "portraitFile": "File:JenPortrait.png",
+      "sourceUrl": "https://7daystodie.wiki.gg/images/JenPortrait.png",
+      "wiki": "7daystodie.wiki.gg"
+    },
+    "bob": {
+      "file": "bob.png",
+      "wikiPage": "Trader_Bob",
+      "portraitFile": "File:BobPortrait.png",
+      "sourceUrl": "https://7daystodie.wiki.gg/images/BobPortrait.png",
+      "wiki": "7daystodie.wiki.gg"
+    },
+    "hugh": {
+      "file": "hugh.png",
+      "wikiPage": "Trader_Hugh",
+      "portraitFile": "File:HughPortrait.png",
+      "sourceUrl": "https://7daystodie.wiki.gg/images/HughPortrait.png",
+      "wiki": "7daystodie.wiki.gg"
+    },
+    "joel": {
+      "file": "joel.png",
+      "wikiPage": "Trader_Joel",
+      "portraitFile": "File:JoelPortrait.png",
+      "sourceUrl": "https://7daystodie.wiki.gg/images/JoelPortrait.png",
+      "wiki": "7daystodie.wiki.gg"
+    }
+  }
+}

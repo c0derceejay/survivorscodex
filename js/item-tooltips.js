@@ -226,7 +226,8 @@
     }).join("");
 
     return `
-      <div class="loadout-quality-table-wrap">
+      <div class="loadout-quality-table-wrap" tabindex="0" aria-label="Quality comparison — swipe sideways for more columns">
+        <p class="loadout-quality-table-scroll-hint muted">Swipe sideways to compare all quality tiers →</p>
         <table class="loadout-quality-table">
           <thead>${head}</thead>
           <tbody>${body}</tbody>

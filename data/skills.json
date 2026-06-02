@@ -524,7 +524,23 @@
         "mother-lode": 1,
         "pummel-pete": 1
       },
-      "focusPerk": "miner-69er"
+      "focusPerk": "miner-69er",
+      "buildTypes": ["gathering", "solo"],
+      "loadout": {
+        "weapons": ["melee-wpn-club-t0-wooden-club"],
+        "tools": ["melee-tool-pick-t1-iron-pickaxe"],
+        "armorSet": "miner",
+        "armorQuality": 3,
+        "mods": {},
+        "food": [],
+        "water": ["drink-jar-boiled-water"],
+        "medical": ["medical-bandage"],
+        "vehicles": [],
+        "itemQualities": {
+          "melee-wpn-club-t0-wooden-club": 3,
+          "melee-tool-pick-t1-iron-pickaxe": 3
+        }
+      }
     },
     {
       "id": "stealth-archer",
@@ -541,7 +557,23 @@
         "archery": 3,
         "deep-cuts": 1
       },
-      "focusPerk": "archery"
+      "focusPerk": "archery",
+      "buildTypes": ["solo", "pvp"],
+      "loadout": {
+        "weapons": ["gun-bow-t1-wooden-bow", "melee-wpn-blade-t1-hunting-knife"],
+        "tools": [],
+        "armorSet": "assassin",
+        "armorQuality": 4,
+        "mods": {},
+        "food": [],
+        "water": ["drink-jar-boiled-water"],
+        "medical": ["medical-bandage"],
+        "vehicles": [],
+        "itemQualities": {
+          "gun-bow-t1-wooden-bow": 4,
+          "melee-wpn-blade-t1-hunting-knife": 3
+        }
+      }
     },
     {
       "id": "poi-salvager",
@@ -557,7 +589,23 @@
         "salvage-operations": 2,
         "pack-mule": 2
       },
-      "focusPerk": "salvage-operations"
+      "focusPerk": "salvage-operations",
+      "buildTypes": ["gathering", "solo"],
+      "loadout": {
+        "weapons": [],
+        "tools": ["melee-tool-salvage-t1-wrench", "melee-tool-salvage-t2-ratchet"],
+        "armorSet": "scavenger",
+        "armorQuality": 4,
+        "mods": {},
+        "food": [],
+        "water": ["drink-jar-boiled-water"],
+        "medical": ["medical-bandage"],
+        "vehicles": [],
+        "itemQualities": {
+          "melee-tool-salvage-t1-wrench": 4,
+          "melee-tool-salvage-t2-ratchet": 3
+        }
+      }
     },
     {
       "id": "horde-shotgun",
@@ -574,7 +622,22 @@
         "boomstick": 3,
         "gunslinger": 1
       },
-      "focusPerk": "boomstick"
+      "focusPerk": "boomstick",
+      "buildTypes": ["horde"],
+      "loadout": {
+        "weapons": ["gun-shotgun-t2-pump-shotgun"],
+        "tools": [],
+        "armorSet": "biker",
+        "armorQuality": 5,
+        "mods": {},
+        "food": [],
+        "water": [],
+        "medical": ["medical-bandage", "medical-first-aid-bandage"],
+        "vehicles": [],
+        "itemQualities": {
+          "gun-shotgun-t2-pump-shotgun": 5
+        }
+      }
     },
     {
       "id": "base-crafter",
@@ -593,7 +656,22 @@
         "master-chef": 2,
         "grease-monkey": 2
       },
-      "focusPerk": "grease-monkey"
+      "focusPerk": "grease-monkey",
+      "buildTypes": ["crafting", "farming"],
+      "loadout": {
+        "weapons": [],
+        "tools": ["melee-tool-pick-t2-steel-pickaxe"],
+        "armorSet": "farmer",
+        "armorQuality": 4,
+        "mods": {},
+        "food": ["food-bacon-and-eggs"],
+        "water": ["drink-jar-boiled-water"],
+        "medical": [],
+        "vehicles": ["vehicle-minibike-placeable"],
+        "itemQualities": {
+          "melee-tool-pick-t2-steel-pickaxe": 4
+        }
+      }
     },
     {
       "id": "trap-base",
@@ -610,7 +688,23 @@
         "electrocutioner": 3,
         "robotics-inventor": 2
       },
-      "focusPerk": "robotics-inventor"
+      "focusPerk": "robotics-inventor",
+      "buildTypes": ["horde", "crafting"],
+      "loadout": {
+        "weapons": ["melee-wpn-baton-t2-stun-baton"],
+        "tools": ["melee-tool-pick-t1-iron-pickaxe"],
+        "armorSet": "nerd",
+        "armorQuality": 5,
+        "mods": {},
+        "food": [],
+        "water": ["drink-jar-boiled-water"],
+        "medical": ["medical-bandage"],
+        "vehicles": [],
+        "itemQualities": {
+          "melee-wpn-baton-t2-stun-baton": 5,
+          "melee-tool-pick-t1-iron-pickaxe": 3
+        }
+      }
     }
   ]
 }

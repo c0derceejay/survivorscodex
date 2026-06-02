@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enemy profile · Survivor's Codex</title>
+  <meta name="description" content="Detailed vanilla zombie profile — HP variants, biomes, combat tips, and loot for 7 Days to Die." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="enemy-detail-page">
+  <header class="nav">
+    <a class="brand" href="splash.html">
+      <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide.html">Guide</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="skills.html">Planner</a>
+      <a href="builds.html">Builds</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-cta"></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="codex-breadcrumb reveal" aria-label="Breadcrumb">
+        <a href="enemies.html">Enemy codex</a>
+        <span aria-hidden="true">/</span>
+        <span id="enemy-breadcrumb-name">Loading…</span>
+      </nav>
+
+      <article id="enemy-detail" class="enemy-detail reveal">
+        <p class="muted">Loading enemy profile…</p>
+      </article>
+
+      <nav id="enemy-nav" class="enemy-nav reveal" hidden aria-label="Adjacent enemies">
+        <a class="btn btn-ghost btn-sm" id="enemy-prev" href="#">← Previous</a>
+        <a class="btn btn-ghost btn-sm" href="enemies.html">All enemies</a>
+        <a class="btn btn-ghost btn-sm" id="enemy-next" href="#">Next →</a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
+      <div style="display:flex;gap:18px">
+        <a href="enemies.html">Enemy codex</a>
+        <a href="catalog.html">Catalog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/site-meta.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/enemy-detail.js"></script>
+</body>
+</html>

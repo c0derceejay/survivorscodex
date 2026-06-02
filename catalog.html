@@ -35,8 +35,9 @@
           <h1>Every base-game item</h1>
           <p class="muted" style="max-width:640px">
             Filter by category or search by name, perk, or use-case. Click any card to inspect the full record.
-            Star anything you want pinned to your profile. Resources &amp; tools can show
-            <a href="about.html#item-images" style="color:var(--color-red-bright)">in-game icons</a> after you sync them from your install.
+            Star anything you want pinned to your profile. See also the
+            <a href="enemies.html" style="color:var(--color-red-bright)">enemy codex</a> and
+            <a href="traders.html" style="color:var(--color-red-bright)">trader reference</a>.
           </p>
         </div>
       </header>
@@ -76,10 +77,13 @@
       <div class="kv-grid" id="modal-kv"></div>
       <h4 id="modal-recipe-heading">Recipe inputs</h4>
       <div class="tag-list" id="modal-ingredients"></div>
+      <h4 id="modal-used-in-heading" hidden>Used in</h4>
+      <div class="tag-list" id="modal-used-in"></div>
       <h4>Best at</h4>
       <div class="tag-list" id="modal-uses"></div>
-      <div style="display:flex;gap:8px;margin-top:24px">
+      <div style="display:flex;gap:8px;margin-top:24px;flex-wrap:wrap">
         <button class="btn btn-primary" id="modal-fav">★ Favorite</button>
+        <a class="btn btn-ghost" id="modal-enemy-profile" href="#" hidden>Full enemy profile</a>
       </div>
     </div>
   </div>
@@ -95,10 +99,13 @@
     </div>
   </footer>
 
+  <script src="js/site-meta.js"></script>
   <script src="js/app.js"></script>
   <script src="js/item-tooltips.js"></script>
   <script>
     let catalog = { items: [], categories: [] };
+    let usedInMap = {};
+    let itemById = {};
     let activeCategory = "";
     let activeTier = "";
     let query = "";
@@ -133,13 +140,21 @@
     // ---- Render the item grid ----
     function renderGrid() {
       const q = query.trim().toLowerCase();
+      grid.classList.toggle("codex-enemy-grid", activeCategory === "enemies");
       const filtered = catalog.items.filter((i) => {
         if (activeCategory && i.category !== activeCategory) return false;
         if (activeTier && String(i.tier) !== activeTier) return false;
         if (!q) return true;
+        const usedInNames = (usedInMap[i.id] || []).map((id) => itemById[id]?.name || "").join(" ");
+        const ingredientNames = (i.recipe?.ingredients || [])
+          .map((ing) => ing.name || "")
+          .concat(i.ingredients || [])
+          .join(" ");
+        const recipeStation = i.recipe?.craftAreaLabel || i.recipe?.craftArea || "";
         const blob = (
           i.name + " " + (i.aliases || []).join(" ") + " " + (i.entityId || "") + " "
-          + (i.summary || "") + " " + (i.perk || "") + " " + (i.uses || []).join(" ") + " " + (i.ingredients || []).join(" ")
+          + (i.summary || "") + " " + (i.perk || "") + " " + (i.uses || []).join(" ") + " "
+          + ingredientNames + " " + usedInNames + " " + recipeStation
         ).toLowerCase();
         return blob.includes(q);
       });
@@ -153,9 +168,16 @@
       grid.innerHTML = filtered.map((i) => {
         const fav = SDD.Store.isFavorite(i.id);
         const hasIcon = SDD.hasItemImage(i.id);
+        const isEnemy = i.category === "enemies";
+        const cardClass = [
+          "item-card",
+          hasIcon ? "has-game-icon" : "",
+          isEnemy ? "item-card--enemy" : "",
+        ].filter(Boolean).join(" ");
+        const imgClass = isEnemy ? "item-img item-img--portrait" : "item-img";
         return `
-          <article class="item-card ${hasIcon ? "has-game-icon" : ""}" data-id="${i.id}" tabindex="0" role="button" aria-label="${SDD.escapeHTML(i.name)}">
-            <div class="item-img">${SDD.itemImage(i, catalog.categories)}</div>
+          <article class="${cardClass}" data-id="${i.id}" tabindex="0" role="button" aria-label="${SDD.escapeHTML(i.name)}">
+            <div class="${imgClass}">${SDD.itemImage(i, catalog.categories)}</div>
             <button class="fav-btn ${fav ? "is-fav" : ""}" data-fav="${i.id}" aria-label="Favorite ${SDD.escapeHTML(i.name)}" type="button">★</button>
             <div class="item-body">
               <div class="item-head">
@@ -188,9 +210,9 @@
         });
       });
       grid.querySelectorAll(".fav-btn").forEach((b) => {
-        b.addEventListener("click", (e) => {
+        b.addEventListener("click", async (e) => {
           e.stopPropagation();
-          const added = SDD.Store.toggleFavorite(b.dataset.fav);
+          const added = await SDD.Store.toggleFavorite(b.dataset.fav);
           b.classList.toggle("is-fav", added);
           SDD.toast(added ? "Added to favorites." : "Removed from favorites.");
         });
@@ -251,6 +273,22 @@
       wrap.innerHTML = `<p class="muted" style="margin:0">Not in the standard recipe list — loot, trader, or workstation only.</p>`;
     }
 
+    function renderUsedIn(item) {
+      const heading = modal.querySelector("#modal-used-in-heading");
+      const wrap = modal.querySelector("#modal-used-in");
+      const ids = usedInMap[item.id] || [];
+      if (!ids.length) {
+        heading.hidden = true;
+        wrap.innerHTML = "";
+        return;
+      }
+      heading.hidden = false;
+      wrap.innerHTML = ids.map((id) => {
+        const name = itemById[id]?.name || id;
+        return `<button type="button" class="tag tag-link" data-used-in="${SDD.escapeHTML(id)}">${SDD.escapeHTML(name)}</button>`;
+      }).join("");
+    }
+
     // ---- Modal ----
     function openItem(id) {
       const i = catalog.items.find((x) => x.id === id);
@@ -258,9 +296,10 @@
       modalItem = i;
       modalQuality = ItemTooltips.supportsQuality(i) ? 6 : 1;
       const cats = Object.fromEntries(catalog.categories.map((c) => [c.id, c.name]));
+      const isEntity = Boolean(i.entityId);
+      modal.querySelector("#modal-img").classList.toggle("modal-img--portrait", isEntity);
       modal.querySelector("#modal-img").innerHTML = SDD.itemImage(i, catalog.categories);
       modal.querySelector("#modal-title").textContent = i.name;
-      const isEntity = Boolean(i.entityId);
       modal.querySelector("#modal-cat").textContent = isEntity
         ? `${cats[i.category] || i.category} · ${i.threat || "Unknown"} threat`
         : `${cats[i.category] || i.category} · Craft tier ${i.tier}`;
@@ -281,6 +320,16 @@
         ${i.perk ? `<div><span>Boosts via</span><span>${SDD.escapeHTML(i.perk)}</span></div>` : ""}
       `;
       renderRecipeInputs(i);
+      renderUsedIn(i);
+      const profileLink = modal.querySelector("#modal-enemy-profile");
+      if (profileLink) {
+        if (isEntity) {
+          profileLink.href = `enemy.html?id=${encodeURIComponent(i.id)}`;
+          profileLink.hidden = false;
+        } else {
+          profileLink.hidden = true;
+        }
+      }
       modal.querySelector("#modal-uses").innerHTML = (i.uses || []).map((u) => `<span class="tag">${SDD.escapeHTML(u)}</span>`).join("");
       const favBtn = modal.querySelector("#modal-fav");
       const setFavLabel = () => {
@@ -290,8 +339,8 @@
         favBtn.classList.toggle("btn-ghost", isFav);
       };
       setFavLabel();
-      favBtn.onclick = () => {
-        const added = SDD.Store.toggleFavorite(i.id);
+      favBtn.onclick = async () => {
+        const added = await SDD.Store.toggleFavorite(i.id);
         SDD.toast(added ? "Added to favorites." : "Removed from favorites.");
         setFavLabel();
         const card = grid.querySelector(`[data-fav="${i.id}"]`);
@@ -310,6 +359,11 @@
       const btn = e.target.closest("[data-recipe-item]");
       if (!btn) return;
       openItem(btn.dataset.recipeItem);
+    });
+    modal.querySelector("#modal-used-in").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-used-in]");
+      if (!btn) return;
+      openItem(btn.dataset.usedIn);
     });
     modal.querySelector(".modal-close").addEventListener("click", () => modal.classList.remove("open"));
     modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
@@ -331,21 +385,28 @@
       query = p.get("q") || "";
       search.value = query;
       tierFilter.value = activeTier;
+      return p.get("item") || p.get("enemy") || "";
     }
 
     search.addEventListener("input", () => { query = search.value; renderGrid(); updateUrl(); });
     tierFilter.addEventListener("change", () => { activeTier = tierFilter.value; renderGrid(); updateUrl(); });
 
     async function bootCatalog() {
-      const [itemsRes] = await Promise.all([
+      const [itemsRes, usedInRes] = await Promise.all([
         fetch("data/items.json"),
+        fetch("data/recipe-used-in.json"),
         SDD.loadImageManifest(),
         ItemTooltips.loadItemStats(),
       ]);
       catalog = await itemsRes.json();
-      readUrl();
+      usedInMap = usedInRes.ok ? await usedInRes.json() : {};
+      itemById = Object.fromEntries(catalog.items.map((i) => [i.id, i]));
+      const openId = readUrl();
       renderChips();
       renderGrid();
+      if (openId && itemById[openId]) {
+        requestAnimationFrame(() => openItem(openId));
+      }
     }
     bootCatalog();
   </script>
