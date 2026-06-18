@@ -48,16 +48,25 @@
       : "";
     const posterAttr = mod.videoPoster ? ` poster="${escapeHtml(mod.videoPoster)}"` : "";
     const videoSrc = escapeHtml(mod.videoSrc || "");
-    const media = videoSrc
-      ? `<div class="mod-card__media">
+    const imageSrc = escapeHtml(mod.image || "");
+    let media;
+    if (videoSrc) {
+      media = `<div class="mod-card__media">
            <video class="mod-card__video" controls preload="metadata" playsinline${posterAttr}>
              <source src="${videoSrc}" type="video/mp4" />
              Your browser cannot play this preview.
            </video>
-         </div>`
-      : `<div class="mod-card__media mod-card__media--empty" aria-hidden="true">
+         </div>`;
+    } else if (imageSrc) {
+      const alt = escapeHtml(`${mod.title || "Mod"} preview`);
+      media = `<div class="mod-card__media">
+           <img class="mod-card__image" src="${imageSrc}" alt="${alt}" loading="lazy" />
+         </div>`;
+    } else {
+      media = `<div class="mod-card__media mod-card__media--empty" aria-hidden="true">
            <span>No preview</span>
          </div>`;
+    }
 
     const linkLabel = escapeHtml(mod.linkLabel || "Visit mod");
     const link = isSafeLink(mod.link)

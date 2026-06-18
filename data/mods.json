@@ -8,6 +8,7 @@
       "description": "A handheld tablet that scans storage crates in your land claim and on allied teammates' claims, then shows totals, per-crate breakdowns, search, and sort.",
       "videoSrc": "",
       "videoPoster": "",
+      "image": "images/mods/remote-inventory-tablet.png",
       "link": "https://7daystodie.com/",
       "linkLabel": "Visit mod",
       "tags": ["Quality of Life", "Server/Client installation"],
