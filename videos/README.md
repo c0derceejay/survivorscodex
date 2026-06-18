@@ -1,18 +1,11 @@
-# Splash hero video (optional)
+# Splash hero video
 
-The splash page shows an animated horde by default (canvas + catalog zombie portraits).
+The splash page plays **`animated.mp4`** when available. If the video fails to load, a canvas animation using catalog zombie portraits is shown instead.
 
-To use **real footage** instead, add a video to this folder as either:
+**Required file:** `videos/animated.mp4` (must be committed — do not use a symlink for deploy)
 
-- `splash-horde.mp4` (or symlink to your file)
-- `splash-horde.webm` (preferred if you have both — smaller)
+**Tips for replacement clips**
 
-The page auto-detects these files and plays them instead of the canvas animation. Keep clips short (10–20 s), muted, and loop-friendly.
-
-**Current file:** `animated.mp4` → linked as `splash-horde.mp4`
-
-**Tips for in-game recording**
-
-- Creative mode or admin, spawn a mixed walker group in an open area
-- Walk backward or stand still so zombies approach the camera
-- Night or blood moon for mood; export 1920×820 or similar widescreen crop
+- Keep clips short (10–20 s), loop-friendly, and export as H.264 MP4
+- Optional: add `splash-horde.webm` in `splash.html` for a smaller WebM source
+- Night or blood moon footage works well for mood

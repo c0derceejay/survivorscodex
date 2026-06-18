@@ -1,0 +1,17 @@
+{
+  "mods": [
+    {
+      "id": "example-mod",
+      "title": "Remote Inventory Tablet",
+      "version": "1.0.0",
+      "author": "Survivor's Codex",
+      "description": "A handheld tablet that scans storage crates in your land claim and on allied teammates' claims, then shows totals, per-crate breakdowns, search, and sort.",
+      "videoSrc": "",
+      "videoPoster": "",
+      "link": "https://7daystodie.com/",
+      "linkLabel": "Visit mod",
+      "tags": ["Quality of Life", "Server/Client installation"],
+      "addedAt": "2026-06-14"
+    }
+  ]
+}

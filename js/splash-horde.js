@@ -204,26 +204,59 @@
   async function tryVideo() {
     if (!video || prefersReducedMotion()) return false;
 
-    const sources = video.querySelectorAll("source");
-    for (const source of sources) {
-      try {
-        const res = await fetch(source.src, { method: "HEAD" });
-        if (!res.ok) continue;
-        video.hidden = false;
-        canvas.hidden = true;
-        wrap.dataset.mode = "video";
-        video.muted = true;
-        video.volume = 1;
-        video.load();
-        await video.play();
-        showAudioControl(true);
-        setupAudioControls();
-        return true;
-      } catch {
-        /* try next source */
+    video.hidden = false;
+    canvas.hidden = true;
+    wrap.dataset.mode = "video";
+    video.muted = true;
+    video.volume = 1;
+
+    return new Promise((resolve) => {
+      let settled = false;
+      const done = (ok) => {
+        if (settled) return;
+        settled = true;
+        if (!ok) {
+          video.hidden = true;
+          canvas.hidden = false;
+          wrap.dataset.mode = "canvas";
+        } else {
+          showAudioControl(true);
+          setupAudioControls();
+        }
+        resolve(ok);
+      };
+
+      const timeout = setTimeout(() => done(false), 8000);
+
+      video.addEventListener("canplay", async () => {
+        try {
+          await video.play();
+          clearTimeout(timeout);
+          done(true);
+        } catch {
+          clearTimeout(timeout);
+          done(false);
+        }
+      }, { once: true });
+
+      video.addEventListener("error", () => {
+        clearTimeout(timeout);
+        done(false);
+      }, { once: true });
+
+      if (video.readyState >= 2) {
+        video.play().then(() => {
+          clearTimeout(timeout);
+          done(true);
+        }).catch(() => {
+          clearTimeout(timeout);
+          done(false);
+        });
+        return;
       }
-    }
-    return false;
+
+      video.load();
+    });
   }
 
   async function boot() {

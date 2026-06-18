@@ -1137,7 +1137,19 @@ body.has-backend-banner main {
 }
 
 .codex-enemy-grid {
-  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-5);
+}
+/* Title + threat pill row: let the pill drop to a new line if the title
+   is long, so it never overflows the card's hidden box (e.g. Demolition Zombie). */
+.codex-enemy-card .item-head {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.codex-enemy-card .item-head > div { min-width: 0; flex: 1 1 auto; }
+.codex-enemy-card .item-title {
+  word-break: break-word;
+  line-height: 1.25;
 }
 
 .modal-img--portrait {
@@ -5600,4 +5612,239 @@ body.nav-menu-open { overflow: hidden; }
   .enemy-detail-grid { grid-template-columns: 1fr; }
   .trader-meta-grid { grid-template-columns: 1fr; }
   .trader-tips-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Mods page
+   ========================================================================== */
+.mods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+.mod-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mod-card:hover {
+  border-color: var(--color-red-glow);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.mod-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+.mod-card__media--empty {
+  display: grid;
+  place-items: center;
+  color: var(--color-text-mute);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #14141a 0%, #1d1d24 100%);
+}
+.mod-card__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+/* When the user enters fullscreen, show the whole frame instead of cropping.
+   The :fullscreen / :-webkit-full-screen rules MUST stay split — browsers drop
+   the whole rule if they don't recognize one of the selectors in a list. */
+.mod-card__video:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: #000;
+}
+.mod-card__video:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: #000;
+}
+.mod-card__body {
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+.mod-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.mod-card__tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(214, 40, 40, 0.12);
+  color: var(--color-red-bright);
+  border: 1px solid rgba(214, 40, 40, 0.25);
+}
+.mod-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+.mod-card__meta {
+  margin: 0;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+.mod-card__desc {
+  margin: 0;
+  flex: 1;
+  line-height: 1.55;
+}
+.mod-card__cta {
+  align-self: flex-start;
+  margin-top: var(--space-3);
+}
+.mod-card__cta--missing {
+  font-size: 0.85rem;
+  font-style: italic;
+}
+.mods-status {
+  margin-top: var(--space-6);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .mods-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Nav dropdown (Catalog → Enemy Codex / Trader Reference)
+   ========================================================================== */
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+.nav-dropdown__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-dropdown__caret {
+  flex: 0 0 auto;
+  transition: transform 200ms var(--ease);
+}
+.nav-dropdown:hover .nav-dropdown__caret,
+.nav-dropdown:focus-within .nav-dropdown__caret {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition:
+    opacity 180ms var(--ease),
+    transform 180ms var(--ease);
+  z-index: 30;
+}
+/* Invisible hover bridge so cursor can travel from toggle to menu
+   without the menu collapsing in the gap. */
+.nav-dropdown__menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+.nav-dropdown:hover .nav-dropdown__menu,
+.nav-dropdown:focus-within .nav-dropdown__menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Submenu items override the pill styling that .nav-links a applies. */
+.nav-links .nav-dropdown__menu a {
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  animation: none;
+}
+.nav-links .nav-dropdown__menu a:hover,
+.nav-links .nav-dropdown__menu a:focus-visible {
+  background: rgba(214, 40, 40, 0.12);
+  border-color: rgba(214, 40, 40, 0.35);
+  color: var(--color-white);
+  text-shadow: 0 0 14px rgba(255, 58, 58, 0.45);
+  box-shadow: none;
+}
+.nav-links .nav-dropdown__menu a.active {
+  background: linear-gradient(135deg, rgba(214, 40, 40, 0.22) 0%, rgba(138, 15, 28, 0.32) 100%);
+  border-color: rgba(214, 40, 40, 0.6);
+  color: var(--color-white);
+  text-shadow: 0 0 14px rgba(255, 58, 58, 0.65);
+  animation: none;
+  box-shadow: none;
+}
+
+/* Mobile: inline the dropdown into the burger panel.
+   Matches the existing .nav-links @media (max-width: 900px) rules above. */
+@media (max-width: 900px) {
+  .nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .nav-dropdown__caret { display: none; }
+  .nav-dropdown__menu {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 4px 0 0 var(--space-3);
+    margin-top: 6px;
+    gap: 6px;
+    min-width: 0;
+  }
+  .nav-dropdown__menu::before { display: none; }
+  .nav-links .nav-dropdown__menu a {
+    padding: 10px 14px;
+    font-size: 0.92rem;
+  }
 }

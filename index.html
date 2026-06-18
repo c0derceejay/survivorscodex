@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Home · Survivor's Codex</title>
-  <meta name="description" content="Vanilla 7 Days to Die catalog, perk planner, and community builds — no mods required." />
+  <meta name="description" content="Vanilla 7 Days to Die catalog, perk planner, and community builds. No mods required." />
   <meta property="og:title" content="Survivor's Codex · 7 Days to Die" />
-  <meta property="og:description" content="Vanilla 7 Days to Die catalog, perk planner, and community builds — no mods required." />
+  <meta property="og:description" content="Vanilla 7 Days to Die catalog, perk planner, and community builds. No mods required." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,9 +22,19 @@
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="guide.html">Guide</a>
-      <a href="catalog.html">Catalog</a>
+      <div class="nav-dropdown">
+        <a href="catalog.html" class="nav-dropdown__toggle" aria-haspopup="true">
+          Catalog
+          <svg class="nav-dropdown__caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown__menu" role="menu" aria-label="Catalog sections">
+          <a href="enemies.html" role="menuitem">Enemy Codex</a>
+          <a href="traders.html" role="menuitem">Trader Reference</a>
+        </div>
+      </div>
       <a href="skills.html">Planner</a>
       <a href="builds.html">Builds</a>
+      <a href="mods.html">Mods</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta"></div>
@@ -39,7 +49,7 @@
           <span class="eyebrow">Vanilla. No mods. No nonsense.</span>
           <h1>The base-game <span class="accent">survival index</span> for 7 Days to Die.</h1>
           <p class="muted" style="font-size:1.08rem;max-width:520px">
-            Hundreds of items, weapons, traps, blocks, and recipes — all curated from the unmodded base game. Sign in
+            Hundreds of items, weapons, traps, blocks, and recipes, all curated from the unmodded base game. Sign in
             to favorite the items you actually use and upload your own loadout photos.
           </p>
           <div class="hero-actions">
@@ -56,9 +66,9 @@
           <h3>Why bother signing in?</h3>
           <p class="muted">Accounts unlock a personal profile where your favorites and field photos live. Public catalog still works without one.</p>
           <ul style="list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:10px">
-            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">★</span><span><strong>Favorite items</strong> — keep your most-used recipes one click away.</span></li>
-            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">▣</span><span><strong>Upload field photos</strong> — show off your bases and loadouts.</span></li>
-            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">⌘</span><span><strong>Syncs when signed in</strong> — favorites follow your account; photos stay on device.</span></li>
+            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">★</span><span><strong>Favorite items.</strong> Keep your most-used recipes one click away.</span></li>
+            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">▣</span><span><strong>Upload field photos.</strong> Show off your bases and loadouts.</span></li>
+            <li style="display:flex;gap:12px"><span style="color:var(--color-red-bright)">⌘</span><span><strong>Syncs when signed in.</strong> Favorites follow your account; photos stay on device.</span></li>
           </ul>
         </aside>
       </section>
@@ -80,8 +90,8 @@
                 <span class="category-slide__eyebrow">Guide</span>
                 <h3>Survival 101 for new players</h3>
                 <p class="muted">
-                  First-week priorities, blood moon prep, safe POI looting, and where to spend your earliest skill points —
-                  written for survivors who just spawned in.
+                  First-week priorities, blood moon prep, safe POI looting, and where to spend your earliest skill points.
+                  Written for survivors who just spawned in.
                 </p>
                 <a href="guide.html" class="btn btn-ghost">Open the guide →</a>
               </article>
@@ -91,7 +101,7 @@
                 <h3>Every base-game item, indexed</h3>
                 <p class="muted">
                   Browse weapons, resources, blocks, traps, food, and more. Filter by category or search by name,
-                  perk, tier, and use-case — each card shows what you need to craft and run it.
+                  perk, tier, and use-case. Each card shows what you need to craft and run it.
                 </p>
                 <a href="catalog.html" class="btn btn-ghost">Browse catalog →</a>
               </article>
@@ -111,7 +121,7 @@
                 <h3>Templates & community builds</h3>
                 <p class="muted">
                   Start from official starter templates or browse builds shared by other survivors. Filter by focus,
-                  weapons, and perks — then copy any build into the planner.
+                  weapons, and perks, then copy any build into the planner.
                 </p>
                 <a href="builds.html" class="btn btn-ghost">View public builds →</a>
               </article>
@@ -142,7 +152,7 @@
           <div class="feature reveal">
             <div class="feature-icon">01</div>
             <h3>Read Survival 101</h3>
-            <p class="muted">Blood moon prep, POI looting, and perk order — written for your first two weeks.</p>
+            <p class="muted">Blood moon prep, POI looting, and perk order, written for your first two weeks.</p>
             <a href="guide.html" class="btn btn-ghost" style="margin-top:12px">Open the guide →</a>
           </div>
           <div class="feature reveal">

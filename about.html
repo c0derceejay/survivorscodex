@@ -19,9 +19,19 @@
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="guide.html">Guide</a>
-      <a href="catalog.html">Catalog</a>
+      <div class="nav-dropdown">
+        <a href="catalog.html" class="nav-dropdown__toggle" aria-haspopup="true">
+          Catalog
+          <svg class="nav-dropdown__caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown__menu" role="menu" aria-label="Catalog sections">
+          <a href="enemies.html" role="menuitem">Enemy Codex</a>
+          <a href="traders.html" role="menuitem">Trader Reference</a>
+        </div>
+      </div>
       <a href="skills.html">Planner</a>
       <a href="builds.html">Builds</a>
+      <a href="mods.html">Mods</a>
       <a href="about.html" class="active">About</a>
     </nav>
     <div class="nav-cta"></div>
@@ -34,7 +44,7 @@
         <h1>A vanilla-only field guide.</h1>
         <p class="muted" style="font-size:1.1rem">
           The Survivor's Codex catalogs every resource, weapon, recipe, block, and trap that exists
-          in <strong>7 Days to Die</strong> — straight out of the box, with no mods, conversions, or
+          in <strong>7 Days to Die</strong>, straight out of the box, with no mods, conversions, or
           third-party content.
         </p>
 
@@ -51,7 +61,7 @@
         <p>
           No modded items. No console-only spawns. No overhauls. If something can't be acquired in a default
           unmodded playthrough on the latest base game build, it isn't here. If we missed something or got a
-          detail wrong, that's on us — flag it via the feedback link below.
+          detail wrong, that's on us. Flag it via the feedback link below.
         </p>
 
         <h2>Why we built it</h2>
@@ -65,7 +75,7 @@
           Sign in with an email and password. Your account lets you sync <strong>favorites</strong> and
           <strong>saved builds</strong> across devices, share builds in the public gallery, and set up a
           <a href="survivor.html" style="color:var(--color-red-bright)">public survivor profile</a>.
-          Field photos stay in your browser (localStorage) — we don't upload them to a server.
+          Field photos stay in your browser (localStorage); we don't upload them to a server.
         </p>
         <p>
           Forgot your password? On the sign-in screen, choose <strong>Forgot password?</strong>, enter your account email,
@@ -74,7 +84,7 @@
         </p>
 
         <h2>Changelog</h2>
-        <p class="muted" id="site-version-note">Catalog synced for the current vanilla game build — see the version in the site footer.</p>
+        <p class="muted" id="site-version-note">Catalog synced for the current vanilla game build. See the version in the site footer.</p>
         <div id="site-changelog" class="changelog-list"></div>
 
         <div class="about-community-cta">
@@ -109,7 +119,7 @@
           <div class="feature">
             <div class="feature-icon">⌨</div>
             <h3>Open source friendly</h3>
-            <p class="muted">Static HTML, vanilla JS, a tiny Express backend for auth — extend it however you want.</p>
+            <p class="muted">Static HTML, vanilla JS, a tiny Express backend for auth. Extend it however you want.</p>
           </div>
         </div>
       </article>
@@ -135,7 +145,7 @@
       const meta = SDD.SiteMeta?.meta;
       const note = document.getElementById("site-version-note");
       if (note && meta?.gameVersionLabel) {
-        note.textContent = `${meta.gameVersionLabel} — catalog last synced ${meta.catalogSyncedAt || "recently"}.`;
+        note.textContent = `${meta.gameVersionLabel}. Catalog last synced ${meta.catalogSyncedAt || "recently"}.`;
       }
     });
   </script>

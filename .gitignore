@@ -45,3 +45,7 @@ pnpm-debug.log*
 
 # Optional local overrides (e.g. custom recipe mirror paths)
 *.local
+
+# Mod preview videos — too large for GitHub (>100 MB).
+# See TODO.md for the long-term hosting plan.
+videos/remote-inventory-tablet-v2.mp4

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Public Builds · Survivor's Codex</title>
-  <meta name="description" content="Starter build templates and community perk builds — filter by focus, weapons, perks, and attributes. Copy any build to the planner." />
+  <meta name="description" content="Starter build templates and community perk builds. Filter by focus, weapons, perks, and attributes. Copy any build to the planner." />
   <meta property="og:title" content="Public Builds · Survivor's Codex" />
   <meta property="og:description" content="Starter build templates and community perk builds for 7 Days to Die. Filter, copy, and share loadouts." />
   <meta property="og:type" content="website" />
@@ -22,9 +22,19 @@
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="guide.html">Guide</a>
-      <a href="catalog.html">Catalog</a>
+      <div class="nav-dropdown">
+        <a href="catalog.html" class="nav-dropdown__toggle" aria-haspopup="true">
+          Catalog
+          <svg class="nav-dropdown__caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown__menu" role="menu" aria-label="Catalog sections">
+          <a href="enemies.html" role="menuitem">Enemy Codex</a>
+          <a href="traders.html" role="menuitem">Trader Reference</a>
+        </div>
+      </div>
       <a href="skills.html">Planner</a>
       <a href="builds.html" class="active">Builds</a>
+      <a href="mods.html">Mods</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta"></div>
@@ -38,7 +48,7 @@
           <h1>Public builds</h1>
           <p class="muted" style="max-width:720px">
             Start from official templates or browse builds shared by other survivors. Filter by focus, weapons, perks,
-            and attributes — then copy any build into the <a href="skills.html" style="color:var(--color-red-bright)">planner</a>
+            and attributes, then copy any build into the <a href="skills.html" style="color:var(--color-red-bright)">planner</a>
             to tweak and save as your own.
           </p>
         </div>

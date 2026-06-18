@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Survival 101 · Survivor's Codex</title>
-  <meta name="description" content="New player guide for 7 Days to Die — first week priorities, blood moon, POI looting, and perk order." />
+  <meta name="description" content="New player guide for 7 Days to Die. First week priorities, blood moon, POI looting, and perk order." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -19,9 +19,19 @@
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="guide.html" class="active">Guide</a>
-      <a href="catalog.html">Catalog</a>
+      <div class="nav-dropdown">
+        <a href="catalog.html" class="nav-dropdown__toggle" aria-haspopup="true">
+          Catalog
+          <svg class="nav-dropdown__caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown__menu" role="menu" aria-label="Catalog sections">
+          <a href="enemies.html" role="menuitem">Enemy Codex</a>
+          <a href="traders.html" role="menuitem">Trader Reference</a>
+        </div>
+      </div>
       <a href="skills.html">Planner</a>
       <a href="builds.html">Builds</a>
+      <a href="mods.html">Mods</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta"></div>
@@ -56,7 +66,7 @@
           <span class="eyebrow">Survival 101</span>
           <h1>How to approach your first weeks in <span class="accent">7 Days to Die</span></h1>
           <p class="muted" style="font-size:1.08rem;max-width:640px">
-            Vanilla-only advice for brand-new survivors. No mod jargon — just what to do before the horde
+            Vanilla-only advice for brand-new survivors. No mod jargon, just what to do before the horde
             arrives, how to loot safely, and where to spend your first skill points.
           </p>
         </header>
@@ -64,7 +74,7 @@
         <section id="mindset" class="guide-section">
           <h2>The mindset: survive the schedule, not the map</h2>
           <p>
-            7 Days to Die runs on a <strong>day counter</strong>. Every seventh night is a blood moon — zombies
+            7 Days to Die runs on a <strong>day counter</strong>. Every seventh night is a blood moon; zombies
             hunt you harder and spawn aggressively. Your entire early game is a race to have
             <em>walls, a weapon, food, and a bed</em> before day 7, then to improve before day 14, 21, and so on.
           </p>
@@ -78,7 +88,7 @@
           <h2>Your first hour (day 1)</h2>
           <ol class="guide-steps">
             <li>
-              <strong>Grab everything on the ground.</strong> Stones, plant fibers, feathers, wood — you need them
+              <strong>Grab everything on the ground.</strong> Stones, plant fibers, feathers, wood; you need them
               for stone axe, bow, and bandages. Check the
               <a href="catalog.html?cat=resources">resources</a> and
               <a href="catalog.html?cat=tools">tools</a> sections if you are unsure what matters.
@@ -86,8 +96,7 @@
             <li>
               <strong>Craft a stone axe immediately.</strong> It is your wood source and emergency weapon. Unlock
               via the <a href="builds.html#starter-templates">First Week Miner</a> template on a Strength start.
-              In the <a href="catalog.html?cat=tools">catalog</a>, tools and resources show in-game icons after you
-              <a href="about.html#item-images">sync icons from your game install</a>.
+              Check the <a href="catalog.html?cat=tools">tools catalog</a> for icons, ingredients, and tier upgrades.
             </li>
             <li>
               <strong>Find a building before dusk.</strong> Any POI roof beats sleeping in the open. Planted trees
@@ -132,7 +141,7 @@
             <div class="guide-card">
               <h3>Skill points</h3>
               <p class="muted">
-                You earn one point per level. Do not spread across all five attributes — pick a plan on the
+                You earn one point per level. Do not spread across all five attributes. Pick a plan on the
                 <a href="skills.html">planner</a> and commit for 10+ levels.
               </p>
             </div>
@@ -143,7 +152,7 @@
           <h2>Structural integrity (building blocks)</h2>
           <p>
             Bases in 7 Days to Die obey physics. Every block has a <strong>Max Load</strong> (how much weight each
-            face can hold) and a <strong>Mass</strong> (how heavy the block is). Think of Max Load as glue — if you
+            face can hold) and a <strong>Mass</strong> (how heavy the block is). Think of Max Load as glue: if you
             hang too much mass off a wall or ceiling, blocks collapse or refuse to place.
           </p>
           <div class="guide-callout">
@@ -162,33 +171,33 @@
             />
             <figcaption>
               Supported blocks (yellow) transfer load down a continuous pillar to bedrock. Exceed mass limits on
-              horizontal spans and blocks fall — or refuse to place (red / pink preview).
+              horizontal spans and blocks fall, or refuse to place (red / pink preview).
             </figcaption>
           </figure>
 
           <h3>Placement preview colors</h3>
           <ul class="guide-list">
-            <li><strong>Yellow</strong> — Stable. Brighter yellow means less margin before failure.</li>
-            <li><strong>Red</strong> — Placing here would cause a collapse unless you reinforce elsewhere first.</li>
-            <li><strong>Pink</strong> — This block would fall immediately; not enough support.</li>
+            <li><strong>Yellow:</strong> stable. Brighter yellow means less margin before failure.</li>
+            <li><strong>Red:</strong> placing here would cause a collapse unless you reinforce elsewhere first.</li>
+            <li><strong>Pink:</strong> this block would fall immediately; not enough support.</li>
           </ul>
 
           <h3>Vertical vs horizontal</h3>
           <ul class="guide-list">
             <li>
-              <strong>Vertical stacks are unlimited</strong> — you can pile hundreds of blocks on one pillar
+              <strong>Vertical stacks are unlimited.</strong> You can pile hundreds of blocks on one pillar
               (until you hit the world height cap). A one-block pillar base is possible but suicidal on horde night.
             </li>
             <li>
-              <strong>Horizontal spans are limited</strong> — each block you extend sideways counts toward the
+              <strong>Horizontal spans are limited.</strong> Each block you extend sideways counts toward the
               support limit of the block it hangs from.
             </li>
             <li>
-              <strong>The “magic 8” rule</strong> — on a single-block-thick floor or bridge, the 9th block from
+              <strong>The “magic 8” rule:</strong> on a single-block-thick floor or bridge, the 9th block from
               support will collapse when you step on it (count every block between you and the pillar, including turns).
             </li>
             <li>
-              <strong>Pillar material matters for attachments</strong> — stack the tower in wood if you want, but use
+              <strong>Pillar material matters for attachments.</strong> Stack the tower in wood if you want, but use
               iron frames or metal trussing on the segment that must hold heavy side loads.
             </li>
           </ul>
@@ -240,19 +249,19 @@
           <h3>Base-building mistakes to avoid</h3>
           <ul class="guide-list">
             <li>
-              <strong>Undermining your own pillar</strong> — digging out the ground under a “green” support column
+              <strong>Undermining your own pillar.</strong> Digging out the ground under a “green” support column
               turns the whole stack into unsupported blocks. One wrong mining swing can drop your floor.
             </li>
             <li>
-              <strong>Upgrading inconsistently</strong> — pouring concrete over metal rebar frames temporarily
+              <strong>Upgrading inconsistently.</strong> Pouring concrete over metal rebar frames temporarily
               lowers SI to wood-tier stats until the full upgrade chain completes. Use temporary supports when upgrading.
             </li>
             <li>
-              <strong>Weak variants</strong> — some wood shapes (e.g. shingles) have lower Max Load than standard frames.
+              <strong>Weak variants.</strong> Some wood shapes (e.g. shingles) have lower Max Load than standard frames.
               Always read the tooltip before using them structurally.
             </li>
             <li>
-              <strong>Mixing materials blindly</strong> — heavy blocks on a wood anchor fail sooner than the same
+              <strong>Mixing materials blindly.</strong> Heavy blocks on a wood anchor fail sooner than the same
               span in one material. Match your anchor to the heaviest attached mass.
             </li>
           </ul>
@@ -264,7 +273,7 @@
           <p class="guide-reference muted">
             Reference:
             <a href="https://7daystodie.fandom.com/wiki/Structural_Integrity" rel="noopener noreferrer" target="_blank">
-              Structural Integrity — 7 Days to Die Wiki
+              Structural Integrity · 7 Days to Die Wiki
             </a>
             (Gazz’s SI tutorial &amp; community examples). Fan wiki; verify against your game version’s tooltips.
           </p>
@@ -277,36 +286,36 @@
             Fighting in the open is a mistake unless you are heavily geared.
           </p>
           <ul class="guide-list">
-            <li><strong>Stay inside your base</strong> — verticality helps (shoot down, they climb slowly).</li>
-            <li><strong>One kill box</strong> — funnel zombies through spikes or a single door you can melee.</li>
-            <li><strong>Repair during the day</strong> — check trap durability and wall HP after every horde.</li>
-            <li><strong>Shotguns and melee shine here</strong> — see the
+            <li><strong>Stay inside your base:</strong> verticality helps (shoot down, they climb slowly).</li>
+            <li><strong>One kill box:</strong> funnel zombies through spikes or a single door you can melee.</li>
+            <li><strong>Repair during the day:</strong> check trap durability and wall HP after every horde.</li>
+            <li><strong>Shotguns and melee shine here.</strong> See the
               <a href="builds.html#starter-templates">Horde Night Shotgun</a> template if you want a combat focus.</li>
-            <li><strong>Skip the trader run</strong> — night looting is for veterans; prep before sunset on day 6.</li>
+            <li><strong>Skip the trader run.</strong> Night looting is for veterans; prep before sunset on day 6.</li>
           </ul>
           <div class="guide-callout warn">
             <strong>First blood moon tip:</strong> If you only have a bow, fight from a rooftop with a clear line
-            of sight. Do not stand in the street “kiting” — runners will flank you.
+            of sight. Do not stand in the street “kiting”; runners will flank you.
           </div>
         </section>
 
         <section id="poi-loot" class="guide-section">
           <h2>POI looting without throwing the run</h2>
           <p>
-            Points of Interest (houses, stores, factories) are where tiered loot lives — but they are also
+            Points of Interest (houses, stores, factories) are where tiered loot lives, but they are also
             zombie magnets. Treat every POI as a tactical mission, not a shopping spree.
           </p>
           <h3>Before you enter</h3>
           <ul class="guide-list">
-            <li>Clear the yard first — stragglers inside will hear you break in.</li>
+            <li>Clear the yard first; stragglers inside will hear you break in.</li>
             <li>Mark an exit route; never loot the only doorway until you have a hole in the wall or roof escape.</li>
             <li>Bring food, water, bandages, and spare ammo. Running out mid-POI is how you die tired.</li>
           </ul>
           <h3>Inside the building</h3>
           <ul class="guide-list">
-            <li><strong>Sneak when possible</strong> — bonus damage and fewer alerts (Agility / Archery path).</li>
-            <li><strong>Loot the roof last</strong> — work downward so you are not trapped upstairs.</li>
-            <li><strong>Smash strategically</strong> — Salvage Operations and Lucky Looter reward Perception investment;
+            <li><strong>Sneak when possible:</strong> bonus damage and fewer alerts (Agility / Archery path).</li>
+            <li><strong>Loot the roof last:</strong> work downward so you are not trapped upstairs.</li>
+            <li><strong>Smash strategically.</strong> Salvage Operations and Lucky Looter reward Perception investment;
               try the <a href="builds.html#starter-templates">POI Salvager</a> template on the builds page.</li>
             <li><strong>Leave the vending machine</strong> until you have inventory space and a clear exit.</li>
           </ul>
@@ -327,7 +336,7 @@
             <div class="feature">
               <div class="feature-icon">☠</div>
               <h3><a href="enemies.html" style="color:var(--color-red-bright)">Enemy codex</a></h3>
-              <p class="muted">Full zombie profiles — HP by variant (normal through infernal), spawn biomes, combat tips, and loot notes for all 36 vanilla enemies.</p>
+              <p class="muted">Full zombie profiles: HP by variant (normal through infernal), spawn biomes, combat tips, and loot notes for all 36 vanilla enemies.</p>
             </div>
             <div class="feature">
               <div class="feature-icon">◎</div>
@@ -340,7 +349,7 @@
         <section id="perk-order" class="guide-section">
           <h2>Perk order for beginners</h2>
           <p>
-            Attributes gate perk levels — you cannot take perk level 3 without attribute level 3. Raise your
+            Attributes gate perk levels: you cannot take perk level 3 without attribute level 3. Raise your
             main attribute first, then fill one combat or utility tree before dabbling elsewhere.
           </p>
           <div class="guide-table-wrap">
@@ -362,7 +371,7 @@
                 <tr>
                   <td>3</td>
                   <td>Your weapon perk to match what you craft</td>
-                  <td>Club / bow / shotgun — commit, do not split points</td>
+                  <td>Club, bow, or shotgun. Commit, do not split points</td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -379,7 +388,7 @@
           </div>
           <p>
             Avoid maxing five different weapon trees. Pick one ranged or melee line and ride it to steel tier.
-            Use the planner at your real survivor level to see if a build fits — max level 300 gives 303 skill points.
+            Use the planner at your real survivor level to see if a build fits. Max level 300 gives 303 skill points.
           </p>
         </section>
 
