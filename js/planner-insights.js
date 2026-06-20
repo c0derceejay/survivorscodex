@@ -439,13 +439,13 @@
   }
 
   const FOCUS_PERK_HINTS = {
-    horde: ["boomstick", "gunslinger", "machine-gunner", "healing-factor", "pack-mule"],
-    pvp: ["gunslinger", "deep-cuts", "run-and-gun", "the-penetrator", "archery"],
-    solo: ["lucky-looter", "pack-mule", "healing-factor", "salvage-operations"],
-    crafting: ["grease-monkey", "better-barter", "master-chef", "electrocutioner"],
-    gathering: ["miner-69er", "mother-lode", "salvage-operations", "pummel-pete"],
-    farming: ["living-off-the-land", "master-chef", "pack-mule"],
-    general: ["lucky-looter", "pack-mule", "healing-factor"],
+    horde: ["boomstick", "machine-gunner", "healing-factor", "pain-tolerance", "robotics-inventor"],
+    pvp: ["gunslinger", "deep-cuts", "hidden-strike", "from-the-shadows", "the-penetrator"],
+    solo: ["lucky-looter", "pack-mule", "healing-factor", "rule-1-cardio", "parkour"],
+    crafting: ["grease-monkey", "better-barter", "master-chef", "advanced-engineering", "electrocutioner"],
+    gathering: ["miner-69er", "mother-lode", "salvage-operations", "lucky-looter"],
+    farming: ["living-off-the-land", "master-chef", "iron-gut"],
+    general: ["lucky-looter", "pack-mule", "healing-factor", "master-chef"],
   };
 
   function collectPerkHints(state, skillsData) {
@@ -485,11 +485,23 @@
 
     for (const perkId of suggested) {
       const perk = findPerk(skillsData, perkId);
-      if (! perk) continue;
+      if (!perk) continue;
       const lvl = state.perks?.[perkId] || 0;
       if (lvl >= perk.maxLevel) continue;
+      if (perk.requires?.general) {
+        if (remain > 0) {
+          hints.push({
+            type: "focus",
+            message: `${perk.name} can go to Lv ${lvl + 1} — strong pick for ${focusIds.join(", ")} builds.`,
+            perkId,
+          });
+          break;
+        }
+        continue;
+      }
       const attrLvl = state.attributes?.[perk.attrId] || 0;
-      const req = perk.requires?.attribute || 1;
+      const reqLevels = perk.requires?.attributeLevels;
+      const req = Array.isArray(reqLevels) ? (reqLevels[lvl] ?? reqLevels[0]) : (perk.requires?.attribute || lvl + 1);
       if (attrLvl < req) {
         hints.push({
           type: "focus",
@@ -497,7 +509,7 @@
         });
         continue;
       }
-      if (lvl < attrLvl && remain > 0) {
+      if (remain > 0) {
         hints.push({
           type: "focus",
           message: `${perk.name} can go to Lv ${lvl + 1} — strong pick for ${focusIds.join(", ")} builds.`,
@@ -510,14 +522,18 @@
     if (selectedPerk && remain > 0) {
       const lvl = state.perks?.[selectedPerk.id] || 0;
       const attr = skillsData.attributes.find((a) => a.id === selectedPerk.attrId);
-      if (lvl < selectedPerk.maxLevel && lvl < (state.attributes?.[selectedPerk.attrId] || 0)) {
+      const reqLevels = selectedPerk.requires?.attributeLevels;
+      const nextReq = selectedPerk.requires?.general
+        ? 0
+        : (Array.isArray(reqLevels) ? (reqLevels[lvl] ?? lvl + 1) : (selectedPerk.requires?.attribute || lvl + 1));
+      if (lvl < selectedPerk.maxLevel && (selectedPerk.requires?.general || (state.attributes?.[selectedPerk.attrId] || 0) >= nextReq)) {
         hints.push({ type: "next", message: `You can raise ${selectedPerk.name} to Lv ${lvl + 1}.`, perkId: selectedPerk.id });
       } else if (lvl >= selectedPerk.maxLevel) {
         hints.push({ type: "info", message: `${selectedPerk.name} is maxed for your current points.` });
-      } else if (lvl >= (state.attributes?.[selectedPerk.attrId] || 0) && attr) {
+      } else if (attr && !selectedPerk.requires?.general) {
         hints.push({
           type: "info",
-          message: `${selectedPerk.name} needs ${attr.name} ${lvl + 1}+ before the next perk level.`,
+          message: `${selectedPerk.name} needs ${attr.name} ${nextReq}+ before the next perk level.`,
         });
       }
     }

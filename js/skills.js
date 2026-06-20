@@ -48,15 +48,31 @@
     return st.perks[perkId] || 0;
   }
 
+  const PERK_ID_ALIASES = {
+    "javelin-master": "spear-master",
+    infiltrator: "the-infiltrator",
+  };
+  const REMOVED_PERK_IDS = new Set(["slow-metabolism", "well-insulated"]);
+
+  function requiredAttributeLevel(perk, targetLevel) {
+    const req = perk.requires || {};
+    if (req.general) return 0;
+    const levels = req.attributeLevels;
+    if (Array.isArray(levels) && levels[targetLevel - 1] != null) {
+      return levels[targetLevel - 1];
+    }
+    if (req.attribute != null) return req.attribute;
+    return targetLevel;
+  }
+
   function meetsRequirements(perk, st, data, targetLevel) {
     const req = perk.requires || {};
-    const attrNeed = req.attribute || 1;
-    const attrLvl = getAttrLevel(st, perk.attrId);
-    if (attrLvl < attrNeed) {
-      return { ok: false, reason: `Requires ${perk.attrName} ${attrNeed} (you have ${attrLvl})` };
-    }
-    if (targetLevel > attrLvl) {
-      return { ok: false, reason: `Perk level ${targetLevel} needs ${perk.attrName} ${targetLevel}+` };
+    if (!req.general) {
+      const attrNeed = requiredAttributeLevel(perk, targetLevel);
+      const attrLvl = getAttrLevel(st, perk.attrId);
+      if (attrLvl < attrNeed) {
+        return { ok: false, reason: `Requires ${perk.attrName} ${attrNeed} (you have ${attrLvl})` };
+      }
     }
     for (const p of req.perks || []) {
       const have = getPerkLevel(st, p.id);
@@ -66,6 +82,28 @@
       }
     }
     return { ok: true };
+  }
+
+  function normalizeAttributes(attrs, data) {
+    const start = data.meta.startingAttributeLevel ?? 0;
+    const out = {};
+    data.attributes.forEach((a) => {
+      if (a.noAttributeLevels) return;
+      out[a.id] = Math.max(start, Number(attrs?.[a.id]) || 0);
+    });
+    return out;
+  }
+
+  function normalizePerks(perks, data) {
+    const valid = new Set(allPerks(data).map((p) => p.id));
+    const out = {};
+    Object.entries(perks || {}).forEach(([id, lvl]) => {
+      if (REMOVED_PERK_IDS.has(id)) return;
+      const mapped = PERK_ID_ALIASES[id] || id;
+      if (!valid.has(mapped)) return;
+      out[mapped] = Math.max(out[mapped] || 0, Number(lvl) || 0);
+    });
+    return out;
   }
 
   function canIncreasePerk(perk, st, data) {
@@ -80,6 +118,8 @@
   }
 
   function canIncreaseAttr(attrId, st, data) {
+    const attrDef = data.attributes.find((a) => a.id === attrId);
+    if (attrDef?.noAttributeLevels) return { ok: false, reason: "General perks do not use attribute levels" };
     const cur = getAttrLevel(st, attrId);
     if (cur >= data.meta.maxAttributeLevel) return { ok: false, reason: "Attribute maxed" };
     const cost = data.meta.attributeCosts[cur] || 0;
@@ -92,14 +132,18 @@
   function initState(data) {
     const attrs = {};
     const perks = {};
-    data.attributes.forEach((a) => { attrs[a.id] = 0; });
+    const startAttr = data.meta.startingAttributeLevel ?? 0;
+    data.attributes.forEach((a) => {
+      if (!a.noAttributeLevels) attrs[a.id] = startAttr;
+    });
     allPerks(data).forEach((p) => { perks[p.id] = 0; });
+    const firstAttr = data.attributes.find((a) => !a.noAttributeLevels) || data.attributes[0];
     return {
       playerLevel: data.meta.defaultPlayerLevel ?? data.meta.maxPlayerLevel ?? 300,
       attributes: attrs,
       perks,
-      selectedPerkId: data.attributes[0].perks[0].id,
-      selectedAttrId: data.attributes[0].id,
+      selectedPerkId: firstAttr.perks[0].id,
+      selectedAttrId: firstAttr.id,
       loadedBuildId: null,
       loadout: { weapons: [], armorSet: null, armorQuality: 6, mods: {}, food: [], water: [], medical: [], tools: [], vehicles: [], itemQualities: {} },
     };
@@ -139,7 +183,9 @@
   function maxBuildCost(data) {
     const attrs = {};
     const perks = {};
-    data.attributes.forEach((a) => { attrs[a.id] = data.meta.maxAttributeLevel; });
+    data.attributes.forEach((a) => {
+      if (!a.noAttributeLevels) attrs[a.id] = data.meta.maxAttributeLevel;
+    });
     allPerks(data).forEach((p) => { perks[p.id] = p.maxLevel; });
     return SDD.SkillPoints.calcSpent(attrs, perks, data.meta).total;
   }
@@ -156,7 +202,7 @@
       return;
     }
     data.attributes.forEach((a) => {
-      state.attributes[a.id] = data.meta.maxAttributeLevel;
+      if (!a.noAttributeLevels) state.attributes[a.id] = data.meta.maxAttributeLevel;
     });
     allPerks(data).forEach((p) => {
       state.perks[p.id] = p.maxLevel;
@@ -185,6 +231,7 @@
   }
 
   function changeAttr(attrId, delta) {
+    const minAttr = skillsData.meta.startingAttributeLevel ?? 0;
     const cur = getAttrLevel(state, attrId);
     if (delta > 0) {
       const check = canIncreaseAttr(attrId, state, skillsData);
@@ -193,7 +240,7 @@
         return;
       }
       state.attributes[attrId] = cur + 1;
-    } else if (cur > 0) {
+    } else if (cur > minAttr) {
       state.attributes[attrId] = cur - 1;
     }
     state.selectedAttrId = attrId;
@@ -276,8 +323,8 @@
     }
     state.loadedBuildId = b.id;
     state.playerLevel = SDD.SkillPoints.normalizePlayerLevel(skillsData.meta, b);
-    state.attributes = { ...b.attributes };
-    state.perks = { ...b.perks };
+    state.attributes = normalizeAttributes(b.attributes, skillsData);
+    state.perks = normalizePerks(b.perks, skillsData);
     applyLoadout(b.loadout);
     document.getElementById("build-name").value = b.name;
     SDD.BuildTypes.setSelectedInUI(b.buildTypes ?? b.buildType);
@@ -290,8 +337,11 @@
   function applySnapshot(snapshot) {
     const base = initState(skillsData);
     state.playerLevel = snapshot.playerLevel ?? base.playerLevel;
-    state.attributes = { ...base.attributes, ...snapshot.attributes };
-    state.perks = { ...base.perks, ...snapshot.perks };
+    state.attributes = normalizeAttributes(
+      { ...base.attributes, ...snapshot.attributes },
+      skillsData
+    );
+    state.perks = normalizePerks({ ...base.perks, ...snapshot.perks }, skillsData);
     if (snapshot.focusPerk && findPerk(skillsData, snapshot.focusPerk)) {
       state.selectedPerkId = snapshot.focusPerk;
       const perk = findPerk(skillsData, snapshot.focusPerk);
@@ -326,8 +376,8 @@
       const b = await SDD.BuildStore.fetchPublicBuild(id);
       clearLoadedBuild();
       state.playerLevel = SDD.SkillPoints.normalizePlayerLevel(skillsData.meta, b);
-      state.attributes = { ...b.attributes };
-      state.perks = { ...b.perks };
+      state.attributes = normalizeAttributes(b.attributes, skillsData);
+      state.perks = normalizePerks(b.perks, skillsData);
       applyLoadout(b.loadout);
       document.getElementById("build-name").value = `${b.name} (copy)`;
       SDD.BuildTypes.setSelectedInUI(b.buildTypes ?? b.buildType);
@@ -386,6 +436,11 @@
       const lvl = getAttrLevel(state, attr.id);
       const active = state.selectedAttrId === attr.id;
       const attrCheck = canIncreaseAttr(attr.id, state, skillsData);
+      const attrLevelHtml = attr.noAttributeLevels
+        ? `<span class="attr-lvl-num attr-lvl-num--na" title="General perks only cost skill points">—</span>`
+        : `<button type="button" class="perk-btn" data-attr-delta="-1" data-attr="${attr.id}" ${lvl <= (skillsData.meta.startingAttributeLevel ?? 0) ? "disabled" : ""}>−</button>
+              <span class="attr-lvl-num">${lvl}</span>
+              <button type="button" class="perk-btn" data-attr-delta="1" data-attr="${attr.id}" ${!attrCheck.ok ? "disabled" : ""}>+</button>`;
 
       const perksHtml = attr.perks.map((perk) => {
         const plvl = getPerkLevel(state, perk.id);
@@ -423,11 +478,7 @@
               <span class="attr-abbr">${attr.abbr}</span>
               <span class="attr-title">${SDD.escapeHTML(attr.name)}</span>
             </button>
-            <div class="attr-level">
-              <button type="button" class="perk-btn" data-attr-delta="-1" data-attr="${attr.id}" ${lvl === 0 ? "disabled" : ""}>−</button>
-              <span class="attr-lvl-num">${lvl}</span>
-              <button type="button" class="perk-btn" data-attr-delta="1" data-attr="${attr.id}" ${!attrCheck.ok ? "disabled" : ""}>+</button>
-            </div>
+            <div class="attr-level">${attrLevelHtml}</div>
           </header>
           <p class="attr-tagline muted">${SDD.escapeHTML(attr.tagline)}</p>
           <div class="perk-list">${perksHtml}</div>

@@ -29,9 +29,10 @@
           <a href="traders.html" role="menuitem">Trader Reference</a>
         </div>
       </div>
-      <a href="skills.html" class="active">Planner</a>
+      <a href="skills.html">Planner</a>
       <a href="builds.html">Builds</a>
       <a href="mods.html">Mods</a>
+      <a href="community.html">Community</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta"></div>
@@ -39,15 +40,17 @@
 
   <main>
     <div class="container">
-      <header class="section-head" style="padding-top:24px">
+      <header class="section-head section-head--top">
         <div>
           <span class="eyebrow">Codex · Planner</span>
           <h1>Perk build planner</h1>
           <p class="muted" style="max-width:680px">
-            Allocate attribute and perk points like the in-game skills screen. Set your survivor level for a
-            realistic point budget. Max level 300 gives <strong>303 skill points</strong> (4 starting + 1 per level).
+            Allocate attribute and perk points like the in-game skills screen (v1.0 tree — 57 perks
+            across five attributes plus General). All attributes start at level 1. Set your survivor level for a
+            realistic point budget. Max level 300 gives <strong>303 skill points</strong>
+            (4 starting + 1 per level).
             Perk magazines grant levels without spending points.
-            <a href="profile.html" style="color:var(--color-red-bright)">Sign in</a> to save builds to your account.
+            <a href="profile.html" class="text-link-accent">Sign in</a> to save builds to your account.
           </p>
         </div>
       </header>
@@ -97,7 +100,7 @@
         <header class="skill-save-section-head">
           <span class="eyebrow">Build</span>
           <h2 id="skill-save-title">Save build</h2>
-          <p class="muted">Name your build, tag its focus, and sync to your account. Check <strong>Share in the public builds gallery</strong> to list it on the <a href="builds.html" style="color:var(--color-red-bright)">community builds</a> page.</p>
+          <p class="muted">Name your build, tag its focus, and sync to your account. Check <strong>Share in the public builds gallery</strong> to list it on the <a href="builds.html" class="text-link-accent">community builds</a> page.</p>
         </header>
         <p id="build-sync-status" class="build-sync-status muted"></p>
         <div class="skill-save-form">
@@ -336,9 +339,9 @@
       <p class="muted skill-footnote">
         Perk effects are summarized for planning, not exact in-game numbers. At level 300 you have 303 skill points
         (4 starting + 299 from leveling). Perk magazines grant perk levels without spending points.
-        <a href="guide.html" style="color:var(--color-red-bright)">Survival 101 guide</a>
+        <a href="guide.html" class="text-link-accent">Survival 101 guide</a>
         ·
-        <a href="catalog.html" style="color:var(--color-red-bright)">Browse the catalog →</a>
+        <a href="catalog.html" class="text-link-accent">Browse the catalog →</a>
       </p>
     </div>
   </main>
@@ -346,7 +349,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
-      <div style="display:flex;gap:18px">
+      <div class="footer-links">
         <a href="splash.html">Splash</a>
         <a href="index.html">Home</a>
         <a href="catalog.html">Catalog</a>
@@ -354,14 +357,15 @@
     </div>
   </footer>
 
-  <script src="js/site-meta.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/build-types.js"></script>
-  <script src="js/item-tooltips.js"></script>
-  <script src="js/perk-gear.js"></script>
-  <script src="js/loadout.js"></script>
-  <script src="js/loadout-mannequin.js"></script>
-  <script src="js/planner-insights.js"></script>
-  <script src="js/skills.js"></script>
+  <script src="js/site-layout.js" defer></script>
+  <script src="js/site-meta.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/build-types.js" defer></script>
+  <script src="js/item-tooltips.js" defer></script>
+  <script src="js/perk-gear.js" defer></script>
+  <script src="js/loadout.js" defer></script>
+  <script src="js/loadout-mannequin.js" defer></script>
+  <script src="js/planner-insights.js" defer></script>
+  <script src="js/skills.js" defer></script>
 </body>
 </html>

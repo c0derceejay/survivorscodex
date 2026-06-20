@@ -106,6 +106,9 @@
     setFavorites(arr) {
       localStorage.setItem(this.key("favs"), JSON.stringify(arr));
     },
+    setPhotos(arr) {
+      localStorage.setItem(this.key("photos"), JSON.stringify(arr.slice(0, MAX_PHOTOS)));
+    },
     async pushFavoritesToServer(favs) {
       if (!Auth.user) return;
       await api("/api/favorites", {
@@ -157,6 +160,86 @@
     removePhoto(id) {
       const all = this.getPhotos().filter((p) => p.id !== id);
       localStorage.setItem(this.key("photos"), JSON.stringify(all));
+    },
+  };
+
+  const MAX_PHOTOS = 24;
+
+  const PhotoStore = {
+    photoSrc(photo) {
+      return photo?.url || photo?.imageUrl || photo?.data || "";
+    },
+
+    normalizeServerPhoto(photo) {
+      return {
+        id: photo.id,
+        caption: photo.caption || "",
+        tag: photo.tag || "",
+        itemId: photo.itemId || "",
+        uploadedAt: photo.uploadedAt || new Date().toISOString(),
+        url: photo.imageUrl,
+        author: photo.author || null,
+        shared: true,
+      };
+    },
+
+    async loadMine() {
+      if (!Auth.user) return Store.getPhotos();
+      try {
+        const data = await api("/api/photos");
+        const photos = (data.photos || []).map((p) => this.normalizeServerPhoto(p));
+        Store.setPhotos(photos);
+        return photos;
+      } catch (_) {
+        return Store.getPhotos();
+      }
+    },
+
+    async addPhoto(photo) {
+      if (Auth.user) {
+        const data = await api("/api/photos", {
+          method: "POST",
+          body: JSON.stringify({
+            data: photo.data,
+            caption: photo.caption,
+            tag: photo.tag,
+            itemId: photo.itemId || "",
+          }),
+        });
+        const saved = this.normalizeServerPhoto(data.photo);
+        const all = Store.getPhotos();
+        all.unshift(saved);
+        Store.setPhotos(all);
+        return saved;
+      }
+      Store.addPhoto(photo);
+      return photo;
+    },
+
+    async removePhoto(id) {
+      if (Auth.user) {
+        try {
+          await api(`/api/photos/${encodeURIComponent(id)}`, { method: "DELETE" });
+        } catch (err) {
+          if (err.status !== 404) throw err;
+        }
+      }
+      Store.removePhoto(id);
+    },
+
+    async fetchCommunity(params = {}) {
+      const qs = new URLSearchParams();
+      Object.entries(params).forEach(([key, value]) => {
+        if (value != null && String(value).trim() !== "") qs.set(key, String(value).trim());
+      });
+      const suffix = qs.toString() ? `?${qs}` : "";
+      const res = await fetch(`/api/photos/community${suffix}`);
+      if (!res.ok) throw new Error("Could not load community photos.");
+      const data = await res.json();
+      return {
+        photos: (data.photos || []).map((p) => this.normalizeServerPhoto(p)),
+        total: data.total || 0,
+      };
     },
   };
 
@@ -1068,9 +1151,11 @@
       return total;
     },
     calcSpent(attributes, perks, meta) {
+      const baseAttr = meta.startingAttributeLevel ?? 0;
       let attrSpent = 0;
       Object.values(attributes || {}).forEach((lvl) => {
-        attrSpent += SkillPoints.attributeCostForLevel(lvl, meta.attributeCosts);
+        const effective = Math.max(0, (Number(lvl) || 0) - baseAttr);
+        attrSpent += SkillPoints.attributeCostForLevel(effective, meta.attributeCosts);
       });
       let perkSpent = 0;
       Object.values(perks || {}).forEach((lvl) => { perkSpent += Number(lvl) || 0; });
@@ -1098,7 +1183,7 @@
   // Public API
   // -------------------------------------------------------------------------
   window.SDD = {
-    Auth, Store, BuildStore, SkillPoints, api, openAuthModal, toast, escapeHTML,
+    Auth, Store, PhotoStore, BuildStore, SkillPoints, api, openAuthModal, toast, escapeHTML,
     itemImage, itemIcon, itemImageUrl, itemImageSvg, hasItemImage, handleItemPhotoError,
     attachItemPhotoHandlers, loadImageManifest, imageManifest,
   };
@@ -1112,6 +1197,8 @@
     setupReveal();
     setupBackendBanner();
     renderNav();
+    SDD.Layout?.applyActiveNav?.();
+    bindAuthButtons(document, document.querySelector(".nav"));
     injectFooterSources();
     await loadImageManifest();
     await Auth.refresh();

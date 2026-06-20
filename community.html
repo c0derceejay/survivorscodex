@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Enemy codex · Survivor's Codex</title>
-  <meta name="description" content="Vanilla zombie and infected enemy profiles. HP by variant, biomes, combat tips, and loot notes for 7 Days to Die." />
+  <title>Community · Survivor's Codex</title>
+  <meta name="description" content="Bases, loadouts, and field photos shared by Survivor's Codex account holders." />
+  <meta property="og:title" content="Community · Survivor's Codex" />
+  <meta property="og:description" content="See bases, loadouts, and in-game screenshots shared by other survivors." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="icon" href="images/logo.png" type="image/png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="enemies-page">
+<body class="community-page">
   <header class="nav">
     <a class="brand" href="splash.html">
       <img class="brand-logo" src="images/logo.png" alt="Survivor's Codex" width="170" height="54" />
@@ -40,31 +43,36 @@
 
   <main>
     <div class="container">
-      <header class="section-head codex-head reveal">
+      <header class="section-head section-head--top reveal">
         <div>
-          <span class="eyebrow">Codex · Enemies</span>
-          <h1>Enemy codex</h1>
+          <span class="eyebrow">Codex · Community</span>
+          <h1>Field photos from survivors</h1>
           <p class="muted muted--wide">
-            Full profiles for every vanilla zombie and infected animal: HP scaling by variant,
-            spawn biomes, combat notes, and loot. Also in the
-            <a href="catalog.html?cat=enemies" class="text-link-accent">catalog</a>.
+            Bases, loadouts, and in-game screenshots uploaded by signed-in account holders.
+            Share your own from your <a href="profile.html" class="text-link-accent">profile</a>.
           </p>
         </div>
-        <a class="btn btn-ghost" href="traders.html">Trader reference</a>
+        <a class="btn btn-primary" href="profile.html" id="community-upload-cta">Upload a photo</a>
       </header>
 
-      <div class="codex-toolbar reveal">
-        <label class="search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <section class="community-toolbar reveal" aria-label="Community filters">
+        <label class="search community-search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path>
           </svg>
-          <input id="enemy-search" type="search" placeholder="Search zombies by name or biome…" aria-label="Search enemies" />
+          <input type="search" id="community-search" class="community-search-input" placeholder="Search caption, item tag, or author…" autocomplete="off" />
         </label>
-        <div id="enemy-threat-filters" class="build-type-filters"></div>
-      </div>
+        <p id="community-result-count" class="community-result-count muted" aria-live="polite"></p>
+      </section>
 
-      <p id="enemy-result-count" class="builds-result-count muted reveal" aria-live="polite"></p>
-      <div id="enemy-grid" class="catalog-grid codex-enemy-grid reveal"></div>
+      <div id="community-grid" class="community-grid reveal"></div>
+
+      <div id="community-empty" class="community-empty reveal" hidden>
+        <span class="eyebrow">No photos yet</span>
+        <h2>Be the first to share</h2>
+        <p class="muted">Sign in, open your profile, and upload a base or loadout screenshot. It will appear here for everyone.</p>
+        <button type="button" class="btn btn-primary" data-auth="signin">Sign in to upload</button>
+      </div>
     </div>
   </main>
 
@@ -72,8 +80,9 @@
     <div class="container footer-inner">
       <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
       <div class="footer-links">
-        <a href="catalog.html?cat=enemies">Catalog</a>
-        <a href="traders.html">Traders</a>
+        <a href="splash.html">Splash</a>
+        <a href="profile.html">Profile</a>
+        <a href="builds.html">Builds</a>
       </div>
     </div>
   </footer>
@@ -81,6 +90,6 @@
   <script src="js/site-layout.js" defer></script>
   <script src="js/site-meta.js" defer></script>
   <script src="js/app.js" defer></script>
-  <script src="js/enemies.js" defer></script>
+  <script src="js/community.js" defer></script>
 </body>
 </html>

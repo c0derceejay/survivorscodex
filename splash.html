@@ -92,7 +92,7 @@
     </div>
   </main>
 
-  <script src="js/splash-horde.js"></script>
+  <script src="js/splash-horde.js" defer></script>
   <script>
     fetch("data/items.json").then((r) => r.json()).then((d) => {
       document.getElementById("stat-items").textContent = d.items.length;

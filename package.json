@@ -19,6 +19,7 @@
     "recipes:sync": "node scripts/sync-recipes.mjs",
     "catalog:build": "node scripts/build-full-catalog.mjs && node scripts/prune-removed-entities.mjs",
     "gear:build": "node scripts/build-perk-gear.mjs",
+    "skills:generate": "node scripts/generate-skills-json.mjs",
     "mods:build": "node scripts/build-mod-compatibility.mjs",
     "catalog:refresh": "npm run catalog:build && npm run recipes:sync && npm run gear:build && npm run mods:build && npm run stats:generate && npm run icons:refresh",
     "catalog:expand": "node scripts/generate-catalog-extensions.mjs"

@@ -20,18 +20,19 @@
       <a href="index.html">Home</a>
       <a href="guide.html">Guide</a>
       <div class="nav-dropdown">
-        <a href="catalog.html" class="nav-dropdown__toggle active" aria-haspopup="true">
+        <a href="catalog.html" class="nav-dropdown__toggle" aria-haspopup="true">
           Catalog
           <svg class="nav-dropdown__caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <div class="nav-dropdown__menu" role="menu" aria-label="Catalog sections">
-          <a href="enemies.html" role="menuitem" class="active">Enemy Codex</a>
+          <a href="enemies.html" role="menuitem">Enemy Codex</a>
           <a href="traders.html" role="menuitem">Trader Reference</a>
         </div>
       </div>
       <a href="skills.html">Planner</a>
       <a href="builds.html">Builds</a>
       <a href="mods.html">Mods</a>
+      <a href="community.html">Community</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta"></div>
@@ -60,15 +61,16 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
-      <div style="display:flex;gap:18px">
+      <div class="footer-links">
         <a href="enemies.html">Enemy codex</a>
         <a href="catalog.html">Catalog</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/site-meta.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/enemy-detail.js"></script>
+  <script src="js/site-layout.js" defer></script>
+  <script src="js/site-meta.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/enemy-detail.js" defer></script>
 </body>
 </html>

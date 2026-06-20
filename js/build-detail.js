@@ -22,7 +22,7 @@
     }
 
     const attrsHtml = skillsData.attributes
-      .filter((a) => (build.attributes?.[a.id] || 0) > 0)
+      .filter((a) => !a.noAttributeLevels && (build.attributes?.[a.id] || 0) > 0)
       .map((a) => {
         const lvl = build.attributes[a.id];
         return `

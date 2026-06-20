@@ -5,7 +5,7 @@
    - Sessions: opaque token in an httpOnly cookie, server-side row.
    - Skill builds: persisted per account in var/auth.json when signed in.
    - Catalog/skills JSON stays in data/ — mount Railway volumes at /app/var, not /app/data.
-   - Favorites sync to account via /api/favorites; photos remain client-side.
+   - Favorites sync to account via /api/favorites; field photos sync to /app/var/photos when signed in.
    ========================================================================== */
 
 const fs = require("fs");
@@ -23,14 +23,20 @@ const MAX_BUILDS_PER_USER = 24;
 const MAX_FAVORITES = 200;
 const MAX_COMMENT_LENGTH = 500;
 const MAX_COMMENTS_PER_BUILD = 100;
+const MAX_PHOTOS_PER_USER = 24;
+const MAX_PHOTO_BYTES = 2 * 1024 * 1024;
+const MAX_PHOTO_CAPTION = 120;
+const MAX_COMMUNITY_PHOTOS = 120;
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const ROOT = __dirname;
 const VAR_DIR = path.join(ROOT, "var");
+const PHOTOS_DIR = path.join(VAR_DIR, "photos");
 const DB_PATH = path.join(VAR_DIR, "auth.json");
 const LEGACY_DB_PATH = path.join(ROOT, "data", "auth.json");
 
 function ensureVarDir() {
   fs.mkdirSync(VAR_DIR, { recursive: true });
+  fs.mkdirSync(PHOTOS_DIR, { recursive: true });
 }
 
 function migrateLegacyAuthDb() {
@@ -133,6 +139,10 @@ function migrateCommunityRecords(db) {
   }
   if (!db.build_upvotes) {
     db.build_upvotes = [];
+    changed = true;
+  }
+  if (!db.photos) {
+    db.photos = [];
     changed = true;
   }
   for (const b of db.builds || []) {
@@ -420,6 +430,54 @@ const Store = {
     saveDb(db);
     return user;
   },
+  listUserPhotos(userId) {
+    if (!db.photos) db.photos = [];
+    return db.photos
+      .filter((p) => p.user_id === userId)
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  },
+  listCommunityPhotos(filters = {}) {
+    if (!db.photos) db.photos = [];
+    const activeUserIds = new Set(db.users.map((u) => u.id));
+    let result = db.photos.filter((p) => activeUserIds.has(p.user_id));
+
+    if (filters.q) {
+      const q = String(filters.q).trim().toLowerCase();
+      if (q) {
+        result = result.filter((p) => {
+          const user = Store.findUserById(p.user_id);
+          const captionMatch = String(p.caption || "").toLowerCase().includes(q);
+          const tagMatch = String(p.tag || "").toLowerCase().includes(q);
+          const authorMatch = user && user.username.toLowerCase().includes(q);
+          return captionMatch || tagMatch || authorMatch;
+        });
+      }
+    }
+    if (filters.author) {
+      const user = Store.findUserByUsername(filters.author);
+      result = user ? result.filter((p) => p.user_id === user.id) : [];
+    }
+
+    return result.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  },
+  findPhoto(id) {
+    if (!db.photos) return null;
+    return db.photos.find((p) => p.id === id) || null;
+  },
+  insertPhoto(photo) {
+    if (!db.photos) db.photos = [];
+    db.photos.push(photo);
+    saveDb(db);
+    return photo;
+  },
+  deletePhoto(id, userId) {
+    if (!db.photos) return null;
+    const photo = db.photos.find((p) => p.id === id && p.user_id === userId);
+    if (!photo) return null;
+    db.photos = db.photos.filter((p) => p.id !== id);
+    saveDb(db);
+    return photo;
+  },
 };
 
 // Periodically purge expired sessions
@@ -430,7 +488,16 @@ setInterval(() => Store.cleanupExpired(), 1000 * 60 * 60).unref?.();
 // ---------------------------------------------------------------------------
 const app = express();
 app.set("trust proxy", 1);
-app.use(express.json({ limit: "1mb" }));
+
+app.use((_req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  next();
+});
+
+app.use(express.json({ limit: "3mb" }));
 app.use(cookieParser());
 
 function publicUser(u) {
@@ -735,6 +802,45 @@ const loginRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, routeKey: 
 const forgotRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 5, routeKey: "forgot" });
 const resetRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, routeKey: "reset" });
 const commentRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, routeKey: "comment" });
+const photoRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 15, routeKey: "photo-upload" });
+
+function parseDataUrlImage(dataUrl) {
+  const match = String(dataUrl || "").match(/^data:(image\/(?:jpeg|jpg|png|webp));base64,([A-Za-z0-9+/=]+)$/);
+  if (!match) return null;
+  const mime = match[1].toLowerCase();
+  const buffer = Buffer.from(match[2], "base64");
+  if (!buffer.length || buffer.length > MAX_PHOTO_BYTES) return null;
+  const ext = mime.includes("png") ? "png" : mime.includes("webp") ? "webp" : "jpg";
+  return { buffer, ext, mime };
+}
+
+function writePhotoFile(id, dataUrl) {
+  const parsed = parseDataUrlImage(dataUrl);
+  if (!parsed) throw new Error("Invalid image data.");
+  const filename = `${id}.${parsed.ext}`;
+  fs.writeFileSync(path.join(PHOTOS_DIR, filename), parsed.buffer);
+  return filename;
+}
+
+function deletePhotoFile(filename) {
+  if (!filename) return;
+  try {
+    fs.unlinkSync(path.join(PHOTOS_DIR, filename));
+  } catch (_) {}
+}
+
+function publicPhoto(photo) {
+  const user = Store.findUserById(photo.user_id);
+  return {
+    id: photo.id,
+    caption: photo.caption || "",
+    tag: photo.tag || "",
+    itemId: photo.item_id || "",
+    uploadedAt: photo.created_at,
+    imageUrl: `/uploads/photos/${photo.filename}`,
+    author: user ? { id: user.id, username: user.username } : null,
+  };
+}
 
 app.post("/api/signup", authRateLimit, async (req, res) => {
   try {
@@ -819,7 +925,7 @@ app.post("/api/forgot-password", forgotRateLimit, async (req, res) => {
       message: emailSent
         ? genericMessage
         : IS_PRODUCTION
-          ? genericMessage
+          ? "If an account exists for that email, check your inbox. If you don't receive an email, the site owner may need to configure outbound mail (RESEND_API_KEY)."
           : "If an account exists for that email, use the reset link below within the next hour.",
       emailSent,
       expiresInMinutes: RESET_TTL_MS / (1000 * 60),
@@ -832,6 +938,18 @@ app.post("/api/forgot-password", forgotRateLimit, async (req, res) => {
     console.error("[forgot-password]", err);
     res.status(500).json({ error: "Could not start password reset." });
   }
+});
+
+app.get("/api/reset-password/validate", (req, res) => {
+  const token = String(req.query.token || "").trim();
+  if (!token) {
+    return res.json({ valid: false, error: "Reset link is missing." });
+  }
+  const row = Store.findPasswordReset(token);
+  if (!row) {
+    return res.json({ valid: false, error: "This reset link is invalid or has expired." });
+  }
+  res.json({ valid: true });
 });
 
 app.post("/api/reset-password", resetRateLimit, async (req, res) => {
@@ -1047,6 +1165,64 @@ app.delete("/api/builds/:id", requireAuth, (req, res) => {
   res.json({ ok: true });
 });
 
+app.get("/api/photos/community", (req, res) => {
+  const limit = Math.min(MAX_COMMUNITY_PHOTOS, Math.max(1, Number(req.query.limit) || 60));
+  const offset = Math.max(0, Number(req.query.offset) || 0);
+  const photos = Store.listCommunityPhotos({
+    q: req.query.q,
+    author: req.query.author,
+  })
+    .slice(offset, offset + limit)
+    .map((p) => publicPhoto(p))
+    .filter((p) => p.author);
+  res.json({ photos, total: Store.listCommunityPhotos({ q: req.query.q, author: req.query.author }).length });
+});
+
+app.get("/api/photos", requireAuth, (req, res) => {
+  const photos = Store.listUserPhotos(req.user.id).map((p) => publicPhoto(p));
+  res.json({ photos });
+});
+
+app.post("/api/photos", requireAuth, photoRateLimit, (req, res) => {
+  try {
+    const existing = Store.listUserPhotos(req.user.id);
+    if (existing.length >= MAX_PHOTOS_PER_USER) {
+      return res.status(400).json({ error: `You can upload up to ${MAX_PHOTOS_PER_USER} community photos.` });
+    }
+
+    const dataUrl = req.body?.data;
+    if (!dataUrl) return res.status(400).json({ error: "Image data is required." });
+
+    const caption = String(req.body?.caption || "").trim().slice(0, MAX_PHOTO_CAPTION) || "Field photo";
+    const tag = String(req.body?.tag || "").trim().slice(0, 80);
+    const itemId = String(req.body?.itemId || "").trim().slice(0, 80);
+
+    const id = crypto.randomUUID();
+    const filename = writePhotoFile(id, dataUrl);
+    const photo = Store.insertPhoto({
+      id,
+      user_id: req.user.id,
+      caption,
+      tag,
+      item_id: itemId || null,
+      filename,
+      created_at: new Date().toISOString(),
+    });
+
+    res.status(201).json({ photo: publicPhoto(photo) });
+  } catch (err) {
+    console.error("[photos create]", err);
+    res.status(400).json({ error: err.message || "Could not save photo." });
+  }
+});
+
+app.delete("/api/photos/:id", requireAuth, (req, res) => {
+  const removed = Store.deletePhoto(req.params.id, req.user.id);
+  if (!removed) return res.status(404).json({ error: "Photo not found." });
+  deletePhotoFile(removed.filename);
+  res.json({ ok: true });
+});
+
 // ---------------------------------------------------------------------------
 // Health (Railway / uptime checks)
 // ---------------------------------------------------------------------------
@@ -1062,6 +1238,11 @@ app.get("/health", (_req, res) => {
 // Static front-end
 // ---------------------------------------------------------------------------
 app.get("/", (_req, res) => res.redirect("/splash.html"));
+
+app.use("/uploads/photos", express.static(PHOTOS_DIR, {
+  maxAge: IS_PRODUCTION ? "7d" : 0,
+  fallthrough: false,
+}));
 
 app.use(express.static(ROOT, {
   extensions: ["html"],

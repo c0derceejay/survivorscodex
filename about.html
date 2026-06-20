@@ -32,7 +32,8 @@
       <a href="skills.html">Planner</a>
       <a href="builds.html">Builds</a>
       <a href="mods.html">Mods</a>
-      <a href="about.html" class="active">About</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
     </nav>
     <div class="nav-cta"></div>
   </header>
@@ -53,7 +54,7 @@
           You'll find weapons (melee and ranged), ammunition, tools, food and drink, medical items, raw
           resources, building blocks, traps and turrets, vehicles, clothing and armor, and item mods. Each
           entry shows the tier, stack size, weight, the perk that boosts it, the recipe inputs you'll need,
-          and the situations where the item shines. The <a href="skills.html" style="color:var(--color-red-bright)">planner</a>
+          and the situations where the item shines. The <a href="skills.html" class="text-link-accent">planner</a>
           lets you allocate perk points and see which catalog items your build unlocks.
         </p>
 
@@ -74,13 +75,13 @@
         <p>
           Sign in with an email and password. Your account lets you sync <strong>favorites</strong> and
           <strong>saved builds</strong> across devices, share builds in the public gallery, and set up a
-          <a href="survivor.html" style="color:var(--color-red-bright)">public survivor profile</a>.
-          Field photos stay in your browser (localStorage); we don't upload them to a server.
+          <a href="survivor.html" class="text-link-accent">public survivor profile</a>.
+          Signed-in field photos are stored on the server and shown on the <a href="community.html" class="text-link-accent">Community</a> gallery.
         </p>
         <p>
           Forgot your password? On the sign-in screen, choose <strong>Forgot password?</strong>, enter your account email,
           and use the one-time reset link shown there (valid for one hour). You can also open that link on the
-          <a href="reset-password.html" style="color:var(--color-red-bright)">reset password page</a>.
+          <a href="reset-password.html" class="text-link-accent">reset password page</a>.
         </p>
 
         <h2>Changelog</h2>
@@ -129,7 +130,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Survivor's Codex · Fan project.  Not affiliated with The Fun Pimps.</span>
-      <div style="display:flex;gap:18px">
+      <div class="footer-links">
         <a href="splash.html">Splash</a>
         <a href="index.html">Home</a>
         <a href="catalog.html">Catalog</a>
@@ -137,8 +138,9 @@
     </div>
   </footer>
 
-  <script src="js/site-meta.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/site-layout.js" defer></script>
+  <script src="js/site-meta.js" defer></script>
+  <script src="js/app.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       await SDD.SiteMeta?.loadSiteMeta?.();
